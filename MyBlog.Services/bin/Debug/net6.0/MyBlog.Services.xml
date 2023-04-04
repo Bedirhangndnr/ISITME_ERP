@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyBlog.Services</name>
+    </assembly>
+    <members>
+        <member name="M:MyBlog.Services.Abstract.ICategoryService.GetCategoryUpdateDtoAsync(System.Int32)">
+            <summary>
+            Verilen ID parametresine ait kategorinin CategoryUpdateDtoTemsilini döner.
+            </summary>
+            <param name="categoryId">0'dan büyük intager bir id değeri</param>
+            <returns>Asenkron bir operasyon ile task olarak işlem sonucunu DataResult tipinde geri döner</returns>
+        </member>
+        <member name="M:MyBlog.Services.Utilities.Messages.General.NotFound(System.Boolean,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="isPlural"></param>
+            <param name="entityName"></param>
+            <returns>$"Böyle bir {entityName} bulunamadı" şeklinde bir ifade dönecektir</returns>
+        </member>
+        <member name="M:MyBlog.Services.Utilities.Messages.General.GiveMessage(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="isPlural"></param>
+            <param name="entityName"></param>
+            <returns>$"{name} adlı {entityName} başarıyla {process}." şeklinde bir ifade dönecektir</returns>
+        </member>
+    </members>
+</doc>

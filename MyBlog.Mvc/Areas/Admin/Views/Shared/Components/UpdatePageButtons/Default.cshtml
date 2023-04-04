@@ -1,0 +1,25 @@
+﻿@using MyBlog.Services.Utilities;
+@model MyBlog.Mvc.Areas.Admin.Models.SingleModels.UpdatePageButtonsModel
+
+<div class="form-group row justify-content-center">
+    <button id="btnUpdate" type="submit" class="btn btn-primary btn-block col-md-3 float-left mr-1 mt-4" asp-route-tableType="@ViewBag.tableType">Kaydet</button>
+    <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@Model.Id" data-tableType="@ViewBag.tableType"><span class="fas fa-minus-circle"></span></button>
+
+
+
+
+
+
+
+    s
+
+    <p>||</p>
+    <a asp-area="Admin" data-itemid="@Model.Id" asp-action="Delete" asp-controller="Employee" asp-route-employeeId="@Model.Id" asp-route-tableType="@ViewBag.tableType" class="btn btn-danger">Sil</a>
+    <button type="button" title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@Model.Id" data-tableType=@Model.TableType>
+        <span class="fas fa-minus-circle"></span>
+    </button>
+    @if (ViewBag.TableType == TableReturnTypesConstants.DeletedTables)
+    {
+        <a class="btn btn-warning btn-sm btn-undo col-md-3 ml-1 mt-4" data-id="Model.Id" data-inUpdate="1" data-tableType="@ViewBag.tableType"><span class="fas fa-undo"></span></a>
+    }
+</div>

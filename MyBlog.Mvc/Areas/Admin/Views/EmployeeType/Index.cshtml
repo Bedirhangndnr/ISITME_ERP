@@ -1,0 +1,92 @@
+﻿@using MyBlog.Services.Utilities;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.EmployeeTypeDtos.EmployeeTypeListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Personel Tipleri";
+}
+
+<ol class="breadcrumb mb-r mt-2">
+    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="EmployeeType" asp-action="Index">Hasta Tipleri</a></li>
+</ol>
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />
+    <div id="modalPlaceHolder" aria-hidden="true"></div>
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Personeller
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="employeeTypesTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Açıklama</th>
+                            <th class="dt-button-col">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Açıklama</th>
+                            <th class="dt-button-col">İşlemler</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var employeeType in Model.EmployeeTypes)
+                        {
+                            <tr name="@employeeType.Id">
+                                <td>@employeeType.Id</td>
+                                <td>@employeeType.Title</td>
+                                <td>@employeeType.Description</td>
+                                <td class="dt-button-col">
+                                    <button class="btn btn-primary btn-sm btn-update" data-id="@employeeType.Id">
+                                        <span class="fas fa-edit"></span>
+                                    </button>
+
+                                    <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@employeeType.Id" data-tableType=@ViewBag.tableType>
+                                        <span class="fas fa-minus-circle"></span>
+                                    </button>
+                                    @if (ViewBag.TableType == TableReturnTypesConstants.DeletedTables)
+                                    {
+                                        <a class="btn btn-warning btn-sm btn-undo" data-id="@employeeType.Id"><span class="fas fa-undo"></span></a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="employeeType" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+
+@section Scripts
+    {
+    <script src="~/AdminArea/js/employeeScripts/employeeTypeIndex.js" type="application/ecmascript"></script>
+    @*    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                window.location.href = '@Url.Action("Add", "Customer")';
+            });
+
+        });
+    </script>*@
+}
+

@@ -1,0 +1,19 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Services.Utilities;
+@model MyBlog.Mvc.Areas.Admin.Models.SingleModels.PartialButtonsModel
+
+
+<td class="dt-button-col">
+    <button class="btn btn-primary btn-sm btn-update" data-id="@Model.Id">
+        <span class="fas fa-edit"></span>
+    </button>
+
+    <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@Model.Id" data-tableType=@Model.TableType>
+        <span class="fas fa-minus-circle"></span>
+    </button>
+    @if (@Model.TableType == TableReturnTypesConstants.DeletedTables)
+    {
+        <a class="btn btn-warning btn-sm btn-undo" data-id="@Model.Id"><span class="fas fa-undo"></span></a>
+    }
+</td>
+

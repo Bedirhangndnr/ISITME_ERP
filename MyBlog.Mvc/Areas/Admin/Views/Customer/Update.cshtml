@@ -1,0 +1,140 @@
+﻿@model MyBlog.Mvc.Areas.Admin.Models.CustomerModels.CustomerUpdateViewModel
+
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<ol class="breadcrumb mb-3 mt-2">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Index">Makaleler</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Add">Ekle</a></li>
+</ol>
+<form asp-controller="Customer" asp-action="Update" method="post" enctype="multipart/form-data">
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Kişisel Bilgiler
+                </div>
+                <div class="card-body">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="CustomerReferances" value="@Model.CustomerReferances" />
+                    <input type="hidden" asp-for="Employees" value="@Model.Employees" />
+                    <input type="hidden" asp-for="CustomerTypes" value="@Model.CustomerTypes" />
+                    <div class="form-group">
+                        <label for="picture" asp-for="Picture"></label>
+                        <input type="hidden" id="thumbnail" class="form-control-file" asp-for="Picture" />
+                        <img class="my-image" src="~/img/@Model.Picture" alt="@Model.FirstName" />
+                        <span asp-validation-for="Picture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PictureFile"></label>
+                        <input type="file" accept="image/*" class="form-control-file" asp-for="PictureFile" />
+                        <span class="text-danger" asp-validation-for="PictureFile"></span>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="customerName" class="form-control" placeholder="Ad" asp-for="FirstName" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" id="customerSurname" class="form-control" placeholder="Soyad" asp-for="LastName" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="customerPhone" class="form-control" placeholder="Telefon Numarası" asp-for="Phone" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <input type="text" id="customerMail" class="form-control" placeholder="E-Posta" asp-for="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="customerTc" class="form-control" placeholder="TC Kimlik Numarası" asp-for="TC" />
+                            <span asp-validation-for="TC" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <input type="text" id="customerHospital" class="form-control" placeholder="Raporun Veren Hastane" asp-for="HospitalOfReport" />
+                            <span asp-validation-for="HospitalOfReport" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="text-editor" asp-for="About" placeholder="Hakkında.."></textarea>
+                        <span asp-validation-for="About" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Not" asp-for="Note" />
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" style="min-height:100px" placeholder="Adres Giriniz" asp-for="Address"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Tipler
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="customerReferanceList" asp-for="CustomerReferances"></label>
+                        <select id="customerReferanceList" class="form-control" asp-for="CustomerReferanceId" asp-items="@(new SelectList(Model.CustomerReferances,"Id","FirstName"))">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="CustomerReferanceId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeesList" asp-for="Employees"></label>
+                        <select id="employeeList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <select id="customerTypeList" class="form-control" asp-for="CustomerTypeId" asp-items="@(new SelectList(Model.CustomerTypes,"Id","Title"))">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="CustomerTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js" integrity="sha512-sffB9/tXFFTwradcJHhojkhmrCj0hWeaz8M05Aaap5/vlYBfLx5Y7woKi6y0NrqVNgben6OIANTGGlojPTQGEw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/langs/tr.min.js" integrity="sha512-+HGzdrYvtA0U9cp5kJad8OpjTvUi6ywZ9z9kXFGiV3EaAR1II5X6lfulUm6/F9GKesHW+jHFfAqwXK0juybvMw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/colors/trumbowyg.colors.min.js" integrity="sha512-iT7g30i1//3OBZsfoc5XmlULnKQKyxir582Z9fIFWI6+ohfrTdns118QYhCTt0d09aRGcE7IRvCFjw2wngaqRQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/emoji/trumbowyg.emoji.min.js" integrity="sha512-C1y8Ma4rukPZAgoB+9AWiKNMWXvWXGDygpcYuL/lM3YKUcZLUgFwF8brKYML73a5YeZ4y7hmY3604Tzx4f4k0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontfamily/trumbowyg.fontfamily.min.js" integrity="sha512-tDDpWlhruXFSzPin7PeSOo/ZklJv354ZUibgoTnthgO9lQUiNn4etCFGNwT4c3WUCZ1jWZgOVrXGMqiApe9sBg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontsize/trumbowyg.fontsize.min.js" integrity="sha512-DOJaq3OCe5hLSr73aQBMiJY4kc+L5UwessOl6g2oxyy7VDnZVWt+TgWVy2nh2ypf7bwoaxZmPnIMiRC5PNZecA==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+    <script src="~/AdminArea/js/customerAdd.js" type="application/ecmascript"></script>
+}
+@section Styles
+    {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" integrity="sha512-iw/TO6rC/bRmSOiXlanoUCVdNrnJBCOufp2s3vhTPyP1Z0CtTSBNbEd5wIo8VJanpONGJSyPOZ5ZRjZ/ojmc7g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/colors/ui/trumbowyg.colors.min.css" integrity="sha512-8dXb2ITE13jLrqqGDVTU8kKl9vHZI9E4TpZGyfhevHeF+/cWWA17wVj+SKX3+QHqZISiGihaCOyK3nA152ShDg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/emoji/ui/trumbowyg.emoji.min.css" integrity="sha512-T2q2UM7Pm3t6Fu0VTRcuVMuaQf3/wP1aFi+/NyvpoVV0VBxN1Pqlmq57Jfg1IPRQCfFQOPLKBwoXA28+1gd/Ow==" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.min.css" integrity="sha512-ug/p2fTnYRx/TfVgL8ejTWolaq93X+48/FLS9fKf7AiazbxHkSEENdzWkOxbjJO/X1grUPt9ERfBt21iLh2dxg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/theme.min.css" integrity="sha512-adRIgePtMQgAVB+Mfkhl+Nyva/WllWlFzJyyhYCjznU3Di+Z4SsYi1Rqsep11PYLpUsW/SjE4NXUkIjabQJCOQ==" crossorigin="anonymous" />
+    <link href="~/AdminArea/css/select2-bootstrap4.min.css" rel="stylesheet" />
+
+}
+

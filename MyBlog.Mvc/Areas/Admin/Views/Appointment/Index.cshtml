@@ -1,0 +1,94 @@
+﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.AppointmentDtos.AppointmentListDto;
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Ürünler";
+}
+
+<ol class="breadcrumb mb-r mt-2">
+    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Appointment" asp-action="Index">Ürünler</a></li>
+</ol>
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Randevular
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="appointmentsTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Hasta Adı</th>
+                            <th>Personel Adı</th>
+                            <th>Randevu Tipi</th>
+                            <th>Açıklama</th>
+                            <th>Yapıldı Mı</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Hasta Adı</th>
+                            <th>Personel Adı</th>
+                            <th>Randevu Tipi</th>
+                            <th>Açıklama</th>
+                            <th>Yapıldı Mı</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var appointment in Model.AppointmentListWithRelatedTables)
+                        {
+                            <tr name="@appointment.Id">
+                                <td>@appointment.Id</td>
+                                <td>@appointment.Date.ToShortDateString() </td>
+                                <td>@appointment.Date.TimeOfDay.ToString("hh\\:mm") </td>
+                                <td>@appointment.CustomerName</td>
+                                <td>@appointment.EmployeeName</td>                                
+                                <td>@appointment.AppointmentTypeTitle</td>
+                                <td>@appointment.Description</td>
+                                <td>@(appointment.IsMade ? "Evet" : "Hayır")</td>
+                                <td>
+                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="@appointment.Id" asp-area="Admin" asp-controller="Appointment" asp-action="Update" asp-route-appointmentId="@appointment.Id"><span class="fas fa-edit"></span></a>
+                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@appointment.Id"><span class="fas fa-minus-circle"></span></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+@section Scripts
+    {
+    <script src="~/AdminArea/js/appointmentScripts/appointmentIndex.js" type="application/ecmascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                window.location.href = '@Url.Action("Add", "Appointment")';
+            });
+
+        });
+    </script>
+}

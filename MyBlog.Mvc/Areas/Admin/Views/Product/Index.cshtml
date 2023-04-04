@@ -1,0 +1,96 @@
+﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.ProductDtos.ProductListDto;
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Ürünler";
+}
+
+<ol class="breadcrumb mb-r mt-2">
+    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Product" asp-action="Index">Ürünler</a></li>
+</ol>
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Satışlar
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="productsTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Adı</th>
+                            <th>Seri Numarası</th>
+                            <th>Marka</th>
+                            <th>Alt Grup Adı</th>
+                            <th>Not</th>
+                            <th>Aktif Mi</th>
+                            <th>Stok</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Adı</th>
+                            <th>Seri Numarası</th>
+                            <th>Marka</th>
+                            <th>Alt Grup Adı</th>
+                            <th>Not</th>
+                            <th>Aktif Mi</th>
+                            <th>Stok</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var product in Model.ProductListWithRelatedTables)
+                        {
+                            <tr name="@product.Id">
+                                <td>@product.Id</td>
+                                <td>@product.ProductName </td>
+                                <td>@product.SerialNumber </td>
+                                <td>@product.BrandTitle</td>
+                                <td>@product.ProductSubGroupTitle</td>
+                                <td>@product.Note</td>
+                                <td>@(product.IsActive ? "Evet" : "Hayır")</td>
+                                <td>1 | konuşulacak</td>
+                                <td>
+                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="@product.Id" asp-area="Admin" asp-controller="Product" asp-action="Update" asp-route-productId="@product.Id"><span class="fas fa-edit"></span></a>
+                                    <button class="btn btn-warning btn-sm btn-assign" data-id="@product.Id"><span class="fas fa-user-shield"></span></button>
+                                    <button class="btn btn-primary btn-sm btn-update" data-id="@product.Id"><span class="fas fa-edit"></span></button>
+                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@product.Id"><span class="fas fa-minus-circle"></span></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+@section Scripts
+    {
+    <script src="~/AdminArea/js/productIndex.js" type="application/ecmascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                window.location.href = '@Url.Action("Add", "Product")';
+            });
+
+        });
+    </script>
+}

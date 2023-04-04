@@ -1,0 +1,47 @@
+﻿/*TÜM SİTEDE GEÇERLİ CSS STYLELARI*/
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+.trumbowyg-box, .trumbowyg-editor {
+    min-height: 150px;
+} 
+html {
+  position: relative;
+  min-height: 100%;
+}
+ 
+body {
+  margin-bottom: 60px; 
+}
+/*profil fotografları için*/
+.my-image{
+    border-radius:5px;
+    max-height:100px;
+    max-width:100px;
+    border: 2px solid #d3d3d3;
+}
+/*Tabloların içindeki fotoğraflari için. Class ile erişim*/
+.my-image-table{
+    border-radius:5px;
+    max-height:100px;
+    max-width:100px;
+    border:2px solid #d3d3d3;
+}
+/*.dt-button-col{
+    width:10%;
+    text-align:center;
+}*/
+.datatable td.dt-button-col {
+    width: 10%;
+    text-align: center;
+}
+
+tr.removed {
+    display: none;
+}

@@ -1,0 +1,97 @@
+﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.CustomerDtos.CustomerListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Hastalar";
+}
+
+<ol class="breadcrumb mb-r mt-2">
+    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Customer" asp-action="Index">Hastalar</a></li>
+</ol>
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Hastalar
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="customersTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Telefon Numarası</th>
+                            <th>E-Posta</th>
+                            <th>Not</th>
+                            <th>Resim</th>
+                            <th>Tip</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Telefon Numarası</th>
+                            <th>E-Posta</th>
+                            <th>Not</th>
+                            <th>Resim</th>
+                            <th>Tip</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var customer in Model.Customers)
+                        {
+                            <tr name="@customer.Id">
+                                <td>@customer.Id</td>
+                                <td>@customer.FirstName</td>
+                                <td>@customer.LastName</td>
+                                <td>@customer.Phone</td>
+                                <td>@customer.Email</td>
+                                <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>
+                                <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td>
+                                <td>"geçici Tip Manuel 1 @customer.Email"</td>
+                                <td>
+                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="@customer.Id" asp-area="Admin" 
+                                    asp-controller="Customer" asp-action="Update" asp-route-customerId="@customer.Id"><span class="fas fa-edit"></span></a>
+                                    <button class="btn btn-warning btn-sm btn-assign" data-id="@customer.Id"><span class="fas fa-user-shield"></span></button>
+                                    <button class="btn btn-primary btn-sm btn-update" data-id="@customer.Id"><span class="fas fa-edit"></span></button>
+                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@customer.Id"><span class="fas fa-minus-circle"></span></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+@section Scripts
+    {
+    <script src="~/AdminArea/js/customerIndex.js" type="application/ecmascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                window.location.href = '@Url.Action("Add", "Customer")';
+            });
+
+        });
+    </script>
+}
