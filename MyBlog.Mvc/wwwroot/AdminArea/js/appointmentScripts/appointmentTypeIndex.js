@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     const tableType = document.getElementById("tableType").value;
 
     /* DataTables start here. */
@@ -11,18 +12,13 @@
         buttons: [
             {
                 text: 'Ekle',
+                name: '0',
                 attr: {
                     id: "btnAdd",
                 },
                 className: 'btn btn-success',
-                action: function (e, dt, node, config) {
-                    const addButton = dt.button('Ekle:name'); // "Ekle" isimli düğmeyi seç
-
-                    if (tableType === "DeletedTables") {
-                        addButton.remove(); // Düğmeyi kaldır
-                    }
-                }
             },
+            
             {
                 text: 'Yenile',
                 className: 'btn btn-warning',
@@ -37,34 +33,44 @@
                             $('.spinner-border').show();
                         },
                         success: function (data) {
-                            const appointmentTypeListDto = jQuery.parseJSON(data);
-                            dataTable.clear();
-                            console.log(appointmentTypeListDto);
-                            if (appointmentTypeListDto.Data.ResultStatus === 0) {
-                                $.each(appointmentTypeListDto.Data.AppointmentTypes.$values,
-                                    function (index, appointmentType) {
-                                        const newTableRow = dataTable.row.add([
-                                            appointmentType.Id,
-                                            appointmentType.Title,
-                                            appointmentType.Description,
-                                            `
-                                                <button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=${appointmentType.Id}><span class="fas fa-edit"></span></button>
-                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${appointmentType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                            `
-                                        ]).node();
-                                        const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${appointmentType.Id}`);
-                                        if (tableType == 'DeletedTables') {
-                                            // Append undo button
-                                            jqueryTableRow.find('td:last').append('<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointmentType.Id + '"><span class="fas fa-undo"></span></a>');
-                                        }
-                                    });
-                                dataTable.draw();
+                            if (data === null) {
                                 $('.spinner-border').hide();
-                                $('#appointmentTypesTable').fadeIn(1400);
-                            } else {
-                                toastr.error(`${appointmentTypeListDto.Data.Message}`, 'İşlem Başarısız!');
+                                $('#appointmentsTable').fadeIn(1400);
                             }
+                            else {
+                                const appointmentTypeListDto = jQuery.parseJSON(data);
+                                dataTable.clear();
+                                console.log(appointmentTypeListDto);
+                                if (appointmentTypeListDto.Data.ResultStatus === 0) {
+                                    $.each(appointmentTypeListDto.Data.AppointmentTypes.$values,
+                                        function (index, appointmentType) {
+                                            const newTableRow = dataTable.row.add([
+                                                appointmentType.Id,
+                                                appointmentType.Title,
+                                                appointmentType.Description,
+                                                `
+                                                <div class="form-group row justify-content-center">
+                                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + appointmentType.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${appointmentType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointmentType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                </div>
+                                                    `
+
+                                            ]).node();
+                                            const jqueryTableRow = $(newTableRow);
+                                            jqueryTableRow.attr('name', `${appointmentType.Id}`);
+
+                                        });
+                                    dataTable.draw();
+                                    $('.spinner-border').hide();
+                                    $('#appointmentTypesTable').fadeIn(1000);
+                                } else {
+                                    $('.spinner-border').hide();
+                                    $('#appointmentTypesTable').fadeIn(1000);
+                                    toastr.error(`${appointmentTypeListDto.Data.Message}`, 'İşlem Başarısız!');
+                                }
+                            }
+
                         },
                         error: function (err) {
                             console.log(err);
@@ -79,7 +85,7 @@
         language: {
             "sDecimal": ",",
             "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
-            "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+            "sInfo": "_TOTAL_ kayıttan _START_ - _ENtD_ arasındaki kayıtlar gösteriliyor",
             "sInfoEmpty": "Kayıt yok",
             "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
             "sInfoPostFix": "",
@@ -108,7 +114,9 @@
             }
         }
     });
-
+    if (tableType === "DeletedTables") {
+        $('.dt-buttons #btnAdd').remove(); // Düğmeyi kaldır
+    }
     /* DataTables end here */
 
     /* Ajax POST / Deleting a User starts from here */
@@ -211,17 +219,18 @@
                     const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
                     if (isValid) {
                         placeHolderDiv.find('.modal').modal('hide');
+                        const appointmentType = AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType;
                         const newTableRow = dataTable.row.add([
-                            AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Id,
-                            AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Title,
-                            AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Description,
+                            AppointmentType.Id,
+                            AppointmentType.Title,
+                            AppointmentType.Description,
                             `
-                              <button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=${AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Id}><span class="fas fa-edit"></span></button>
-                               <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                                <div class="form-group row justify-content-center">
+                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + appointmentType.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${appointmentType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointmentType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                </div>
+                                    `
                         ]).node();
                         const jqueryTableRow = $(newTableRow);
                         jqueryTableRow.attr('name', `${AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType.Id}`);
@@ -274,13 +283,13 @@
                 const actionUrl = form.attr('action');
                 const dataToSend = `${form.serialize()}&tableType=${tableType}`;
                 $.post(actionUrl, dataToSend).done(function (data) {
-                    const appointmentTypeTypeUpdateAjaxViewModel = jQuery.parseJSON(data);
-                    console.log(appointmentTypeTypeUpdateAjaxViewModel);
-                    const newFormBody = $('.modal-body', appointmentTypeTypeUpdateAjaxViewModel.appointmentTypeUpdatePartial);
+                    const appointmentTypeUpdateAjaxViewModel = jQuery.parseJSON(data);
+                    console.log(appointmentTypeUpdateAjaxViewModel);
+                    const newFormBody = $('.modal-body', appointmentTypeUpdateAjaxViewModel.appointmentTypeUpdatePartial);
                     placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
                     const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
                     if (isValid) {
-                        const appointmentType = appointmentTypeTypeUpdateAjaxViewModel.AppointmentTypeDto.AppointmentType
+                        const appointmentType = appointmentTypeUpdateAjaxViewModel.AppointmentTypeDto.AppointmentType
                         const id = appointmentType.Id;
                         const tableRow = $(`[name="${id}"]`);
                         placeHolderDiv.find('.modal').modal('hide');
@@ -289,16 +298,15 @@
                             appointmentType.Title,
                             appointmentType.Description,
                             `
-                         <button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=${appointmentType.Id}><span class="fas fa-edit"></span></button>
+                                                ${document.getElementById("tableType").value === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + appointmentType.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${appointmentType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${document.getElementById("tableType").value === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointmentType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
 
-                         <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${appointmentType.Id} data-tableType=${document.getElementById("tableType").value}><span class="fas fa-minus-circle"></span></button>
-
-                        ${(document.getElementById("tableType").value == 'DeletedTables') ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointmentType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
                                             `
                         ]);
                         tableRow.attr("name", `${id}`);
                         dataTable.row(tableRow).invalidate();
-                        toastr.success(`${appointmentTypeTypeUpdateAjaxViewModel.AppointmentTypeDto.Message}`, "Başarılı İşlem!");
+                        toastr.success(`${appointmentTypeUpdateAjaxViewModel.AppointmentTypeDto.Message}`, "Başarılı İşlem!");
                     } else {
                         let summaryText = "";
                         $('#validation-summary > ul > li').each(function () {

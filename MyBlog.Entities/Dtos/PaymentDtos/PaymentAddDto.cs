@@ -16,18 +16,28 @@ namespace MyBlog.Entities.Dtos.PaymentDtos
         [DisplayName("Ödeme Tipi")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int PaymentTypeId { get; set; }
-        public PaymentType PaymentType { get; set; }
+        //public PaymentType PaymentType { get; set; }
+
+
+        [DisplayName("ÖDeme Alt Tipi")]
+        [Required(ErrorMessage = "{0} Boş Geçilemez...")]
+        public int AssociatedInstitutionsId { get; set; }
+        public AssociatedInstitution AssociatedInstitutions { get; set; }
+
+
         [DisplayName("Hasta")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+        [DisplayName("Personel")]
+        [Required(ErrorMessage = "{0} Boş Geçilemez...")]
+        public int EmployeeId { get; set; }
+        public Customer Employee { get; set; }
         [DisplayName("Açıklama")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
-        [MaxLength(150, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         public string? Description { get; set; }
         [DisplayName("Ödenen Tutar")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
-        [MaxLength(150, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         public int? AmountPaid { get; set; }
     }
 }

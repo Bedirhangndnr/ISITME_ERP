@@ -17,16 +17,17 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<ProductDto>> GetAsync(int ProductId);
         Task<IDataResult<ProductUpdateDto>> GetProductUpdateDtoAsync(int ProductId);
         Task<IDataResult<ProductListDto>> GetAllAsync();
-        Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync();
+        Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds=false);
         Task<IDataResult<ProductListDto>> GetAllByDeletedAsync();
         Task<IDataResult<ProductListDto>> GetAllByNonDeletedAsync();
         Task<IResult> AddAsync(ProductAddDto ProductAddDto, string createdByName, int userId);
-        //Task<IDataResult<ProductDto>> ApproveAsync(int ProductId, string modifiedByName);
         Task<IResult> UpdateAsync(ProductUpdateDto ProductUpdateDto, string modifiedByName);
-        //Task<IDataResult<ProductDto>> DeleteAsync(int ProductId, string modifiedByName);
-        //Task<IDataResult<ProductDto>> UndoDeleteAsync(int ProductId, string modifiedByName);
-        //Task<IResult> HardDeleteAsync(int ProductId);
-        //Task<IDataResult<int>> CountAsync();
-        //Task<IDataResult<int>> CountByNonDeletedAsync();
+
+
+        Task<IDataResult<ProductDto>> DeleteAsync(int ProductId, string modifiedByName);
+        Task<IDataResult<ProductDto>> UndoDeleteAsync(int ProductId, string modifiedByName);
+        Task<IResult> HardDeleteAsync(int ProductId);
+        Task<IDataResult<int>> CountAsync();
+        Task<IDataResult<int>> CountByNonDeletedAsync();
     }
 }

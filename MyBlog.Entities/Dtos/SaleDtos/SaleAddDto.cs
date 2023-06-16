@@ -12,6 +12,9 @@ namespace MyBlog.Entities.Dtos.SaleDtos
 {
     public class SaleAddDto : DtoGetBase
     {
+        [DisplayName("SGK Tutarı ")]
+        public int? AmountOfSgk { get; set; }
+        public bool IsInvoiceDue { get; set; }=false;
         [DisplayName("Satış Tutarı ")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         [MaxLength(150, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]

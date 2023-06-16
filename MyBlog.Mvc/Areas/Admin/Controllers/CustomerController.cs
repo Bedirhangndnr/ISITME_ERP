@@ -15,6 +15,7 @@ using MyBlog.Entities.Dtos.EmployeeDtos;
 using MyBlog.Entities.Dtos.ArticleDtos;
 using MyBlog.Mvc.Areas.Admin.Models.CustomerModels;
 using MyBlog.Mvc.Consts;
+using MyBlog.Services.Utilities;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -53,27 +54,60 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string tableType)
         {
-            var result = await _customerService.GetAllAsync();
-            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+
+            ViewBag.tableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
             return NotFound();
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
         [HttpGet]
-        public async Task<JsonResult> GetAllCustomers()
+        public async Task<JsonResult> GetAllCustomers(string tableType)
         {
-            var customers = await _customerService.GetAllAsync();
-            var customerResult = JsonSerializer.Serialize(customers, new JsonSerializerOptions
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                ReferenceHandler = ReferenceHandler.Preserve
+                var customers = await _customerService.GetAllByNonDeletedAndActiveAsync();
+                var customerResult = JsonSerializer.Serialize(customers, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(customerResult);
+
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
+                var customers = JsonSerializer.Serialize(result, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(customers);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile Karşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
             });
-            return Json(customerResult);
+            return Json(null);
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerCreate}")]
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(string tableType)
         {
+            ViewBag.tableType = tableType;
             var customerTypesList = await _customerTypeService.GetAllByNonDeletedAndActiveAsync();
             var customerReferancesList = await _customerReferanceService.GetAllByNonDeletedAndActiveAsync();
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
@@ -95,8 +129,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerCreate}")]
         [HttpPost]
-        public async Task<IActionResult> Add(CustomerAddViewModel customerAddViewModel)
+        public async Task<IActionResult> Add(CustomerAddViewModel customerAddViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
+            ModelState.Remove("Adress");
             var customerReferance = await _customerReferanceService.GetAsync(customerAddViewModel.CustomerReferanceId);
             var customerType = await _customerTypeService.GetAsync(customerAddViewModel.CustomerTypeId);
             var employee = await _employeeService.GetAsync(customerAddViewModel.EmployeeId);
@@ -120,7 +156,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     {
                         Title = "Başarılı İşlem!"
                     });
-                    return RedirectToAction("Index", "Customer");
+                    return RedirectToAction("Index", "Customer", new { tableType = tableType });
                 }
                 else
                 {
@@ -138,9 +174,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int customerId)
+        public async Task<IActionResult> Update(int Id, string tableType)
         {
-            var customerResult = await _customerService.GetCustomerUpdateDtoAsync(customerId);
+            ViewBag.tableType = tableType;
+            var customerResult = await _customerService.GetCustomerUpdateDtoAsync(Id);
             var customerTypeResult = await _customerTypeService.GetAllByNonDeletedAndActiveAsync();
             var customerReferanceResult = await _customerReferanceService.GetAllByNonDeletedAndActiveAsync();
             var employeeResult = await _employeeService.GetAllByNonDeletedAndActiveAsync();
@@ -162,13 +199,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerUpdate}")]
         [HttpPost]
-        public async Task<IActionResult> Update(CustomerUpdateViewModel customerUpdateViewModel)
+        public async Task<IActionResult> Update(CustomerUpdateViewModel customerUpdateViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
                 bool isPictureUploaded = false;
                 var oldPicture = customerUpdateViewModel.Picture;
-                var CustomerUpdateDto = Mapper.Map<CustomerUpdateDto>(customerUpdateViewModel);
+                var customerUpdateDto = Mapper.Map<CustomerUpdateDto>(customerUpdateViewModel);
 
                 if (customerUpdateViewModel.PictureFile != null)
                 {
@@ -179,11 +217,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         : "postImages/defaultThumbnail.jpg";
                     if (oldPicture != "postImages/defaultThumbnail.jpg")
                     {
+                        customerUpdateDto.Picture = customerUpdateViewModel.Picture;
                         isPictureUploaded = true;
                     }
                 }
 
-                var result = await _customerService.UpdateAsync(CustomerUpdateDto, LoggedInUser.UserName);
+                var result = await _customerService.UpdateAsync(customerUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     if (isPictureUploaded)
@@ -194,7 +233,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     {
                         Title = "Başarılı İşlem!"
                     });
-                    return RedirectToAction("Index", "Customer");
+                    return RedirectToAction("Index", "Customer", new { tableType = tableType });
                 }
                 else
                 {
@@ -208,6 +247,114 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             customerUpdateViewModel.CustomerReferances = customerReferancesList.Data.CustomerReferances;
             customerUpdateViewModel.CustomerTypes = customerTypesList.Data.CustomerTypes;
             return View(customerUpdateViewModel);
+        }
+
+
+
+
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteFromUpdatePage(int appointmentId, string tableType)
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                // Silme işlemi modaldan geldiyse normal controller işlemini yap => buradaki if koşulu bunun bir ajax sorgusuolup olamdığını kontrol eder.
+                return await Delete(appointmentId, tableType);
+            }
+            else
+            {
+                string errMessage = "";
+                if (tableType == TableReturnTypesConstants.NonDeletedTables)
+                {
+                    var result = await _customerService.DeleteAsync(appointmentId, LoggedInUser.UserName);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                        {
+                            Title = "Başarılı İşlem!"
+                        });
+                        return RedirectToAction("Index", "Appointment", new { tableType = tableType });
+                    }
+                    errMessage = result.Message;
+                }
+                else if (tableType == TableReturnTypesConstants.DeletedTables)
+                {
+                    var result = await _customerService.HardDeleteAsync(appointmentId);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                        {
+                            Title = "Başarılı İşlem!"
+                        });
+                        return RedirectToAction("Index", "Appointment", new { tableType = tableType });
+                    }
+                    errMessage = result.Message;
+                }
+                _toastNotification.AddErrorToastMessage(errMessage, new ToastrOptions
+                {
+                    Title = "Başarısız İşlem!"
+                });
+                // Silme işlemi update sayfasından geldiyse index sayfasına yönlendir 
+                return RedirectToAction("Update");
+            }
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
+        [HttpPost]
+        public async Task<JsonResult> Delete(int customerId, string tableType)
+        {
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _customerService.DeleteAsync(customerId, LoggedInUser.UserName);
+                var customerResult = JsonSerializer.Serialize(result.Data);
+                return Json(customerResult);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _customerService.HardDeleteAsync(customerId);
+                var hardDeletedCustomerResult = JsonSerializer.Serialize(result);
+                return Json(hardDeletedCustomerResult);
+            }
+            else
+            {
+                // Hatalı silme türü parametresi durumunda hata döndürme
+                return Json("Hatalı silme türü parametresi!");
+            }
+        }
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
+        //[HttpPost]
+        //public async Task<JsonResult> HardDelete(int customerId)
+        //{
+        //    var result = await _customerService.HardDeleteAsync(customerId);
+        //    var hardDeletedCustomerResult = JsonSerializer.Serialize(result);
+        //    return Json(hardDeletedCustomerResult);
+        //}
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
+        //[HttpGet]
+        //public async Task<IActionResult> DeletedCustomers()
+        //{
+        //    var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
+        //    return View(result.Data);
+
+        //}
+
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
+        //[HttpGet]
+        //public async Task<JsonResult> GetAllDeletedCustomers()
+        //{
+        //    var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
+        //    var customers = JsonSerializer.Serialize(result, new JsonSerializerOptions
+        //    {
+        //        ReferenceHandler = ReferenceHandler.Preserve
+        //    });
+        //    return Json(customers);
+        //}
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
+        [HttpPost]
+        public async Task<JsonResult> UndoDelete(int customerId)
+        {
+            var result = await _customerService.UndoDeleteAsync(customerId, LoggedInUser.UserName);
+            var undoDeleteCustomerResult = JsonSerializer.Serialize(result.Data);
+            return Json(undoDeleteCustomerResult);
         }
     }
 }

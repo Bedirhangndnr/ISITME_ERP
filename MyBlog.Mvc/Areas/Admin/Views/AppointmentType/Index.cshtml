@@ -50,7 +50,7 @@
                                 <td>@appointmentType.Title</td>
                                 <td>@appointmentType.Description</td>
                                 <td class="dt-button-col">
-                                                                        @await Component.InvokeAsync("UpdatePageButtons", new PartialButtonsModel
+                            @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                             {
                             Id=appointmentType.Id,
                             TableType=ViewBag.tableType,
@@ -76,13 +76,5 @@
 @section Scripts
     {
     <script src="~/AdminArea/js/appointmentScripts/appointmentTypeIndex.js" type="application/ecmascript"></script>
-    @*    <script>
-        $(document).ready(function () {
-            $('#btnAdd').click(function () {
-                window.location.href = '@Url.Action("Add", "Customer")';
-            });
-
-        });
-    </script>*@
 }
 

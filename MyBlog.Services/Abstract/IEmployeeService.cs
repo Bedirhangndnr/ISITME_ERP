@@ -21,8 +21,9 @@ namespace MyBlog.Services.Abstract
         Task<IResult> AddAsync(EmployeeAddDto EmployeeAddDto, string createdByName, int userId);
         Task<IResult> UpdateAsync(EmployeeUpdateDto EmployeeUpdateDto, string modifiedByName);
         Task<IDataResult<EmployeeListDto>> GetAllByDeletedAsync();
-        Task<IDataResult<EmployeeDto>> DeleteAsync(int EmployeeId, string modifiedByName);
 
+
+        Task<IDataResult<EmployeeDto>> DeleteAsync(int EmployeeId, string modifiedByName);
         Task<IDataResult<EmployeeDto>> UndoDeleteAsync(int EmployeeId, string modifiedByName);
         Task<IResult> HardDeleteAsync(int EmployeeId);
         Task<IDataResult<int>> CountAsync();

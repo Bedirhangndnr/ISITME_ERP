@@ -1,4 +1,5 @@
-﻿@using MyBlog.Services.Utilities;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Services.Utilities;
 @using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.EmployeeDtos.EmployeeListDto
 @{
@@ -65,13 +66,14 @@
                                 <td><img src="~/img/@employee.Picture" alt="@employee.FirstName" class="my-image-table" /></td>
                                 <td>@employee.EmployeeTypeId | @employee.EmployeeTypeTitle</td>
                                 <td>
-                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" asp-area="Admin" asp-controller="Employee"
-                               asp-action="Update" asp-route-employeeId="@employee.Id" asp-route-tableType=@ViewBag.tableType><span class="fas fa-edit"></span></a>
-                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@employee.Id" data-tableType=@ViewBag.tableType><span class="fas fa-minus-circle"></span></button>
-                                    @if (ViewBag.TableType == TableReturnTypesConstants.DeletedTables)
-                                    {
-                                        <button class="btn btn-warning btn-sm btn-undo" data-id="@employee.Id" data-tableType=@ViewBag.tableType><span class="fas fa-undo"></span></button>
-                                    }
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=employee.Id,
+                            InMainPage=0,
+                            TableType=ViewBag.tableType,
+                            Action="Update",
+                            Controller="Employee"
+                            })
                                 </td>
                             </tr>
                         }
@@ -92,10 +94,15 @@
     {
     <script src="~/AdminArea/js/employeeScripts/employeeIndex.js" type="application/ecmascript"></script>
     <script>
-        $(document).ready(function () {
-            $('#btnAdd').click(function () {
-                window.location.href = '@Url.Action("Add", "Employee")';
-            });
-        });
+$(document).ready(function () {
+    $('#btnAdd').click(function () {
+        // ViewBag.TableType değişkeninin değerini burada alıyoruz
+        var tableType = '@ViewBag.TableType';
+
+        // Add action'ına tableType parametresini yollamak için, Url.Action fonksiyonunun
+        // ikinci parametresine ekleyebilirsiniz
+        window.location.href = '@Url.Action("Add", "Employee")' + '?tableType=' + encodeURIComponent(tableType);
+    });
+});
     </script>
 }

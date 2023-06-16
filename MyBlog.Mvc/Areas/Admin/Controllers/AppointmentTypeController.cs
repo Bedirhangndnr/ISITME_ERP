@@ -20,6 +20,9 @@ using MyBlog.Entities.Dtos.AppointmentTypeDtos;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Mvc.Consts;
 using MyBlog.Services.Utilities;
+using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -113,7 +116,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         NotificationMessageTypes.Updated,
                         TableNamesConstants.AppointmentTypes,
                         result.Data.AppointmentType.ModifiedByName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated)
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryAddAjaxModel = JsonSerializer.Serialize(new AppointmentTypeAddAjaxViewModel
                     {
@@ -156,7 +159,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         NotificationMessageTypes.Updated,
                         TableNamesConstants.AppointmentTypes,
                         result.Data.AppointmentType.ModifiedByName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated)
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new AppointmentTypeUpdateAjaxViewModel
                     {
@@ -173,14 +176,6 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentTypeDelete}")]
-        //    [HttpPost]
-        //    public async Task<JsonResult> Delete(int appointmentTypeId)
-        //    {
-        //        var result = await _appointmentTypeService.DeleteAsync(appointmentTypeId, LoggedInUser.UserName);
-        //        var deletedAppointmentType = JsonSerializer.Serialize(result.Data);
-        //        return Json(deletedAppointmentType);
-        //    }
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentTypeDelete}")]
         [HttpPost]
@@ -221,6 +216,20 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var deletedAppointmentType = JsonSerializer.Serialize(result);
             return View(deletedAppointmentType);
 
+        }
+        public IViewComponentResult GetUpdatePageButtons(int id, string tableType)
+        {
+            UpdatePageButtonsModel model = new UpdatePageButtonsModel { Id = id, TableType = tableType };
+            return new ViewViewComponentResult
+            {
+                ViewName = "UpdatePageButtons",
+                ViewData = new ViewDataDictionary<UpdatePageButtonsModel>(ViewData, model),
+            };
+        }
+        public JsonResult GetUpdatePageButtonsJson(int id, string tableType)
+        {
+            UpdatePageButtonsModel model = new UpdatePageButtonsModel { Id = id, TableType = tableType };
+            return Json(model);
         }
     }
 }

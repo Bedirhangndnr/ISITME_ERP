@@ -18,12 +18,14 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<SaleTypeUpdateDto>> GetSaleTypeUpdateDtoAsync(int SaleTypeId);
         Task<IDataResult<SaleTypeListDto>> GetAllAsync();
         Task<IDataResult<SaleTypeDto>> DeleteAsync(int SaleTypeId, string modifiedByName);
-
-        //Task<IDataResult<SaleTypeListDto>> GetAllByDeletedAsync();
-        //Task<IDataResult<SaleTypeListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<SaleTypeListDto>> GetAllByNonDeletedAndActiveAsync();
         Task<IDataResult<SaleTypeDto>> AddAsync(SaleTypeAddDto SaleTypeAddDto, string createdByName);
-        //Task<IDataResult<SaleTypeDto>> ApproveAsync(int SaleTypeId, string modifiedByName);
         Task<IDataResult<SaleTypeDto>> UpdateAsync(SaleTypeUpdateDto SaleTypeUpdateDto, string modifiedByName);
+
+        Task<IDataResult<SaleTypeListDto>> GetAllByDeletedAsync();
+        Task<IDataResult<SaleTypeDto>> UndoDeleteAsync(int saleTypeId, string modifiedByName);
+        Task<IResult> HardDeleteAsync(int EmployeeTypeId);
+        Task<IDataResult<int>> CountAsync();
+        Task<IDataResult<int>> CountByNonDeletedAsync();
     }
 }

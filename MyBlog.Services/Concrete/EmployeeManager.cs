@@ -56,12 +56,14 @@ namespace MyBlog.Services.Concrete
 
         public async Task<IDataResult<EmployeeListDto>> GetAllByNonDeletedAndActiveAsync()
         {
-            var Employees = await UnitOfWork.Employees.GetAllWithRelatedTablesAsync(x => !x.IsDeleted);
+            var EmployeesWithRelated = await UnitOfWork.Employees.GetAllWithRelatedTablesAsync(x => !x.IsDeleted);
+            var Employees = await UnitOfWork.Employees.GetAllAsync(x => !x.IsDeleted);
             if (Employees.Count > -1)
             {
                 return new DataResult<EmployeeListDto>(ResultStatus.Success, new EmployeeListDto
                 {
-                    EmployeeListWithRelatedTables = Employees,
+                    EmployeeListWithRelatedTables = EmployeesWithRelated,
+                    Employees=Employees,
                     ResultStatus = ResultStatus.Success
                 });
             }
@@ -87,6 +89,8 @@ namespace MyBlog.Services.Concrete
         public async Task<IResult> AddAsync(EmployeeAddDto EmployeeAddDto, string createdByName, int userId)
         {
             var Employee = Mapper.Map<Employee>(EmployeeAddDto);
+            Employee.CreatedDate = DateTime.Now;
+            Employee. ModifiedDate = DateTime.Now;
             Employee.CreatedByName = createdByName;
             Employee.ModifiedByName = createdByName;
             var addedEmployee = await UnitOfWork.Employees.AddAsync(Employee);
@@ -101,6 +105,7 @@ namespace MyBlog.Services.Concrete
             var oldEmployee = await UnitOfWork.Employees.GetAsync(c => c.Id == EmployeeUpdateDto.Id);
             var Employee = Mapper.Map<EmployeeUpdateDto, Employee>(EmployeeUpdateDto, oldEmployee);
             Employee.ModifiedByName = modifiedByName;
+            Employee.ModifiedDate = DateTime.Now;
             var updatedEmployee = await UnitOfWork.Employees.UpdateAsync(Employee);
             updatedEmployee.EmployeeType = await UnitOfWork.EmployeeTypes.GetAsync(a => a.Id == EmployeeUpdateDto.EmployeeTypeId);
             await UnitOfWork.SaveAsync();

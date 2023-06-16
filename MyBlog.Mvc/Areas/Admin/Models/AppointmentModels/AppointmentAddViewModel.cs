@@ -6,11 +6,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using MyBlog.Entities.Concrete;
+using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
 using MyBlog.Shared.Entities.Concrete;
 
 namespace MyBlog.Mvc.Areas.Admin.Models
 {
-    public class AppointmentAddViewModel
+    public class AppointmentAddViewModel : ModelGetBase
     {
         [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
@@ -29,7 +30,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? CustomerID { get; set; }
         public IList<Customer>? Customers { get; set; }
-        [DisplayName("Personel")]
+        [Display(Name = "Çalışanlar")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int EmployeeId { get; set; }
         public IList<Employee> Employees { get; set; }    

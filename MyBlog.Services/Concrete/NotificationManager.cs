@@ -88,13 +88,14 @@ namespace MyBlog.Services.Concrete
         //        Notifications = null,
         //    }, Messages.General.NotFound(isPlural: true, "Hasta"));
         //}
-        public async Task<bool> AddAsync(string message, string title, NotificationTypes notificationType= NotificationTypes.DatabaseTracking)
+        public async Task<bool> AddAsync(string message, string title, int userId,  NotificationTypes notificationType= NotificationTypes.DatabaseTracking)
         {
             NotificationAddDto notificationAddDto = new NotificationAddDto
             {
                 IsRead = false,
                 Description = message,
                 Title = title,
+                UserId=userId,
                 NotificationType= NotificationMessageService.GetType(notificationType),
                 CreatedByName="admin",
                 ModifiedByName="admin",

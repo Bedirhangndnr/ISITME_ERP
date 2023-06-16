@@ -7,6 +7,7 @@ using AutoMapper;
 using MyBlog.Data.Abstract;
 using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos.AppointmentDtos;
+using MyBlog.Entities.Dtos.AppointmentDtos;
 using MyBlog.Services.Abstract;
 using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Results;
@@ -36,7 +37,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
             {
                 Appointment = null,
-            }, Messages.General.NotFound(isPlural: false, "Çalışan"));
+            }, Messages.General.NotFound(isPlural: false, "Randevu"));
         }
         public async Task<IDataResult<AppointmentUpdateDto>> GetAppointmentUpdateDtoAsync(int AppointmentId)
         {
@@ -49,7 +50,7 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<AppointmentUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Çalışan"));
+                return new DataResult<AppointmentUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Randevu"));
             }
         }
 
@@ -64,7 +65,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Randevu"));
 
         }
 
@@ -79,7 +80,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Randevu"));
         }
         public async Task<IResult> AddAsync(AppointmentAddDto AppointmentAddDto, string createdByName, int userId)
         {
@@ -91,7 +92,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
             {
                 Appointment = addedAppointment,
-            }, Messages.General.GiveMessage("xxKx", "Çalışan", "eklendi."));
+            }, Messages.General.GiveMessage("xxKx", "Randevu", "eklendi."));
         }
         public async Task<IResult> UpdateAsync(AppointmentUpdateDto AppointmentUpdateDto, string modifiedByName)
         {
@@ -103,7 +104,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
             {
                 Appointment = updatedAppointment,
-            }, Messages.General.GiveMessage("xxKx", "Çalışan", "Güncellendi."));
+            }, Messages.General.GiveMessage("xxKx", "Randevu", "Güncellendi."));
         }
         public async Task<IDataResult<AppointmentListDto>> GetAllByDeletedAsync()
         {
@@ -116,7 +117,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Randevu"));
         }
 
         public async Task<IDataResult<AppointmentListDto>> GetAllByNonDeletedAsync()
@@ -130,127 +131,95 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<AppointmentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Randevu"));
+        }
+        public async Task<IDataResult<AppointmentDto>> DeleteAsync(int AppointmentId, string modifiedByName)
+        {
+            var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == AppointmentId);
+            if (appointment != null)
+            {
+                appointment.IsDeleted = true;
+                appointment.IsActive = false;
+                appointment.ModifiedByName = modifiedByName;
+                appointment.ModifiedDate = DateTime.Now;
+                var deletedAppointment = await UnitOfWork.Appointments.UpdateAsync(appointment);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
+                {
+                    Appointment = deletedAppointment,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.DeletedSuccess)
+
+                }, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.DeletedSuccess));
+            }
+            return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
+            {
+                Appointment = null,
+            }, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.DeletedError));
         }
 
-        //public async Task<IDataResult<AppointmentListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var appointments = await UnitOfWork.Appointments.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (appointments.Count > -1)
-        //    {
-        //        return new DataResult<AppointmentListDto>(ResultStatus.Success, new AppointmentListDto
-        //        {
-        //            Appointments = appointments,
-        //        });
-        //    }
-        //    return new DataResult<AppointmentListDto>(ResultStatus.Error, new AppointmentListDto
-        //    {
-        //        Appointments = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Çalışan"));
-        //}
+        public async Task<IResult> HardDeleteAsync(int AppointmentId)
+        {
+            var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == AppointmentId);
+            if (appointment != null)
+            {
+                await UnitOfWork.Appointments.DeleteAsync(appointment);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Randevu"));
+        }
 
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var AppointmentsCount = await UnitOfWork.Appointments.CountAsync();
+            if (AppointmentsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, AppointmentsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var AppointmentsCount = await UnitOfWork.Appointments.CountAsync(c => !c.IsDeleted);
+            if (AppointmentsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, AppointmentsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-
-
-        //public async Task<IDataResult<AppointmentDto>> DeleteAsync(int AppointmentId, string modifiedByName)
-        //{
-        //    var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == AppointmentId);
-        //    if (appointment != null)
-        //    {
-        //        Appointment.IsDeleted = true;
-        //        Appointment.IsActive = false;
-        //        Appointment.ModifiedByName = modifiedByName;
-        //        Appointment.ModifiedDate = DateTime.Now;
-        //        var deletedAppointment = await UnitOfWork.Appointments.UpdateAsync(Appointment);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
-        //        {
-        //            Appointment = deletedAppointment,
-        //        }, Messages.Appointment.Delete(deletedAppointment.CreatedByName));
-        //    }
-        //    return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
-        //    {
-        //        Appointment = null,
-        //    }, Messages.Appointment.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IResult> HardDeleteAsync(int AppointmentId)
-        //{
-        //    var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == AppointmentId);
-        //    if (appointment != null)
-        //    {
-        //        await UnitOfWork.Appointments.DeleteAsync(Appointment);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.Appointment.HardDelete(Appointment.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.Appointment.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var appointmentsCount = await UnitOfWork.Appointments.CountAsync();
-        //    if (appointmentsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, AppointmentsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var appointmentsCount = await UnitOfWork.Appointments.CountAsync(c=>!c.IsDeleted);
-        //    if (appointmentsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, AppointmentsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<AppointmentDto>> ApproveAsync(int AppointmentId, string modifiedByName)
-        //{
-        //    var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == AppointmentId, c => c.Appointment);
-        //    if (appointment != null)
-        //    {
-        //        appointment.IsActive = true;
-        //        appointment.ModifiedByName = modifiedByName;
-        //        appointment.ModifiedDate = DateTime.Now;
-        //        var updatedAppointment = await UnitOfWork.Appointments.UpdateAsync(Appointment);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
-        //        {
-        //            Appointment = updatedAppointment
-        //        }, Messages.Appointment.Approve(AppointmentId));
-        //    }
-
-        //    return new DataResult<AppointmentDto>(ResultStatus.Error, null, Messages.Appointment.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<AppointmentDto>> UndoDeleteAsync(int AppointmentId, string modifiedByName)
-        //{
-        //    var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == AppointmentId);
-        //    if (appointment != null)
-        //    {
-        //        appointment.IsDeleted = false;
-        //        appointment.IsActive = true;
-        //        appointment.ModifiedByName = modifiedByName;
-        //        appointment.ModifiedDate = DateTime.Now;
-        //        var deletedAppointment = await UnitOfWork.Appointments.UpdateAsync(Appointment);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
-        //        {
-        //            Appointment = deletedAppointment,
-        //        }, Messages.Appointment.UndoDelete(deletedAppointment.CreatedByName));
-        //    }
-        //    return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
-        //    {
-        //        Appointment = null,
-        //    }, Messages.Appointment.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<AppointmentDto>> UndoDeleteAsync(int appointmentId, string modifiedByName)
+        {
+            var appointment = await UnitOfWork.Appointments.GetAsync(c => c.Id == appointmentId);
+            if (appointment != null)
+            {
+                appointment.IsDeleted = false;
+                appointment.IsActive = true;
+                appointment.ModifiedByName = modifiedByName;
+                appointment.ModifiedDate = DateTime.Now;
+                var deletedAppointment = await UnitOfWork.Appointments.UpdateAsync(appointment);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
+                {
+                    Appointment = deletedAppointment,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.UpdateSuccess)
+                }, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.UpdateError));
+            }
+            return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
+            {
+                Appointment = null,
+                ResultStatus = ResultStatus.Error,
+                Message = Messages.General.NotFound(isPlural: false, "Randevu")
+            }, Messages.General.NotFound(isPlural: false, "Randevu"));
+        }
     }
 }

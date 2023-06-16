@@ -102,8 +102,8 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentTypeDto>(ResultStatus.Success, new AppointmentTypeDto
             {
                 AppointmentType = addedAppointmentType,
-                Message=Messages.General.GiveMessage(addedAppointmentType.CreatedByName, "Randevu Tipi", "Eklendi")
-            }, Messages.General.GiveMessage(addedAppointmentType.CreatedByName, "Randevu Tipi", "Eklendi"));
+                Message=Messages.General.GiveMessage(addedAppointmentType.CreatedByName, "Randevu Tipi", MessagesConstants.AddSuccess)
+            }, Messages.General.GiveMessage(addedAppointmentType.CreatedByName, "Randevu Tipi", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<AppointmentTypeDto>> UpdateAsync(AppointmentTypeUpdateDto AppointmentTypeUpdateDto, string modifiedByName)
@@ -116,10 +116,10 @@ namespace MyBlog.Services.Concrete
             await UnitOfWork.SaveAsync();
             return new DataResult<AppointmentTypeDto>(ResultStatus.Success, new AppointmentTypeDto
             {
-                Message= Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", "Güncellendi."),
+                Message= Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UpdateSuccess),
                 AppointmentType = updatedAppointmentType,
                 ResultStatus = ResultStatus.Success,
-            }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", "Güncellendi."));
+            }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UpdateSuccess));
         }
         public async Task<IDataResult<AppointmentTypeDto>> DeleteAsync(int AppointmentTypeId, string modifiedByName)
         {
@@ -135,13 +135,13 @@ namespace MyBlog.Services.Concrete
                 return new DataResult<AppointmentTypeDto>(ResultStatus.Success, new AppointmentTypeDto
                 {
                     AppointmentType = deletedAppointmentType,
-                    Message= Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", "Güncellendi.")
-                }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", "Güncellendi."));
+                    Message= Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UpdateSuccess)
+                }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UpdateSuccess));
             }
             return new DataResult<AppointmentTypeDto>(ResultStatus.Error, new AppointmentTypeDto
             {
                 AppointmentType = null,
-            }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", "Güncellenemedi."));
+            }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UpdateError));
         }
 
         public async Task<IDataResult<AppointmentTypeListDto>> GetAllByDeletedAsync()
@@ -171,6 +171,29 @@ namespace MyBlog.Services.Concrete
             return new Result(ResultStatus.Error, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.HardDeletedSuccess));
         }
 
+   
+        public async Task<IDataResult<AppointmentTypeDto>> UndoDeleteAsync(int AppointmentTypeId, string modifiedByName)
+        {
+            var appointmentType = await UnitOfWork.AppointmentTypes.GetAsync(c => c.Id == AppointmentTypeId);
+            if (appointmentType != null)
+            {
+                appointmentType.IsDeleted = false;
+                appointmentType.IsActive = true;
+                appointmentType.ModifiedByName = modifiedByName;
+                appointmentType.ModifiedDate = DateTime.Now;
+                 var deletedAppointmentType = await UnitOfWork.AppointmentTypes.UpdateAsync(appointmentType);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<AppointmentTypeDto>(ResultStatus.Success, new AppointmentTypeDto
+                {
+                    Message = Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UndoDeletedSuccess),
+                    AppointmentType = deletedAppointmentType,
+                }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UndoDeletedSuccess));
+            }
+            return new DataResult<AppointmentTypeDto>(ResultStatus.Error, new AppointmentTypeDto
+            {
+                AppointmentType = null,
+            }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UndoDeletedError));
+        }
         public async Task<IDataResult<int>> CountAsync()
         {
             var AppointmentTypesCount = await UnitOfWork.AppointmentTypes.CountAsync();
@@ -195,28 +218,6 @@ namespace MyBlog.Services.Concrete
             {
                 return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
             }
-        }
-        public async Task<IDataResult<AppointmentTypeDto>> UndoDeleteAsync(int AppointmentTypeId, string modifiedByName)
-        {
-            var appointmentType = await UnitOfWork.AppointmentTypes.GetAsync(c => c.Id == AppointmentTypeId);
-            if (appointmentType != null)
-            {
-                appointmentType.IsDeleted = false;
-                appointmentType.IsActive = true;
-                appointmentType.ModifiedByName = modifiedByName;
-                appointmentType.ModifiedDate = DateTime.Now;
-                var deletedAppointmentType = await UnitOfWork.AppointmentTypes.UpdateAsync(appointmentType);
-                await UnitOfWork.SaveAsync();
-                return new DataResult<AppointmentTypeDto>(ResultStatus.Success, new AppointmentTypeDto
-                {
-                    Message = Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UndoDeletedSuccess),
-                    AppointmentType = deletedAppointmentType,
-                }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UndoDeletedSuccess));
-            }
-            return new DataResult<AppointmentTypeDto>(ResultStatus.Error, new AppointmentTypeDto
-            {
-                AppointmentType = null,
-            }, Messages.General.GiveMessage(appointmentType.Title, "Randevu Tipi", MessagesConstants.UndoDeletedError));
         }
     }
 }

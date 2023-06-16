@@ -6,16 +6,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using MyBlog.Entities.Concrete;
+using MyBlog.Shared.Entities.Abstract;
 using MyBlog.Shared.Entities.Concrete;
 
 namespace MyBlog.Mvc.Areas.Admin.Models
 {
-    public class ProductAddViewModel
+    public class ProductAddViewModel:DtoGetBase
     {
+        [DisplayName("Fiyat | TL")]
+        [Range(0, int.MaxValue, ErrorMessage = "{0} 0'dan küçük olamaz")]
+        public int Price { get; set; }
+
+        [DisplayName("Adet")]
+        [Range(0, int.MaxValue, ErrorMessage = "{0} 0'dan küçük olamaz")]
+        public int Quantity { get; set; }
         [DisplayName("Not")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(3, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
         public string? Note { get; set; }
+        [DisplayName("Satıldı Mı")]
+        public bool IsSold { get; set; } = false;
         [DisplayName("Ürün Adı")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         [MaxLength(35, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]

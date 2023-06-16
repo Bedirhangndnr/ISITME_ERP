@@ -13,6 +13,7 @@ using MyBlog.Entities.Dtos.AppointmentDtos;
 using MyBlog.Mvc.Areas.Admin.Models.ArticleModels;
 using MyBlog.Mvc.Areas.Admin.Models.CustomerModels;
 using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+using MyBlog.Entities.Dtos.PaymentDtos;
 
 namespace MyBlog.Mvc.AutoMapper.Profiles
 {
@@ -24,14 +25,18 @@ namespace MyBlog.Mvc.AutoMapper.Profiles
             CreateMap<ArticleUpdateViewModel, ArticleUpdateDto>().ReverseMap();
             CreateMap<CustomerAddViewModel, CustomerAddDto>().ReverseMap();
             CreateMap<CustomerUpdateDto, CustomerUpdateViewModel>().ReverseMap();
+            CreateMap<PaymentAddViewModel, PaymentAddDto>().ReverseMap();
+            CreateMap<PaymentUpdateDto, PaymentUpdateViewModel>().ReverseMap();
             CreateMap<EmployeeAddViewModel, EmployeeAddDto>().ReverseMap();
             CreateMap<EmployeeUpdateDto, EmployeeUpdateViewModel>().ReverseMap();
             CreateMap<SaleAddViewModel, SaleAddDto>().ReverseMap();
             CreateMap<SaleUpdateDto, SaleUpdateViewModel>().ReverseMap();
             CreateMap<ProductAddViewModel, ProductAddDto>().ReverseMap();
-            CreateMap<ProductUpdateDto, ProductUpdateViewModel>().ReverseMap(); 
+            CreateMap<ProductUpdateDto, ProductUpdateViewModel>().ReverseMap();
             CreateMap<AppointmentAddViewModel, AppointmentAddDto>().ReverseMap();
-            CreateMap<AppointmentUpdateDto, AppointmentUpdateViewModel>().ReverseMap();
+            CreateMap<AppointmentUpdateDto, AppointmentUpdateViewModel>().ReverseMap(); 
+            CreateMap<PaymentAddViewModel, PaymentAddDto>().ReverseMap();
+            CreateMap<PaymentUpdateDto, PaymentUpdateViewModel>().ReverseMap();
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
             CreateMap<NotificationListDto, NotificationViewModel>();

@@ -36,6 +36,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     LastName = "User",
                     About = "Editor User of MyBlog",
                     Phone = "+905555555555",
+                    Email="bedirhangn@gmail.com",
                     IsActive = true,
                     Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
                     TC = "45677891170",

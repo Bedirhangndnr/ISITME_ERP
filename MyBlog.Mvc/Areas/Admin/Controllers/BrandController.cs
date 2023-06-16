@@ -16,9 +16,9 @@ using System.Data;
 using MyBlog.Entities.Dtos.CustomerReferanceDtos;
 using MyBlog.Entities.Dtos.BrandDtos;
 using MyBlog.Shared.Utilities.Extensions;
-using MyBlog.Entities.Dtos.BrandDtos;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Mvc.Consts;
+using MyBlog.Services.Utilities;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -43,31 +43,62 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string tableType)
         {
-            var result = await _brandService.GetAllAsync();
-            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
-            return NotFound();
-        }
-        [HttpGet]
-        public async Task<JsonResult> GetAllBrands()
-        {
-            var brands = await _brandService.GetAllAsync();
-            var brandResult = JsonSerializer.Serialize(brands, new JsonSerializerOptions
+            ViewBag.TableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                ReferenceHandler = ReferenceHandler.Preserve
+                var result = await _brandService.GetAllByNonDeletedAndActiveAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _brandService.GetAllByDeletedAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
             });
-            return Json(brandResult);
+            return View();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentCreate}")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllBrands(string tableType)
+        {
+            ViewBag.TableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var employeeTypes = await _brandService.GetAllByNonDeletedAndActiveAsync();
+                var employeeTypeResult = JsonSerializer.Serialize(employeeTypes, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(employeeTypeResult);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _brandService.GetAllByDeletedAsync();
+                var rmployeeTypes = JsonSerializer.Serialize(result, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(rmployeeTypes);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile Karşılaşıldı *", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
+            return Json(null);
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandCreate}")]
         [HttpGet]
         public IActionResult Add()
         {
             return PartialView("_BrandAddPartial");
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(BrandAddDto brandAddDto)
         {
@@ -91,10 +122,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int brandId)
+        public async Task<IActionResult> Update(int brandId, string tableType)
         {
+            ViewBag.TableType = tableType;
             var result = await _brandService.GetBrandUpdateDtoAsync(brandId);
             if (result.ResultStatus == ResultStatus.Success)
             {
@@ -102,43 +134,75 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandUpdate}")]
         [HttpPost]
-        public async Task<IActionResult> Update(BrandUpdateDto categoryUpdateDto)
+        public async Task<IActionResult> Update(BrandUpdateDto brandUpdateDto, string tableType)
         {
+            ViewBag.tableType = tableType;
             if (ModelState.IsValid)
             {
-                var result = await _brandService.UpdateAsync(categoryUpdateDto, LoggedInUser.UserName);
+                var result = await _brandService.UpdateAsync(brandUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Updated,
                         "Marka",
                         result.Data.Brand.ModifiedByName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated)
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new BrandUpdateAjaxViewModel
                     {
                         BrandDto = result.Data,
-                        BrandUpdatePartial = await this.RenderViewToStringAsync("_BrandUpdatePartial", categoryUpdateDto)
+                        BrandUpdatePartial = await this.RenderViewToStringAsync("_BrandUpdatePartial", brandUpdateDto)
                     });
                     return Json(categoryUpdateAjaxModel);
                 }
             }
             var categoryUpdateAjaxErrorModel = JsonSerializer.Serialize(new BrandUpdateAjaxViewModel
             {
-                BrandUpdatePartial = await this.RenderViewToStringAsync("_BrandUpdatePartial", categoryUpdateDto)
+                BrandUpdatePartial = await this.RenderViewToStringAsync("_BrandUpdatePartial", brandUpdateDto)
             });
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandDelete}")]
         [HttpPost]
-        public async Task<JsonResult> Delete(int brandId)
+        public async Task<JsonResult> Delete(int brandId, string tableType)
         {
-            var result = await _brandService.DeleteAsync(brandId, LoggedInUser.UserName);
-            var deletedEmployeeType = JsonSerializer.Serialize(result.Data);
-            return Json(deletedEmployeeType);
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _brandService.DeleteAsync(brandId, LoggedInUser.UserName);
+                var deletedBrand = JsonSerializer.Serialize(result.Data);
+                return Json(deletedBrand);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _brandService.HardDeleteAsync(brandId);
+                var hardDeletedAppointmentResult = JsonSerializer.Serialize(result);
+                return Json(hardDeletedAppointmentResult);
+            }
+            else
+            {
+                // Hatalı silme türü parametresi durumunda hata döndürme
+                return Json("Hatalı silme türü parametresi!");
+            }
+        }
+        [HttpPost]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandDelete}")]
+        public async Task<JsonResult> UndoDelete(int brandId)
+        {
+            var result = await _brandService.UndoDeleteAsync(brandId, LoggedInUser.UserName);
+            var undoDeletedBrand = JsonSerializer.Serialize(result.Data);
+            return Json(undoDeletedBrand);
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.BrandDelete}")]
+        [HttpGet]
+        public async Task<IActionResult> HardDelete(int brandId)
+        {
+            var result = await _brandService.HardDeleteAsync(brandId);
+            var deletedBrand = JsonSerializer.Serialize(result);
+            return View(deletedBrand);
+
         }
     }
 }

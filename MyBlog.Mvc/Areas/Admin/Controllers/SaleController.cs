@@ -17,6 +17,8 @@ using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Shared.Utilities.Results.Concrete;
 using MyBlog.Mvc.Consts;
+using MyBlog.Entities.Dtos.ProductDtos;
+using MyBlog.Shared.Utilities.Results;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -53,27 +55,59 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string tableType)
         {
-            var result = await _saleService.GetAllByNonDeletedAndActiveAsync();
-            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            ViewBag.tableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _saleService.GetAllByNonDeletedAndActiveAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _saleService.GetAllByDeletedAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
             return NotFound();
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
-        public async Task<JsonResult> GetAllSales()
+        public async Task<JsonResult> GetAllSales(string tableType)
         {
-            var Sales = await _saleService.GetAllByNonDeletedAndActiveAsync();
-            var SaleResult = JsonSerializer.Serialize(Sales, new JsonSerializerOptions
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                ReferenceHandler = ReferenceHandler.Preserve
+                var sales = await _saleService.GetAllByNonDeletedAndActiveAsync();
+                var saleResult = JsonSerializer.Serialize(sales, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(saleResult);
+
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _saleService.GetAllByDeletedAsync();
+                var sales = JsonSerializer.Serialize(result, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(sales);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
             });
-            return Json(SaleResult);
+            return Json(null);
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleCreate}")]
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(string tableType)
         {
+            ViewBag.tableType = tableType;
             var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
@@ -106,19 +140,24 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleCreate}")]
         [HttpPost]
-        public async Task<IActionResult> Add(SaleAddViewModel saleAddViewModel)
+        public async Task<IActionResult> Add(SaleAddViewModel saleAddViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
+
                 var saleTypeAddDto = Mapper.Map<SaleAddDto>(saleAddViewModel);
+                IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(saleTypeAddDto.ProductId);
+                productUpdateDto.Data.IsSold = true;
+                var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
                 var result = await _saleService.AddAsync(saleTypeAddDto, LoggedInUser.UserName, LoggedInUser.Id);
-                if (result.ResultStatus == ResultStatus.Success)
+                if (result.ResultStatus == ResultStatus.Success && productUpdateResult.ResultStatus == ResultStatus.Success)
                 {
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
                     });
-                    return RedirectToAction("Index", "Sale");
+                    return RedirectToAction("Index", "Sale", new { tableType = tableType });
                 }
                 else
                 {
@@ -129,7 +168,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
-            var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
+            var productList = await _productService.GetAllByNonDeletedAndActiveAsync(true);
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
             saleAddViewModel.Customers = customerList.Data.Customers;
             saleAddViewModel.Employees = employeeList.Data.Employees;
@@ -140,9 +179,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int saleId)
+        public async Task<IActionResult> Update(int Id, string tableType)
         {
-            var saleList = await _saleService.GetSaleUpdateDtoAsync(saleId);
+            ViewBag.tableType = tableType;
+            var saleList = await _saleService.GetSaleUpdateDtoAsync(Id);
+
             var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
@@ -172,21 +213,21 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpPost]
-        public async Task<IActionResult> Update(SaleUpdateViewModel SaleUpdateViewModel)
+        public async Task<IActionResult> Update(SaleUpdateViewModel SaleUpdateViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
-
-                var SaleUpdateDto = Mapper.Map<SaleUpdateDto>(SaleUpdateViewModel);
-
-                var result = await _saleService.UpdateAsync(SaleUpdateDto, LoggedInUser.UserName);
+                var saleUpdateDto = Mapper.Map<SaleUpdateDto>(SaleUpdateViewModel);
+               
+                var result = await _saleService.UpdateAsync(saleUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    return RedirectToAction("Index", "Sale");
+                    return RedirectToAction("Index", "Sale", new { tableType = tableType });
                 }
                 else
                 {
-                    _toastNotification.AddErrorToastMessage(SaleUpdateDto.Message, new ToastrOptions
+                    _toastNotification.AddErrorToastMessage(saleUpdateDto.Message, new ToastrOptions
                     {
                         Title = "Başarısız İşlem!"
                     });
@@ -206,5 +247,113 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return View(SaleUpdateViewModel);
 
         }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteFromUpdatePage(int saleId, string tableType)
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                // Silme işlemi modaldan geldiyse normal controller işlemini yap => buradaki if koşulu bunun bir ajax sorgusuolup olamdığını kontrol eder.
+                return await Delete(saleId, tableType);
+            }
+            else
+            {
+                string errMessage = "";
+                if (tableType == TableReturnTypesConstants.NonDeletedTables)
+                {
+                    var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                        {
+                            Title = "Başarılı İşlem!"
+                        });
+                        return RedirectToAction("Index", "Sale", new { tableType = tableType });
+                    }
+                    errMessage = result.Message;
+                }
+                else if (tableType == TableReturnTypesConstants.DeletedTables)
+                {
+                    var result = await _saleService.HardDeleteAsync(saleId);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                        {
+                            Title = "Başarılı İşlem!"
+                        });
+                        return RedirectToAction("Index", "Sale", new { tableType = tableType });
+                    }
+                    errMessage = result.Message;
+                }
+                _toastNotification.AddErrorToastMessage(errMessage, new ToastrOptions
+                {
+                    Title = "Başarısız İşlem!"
+                });
+                // Silme işlemi update sayfasından geldiyse index sayfasına yönlendir
+                return RedirectToAction("Update");
+            }
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int saleId, string tableType)
+        {
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
+                var saleResult = JsonSerializer.Serialize(result.Data);
+                return Json(saleResult);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _saleService.HardDeleteAsync(saleId);
+                var hardDeletedSaleResult = JsonSerializer.Serialize(result);
+                return Json(hardDeletedSaleResult);
+            }
+            else
+            {
+                // Hatalı silme türü parametresi durumunda hata döndürme
+                return Json("Hatalı silme türü parametresi!");
+            }
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
+
+        [HttpPost]
+        public async Task<JsonResult> HardDelete(int saleId)
+        {
+            var result = await _saleService.HardDeleteAsync(saleId);
+            var hardDeletedSaleResult = JsonSerializer.Serialize(result);
+            return Json(hardDeletedSaleResult);
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
+
+        [HttpGet]
+        public async Task<IActionResult> DeletedSales()
+        {
+            var result = await _saleService.GetAllByDeletedAsync();
+            return View(result.Data);
+
+        }
+
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleRead}")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllDeletedSales()
+        {
+            var result = await _saleService.GetAllByDeletedAsync();
+            var sales = JsonSerializer.Serialize(result, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(sales);
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        [HttpPost]
+        public async Task<JsonResult> UndoDelete(int saleId)
+        {
+            var result = await _saleService.UndoDeleteAsync(saleId, LoggedInUser.UserName);
+            var undoDeleteSaleResult = JsonSerializer.Serialize(result.Data);
+            return Json(undoDeleteSaleResult);
+        }
+
     }
 }

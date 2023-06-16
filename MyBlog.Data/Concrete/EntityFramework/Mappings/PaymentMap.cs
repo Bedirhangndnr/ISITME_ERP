@@ -26,32 +26,39 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.IsDeleted).IsRequired();
             builder.Property(a => a.Note).HasMaxLength(500);
             builder.ToTable("Payments");
-            builder.HasOne(e => e.PaymentType)
-                .WithMany(et => et.Payments)
-                .HasForeignKey(e => e.PaymentTypeId)
-                .OnDelete(DeleteBehavior.SetNull);
+            builder.HasOne(p => p.AssociatedInstitutions)
+    .WithMany()
+    .HasForeignKey(p => p.PaymentTypeId)
+    .OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(p => p.PaymentType)
+    .WithMany()
+    .HasForeignKey(p => p.AssociatedInstitutionsId)
+    .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(e => e.Customer)
-                .WithMany(et => et.Payments)
-                .HasForeignKey(e => e.CustomerId)
-                .OnDelete(DeleteBehavior.SetNull);
+            builder.HasOne(p => p.Customer)
+    .WithMany()
+    .HasForeignKey(p => p.CustomerId)
+    .IsRequired() // Bu satırı ekleyin
+    .OnDelete(DeleteBehavior.Restrict); // OnDelete(DeleteBehavior.Cascade) olarak değiştirdim
 
-            builder.HasOne(e => e.Employee)
-                .WithMany(et => et.Payments)
-                .HasForeignKey(e => e.EmployeeId)
-                .OnDelete(DeleteBehavior.SetNull);
+            builder.HasOne(p => p.Employee)
+    .WithMany()
+    .HasForeignKey(p => p.EmployeeId)
+    .IsRequired() // Bu satırı ekleyin
+    .OnDelete(DeleteBehavior.Restrict); // OnDelete(DeleteBehavior.Cascade) olarak değiştirdim
             builder.HasData(
                 new Payment
                 {
                     Id = 1,
                     IsActive = true,
+                    PaymentTypeId=1,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId = 1,
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId = 1,
@@ -59,6 +66,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 new Payment
                 {
                     Id = 2,
+                    PaymentTypeId = 2,
                     IsActive = true,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
@@ -66,7 +74,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId = 1,
                     EmployeeId = 1,
                     CustomerId = 1,
                     AmountPaid = 1,
@@ -75,13 +83,14 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 3,
                     IsActive = true,
+                    PaymentTypeId = 3,  
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId = 2,
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId = 1
@@ -90,13 +99,14 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 4,
                     IsActive = true,
+                    PaymentTypeId = 4,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId = 2,
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId=1
@@ -106,12 +116,13 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 5,
                     IsActive = true,
                     IsDeleted = false,
+                    PaymentTypeId= 5,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId = 3,
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId = 1
@@ -121,27 +132,29 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 6,
                     IsActive = true,
                     IsDeleted = false,
+                    PaymentTypeId= 6,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId = 3,
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId = 1
                 },
                 new Payment
                 {
-                    Id = 7,
+                    Id = 7, 
                     IsActive = true,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
+                    PaymentTypeId = 7,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
-                    PaymentTypeId = 1,
+                    AssociatedInstitutionsId =3,
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId = 1

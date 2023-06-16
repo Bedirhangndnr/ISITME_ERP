@@ -19,6 +19,8 @@ using MyBlog.Shared.Utilities.Extensions;
 using MyBlog.Entities.Dtos.ProductSubGroupDtos;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Mvc.Consts;
+using MyBlog.Services.Utilities;
+using MyBlog.Entities.Dtos.ProductSubGroupDtos;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -45,22 +47,53 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string tableType)
         {
-            var result = await _productSubGroupService.GetAllAsync();
-            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
-            return NotFound();
+            ViewBag.TableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _productSubGroupService.GetAllByDeletedAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
+            return View();
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupCreate}")]
         [HttpGet]
-        public async Task<JsonResult> GetAllProductSubGroups()
+        public async Task<JsonResult> GetAllProductSubGroups(string tableType)
         {
-            var productSubGroups = await _productSubGroupService.GetAllAsync();
-            var productSubGroupResult = JsonSerializer.Serialize(productSubGroups, new JsonSerializerOptions
+            ViewBag.TableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                ReferenceHandler = ReferenceHandler.Preserve
+                var employeeTypes = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
+                var employeeTypeResult = JsonSerializer.Serialize(employeeTypes, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(employeeTypeResult);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _productSubGroupService.GetAllByDeletedAsync();
+                var rmployeeTypes = JsonSerializer.Serialize(result, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(rmployeeTypes);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile Karşılaşıldı *", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
             });
-            return Json(productSubGroupResult);
+            return Json(null);
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupCreate}")]
         [HttpGet]
@@ -94,8 +127,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int productSubGroupId)
+        public async Task<IActionResult> Update(int productSubGroupId, string tableType)
         {
+            ViewBag.TableType = tableType;
             var result = await _productSubGroupService.GetProductSubGroupUpdateDtoAsync(productSubGroupId);
             if (result.ResultStatus == ResultStatus.Success)
             {
@@ -105,41 +139,64 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupUpdate}")]
         [HttpPost]
-        public async Task<IActionResult> Update(ProductSubGroupUpdateDto categoryUpdateDto)
+        public async Task<IActionResult> Update(ProductSubGroupUpdateDto productSubGroupUpdateDto, string tableType)
         {
+            ViewBag.tableType = tableType;
             if (ModelState.IsValid)
             {
-                var result = await _productSubGroupService.UpdateAsync(categoryUpdateDto, LoggedInUser.UserName);
+                var result = await _productSubGroupService.UpdateAsync(productSubGroupUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Updated,
                         "Marka",
                         result.Data.ProductSubGroup.ModifiedByName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated)
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new ProductSubGroupUpdateAjaxViewModel
                     {
                         ProductSubGroupDto = result.Data,
-                        ProductSubGroupUpdatePartial = await this.RenderViewToStringAsync("_ProductSubGroupUpdatePartial", categoryUpdateDto)
+                        ProductSubGroupUpdatePartial = await this.RenderViewToStringAsync("_ProductSubGroupUpdatePartial", productSubGroupUpdateDto)
                     });
                     return Json(categoryUpdateAjaxModel);
                 }
             }
             var categoryUpdateAjaxErrorModel = JsonSerializer.Serialize(new ProductSubGroupUpdateAjaxViewModel
             {
-                ProductSubGroupUpdatePartial = await this.RenderViewToStringAsync("_ProductSubGroupUpdatePartial", categoryUpdateDto)
+                ProductSubGroupUpdatePartial = await this.RenderViewToStringAsync("_ProductSubGroupUpdatePartial", productSubGroupUpdateDto)
             });
             return Json(categoryUpdateAjaxErrorModel);
 
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupDelete}")]
         [HttpPost]
-        public async Task<JsonResult> Delete(int productSubGroupId)
+        public async Task<JsonResult> Delete(int productSubGroupId, string tableType)
         {
-            var result = await _productSubGroupService.DeleteAsync(productSubGroupId, LoggedInUser.UserName);
-            var deletedEmployeeType = JsonSerializer.Serialize(result.Data);
-            return Json(deletedEmployeeType);
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _productSubGroupService.DeleteAsync(productSubGroupId, LoggedInUser.UserName);
+                var deletedProductSubGroup = JsonSerializer.Serialize(result.Data);
+                return Json(deletedProductSubGroup);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _productSubGroupService.HardDeleteAsync(productSubGroupId);
+                var hardDeletedAppointmentResult = JsonSerializer.Serialize(result);
+                return Json(hardDeletedAppointmentResult);
+            }
+            else
+            {
+                // Hatalı silme türü parametresi durumunda hata döndürme
+                return Json("Hatalı silme türü parametresi!");
+            }
+        }
+        [HttpPost]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductSubGroupDelete}")]
+        public async Task<JsonResult> UndoDelete(int productSubGroupId)
+        {
+            var result = await _productSubGroupService.UndoDeleteAsync(productSubGroupId, LoggedInUser.UserName);
+            var undoDeletedProductSubGroup = JsonSerializer.Serialize(result.Data);
+            return Json(undoDeletedProductSubGroup);
         }
     }
 }

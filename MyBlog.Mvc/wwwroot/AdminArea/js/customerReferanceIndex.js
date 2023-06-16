@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
 
+    const tableType = document.getElementById("tableType").value;
     /* DataTables start here. */
 
     const dataTable = $('#customerReferancesTable').DataTable({
@@ -24,6 +25,7 @@
                 action: function (e, dt, node, config) {
                     $.ajax({
                         type: 'GET',
+                        data: { tableType: tableType },
                         url: '/Admin/CustomerReferance/GetAllCustomerReferances/',
                         contentType: "application/json",
                         beforeSend: function () {
@@ -36,27 +38,32 @@
                             console.log(CustomerReferanceListDto);
                             if (CustomerReferanceListDto.Data.ResultStatus === 0) {
                                 $.each(CustomerReferanceListDto.Data.CustomerReferances.$values,
-                                    function (index, CustomerReferance) {
+                                    function (index, customerReferance) {
                                         const newTableRow = dataTable.row.add([
-                                            CustomerReferance.Id,
-                                            CustomerReferance.FirstName,
-                                            CustomerReferance.LastName,
-                                            CustomerReferance.Phone,
-                                            CustomerReferance.Description,
-                                            CustomerReferance.Note,
+                                            customerReferance.Id,
+                                            customerReferance.FirstName,
+                                            customerReferance.LastName,
+                                            customerReferance.Phone,
+                                            customerReferance.Description,
+                                            customerReferance.Note,
                                             `
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${CustomerReferance.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${CustomerReferance.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                                                <div class="form-group row justify-content-center">
+                                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                </div>
+                                                    `
                                         ]).node();
                                         const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${CustomerReferance.Id}`);
+                                        jqueryTableRow.attr('name', `${customerReferance.Id}`);
                                     });
                                 dataTable.draw();
                                 $('.spinner-border').hide();
                                 $('#customerReferancesTable').fadeIn(1400);
                             } else {
-                                toastr.error(`${CustomerReferanceListDto.Message}`, 'İşlem Başarısız!');
+                                $('.spinner-border').hide();
+                                $('#customerReferancesTable').fadeIn(1000);
+                                toastr.error(`${customerReferanceListDto.Data.Message}`, 'İşlem Başarısız!');
                             }
                         },
                         error: function (err) {
@@ -136,20 +143,24 @@
                     const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
                     if (isValid) {
                         placeHolderDiv.find('.modal').modal('hide');
+                        customerReferance = CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance;
                         const newTableRow = dataTable.row.add([
-                            CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Id,
-                            CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.FirstName,
-                            CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.LastName,
-                            CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Phone,
-                            CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Description,
-                            CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Note,
+                            customerReferance.Id,
+                            customerReferance.FirstName,
+                            customerReferance.LastName,
+                            customerReferance.Phone,
+                            customerReferance.Description,
+                            customerReferance.Note,
                             `
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                                <div class="form-group row justify-content-center">
+                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                </div>              
+                                `
                         ]).node();
                         const jqueryTableRow = $(newTableRow);
-                        jqueryTableRow.attr('name', `${CustomerReferanceAddAjaxModel.CustomerReferanceDto.CustomerReferance.Id}`);
+                        jqueryTableRow.attr('name', `${customerReferance.Id}`);
                         dataTable.draw();
                         toastr.success(`${CustomerReferanceAddAjaxModel.CustomerReferanceDto.Message}`, 'Başarılı İşlem!');
                     } else {
@@ -173,11 +184,12 @@
         function (event) {
             event.preventDefault();
             const id = $(this).attr('data-id');
+            const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
             const CustomerReferanceName = tableRow.find('td:eq(1)').text();
             Swal.fire({
-                title: 'Silmek istediğinize emin misiniz?',
-                text: `${CustomerReferanceName} adlı kategori silinicektir!`,
+                title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
+                text: `${customerReferanceTitle} Başlıklı Marka ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -189,28 +201,40 @@
                     $.ajax({
                         type: 'POST',
                         dataType: 'json',
-                        data: { CustomerReferanceId: id },
+                        data: { customerReferanceId: id, tableType: tableType },
                         url: '/Admin/CustomerReferance/Delete/',
                         success: function (data) {
-                            const CustomerReferanceDto = jQuery.parseJSON(data);
-                            if (CustomerReferanceDto.ResultStatus === 0) {
-                                Swal.fire(
-                                    'Silindi!',
-                                    `${CustomerReferanceDto.CustomerReferance.Name} adlı kategori başarıyla silinmiştir.`,
-                                    'success'
-                                );
-                                dataTable.row(tableRow).remove().draw();
+                            const customerReferanceResult = jQuery.parseJSON(data);
+                            if (customerReferanceResult.ResultStatus === 0) {
+                                if (tableType === 'DeletedTables') {
+                                    Swal.fire(
+                                        'Tamamen Silindi!',
+                                        `${customerReferanceResult.Message}`,
+                                        'success'
+                                    );
+                                }
+                                else {
+                                    Swal.fire(
+                                        'Silindi!',
+                                        `${customerReferanceResult.Message}`,
+                                        'success'
+                                    );
+                                }
+                                // index controller içindeyiz, sil butonuna tıklandığında şu adrese git
+                                tableRow.fadeOut(2000, function () {
+                                    dataTable.row($(this)).remove().draw();
+                                });
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Başarısız İşlem!',
-                                    text: `${CustomerReferanceDto.Message}`,
+                                    text: `${customerReferanceResult.Message}`,
                                 });
                             }
                         },
                         error: function (err) {
                             console.log(err);
-                            toastr.error(`${err.responseText}`, "Hata!")
+                            toastr.error(`${err.responseText}`, "Hata!");
                         }
                     });
                 }
@@ -226,8 +250,9 @@
             '.btn-update',
             function (event) {
                 event.preventDefault();
+                const tableType = document.getElementById("tableType").value;
                 const id = $(this).attr('data-id');
-                $.get(url, { CustomerReferanceId: id }).done(function (data) {
+                $.get(url, { customerReferanceId: id, tableType: tableType }).done(function (data) {
                     placeHolderDiv.html(data);
                     placeHolderDiv.find('.modal').modal('show');
                 }).fail(function () {
@@ -244,7 +269,7 @@
 
                 const form = $('#form-CustomerReferance-update');
                 const actionUrl = form.attr('action');
-                const dataToSend = form.serialize();
+                const dataToSend = `${form.serialize()}&tableType=${tableType}`;
                 $.post(actionUrl, dataToSend).done(function (data) {
                     const CustomerReferanceUpdateAjaxModel = jQuery.parseJSON(data);
                     console.log(CustomerReferanceUpdateAjaxModel);
@@ -264,9 +289,10 @@
                             customerReferance.Description == null ? "Not Eklenmemiş" : (customerReferance.Description.length > 75 ? customerReferance.Description.substring(0, 75) : customerReferance.Description),
                             customerReferance.Note == null ? "Not Eklenmemiş" : (customerReferance.Note.length > 75 ? customerReferance.Note.substring(0, 75) : customerReferance.Note),
                             `
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${customerReferance.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${customerReferance.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                                  ${document.getElementById("tableType").value === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                  <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                  ${document.getElementById("tableType").value === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                            `
 
                         ]);
                         tableRow.attr("name", `${id}`);
@@ -286,4 +312,56 @@
             });
 
     });
+    $(document).on('click',
+        '.btn-undo',
+        function (event) {
+            event.preventDefault();
+            const id = $(this).attr('data-id');
+            const tableRow = $(`[name="${id}"]`);
+            const customerReferanceFirsName = tableRow.find('td:eq(1)').text();
+            const customerReferanceLastName = tableRow.find('td:eq(2)').text();
+            Swal.fire({
+                title: tableType === 'DeletedTables' ? 'Silinen Marka Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${customerReferanceFirsName} Adlı Marka Geri Getirilecektir!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, geri getirmek istiyorum.',
+                cancelButtonText: 'Hayır, geri getirmek istemiyorum.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        data: { customerReferanceId: id },
+                        url: '/Admin/customerReferance/UndoDelete/',
+                        success: function (data) {
+                            const customerReferanceResult = jQuery.parseJSON(data);
+                            if (customerReferanceResult.ResultStatus === 0) {
+                                Swal.fire(
+                                    'Geri Getirildi!',
+                                    `${customerReferanceResult.Message}`,
+                                    'success'
+                                );
+                                tableRow.fadeOut(2000, function () {
+                                    dataTable.row($(this)).remove().draw();
+                                });
+
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Başarısız İşlem!',
+                                    text: `${customerReferanceResult.Message}`,
+                                });
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            toastr.error(`${err.responseText}`, "Hata!");
+                        }
+                    });
+                }
+            });
+        });
 });

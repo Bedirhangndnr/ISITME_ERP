@@ -1,4 +1,5 @@
-﻿@model MyBlog.Entities.Dtos.SaleStatusDtos.SaleStatusUpdateDto
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Entities.Dtos.SaleStatusDtos.SaleStatusUpdateDto
 <!-- Modal -->
 
 <div class="modal fade" role="dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -12,7 +13,8 @@
             </div>
             <div class="modal-body">
                 <form asp-action="Update" id="form-saleStatus-update">
-                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="CreatedByName" />
+                    <input type="hidden" id="tableType" value="@ViewBag.tableType" /><input type="hidden" asp-for="Id" /><input type="hidden" asp-for="Id" />
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
                     <div class="form-group">
@@ -30,10 +32,20 @@
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal"> <span class="fas fa-times"></span>İptal</button>
-                <button type="button" class="btn btn-primary btn-block" id="btnUpdate"><span class="fas fa-save"></span>Kaydet</button>
-            </div>
+            @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+            {
+            CreatedByName = Model.CreatedByName,
+            CreatedDate = Model.CreatedDate,
+            ModifiedByName = Model.ModifiedByName,
+            ModifiedDate = Model.ModifiedDate
+            })
+
+
+            @await Component.InvokeAsync("PartialButtons", new PartialButtonsModel
+            {
+            Id=Model.Id,
+            TableType=ViewBag.tableType,
+            })
         </div>
     </div>
 </div>

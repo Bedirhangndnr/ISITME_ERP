@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MyBlog.Entities.Dtos.CustomerReferanceDtos
 {
-    public class CustomerReferanceAddDto
+    public class CustomerReferanceAddDto:DtoGetBase
     {
         [DisplayName("Ad")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
@@ -35,6 +35,6 @@ namespace MyBlog.Entities.Dtos.CustomerReferanceDtos
         public string? Note { get; set; } = ""; 
 
         [DisplayName("Aktif Mi?")]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; }=true;
     }
 }

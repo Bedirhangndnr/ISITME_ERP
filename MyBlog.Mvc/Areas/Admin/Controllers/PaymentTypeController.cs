@@ -115,7 +115,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         NotificationMessageTypes.Updated, 
                         "Marka", 
                         result.Data.PaymentType.ModifiedByName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated)
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new PaymentTypeUpdateAjaxViewModel
                     {

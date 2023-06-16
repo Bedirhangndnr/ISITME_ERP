@@ -43,6 +43,10 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [MinLength(10, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Address { get; set; }
+        [DisplayName("Personel")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
 
         [DisplayName("Ödeme Tipi")]
         public int? PaymentId { get; set; }
@@ -50,11 +54,11 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [DisplayName("Hasta tipi")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CustomerTypeId { get; set; }
-        public CustomerType CustomerTypes { get; set; }
+        public CustomerType CustomerType { get; set; }
         [DisplayName("Hasta Referansı")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CustomerReferanceId { get; set; }
-        public CustomerReferance CustomerReferances { get; set; }
+        public CustomerReferance CustomerReferance { get; set; }
         [DisplayName("Randevu Tarihi")]
         public DateTime? AppointmentDate { get; set; }
         [DisplayName("Randevu Saati")]

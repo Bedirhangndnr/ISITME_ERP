@@ -36,7 +36,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductDto>(ResultStatus.Error, new ProductDto
             {
                 Product = null,
-            }, Messages.General.NotFound(isPlural: false, "Çalışan"));
+            }, Messages.General.NotFound(isPlural: false, "Ürün"));
         }
         public async Task<IDataResult<ProductUpdateDto>> GetProductUpdateDtoAsync(int ProductId)
         {
@@ -49,22 +49,35 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<ProductUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Çalışan"));
+                return new DataResult<ProductUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Ürün"));
             }
         }
 
-        public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync()
+        public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds=false)
         {
-            var products = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
+            IList < ProductListWithRelatedTables> productsWithRelated;
+            IList<Product> products;
+            if (getSolds==true)
+            {
+                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
+                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive);
+            }
+            else
+            {
+                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && !c.IsSold);
+                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && !c.IsSold);
+            }
+
             if (products.Count > -1)
             {
                 return new DataResult<ProductListDto>(ResultStatus.Success, new ProductListDto
                 {
-                    ProductListWithRelatedTables = products,
+                    Products=products,
+                    ProductListWithRelatedTables = productsWithRelated,
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
 
         }
 
@@ -79,7 +92,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
         }
         public async Task<IResult> AddAsync(ProductAddDto ProductAddDto, string createdByName, int userId)
         {
@@ -91,7 +104,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
             {
                 Product = addedProduct,
-            }, Messages.General.GiveMessage("xxKx", "Çalışan", "eklendi."));
+            }, Messages.General.GiveMessage("xxKx", "Ürün", "eklendi."));
         }
         public async Task<IResult> UpdateAsync(ProductUpdateDto ProductUpdateDto, string modifiedByName)
         {
@@ -103,7 +116,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
             {
                 Product = updatedProduct,
-            }, Messages.General.GiveMessage("xxKx", "Çalışan", "Güncellendi."));
+            }, Messages.General.GiveMessage("xxKx", "Ürün", "Güncellendi."));
         }
         public async Task<IDataResult<ProductListDto>> GetAllByDeletedAsync()
         {
@@ -116,7 +129,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
         }
 
         public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAsync()
@@ -130,127 +143,96 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
         }
 
-        //public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (products.Count > -1)
-        //    {
-        //        return new DataResult<ProductListDto>(ResultStatus.Success, new ProductListDto
-        //        {
-        //            Products = products,
-        //        });
-        //    }
-        //    return new DataResult<ProductListDto>(ResultStatus.Error, new ProductListDto
-        //    {
-        //        Products = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Çalışan"));
-        //}
+        public async Task<IDataResult<ProductDto>> DeleteAsync(int ProductId, string modifiedByName)
+        {
+            var product = await UnitOfWork.Products.GetAsync(c => c.Id == ProductId);
+            if (product != null)
+            {
+                product.IsDeleted = true;
+                product.IsActive = false;
+                product.ModifiedByName = modifiedByName;
+                product.ModifiedDate = DateTime.Now;
+                var deletedProduct = await UnitOfWork.Products.UpdateAsync(product);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
+                {
+                    Product = deletedProduct,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage(product.ProductName, "Ürün", MessagesConstants.DeletedSuccess)
 
+                }, Messages.General.GiveMessage(product.ProductName, "Ürün", MessagesConstants.DeletedSuccess));
+            }
+            return new DataResult<ProductDto>(ResultStatus.Error, new ProductDto
+            {
+                Product = null,
+            }, Messages.General.GiveMessage(product.ProductName, "Ürün", MessagesConstants.DeletedError));
+        }
 
+        public async Task<IResult> HardDeleteAsync(int ProductId)
+        {
+            var product = await UnitOfWork.Products.GetAsync(c => c.Id == ProductId);
+            if (product != null)
+            {
+                await UnitOfWork.Products.DeleteAsync(product);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(product.ProductName, "Ürün", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Ürün"));
+        }
 
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var ProductsCount = await UnitOfWork.Products.CountAsync();
+            if (ProductsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, ProductsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var ProductsCount = await UnitOfWork.Products.CountAsync(c => !c.IsDeleted);
+            if (ProductsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, ProductsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //public async Task<IDataResult<ProductDto>> DeleteAsync(int ProductId, string modifiedByName)
-        //{
-        //    var product = await UnitOfWork.Products.GetAsync(c => c.Id == ProductId);
-        //    if (product != null)
-        //    {
-        //        Product.IsDeleted = true;
-        //        Product.IsActive = false;
-        //        Product.ModifiedByName = modifiedByName;
-        //        Product.ModifiedDate = DateTime.Now;
-        //        var deletedProduct = await UnitOfWork.Products.UpdateAsync(Product);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
-        //        {
-        //            Product = deletedProduct,
-        //        }, Messages.Product.Delete(deletedProduct.CreatedByName));
-        //    }
-        //    return new DataResult<ProductDto>(ResultStatus.Error, new ProductDto
-        //    {
-        //        Product = null,
-        //    }, Messages.Product.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IResult> HardDeleteAsync(int ProductId)
-        //{
-        //    var product = await UnitOfWork.Products.GetAsync(c => c.Id == ProductId);
-        //    if (product != null)
-        //    {
-        //        await UnitOfWork.Products.DeleteAsync(Product);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.Product.HardDelete(Product.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.Product.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var productsCount = await UnitOfWork.Products.CountAsync();
-        //    if (productsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, ProductsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var productsCount = await UnitOfWork.Products.CountAsync(c=>!c.IsDeleted);
-        //    if (productsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, ProductsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<ProductDto>> ApproveAsync(int ProductId, string modifiedByName)
-        //{
-        //    var product = await UnitOfWork.Products.GetAsync(c => c.Id == ProductId, c => c.Product);
-        //    if (product != null)
-        //    {
-        //        product.IsActive = true;
-        //        product.ModifiedByName = modifiedByName;
-        //        product.ModifiedDate = DateTime.Now;
-        //        var updatedProduct = await UnitOfWork.Products.UpdateAsync(Product);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
-        //        {
-        //            Product = updatedProduct
-        //        }, Messages.Product.Approve(ProductId));
-        //    }
-
-        //    return new DataResult<ProductDto>(ResultStatus.Error, null, Messages.Product.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<ProductDto>> UndoDeleteAsync(int ProductId, string modifiedByName)
-        //{
-        //    var product = await UnitOfWork.Products.GetAsync(c => c.Id == ProductId);
-        //    if (product != null)
-        //    {
-        //        product.IsDeleted = false;
-        //        product.IsActive = true;
-        //        product.ModifiedByName = modifiedByName;
-        //        product.ModifiedDate = DateTime.Now;
-        //        var deletedProduct = await UnitOfWork.Products.UpdateAsync(Product);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
-        //        {
-        //            Product = deletedProduct,
-        //        }, Messages.Product.UndoDelete(deletedProduct.CreatedByName));
-        //    }
-        //    return new DataResult<ProductDto>(ResultStatus.Error, new ProductDto
-        //    {
-        //        Product = null,
-        //    }, Messages.Product.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<ProductDto>> UndoDeleteAsync(int productId, string modifiedByName)
+        {
+            var product = await UnitOfWork.Products.GetAsync(c => c.Id == productId);
+            if (product != null)
+            {
+                product.IsDeleted = false;
+                product.IsActive = true;
+                product.ModifiedByName = modifiedByName;
+                product.ModifiedDate = DateTime.Now;
+                var deletedProduct = await UnitOfWork.Products.UpdateAsync(product);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
+                {
+                    Product = deletedProduct,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage(product.ProductName, "Ürün", MessagesConstants.UpdateSuccess)
+                }, Messages.General.GiveMessage(product.ProductName, "Ürün", MessagesConstants.UpdateError));
+            }
+            return new DataResult<ProductDto>(ResultStatus.Error, new ProductDto
+            {
+                Product = null,
+                ResultStatus = ResultStatus.Error,
+                Message = Messages.General.NotFound(isPlural: false, "Ürün")
+            }, Messages.General.NotFound(isPlural: false, "Ürün"));
+        }
     }
 }

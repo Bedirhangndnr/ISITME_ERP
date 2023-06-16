@@ -45,3 +45,11 @@ body {
 tr.removed {
     display: none;
 }
+
+.income-row {
+    background-color: #C8FAC8; /* Gelir olan satırlar için hafif yeşil */
+}
+
+.expense-row {
+    background-color: #FAC8C8; /* Gider olan satırlar için kırmızı veya turuncu */
+}

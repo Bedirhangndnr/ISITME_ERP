@@ -1,4 +1,5 @@
-﻿@model MyBlog.Mvc.Areas.Admin.Models.AppointmentUpdateViewModel
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Mvc.Areas.Admin.Models.AppointmentUpdateViewModel
 
 @{
     ViewData["Title"] = "Add";
@@ -15,9 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     <input type="hidden" asp-for="Id" value="@Model.Id" />
-                    <input type="hidden" asp-for="Employees" value="@Model.Employees" />
-                    <input type="hidden" asp-for="Customers" value="@Model.Customers" />
-                    <input type="hidden" asp-for="AppointmentTypes" value="@Model.AppointmentTypes" />
+                    <input type="hidden" asp-for="CreatedByName" value="@Model.CreatedByName" />
 
                     <div class="form-group">
                         <input type="text" id="articleTitle" class="form-control" placeholder="Makale Başlığı" asp-for="Title" />
@@ -36,7 +35,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Temel Konfigürasyonlar
+                    Tipler
                 </div>
                 <div class="card-body">
                     <div class="form-group">
@@ -65,15 +64,31 @@
                         <input type="text" id="datetimepicker" class="form-control" value="@DateTime.Now.ToShortDateString()" asp-for="Date" />
                         <span asp-validation-for="Date" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
-                    </div>
+                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                    {
+                    Id=Model.Id,
+                    InMainPage=1,
+                    InUpdate=1,
+                    TableType=ViewBag.tableType,
+                    Action="Update",
+                    Controller="Appointment"
+                    })
+                </div>
+
+
                     <input type="checkbox" id="isMade" class="form-check-input" asp-for="IsMade" />
                     <span asp-validation-for="IsMade" class="text-danger"></span>
                     <label for="isActive" class="form-check-label" asp-for="IsMade"></label>
                 </div>
+
             </div>
-        </div>
+        @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+        {
+        CreatedByName = Model.CreatedByName,
+        CreatedDate = Model.CreatedDate,
+        ModifiedByName = Model.ModifiedByName,
+        ModifiedDate = Model.ModifiedDate
+        })
 
 
     </div>

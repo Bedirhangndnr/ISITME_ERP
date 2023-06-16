@@ -94,8 +94,26 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             editorUser.PasswordHash = CreatePasswordHash(editorUser, "editoruser");
+            var editorUser2 = new User
+            {
+                Id = 3,
+                UserName = "editoruser2",
+                NormalizedUserName = "EDITORUSER2",
+                Email = "editoruser2@gmail.com",
+                NormalizedEmail = "EDITORUSER2@GMAIL.COM",
+                PhoneNumber = "+905555555555",
+                Picture = "/userImages/defaultUser.png",
+                FirstName = "Admin",
+                LastName = "User",
+                About = "Editor User 2 of MyBlog",
+                Link = "https://twitter.com/adminuser",
+                EmailConfirmed = true,
+                PhoneNumberConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            editorUser.PasswordHash = CreatePasswordHash(editorUser2, "editoruser2");
 
-            builder.HasData(adminUser, editorUser);
+            builder.HasData(adminUser, editorUser, editorUser2);
         }
 
         private string CreatePasswordHash(User user,string password)

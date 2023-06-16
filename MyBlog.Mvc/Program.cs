@@ -27,11 +27,12 @@ builder.Services.AddControllersWithViews(options=> {
 }).AddNToastNotifyToastr(); // Eklendi
 
 builder.Services.AddSession();
-builder.Services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile),
+builder.Services.AddAutoMapper(typeof(PaymentProfile),typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile),
     typeof(ViewModelsProfile), typeof(CommentProfile), typeof(CustomerProfile), typeof(PaymentTypeProfile),
     typeof(CustomerTypeProfile), typeof(EmployeeProfile), typeof(EmployeeTypeProfile), typeof(CustomerReferanceProfile),
     typeof(NotificationProfile),typeof(AppointmentTypeProfile),typeof(SaleStatusProfile),typeof(SaleTypeProfile), 
-    typeof(ProductGroupProfile), typeof(ProductSubGroupProfile),typeof(ProductProfile), typeof(SaleProfile), typeof(ProgramsProfile)); // Eklendi
+    typeof(ProductGroupProfile), typeof(ProductSubGroupProfile),typeof(ProductProfile), typeof(SaleProfile), typeof(ProgramsProfile),
+    typeof(AssociatedInstitutionsProfile), typeof(AppointmentProfile), typeof(ExpenseProfile)); // Eklendi
 
 // Eklendi // mvc katmanı ile diğer katmanlar arasında köprü görevi görür
 var Configuration = builder.Configuration;

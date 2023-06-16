@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MyBlog.Data.Abstract;
 using MyBlog.Entities.Concrete;
-using MyBlog.Entities.Dtos.ArticleDtos;
 using MyBlog.Entities.Dtos.CustomerDtos;
+using MyBlog.Entities.Dtos.ArticleDtos;
 using MyBlog.Services.Abstract;
 using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Results;
@@ -42,11 +42,13 @@ namespace MyBlog.Services.Concrete
         public async Task<IDataResult<CustomerListDto>> GetAllByNonDeletedAndActiveAsync()
         {
             var customers = await UnitOfWork.Customers.GetAllAsync(x => !x.IsDeleted);
+            var customersWRelated = await UnitOfWork.Customers.GetAllWithRelatedTablesAsync(x => !x.IsDeleted);
             if (customers.Count > -1)
             {
                 return new DataResult<CustomerListDto>(ResultStatus.Success, new CustomerListDto
                 {
                     Customers = customers,
+                    CustomersListWithRelatedTables = customersWRelated,
                     ResultStatus = ResultStatus.Success
                 });
 
@@ -86,12 +88,12 @@ namespace MyBlog.Services.Concrete
 
         public async Task<IDataResult<CustomerListDto>> GetAllAsync()
         {
-            var Customers = await UnitOfWork.Customers.GetAllAsync(null);
+            var Customers = await UnitOfWork.Customers.GetAllWithRelatedTablesAsync(null);
             if (Customers.Count > -1)
             {
                 return new DataResult<CustomerListDto>(ResultStatus.Success, new CustomerListDto
                 {
-                    Customers = Customers,
+                    CustomersListWithRelatedTables = Customers,
                 });
             }
             return new DataResult<CustomerListDto>(ResultStatus.Error, new CustomerListDto
@@ -100,54 +102,7 @@ namespace MyBlog.Services.Concrete
             }, Messages.General.NotFound(isPlural: true, "Müşteri"));
         }
 
-        //public async Task<IDataResult<CustomerListDto>> GetAllByDeletedAsync()
-        //{
-        //    var Customers = await UnitOfWork.Customers.GetAllAsync(c=>c.IsDeleted, c => c.Customer);
-        //    if (Customers.Count > -1)
-        //    {
-        //        return new DataResult<CustomerListDto>(ResultStatus.Success, new CustomerListDto
-        //        {
-        //            Customers = Customers,
-        //        });
-        //    }
-        //    return new DataResult<CustomerListDto>(ResultStatus.Error, new CustomerListDto
-        //    {
-        //        Customers = null,
-        //    }, Messages.Customer.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<CustomerListDto>> GetAllByNonDeletedAsync()
-        //{
-        //    var Customers = await UnitOfWork.Customers.GetAllAsync(c => !c.IsDeleted, c => c.Customer);
-        //    if (Customers.Count > -1)
-        //    {
-        //        return new DataResult<CustomerListDto>(ResultStatus.Success, new CustomerListDto
-        //        {
-        //            Customers = Customers,
-        //        });
-        //    }
-        //    return new DataResult<CustomerListDto>(ResultStatus.Error, new CustomerListDto
-        //    {
-        //        Customers = null,
-        //    }, Messages.Customer.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<CustomerListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var Customers = await UnitOfWork.Customers.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (Customers.Count > -1)
-        //    {
-        //        return new DataResult<CustomerListDto>(ResultStatus.Success, new CustomerListDto
-        //        {
-        //            Customers = Customers,
-        //        });
-        //    }
-        //    return new DataResult<CustomerListDto>(ResultStatus.Error, new CustomerListDto
-        //    {
-        //        Customers = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Hasta"));
-        //}
-
+        
         public async Task<IResult> AddAsync(CustomerAddDto CustomerAddDto, string createdByName, int userId)
         {
             var customer = Mapper.Map<Customer>(CustomerAddDto);
@@ -171,106 +126,95 @@ namespace MyBlog.Services.Concrete
             return new Result(ResultStatus.Success, Messages.General.GiveMessage(customer.FirstName, "Hasta", "Güncellendi"));
         }
 
-  
 
-        //public async Task<IDataResult<CustomerDto>> DeleteAsync(int CustomerId, string modifiedByName)
-        //{
-        //    var Customer = await UnitOfWork.Customers.GetAsync(c => c.Id == CustomerId);
-        //    if (Customer != null)
-        //    {
-        //        Customer.IsDeleted = true;
-        //        Customer.IsActive = false;
-        //        Customer.ModifiedByName = modifiedByName;
-        //        Customer.ModifiedDate = DateTime.Now;
-        //        var deletedCustomer = await UnitOfWork.Customers.UpdateAsync(Customer);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<CustomerDto>(ResultStatus.Success, new CustomerDto
-        //        {
-        //            Customer = deletedCustomer,
-        //        }, Messages.Customer.Delete(deletedCustomer.CreatedByName));
-        //    }
-        //    return new DataResult<CustomerDto>(ResultStatus.Error, new CustomerDto
-        //    {
-        //        Customer = null,
-        //    }, Messages.Customer.NotFound(isPlural: false));
-        //}
 
-        //public async Task<IResult> HardDeleteAsync(int CustomerId)
-        //{
-        //    var Customer = await UnitOfWork.Customers.GetAsync(c => c.Id == CustomerId);
-        //    if (Customer != null)
-        //    {
-        //        await UnitOfWork.Customers.DeleteAsync(Customer);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.Customer.HardDelete(Customer.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.Customer.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<CustomerDto>> DeleteAsync(int CustomerId, string modifiedByName)
+        {
+            var customer = await UnitOfWork.Customers.GetAsync(c => c.Id == CustomerId);
+            if (customer != null)
+            {
+                customer.IsDeleted = true;
+                customer.IsActive = false;
+                customer.ModifiedByName = modifiedByName;
+                customer.ModifiedDate = DateTime.Now;
+                var deletedCustomer = await UnitOfWork.Customers.UpdateAsync(customer);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<CustomerDto>(ResultStatus.Success, new CustomerDto
+                {
+                    Customer = deletedCustomer,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage(customer.FirstName, "Hasta", MessagesConstants.DeletedSuccess)
 
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var CustomersCount = await UnitOfWork.Customers.CountAsync();
-        //    if (CustomersCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, CustomersCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
+                }, Messages.General.GiveMessage(customer.FirstName, "Hasta", MessagesConstants.DeletedSuccess));
+            }
+            return new DataResult<CustomerDto>(ResultStatus.Error, new CustomerDto
+            {
+                Customer = null,
+            }, Messages.General.GiveMessage(customer.FirstName, "Hasta", MessagesConstants.DeletedError));
+        }
 
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var CustomersCount = await UnitOfWork.Customers.CountAsync(c=>!c.IsDeleted);
-        //    if (CustomersCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, CustomersCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
+        public async Task<IResult> HardDeleteAsync(int CustomerId)
+        {
+            var customer = await UnitOfWork.Customers.GetAsync(c => c.Id == CustomerId);
+            if (customer != null)
+            {
+                await UnitOfWork.Customers.DeleteAsync(customer);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(customer.FirstName, "Hasta", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Hasta"));
+        }
 
-        //public async Task<IDataResult<CustomerDto>> ApproveAsync(int CustomerId, string modifiedByName)
-        //{
-        //    var Customer = await UnitOfWork.Customers.GetAsync(c => c.Id == CustomerId, c => c.Customer);
-        //    if (Customer != null)
-        //    {
-        //        Customer.IsActive = true;
-        //        Customer.ModifiedByName = modifiedByName;
-        //        Customer.ModifiedDate = DateTime.Now;
-        //        var updatedCustomer = await UnitOfWork.Customers.UpdateAsync(Customer);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<CustomerDto>(ResultStatus.Success, new CustomerDto
-        //        {
-        //            Customer = updatedCustomer
-        //        }, Messages.Customer.Approve(CustomerId));
-        //    }
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var CustomersCount = await UnitOfWork.Customers.CountAsync();
+            if (CustomersCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, CustomersCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //    return new DataResult<CustomerDto>(ResultStatus.Error, null, Messages.Customer.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<CustomerDto>> UndoDeleteAsync(int CustomerId, string modifiedByName)
-        //{
-        //    var Customer = await UnitOfWork.Customers.GetAsync(c => c.Id == CustomerId);
-        //    if (Customer != null)
-        //    {
-        //        Customer.IsDeleted = false;
-        //        Customer.IsActive = true;
-        //        Customer.ModifiedByName = modifiedByName;
-        //        Customer.ModifiedDate = DateTime.Now;
-        //        var deletedCustomer = await UnitOfWork.Customers.UpdateAsync(Customer);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<CustomerDto>(ResultStatus.Success, new CustomerDto
-        //        {
-        //            Customer = deletedCustomer,
-        //        }, Messages.Customer.UndoDelete(deletedCustomer.CreatedByName));
-        //    }
-        //    return new DataResult<CustomerDto>(ResultStatus.Error, new CustomerDto
-        //    {
-        //        Customer = null,
-        //    }, Messages.Customer.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var CustomersCount = await UnitOfWork.Customers.CountAsync(c => !c.IsDeleted);
+            if (CustomersCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, CustomersCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
+
+        public async Task<IDataResult<CustomerDto>> UndoDeleteAsync(int customerId, string modifiedByName)
+        {
+            var customer = await UnitOfWork.Customers.GetAsync(c => c.Id == customerId);
+            if (customer != null)
+            {
+                customer.IsDeleted = false;
+                customer.IsActive = true;
+                customer.ModifiedByName = modifiedByName;
+                customer.ModifiedDate = DateTime.Now;
+                var deletedCustomer = await UnitOfWork.Customers.UpdateAsync(customer);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<CustomerDto>(ResultStatus.Success, new CustomerDto
+                {
+                    Customer = deletedCustomer,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage(customer.FirstName, "Hasta", MessagesConstants.UpdateSuccess)
+                }, Messages.General.GiveMessage(customer.FirstName, "Hasta", MessagesConstants.UpdateError));
+            }
+            return new DataResult<CustomerDto>(ResultStatus.Error, new CustomerDto
+            {
+                Customer = null,
+                ResultStatus = ResultStatus.Error,
+                Message = Messages.General.NotFound(isPlural: false, "Hasta")
+            }, Messages.General.NotFound(isPlural: false, "Hasta"));
+        }
     }
 }

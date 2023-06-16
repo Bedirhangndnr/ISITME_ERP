@@ -33,10 +33,8 @@ namespace MyBlog.Data.Abstract
         IProgramRepository Programs { get; }
         ISubProgramRepository SubPrograms { get; }
         IModuleRepository Modules { get; }
-  // Kullanım örneği -> unitofwork.Categories.AddAsync();
-        //unitofwork.categories.addasync();
-        //unitofwork.users.addasync();
-        //unitofwork.SaveAsync();
+        IExpenseRepository Expenses { get; }
+        IAssociatedInstitutionRepository AssociatedInstitutions { get; }
         Task<int> SaveAsync();
     }
 }

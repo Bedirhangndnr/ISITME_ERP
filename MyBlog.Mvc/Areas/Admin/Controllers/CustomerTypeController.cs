@@ -120,7 +120,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         NotificationMessageTypes.Updated, 
                         "Müşteri Tipleri", 
                         result.Data.CustomerType.ModifiedByName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated)
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new CustomerTypeUpdateAjaxViewModel
                     {

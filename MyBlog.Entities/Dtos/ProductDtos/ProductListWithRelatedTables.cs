@@ -12,6 +12,8 @@ namespace MyBlog.Entities.Dtos.ProductDtos
     {
         public int Id { get; set; }
         public int ProductSubGroupId { get; set; }
+        public bool IsSold { get; set; }
+
         public string ProductSubGroupTitle { get; set; }
         public int ProductCategoryId { get; set; }
         public string ProductCategoryTitle { get; set; }

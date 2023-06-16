@@ -17,6 +17,7 @@ using MyBlog.Shared.Utilities.Results.ComplexTypes;
 using MyBlog.Shared.Utilities.Results.Concrete;
 using MyBlog.Data.Concrete.EntityFramework.Context;
 using MyBlog.Entities.Dtos.EmployeeTypeDtos;
+using MyBlog.Entities.Dtos.AppointmentTypeDtos;
 
 namespace MyBlog.Services.Concrete
 {
@@ -69,7 +70,7 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<BrandUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Hasta Tipi"));
+                return new DataResult<BrandUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Marka"));
             }
         }
 
@@ -91,7 +92,7 @@ namespace MyBlog.Services.Concrete
         public async Task<IDataResult<BrandDto>> AddAsync(BrandAddDto BrandAddDto, string createdByName)
         {
             var brand = Mapper.Map<Brand>(BrandAddDto);
-
+            brand.ModifiedByName = createdByName;
             brand.CreatedByName = createdByName;
             var addedBrand = await UnitOfWork.Brands.AddAsync(brand);
             await UnitOfWork.SaveAsync();
@@ -100,7 +101,8 @@ namespace MyBlog.Services.Concrete
             return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
             {
                 Brand = addedBrand,
-            }, Messages.General.GiveMessage(addedBrand.CreatedByName, "Hasta Tipi", "Eklendi"));
+                Message= Messages.General.GiveMessage(addedBrand.CreatedByName, "Marka", MessagesConstants.AddSuccess)
+            }, Messages.General.GiveMessage(addedBrand.CreatedByName, "Marka", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<BrandDto>> UpdateAsync(BrandUpdateDto BrandUpdateDto, string modifiedByName)
@@ -113,10 +115,10 @@ namespace MyBlog.Services.Concrete
             await UnitOfWork.SaveAsync();
             return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
             {
-                Message= Messages.General.GiveMessage(brand.Title, "Hasta Tipi", "Güncellendi."),
+                Message= Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UpdateSuccess),
                 Brand = updatedBrand,
                 ResultStatus = ResultStatus.Success,
-            }, Messages.General.GiveMessage(brand.Title, "Hasta Tipi", "Güncellendi."));
+            }, Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UpdateSuccess));
         }
         public async Task<IDataResult<BrandDto>> DeleteAsync(int BrandId, string modifiedByName)
         {
@@ -131,163 +133,90 @@ namespace MyBlog.Services.Concrete
                 await UnitOfWork.SaveAsync();
                 return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
                 {
-                    Brand = deletedEmployeeType
-                    
-                }, Messages.General.GiveMessage(brand.Title, "Marka", "Güncellendi."));
+                    Brand = deletedEmployeeType,
+                    Message= Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UpdateSuccess)
+
+                }, Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UpdateSuccess));
             }
             return new DataResult<BrandDto>(ResultStatus.Error, new BrandDto
             {
                 Brand = null,
             }, Messages.General.GiveMessage(brand.Title, "Marka", "Güncellenemedi."));
         }
-        //public async Task<IDataResult<BrandListDto>> GetAllByDeletedAsync()
-        //{
-        //    var Brands = await UnitOfWork.Brands.GetAllAsync(c=>c.IsDeleted, c => c.Brand);
-        //    if (Brands.Count > -1)
-        //    {
-        //        return new DataResult<BrandListDto>(ResultStatus.Success, new BrandListDto
-        //        {
-        //            Brands = Brands,
-        //        });
-        //    }
-        //    return new DataResult<BrandListDto>(ResultStatus.Error, new BrandListDto
-        //    {
-        //        Brands = null,
-        //    }, Messages.Brand.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<BrandListDto>> GetAllByNonDeletedAsync()
-        //{
-        //    var Brands = await UnitOfWork.Brands.GetAllAsync(c => !c.IsDeleted, c => c.Brand);
-        //    if (Brands.Count > -1)
-        //    {
-        //        return new DataResult<BrandListDto>(ResultStatus.Success, new BrandListDto
-        //        {
-        //            Brands = Brands,
-        //        });
-        //    }
-        //    return new DataResult<BrandListDto>(ResultStatus.Error, new BrandListDto
-        //    {
-        //        Brands = null,
-        //    }, Messages.Brand.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<BrandListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var Brands = await UnitOfWork.Brands.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (Brands.Count > -1)
-        //    {
-        //        return new DataResult<BrandListDto>(ResultStatus.Success, new BrandListDto
-        //        {
-        //            Brands = Brands,
-        //        });
-        //    }
-        //    return new DataResult<BrandListDto>(ResultStatus.Error, new BrandListDto
-        //    {
-        //        Brands = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Hasta"));
-        //}
+        public async Task<IDataResult<BrandListDto>> GetAllByDeletedAsync()
+        {
+            var brands = await UnitOfWork.Brands.GetAllAsync(c => c.IsDeleted);
+            if (brands.Count > -1)
+            {
+                return new DataResult<BrandListDto>(ResultStatus.Success, new BrandListDto
+                {
+                    Brands = brands,
+                });
+            }
+            return new DataResult<BrandListDto>(ResultStatus.Error, new BrandListDto
+            {
+                Brands = null,
+            }, Messages.General.TableNotFound("Markalar"));
+        }
+        public async Task<IResult> HardDeleteAsync(int BrandId)
+        {
+            var brand = await UnitOfWork.Brands.GetAsync(c => c.Id == BrandId);
+            if (brand != null)
+            {
+                await UnitOfWork.Brands.DeleteAsync(brand);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.HardDeletedSuccess));
+        }
 
 
+        public async Task<IDataResult<BrandDto>> UndoDeleteAsync(int BrandId, string modifiedByName)
+        {
+            var brand = await UnitOfWork.Brands.GetAsync(c => c.Id == BrandId);
+            if (brand != null)
+            {
+                brand.IsDeleted = false;
+                brand.IsActive = true;
+                brand.ModifiedByName = modifiedByName;
+                brand.ModifiedDate = DateTime.Now;
+                var deletedBrand = await UnitOfWork.Brands.UpdateAsync(brand);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
+                {
+                    Message = Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UndoDeletedSuccess),
+                    Brand = deletedBrand,
+                }, Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UndoDeletedSuccess));
+            }
+            return new DataResult<BrandDto>(ResultStatus.Error, new BrandDto
+            {
+                Brand = null,
+            }, Messages.General.GiveMessage(brand.Title, "Marka", MessagesConstants.UndoDeletedError));
+        }
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var BrandsCount = await UnitOfWork.Brands.CountAsync();
+            if (BrandsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, BrandsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //public async Task<IDataResult<BrandDto>> DeleteAsync(int BrandId, string modifiedByName)
-        //{
-        //    var Brand = await UnitOfWork.Brands.GetAsync(c => c.Id == BrandId);
-        //    if (Brand != null)
-        //    {
-        //        Brand.IsDeleted = true;
-        //        Brand.IsActive = false;
-        //        Brand.ModifiedByName = modifiedByName;
-        //        Brand.ModifiedDate = DateTime.Now;
-        //        var deletedBrand = await UnitOfWork.Brands.UpdateAsync(Brand);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
-        //        {
-        //            Brand = deletedBrand,
-        //        }, Messages.Brand.Delete(deletedBrand.CreatedByName));
-        //    }
-        //    return new DataResult<BrandDto>(ResultStatus.Error, new BrandDto
-        //    {
-        //        Brand = null,
-        //    }, Messages.Brand.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IResult> HardDeleteAsync(int BrandId)
-        //{
-        //    var Brand = await UnitOfWork.Brands.GetAsync(c => c.Id == BrandId);
-        //    if (Brand != null)
-        //    {
-        //        await UnitOfWork.Brands.DeleteAsync(Brand);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.Brand.HardDelete(Brand.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.Brand.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var BrandsCount = await UnitOfWork.Brands.CountAsync();
-        //    if (BrandsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, BrandsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var BrandsCount = await UnitOfWork.Brands.CountAsync(c=>!c.IsDeleted);
-        //    if (BrandsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, BrandsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<BrandDto>> ApproveAsync(int BrandId, string modifiedByName)
-        //{
-        //    var Brand = await UnitOfWork.Brands.GetAsync(c => c.Id == BrandId, c => c.Brand);
-        //    if (Brand != null)
-        //    {
-        //        Brand.IsActive = true;
-        //        Brand.ModifiedByName = modifiedByName;CustomerType
-        //        Brand.ModifiedDate = DateTime.Now;
-        //        var updatedBrand = await UnitOfWork.Brands.UpdateAsync(Brand);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
-        //        {
-        //            Brand = updatedBrand
-        //        }, Messages.Brand.Approve(BrandId));
-        //    }
-
-        //    return new DataResult<BrandDto>(ResultStatus.Error, null, Messages.Brand.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<BrandDto>> UndoDeleteAsync(int BrandId, string modifiedByName)
-        //{
-        //    var Brand = await UnitOfWork.Brands.GetAsync(c => c.Id == BrandId);
-        //    if (Brand != null)
-        //    {
-        //        Brand.IsDeleted = false;
-        //        Brand.IsActive = true;
-        //        Brand.ModifiedByName = modifiedByName;
-        //        Brand.ModifiedDate = DateTime.Now;
-        //        var deletedBrand = await UnitOfWork.Brands.UpdateAsync(Brand);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<BrandDto>(ResultStatus.Success, new BrandDto
-        //        {
-        //            Brand = deletedBrand,
-        //        }, Messages.Brand.UndoDelete(deletedBrand.CreatedByName));
-        //    }
-        //    return new DataResult<BrandDto>(ResultStatus.Error, new BrandDto
-        //    {
-        //        Brand = null,
-        //    }, Messages.Brand.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var BrandsCount = await UnitOfWork.Brands.CountAsync(c => !c.IsDeleted);
+            if (BrandsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, BrandsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
     }
 }

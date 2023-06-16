@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    const tableType = document.getElementById("tableType").value;
 
     /* DataTables start here. */
 
@@ -14,7 +15,7 @@
                     id: "btnAdd",
                 },
                 className: 'btn btn-success',
-                action: function (e, dt, node, config) {    
+                action: function (e, dt, node, config) {
 
                 }
             },
@@ -24,6 +25,7 @@
                 action: function (e, dt, node, config) {
                     $.ajax({
                         type: 'GET',
+                        data: { tableType: tableType },
                         url: '/Admin/SaleType/GetAllSaleTypes/',
                         contentType: "application/json",
                         beforeSend: function () {
@@ -42,9 +44,12 @@
                                             saleType.Title,
                                             saleType.Description,
                                             `
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${saleType.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${saleType.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                                                <div class="form-group row justify-content-center">
+                                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + saleType.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${saleType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + saleType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                </div>
+                                                    `
                                         ]).node();
                                         const jqueryTableRow = $(newTableRow);
                                         jqueryTableRow.attr('name', `${saleType.Id}`);
@@ -53,13 +58,15 @@
                                 $('.spinner-border').hide();
                                 $('#saleTypesTable').fadeIn(1400);
                             } else {
+                                $('.spinner-border').hide();
+                                $('#saleTypesTable').fadeIn(1000);
                                 toastr.error(`${saleTypeListDto.Data.Message}`, 'İşlem Başarısız!');
                             }
                         },
                         error: function (err) {
                             console.log(err);
                             $('.spinner-border').hide();
-                            $('#saleTypesTable').fadeIn(1000);
+                            $('#customerTypesTable').fadeIn(1000);
                             toastr.error(`${err.responseText}`, 'Hata !');
                         }
                     });
@@ -98,6 +105,9 @@
             }
         }
     });
+    if (tableType === "DeletedTables") {
+        $('.dt-buttons #btnAdd').remove(); // Düğmeyi kaldır
+    }
 
     /* DataTables end here */
 
@@ -108,11 +118,12 @@
         function (event) {
             event.preventDefault();
             const id = $(this).attr('data-id');
+            const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
             const saleTypeTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
-                title: 'Silmek istediğinize emin misiniz?',
-                text: `${saleTypeTitle} başlıklı makale silinicektir!`,
+                title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
+                text: `${saleTypeTitle} Başlıklı Ürün Alt Grubu ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -124,18 +135,29 @@
                     $.ajax({
                         type: 'POST',
                         dataType: 'json',
-                        data: { saleTypeId: id },
+                        data: { saleTypeId: id, tableType: tableType },
                         url: '/Admin/SaleType/Delete/',
                         success: function (data) {
                             const saleTypeResult = jQuery.parseJSON(data);
                             if (saleTypeResult.ResultStatus === 0) {
-                                Swal.fire(
-                                    'Silindi!',
-                                    `${saleTypeResult.SaleType.Title}`,
-                                    'success'
-                                );
-
-                                dataTable.row(tableRow).remove().draw();
+                                if (tableType === 'DeletedTables') {
+                                    Swal.fire(
+                                        'Tamamen Silindi!',
+                                        `${saleTypeResult.Message}`,
+                                        'success'
+                                    );
+                                }
+                                else {
+                                    Swal.fire(
+                                        'Silindi!',
+                                        `${saleTypeResult.Message}`,
+                                        'success'
+                                    );
+                                }
+                                // index controller içindeyiz, sil butonuna tıklandığında şu adrese git
+                                tableRow.fadeOut(2000, function () {
+                                    dataTable.row($(this)).remove().draw();
+                                });
                             } else {
                                 Swal.fire({
                                     icon: 'error',
@@ -182,15 +204,18 @@
                     const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
                     if (isValid) {
                         placeHolderDiv.find('.modal').modal('hide');
+                        const saleType = SaleTypeAddAjaxModel.SaleTypeDto.SaleType;
                         const newTableRow = dataTable.row.add([
-                            SaleTypeAddAjaxModel.SaleTypeDto.SaleType.Id,
-                            SaleTypeAddAjaxModel.SaleTypeDto.SaleType.Title,
-                            SaleTypeAddAjaxModel.SaleTypeDto.SaleType.Description,
+                            saleType.Id,
+                            saleType.Title,
+                            saleType.Description,
                             `
-                            <div style="text-align:center">
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${SaleTypeAddAjaxModel.SaleTypeDto.SaleType.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${SaleTypeAddAjaxModel.SaleTypeDto.SaleType.Id}"><span class="fas fa-minus-circle"></span></button>
-                                           </div> `
+                                <div class="form-group row justify-content-center">
+                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + saleType.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${saleType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + saleType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                </div>
+                                    `
                         ]).node();
                         const jqueryTableRow = $(newTableRow);
                         jqueryTableRow.attr('name', `${SaleTypeAddAjaxModel.SaleTypeDto.SaleType.Id}`);
@@ -221,8 +246,9 @@
             '.btn-update',
             function (event) {
                 event.preventDefault();
+                const tableType = document.getElementById("tableType").value;
                 const id = $(this).attr('data-id');
-                $.get(url, { SaleTypeId: id }).done(function (data) {
+                $.get(url, { saleTypeId: id, tableType: tableType }).done(function (data) {
                     placeHolderDiv.html(data);
                     placeHolderDiv.find('.modal').modal('show');
                 }).fail(function () {
@@ -239,7 +265,7 @@
 
                 const form = $('#form-saleType-update');
                 const actionUrl = form.attr('action');
-                const dataToSend = form.serialize();
+                const dataToSend = `${form.serialize()}&tableType=${tableType}`;
                 $.post(actionUrl, dataToSend).done(function (data) {
                     const saleTypeTypeUpdateAjaxViewModel = jQuery.parseJSON(data);
                     console.log(saleTypeTypeUpdateAjaxViewModel);
@@ -256,9 +282,12 @@
                             saleType.Title,
                             saleType.Description,
                             `
-                                       <button class="btn btn-primary btn-sm btn-update" data-id="${saleType.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${saleType.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                            <div class="form-group row justify-content-center">
+                                  ${document.getElementById("tableType").value === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + saleType.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                  <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${saleType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                  ${document.getElementById("tableType").value === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + saleType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                </div>
+                            `
                         ]);
                         tableRow.attr("name", `${id}`);
                         dataTable.row(tableRow).invalidate();
@@ -277,5 +306,56 @@
             });
 
     });
+    $(document).on('click',
+        '.btn-undo',
+        function (event) {
+            event.preventDefault();
+            const id = $(this).attr('data-id');
+            const tableRow = $(`[name="${id}"]`);
+            const saleTypeFirsName = tableRow.find('td:eq(1)').text();
+            const saleTypeLastName = tableRow.find('td:eq(2)').text();
+            Swal.fire({
+                title: tableType === 'DeletedTables' ? 'Silinen Ürün Alt Grubu Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${saleTypeFirsName} Adlı Ürün Alt Grubu Geri Getirilecektir!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, geri getirmek istiyorum.',
+                cancelButtonText: 'Hayır, geri getirmek istemiyorum.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        data: { saleTypeId: id },
+                        url: '/Admin/saleType/UndoDelete/',
+                        success: function (data) {
+                            const saleTypeResult = jQuery.parseJSON(data);
+                            if (saleTypeResult.ResultStatus === 0) {
+                                Swal.fire(
+                                    'Geri Getirildi!',
+                                    `${saleTypeResult.Message}`,
+                                    'success'
+                                );
+                                tableRow.fadeOut(2000, function () {
+                                    dataTable.row($(this)).remove().draw();
+                                });
 
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Başarısız İşlem!',
+                                    text: `${saleTypeResult.Message}`,
+                                });
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            toastr.error(`${err.responseText}`, "Hata!");
+                        }
+                    });
+                }
+            });
+        });
 });

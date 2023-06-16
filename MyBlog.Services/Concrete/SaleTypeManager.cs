@@ -17,6 +17,7 @@ using MyBlog.Shared.Utilities.Results.ComplexTypes;
 using MyBlog.Shared.Utilities.Results.Concrete;
 using MyBlog.Data.Concrete.EntityFramework.Context;
 using MyBlog.Entities.Dtos.EmployeeTypeDtos;
+using MyBlog.Entities.Dtos.SaleTypeDtos;
 
 namespace MyBlog.Services.Concrete
 {
@@ -42,7 +43,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleTypeDto>(ResultStatus.Error, new SaleTypeDto
             {
                 SaleType = null,
-            }, Messages.General.NotFound(isPlural: false, "Hasta"));
+            }, Messages.General.NotFound(isPlural: false, "Satış Tipi"));
         }
         public async Task<IDataResult<SaleTypeListDto>> GetAllByNonDeletedAndActiveAsync()
         {
@@ -55,7 +56,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<SaleTypeListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Hasta"));
+            return new DataResult<SaleTypeListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Satış Tipi"));
 
         }
         public async Task<IDataResult<SaleTypeUpdateDto>> GetSaleTypeUpdateDtoAsync(int SaleTypeId)
@@ -69,7 +70,7 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<SaleTypeUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Hasta Tipi"));
+                return new DataResult<SaleTypeUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Satış Tipi"));
             }
         }
 
@@ -86,12 +87,13 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleTypeListDto>(ResultStatus.Error, new SaleTypeListDto
             {
                 SaleTypes = null,
-            }, Messages.General.NotFound(isPlural: true, "Hasta"));
+            }, Messages.General.NotFound(isPlural: true, "Satış Tipi"));
         }
         public async Task<IDataResult<SaleTypeDto>> AddAsync(SaleTypeAddDto SaleTypeAddDto, string createdByName)
         {
             var saleType = Mapper.Map<SaleType>(SaleTypeAddDto);
 
+            saleType.ModifiedByName = createdByName;
             saleType.CreatedByName = createdByName;
             var addedSaleType = await UnitOfWork.SaleTypes.AddAsync(saleType);
             await UnitOfWork.SaveAsync();
@@ -99,8 +101,9 @@ namespace MyBlog.Services.Concrete
             //Console.WriteLine($"entity State: {enrty}");
             return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
             {
+                Message= Messages.General.GiveMessage(addedSaleType.CreatedByName, "Satış Tipi", MessagesConstants.AddSuccess),
                 SaleType = addedSaleType,
-            }, Messages.General.GiveMessage(addedSaleType.CreatedByName, "Hasta Tipi", "Eklendi"));
+            }, Messages.General.GiveMessage(addedSaleType.CreatedByName, "Satış Tipi", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<SaleTypeDto>> UpdateAsync(SaleTypeUpdateDto SaleTypeUpdateDto, string modifiedByName)
@@ -113,10 +116,10 @@ namespace MyBlog.Services.Concrete
             await UnitOfWork.SaveAsync();
             return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
             {
-                Message= Messages.General.GiveMessage(saleType.Title, "Hasta Tipi", "Güncellendi."),
+                Message= Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.UpdateSuccess),
                 SaleType = updatedSaleType,
                 ResultStatus = ResultStatus.Success,
-            }, Messages.General.GiveMessage(saleType.Title, "Hasta Tipi", "Güncellendi."));
+            }, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.UpdateSuccess));
         }
         public async Task<IDataResult<SaleTypeDto>> DeleteAsync(int SaleTypeId, string modifiedByName)
         {
@@ -131,163 +134,90 @@ namespace MyBlog.Services.Concrete
                 await UnitOfWork.SaveAsync();
                 return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
                 {
+                    Message= Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.DeletedSuccess),
                     SaleType = deletedEmployeeType
                     
-                }, Messages.General.GiveMessage(saleType.Title, "Hasta Tipi", "Güncellendi."));
+                }, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.DeletedSuccess));
             }
             return new DataResult<SaleTypeDto>(ResultStatus.Error, new SaleTypeDto
             {
                 SaleType = null,
-            }, Messages.General.GiveMessage(saleType.Title, "Hasta Tipi", "Güncellenemedi."));
+            }, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.UpdateError));
         }
-        //public async Task<IDataResult<SaleTypeListDto>> GetAllByDeletedAsync()
-        //{
-        //    var SaleTypes = await UnitOfWork.SaleTypes.GetAllAsync(c=>c.IsDeleted, c => c.SaleType);
-        //    if (SaleTypes.Count > -1)
-        //    {
-        //        return new DataResult<SaleTypeListDto>(ResultStatus.Success, new SaleTypeListDto
-        //        {
-        //            SaleTypes = SaleTypes,
-        //        });
-        //    }
-        //    return new DataResult<SaleTypeListDto>(ResultStatus.Error, new SaleTypeListDto
-        //    {
-        //        SaleTypes = null,
-        //    }, Messages.SaleType.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<SaleTypeListDto>> GetAllByNonDeletedAsync()
-        //{
-        //    var SaleTypes = await UnitOfWork.SaleTypes.GetAllAsync(c => !c.IsDeleted, c => c.SaleType);
-        //    if (SaleTypes.Count > -1)
-        //    {
-        //        return new DataResult<SaleTypeListDto>(ResultStatus.Success, new SaleTypeListDto
-        //        {
-        //            SaleTypes = SaleTypes,
-        //        });
-        //    }
-        //    return new DataResult<SaleTypeListDto>(ResultStatus.Error, new SaleTypeListDto
-        //    {
-        //        SaleTypes = null,
-        //    }, Messages.SaleType.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<SaleTypeListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var SaleTypes = await UnitOfWork.SaleTypes.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (SaleTypes.Count > -1)
-        //    {
-        //        return new DataResult<SaleTypeListDto>(ResultStatus.Success, new SaleTypeListDto
-        //        {
-        //            SaleTypes = SaleTypes,
-        //        });
-        //    }
-        //    return new DataResult<SaleTypeListDto>(ResultStatus.Error, new SaleTypeListDto
-        //    {
-        //        SaleTypes = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Hasta"));
-        //}
+        public async Task<IDataResult<SaleTypeListDto>> GetAllByDeletedAsync()
+        {
+            var saleTypes = await UnitOfWork.SaleTypes.GetAllAsync(c => c.IsDeleted);
+            if (saleTypes.Count > -1)
+            {
+                return new DataResult<SaleTypeListDto>(ResultStatus.Success, new SaleTypeListDto
+                {
+                    SaleTypes = saleTypes,
+                });
+            }
+            return new DataResult<SaleTypeListDto>(ResultStatus.Error, new SaleTypeListDto
+            {
+                SaleTypes = null,
+            }, Messages.General.TableNotFound("Satış Tipleri"));
+        }
+        public async Task<IResult> HardDeleteAsync(int saleTypeId)
+        {
+            var saleType = await UnitOfWork.SaleTypes.GetAsync(c => c.Id == saleTypeId);
+            if (saleType != null)
+            {
+                await UnitOfWork.SaleTypes.DeleteAsync(saleType);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.HardDeletedSuccess));
+        }
 
 
+        public async Task<IDataResult<SaleTypeDto>> UndoDeleteAsync(int saleTypeId, string modifiedByName)
+        {
+            var saleType = await UnitOfWork.SaleTypes.GetAsync(c => c.Id == saleTypeId);
+            if (saleType != null)
+            {
+                saleType.IsDeleted = false;
+                saleType.IsActive = true;
+                saleType.ModifiedByName = modifiedByName;
+                saleType.ModifiedDate = DateTime.Now;
+                var deletedSaleType = await UnitOfWork.SaleTypes.UpdateAsync(saleType);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
+                {
+                    Message = Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.UndoDeletedSuccess),
+                    SaleType = deletedSaleType,
+                }, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.UndoDeletedSuccess));
+            }
+            return new DataResult<SaleTypeDto>(ResultStatus.Error, new SaleTypeDto
+            {
+                SaleType = null,
+            }, Messages.General.GiveMessage(saleType.Title, "Satış Tipi", MessagesConstants.UndoDeletedError));
+        }
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var saleTypesCount = await UnitOfWork.SaleTypes.CountAsync();
+            if (saleTypesCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, saleTypesCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //public async Task<IDataResult<SaleTypeDto>> DeleteAsync(int SaleTypeId, string modifiedByName)
-        //{
-        //    var SaleType = await UnitOfWork.SaleTypes.GetAsync(c => c.Id == SaleTypeId);
-        //    if (SaleType != null)
-        //    {
-        //        SaleType.IsDeleted = true;
-        //        SaleType.IsActive = false;
-        //        SaleType.ModifiedByName = modifiedByName;
-        //        SaleType.ModifiedDate = DateTime.Now;
-        //        var deletedSaleType = await UnitOfWork.SaleTypes.UpdateAsync(SaleType);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
-        //        {
-        //            SaleType = deletedSaleType,
-        //        }, Messages.SaleType.Delete(deletedSaleType.CreatedByName));
-        //    }
-        //    return new DataResult<SaleTypeDto>(ResultStatus.Error, new SaleTypeDto
-        //    {
-        //        SaleType = null,
-        //    }, Messages.SaleType.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IResult> HardDeleteAsync(int SaleTypeId)
-        //{
-        //    var SaleType = await UnitOfWork.SaleTypes.GetAsync(c => c.Id == SaleTypeId);
-        //    if (SaleType != null)
-        //    {
-        //        await UnitOfWork.SaleTypes.DeleteAsync(SaleType);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.SaleType.HardDelete(SaleType.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.SaleType.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var SaleTypesCount = await UnitOfWork.SaleTypes.CountAsync();
-        //    if (SaleTypesCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, SaleTypesCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var SaleTypesCount = await UnitOfWork.SaleTypes.CountAsync(c=>!c.IsDeleted);
-        //    if (SaleTypesCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, SaleTypesCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<SaleTypeDto>> ApproveAsync(int SaleTypeId, string modifiedByName)
-        //{
-        //    var SaleType = await UnitOfWork.SaleTypes.GetAsync(c => c.Id == SaleTypeId, c => c.SaleType);
-        //    if (SaleType != null)
-        //    {
-        //        SaleType.IsActive = true;
-        //        SaleType.ModifiedByName = modifiedByName;CustomerType
-        //        SaleType.ModifiedDate = DateTime.Now;
-        //        var updatedSaleType = await UnitOfWork.SaleTypes.UpdateAsync(SaleType);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
-        //        {
-        //            SaleType = updatedSaleType
-        //        }, Messages.SaleType.Approve(SaleTypeId));
-        //    }
-
-        //    return new DataResult<SaleTypeDto>(ResultStatus.Error, null, Messages.SaleType.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<SaleTypeDto>> UndoDeleteAsync(int SaleTypeId, string modifiedByName)
-        //{
-        //    var SaleType = await UnitOfWork.SaleTypes.GetAsync(c => c.Id == SaleTypeId);
-        //    if (SaleType != null)
-        //    {
-        //        SaleType.IsDeleted = false;
-        //        SaleType.IsActive = true;
-        //        SaleType.ModifiedByName = modifiedByName;
-        //        SaleType.ModifiedDate = DateTime.Now;
-        //        var deletedSaleType = await UnitOfWork.SaleTypes.UpdateAsync(SaleType);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<SaleTypeDto>(ResultStatus.Success, new SaleTypeDto
-        //        {
-        //            SaleType = deletedSaleType,
-        //        }, Messages.SaleType.UndoDelete(deletedSaleType.CreatedByName));
-        //    }
-        //    return new DataResult<SaleTypeDto>(ResultStatus.Error, new SaleTypeDto
-        //    {
-        //        SaleType = null,
-        //    }, Messages.SaleType.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var saleTypesCount = await UnitOfWork.SaleTypes.CountAsync(c => !c.IsDeleted);
+            if (saleTypesCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, saleTypesCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
     }
 }

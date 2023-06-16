@@ -10,6 +10,8 @@ namespace MyBlog.Entities.Concrete
     public class Sale : EntityBase, IEntity
     {
         public int Amount { get; set; }
+        public int AmountOfSgk { get; set; }
+        public bool IsInvoiceDue { get; set; }
         public Customer? Customer { get; set; }
         public int? CustomerId { get; set; }
         public SaleType? SaleType { get; set; }

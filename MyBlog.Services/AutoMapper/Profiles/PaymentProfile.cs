@@ -5,23 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using MyBlog.Entities.Concrete;
-using MyBlog.Entities.Dtos;
+using MyBlog.Entities.Dtos.PaymentDtos;
 
 namespace MyBlog.Services.AutoMapper.Profiles
 {
-    public class PaymentTypeProfile:Profile
+    public class PaymentProfile:Profile
     {
-        public PaymentTypeProfile()
+        public PaymentProfile()
         {
-            //CreateMap<CustomerAddDto, Customer>()
-            //    .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
-            //    .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
-            //    .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName))
-            //    .ForMember(dest=>dest.IsActive,opt=>opt.MapFrom(x=>false)); // dto dan Customere aktarılırken ısactive değeri default olarak false atandı.
-            //CreateMap<CustomerUpdateDto, Customer>()
-            //    .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
-            //CreateMap<Customer, CustomerUpdateDto>();
-
+            CreateMap<PaymentAddDto, Payment>();
+            CreateMap<PaymentUpdateDto, Payment>();
+            CreateMap<Payment, PaymentUpdateDto>();
         }
     }
 }

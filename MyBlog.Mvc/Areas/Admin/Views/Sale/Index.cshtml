@@ -1,4 +1,5 @@
-﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.SaleDtos.SaleListDto;
 @{
     Layout = "_Layout";
@@ -11,6 +12,8 @@
 </ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
+
+    <input type="hidden" id="tableType" value="@ViewBag.TableType" />
     <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
     <div class="card mb-4 mt-2">
         <div class="card-header">
@@ -62,10 +65,14 @@
                                 <td>@sale.Amount</td>
                                 @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
                                 <td>
-                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="@sale.Id" asp-area="Admin" asp-controller="Sale" asp-action="Update" asp-route-saleId="@sale.Id"><span class="fas fa-edit"></span></a>
-                                    <button class="btn btn-warning btn-sm btn-assign" data-id="@sale.Id"><span class="fas fa-user-shield"></span></button>
-                                    <button class="btn btn-primary btn-sm btn-update" data-id="@sale.Id"><span class="fas fa-edit"></span></button>
-                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@sale.Id"><span class="fas fa-minus-circle"></span></button>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=sale.Id,
+                            InMainPage=0,
+                            TableType=ViewBag.tableType,
+                            Action="Update",
+                            Controller="Sale"
+                            })
                                 </td>
                             </tr>
                         }
@@ -88,9 +95,12 @@
     <script>
         $(document).ready(function () {
             $('#btnAdd').click(function () {
-                window.location.href = '@Url.Action("Add", "Sale")';
+                // ViewBag.TableType değişkeninin değerini burada alıyoruz
+                var tableType = '@ViewBag.TableType';
+                // Add action'ına tableType parametresini yollamak için, Url.Action fonksiyonunun
+                // ikinci parametresine ekleyebilirsiniz
+                window.location.href = '@Url.Action("Add", "Sale")' + '?tableType=' + encodeURIComponent(tableType);
             });
-
         });
     </script>
 }

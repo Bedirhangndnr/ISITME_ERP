@@ -38,6 +38,8 @@ namespace MyBlog.Data.Concrete
         private EfSubProgramRepository _subProgramRepository;
         private EfProgramRepository _programRepository;
         private EfModuleRepository _moduleRepository;
+        private EfExpenseRepository _expenseRepository;
+        private EfAssociatedInstitutionRepositoryRepository _associatedInstitutionRepository;
         public UnitOfWork(MyBlogContext context)
         {
             _context = context;
@@ -57,6 +59,7 @@ namespace MyBlog.Data.Concrete
         public IAppointmentRepository Appointments => _appointmentRepository ?? new EfAppointmentRepository(_context);
         public IEmployeeRepository Employees => _employeeRepository ?? new EfEmployeeRepository(_context);
         public IEmployeeTypeRepository EmployeeTypes => _employeeTypeRepository ?? new EfEmployeeTypeRepository(_context);
+        public IExpenseRepository Expenses => _expenseRepository ?? new EfExpenseRepository(_context);
         public INotificationRepository Notifications => _notificationRepository ?? new EfNotificationRepository(_context);
         public IProductGroupRepository ProductGroups=> _productGroupRepository ?? new EfProductGroupRepository(_context);
         public IBrandRepository Brands=> _brandRepository ?? new EfBrandRepository(_context);
@@ -68,6 +71,7 @@ namespace MyBlog.Data.Concrete
         public IProgramRepository Programs => _programRepository ?? new EfProgramRepository(_context);
         public ISubProgramRepository SubPrograms => _subProgramRepository ?? new EfSubProgramRepository(_context);
         public IModuleRepository Modules => _moduleRepository ?? new EfModuleRepository(_context);
+        public IAssociatedInstitutionRepository AssociatedInstitutions => _associatedInstitutionRepository ?? new EfAssociatedInstitutionRepositoryRepository (_context);
 
         public async ValueTask DisposeAsync()
         {

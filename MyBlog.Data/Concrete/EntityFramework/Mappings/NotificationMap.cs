@@ -33,6 +33,12 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     .WithMany(et => et.Notifications)
                     .HasForeignKey(e => e.CustomerId)
                     .OnDelete(DeleteBehavior.SetNull);
+            builder.HasOne(e => e.User)
+                     .WithMany(u => u.Notifications)
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .IsRequired(false);
+            builder.Property(e => e.UserId).HasDefaultValue(-1);
             builder.HasData(
                 new Notification
                 {

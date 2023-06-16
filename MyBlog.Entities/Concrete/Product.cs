@@ -11,7 +11,10 @@ namespace MyBlog.Entities.Concrete
     public class Product:EntityBase,IEntity
     {
         public string ProductName { get; set; }
+        public int Price{ get; set; }
+        public int Quantity{ get; set; }
         public string SerialNumber { get; set; }
+        public bool IsSold { get; set; } = false;
         public int? ProductSubGroupId { get; set; }
         public ProductSubGroup? ProductSubGroup { get; set; }
         public int? BrandId { get; set; }

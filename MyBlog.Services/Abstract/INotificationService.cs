@@ -20,7 +20,7 @@ namespace MyBlog.Services.Abstract
         //Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync();
         //Task<bool> AddAsync(string message, string title, int customerId, DateTime? targetDate);
-        Task<bool> AddAsync(string message, string title, NotificationTypes notificationType = NotificationTypes.DatabaseTracking);
+        Task<bool> AddAsync(string message, string title, int userId, NotificationTypes notificationType = NotificationTypes.DatabaseTracking);
 
         //Task<IDataResult<NotificationDto>> ApproveAsync(int NotificationId, string modifiedByName);
         Task<bool> UpdateAsync(NotificationUpdateDto NotificationUpdateDto, string modifiedByName);

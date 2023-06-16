@@ -43,7 +43,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 new Product
                 {
                     Id = 1,
+                    Price = 100,
+                    Quantity = 10,
                     BrandId= 1,
+                    IsSold=false,
                     ProductSubGroupId= 1,
                     IsActive = true,
                     IsDeleted = false,
@@ -58,7 +61,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 new Product
                 {
                     Id = 2,
+                    Quantity = 10,
                     IsActive = true,
+                    Price = 100,
+                    IsSold=false,
                     BrandId = 1,
                     ProductSubGroupId = 1,
                     IsDeleted = false,
@@ -74,7 +80,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 3,
                     IsActive = true,
+                    Price = 100,
+                    IsSold=false,
                     BrandId = 1,
+                    Quantity = 10,
                     ProductSubGroupId = 1,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
@@ -89,7 +98,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 4,
                     IsActive = true,
+                    IsSold=false,
                     BrandId = 1,
+                    Price = 100,
+                    Quantity = 10,
                     ProductSubGroupId = 1,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",

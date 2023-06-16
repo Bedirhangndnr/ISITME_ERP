@@ -2,24 +2,40 @@
 @model MyBlog.Mvc.Areas.Admin.Models.SingleModels.UpdatePageButtonsModel
 
 <div class="form-group row justify-content-center">
-    <button id="btnUpdate" type="submit" class="btn btn-primary btn-block col-md-3 float-left mr-1 mt-4" asp-route-tableType="@ViewBag.tableType">Kaydet</button>
-    <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@Model.Id" data-tableType="@ViewBag.tableType"><span class="fas fa-minus-circle"></span></button>
-
-
-
-
-
-
-
-    s
-
-    <p>||</p>
-    <a asp-area="Admin" data-itemid="@Model.Id" asp-action="Delete" asp-controller="Employee" asp-route-employeeId="@Model.Id" asp-route-tableType="@ViewBag.tableType" class="btn btn-danger">Sil</a>
-    <button type="button" title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@Model.Id" data-tableType=@Model.TableType>
-        <span class="fas fa-minus-circle"></span>
-    </button>
-    @if (ViewBag.TableType == TableReturnTypesConstants.DeletedTables)
+    @if (Model.InMainPage==0)
     {
-        <a class="btn btn-warning btn-sm btn-undo col-md-3 ml-1 mt-4" data-id="Model.Id" data-inUpdate="1" data-tableType="@ViewBag.tableType"><span class="fas fa-undo"></span></a>
+        @if (ViewBag.TableType == TableReturnTypesConstants.NonDeletedTables && Model.Action == "")
+        {
+            <button class="btn btn-primary btn-sm btn-update" data-id="@Model.Id" data-tableType="@ViewBag.tableType"><span class="fas fa-edit"></span></button>
+        }
+        @if (Model.Action != "")
+        {
+            <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="@Model.Id" asp-area="Admin"asp-controller=@Model.Controller asp-action=@Model.Action asp-route-Id="@Model.Id" asp-route-tableType="@ViewBag.tableType"><span class="fas fa-edit"></span></a>
+        }
+        <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@Model.Id" data-tableType="@ViewBag.tableType"><span class="fas fa-minus-circle"></span></button>
+        @if (ViewBag.TableType == TableReturnTypesConstants.DeletedTables)
+        {
+            <a class="btn btn-warning btn-sm btn-undo" data-id="@Model.Id" data-inUpdate="0" data-tableType="@ViewBag.tableType"><span class="fas fa-undo"></span></a>
+        }
     }
+    else if (Model.InMainPage == 1)
+    {
+        if (Model.InUpdate==0)
+        {
+            <button type="submit" class="btn btn-primary btn-block mt-4" asp-route-tableType="@Model.TableType">Kaydet</button>
+        }
+        else if (Model.InUpdate == 1 && ViewBag.TableType == TableReturnTypesConstants.NonDeletedTables)
+        {
+            <button type="submit" class="btn btn-primary btn-block mt-4" asp-route-tableType="@Model.TableType">Güncelle</button>
+            <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-inUpdate="1" data-id="@Model.Id" data-tableType="@ViewBag.tableType"><span class="fas fa-minus-circle"></span></button>
+        }
+        else if (Model.InUpdate == 1 && ViewBag.TableType == TableReturnTypesConstants.DeletedTables)
+        {
+
+            <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-inUpdate="1" data-id="@Model.Id" data-tableType="@ViewBag.tableType"><span class="fas fa-minus-circle"></span></button>
+            <a class="btn btn-warning btn-sm btn-undo" data-id="@Model.Id" data-inUpdate="1" data-tableType="@ViewBag.tableType"><span class="fas fa-undo"></span></a>
+        }
+    }
+
+
 </div>

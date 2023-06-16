@@ -16,7 +16,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Kişisel Bilgiler
+                    Bilgiler
                 </div>
                 <div class="card-body">
                     <input type="hidden" asp-for="Id" />
@@ -83,8 +83,9 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
+                        <label>Çalışan Tipi</label>
                         <select id="employeeTypeList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
-                            <option></option>
+                            <option></option>   
                         </select>
                         <span asp-validation-for="EmployeeTypeId" class="text-danger"></span>
                     </div>
@@ -92,11 +93,15 @@
             </div>
 
 
-            
-        @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+
+            @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
             {
             Id=Model.Id,
+            InMainPage=1,
+            InUpdate=1,
             TableType=ViewBag.tableType,
+            Action="Update",
+            Controller="Employee"
             })
         </div>
 
@@ -107,7 +112,7 @@
         ModifiedByName = Model.ModifiedByName,
         ModifiedDate = Model.ModifiedDate
         })
- 
+ l
     </div>
 </form>
 @section Scripts

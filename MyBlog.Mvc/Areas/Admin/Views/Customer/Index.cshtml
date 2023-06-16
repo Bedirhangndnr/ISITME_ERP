@@ -1,4 +1,5 @@
-﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.CustomerDtos.CustomerListDto
 @{
     Layout = "_Layout";
@@ -11,6 +12,7 @@
 </ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
+    <input type="hidden" id="tableType" value="@ViewBag.TableType" />
     <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
     <div class="card mb-4 mt-2">
         <div class="card-header">
@@ -50,7 +52,7 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var customer in Model.Customers)
+                        @foreach (var customer in Model.CustomersListWithRelatedTables)  
                         {
                             <tr name="@customer.Id">
                                 <td>@customer.Id</td>
@@ -58,15 +60,18 @@
                                 <td>@customer.LastName</td>
                                 <td>@customer.Phone</td>
                                 <td>@customer.Email</td>
-                                <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>
+                                <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>  
                                 <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td>
-                                <td>"geçici Tip Manuel 1 @customer.Email"</td>
+                                <td>"Tip: @customer.CustomerTypeTitle"</td>
                                 <td>
-                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="@customer.Id" asp-area="Admin" 
-                                    asp-controller="Customer" asp-action="Update" asp-route-customerId="@customer.Id"><span class="fas fa-edit"></span></a>
-                                    <button class="btn btn-warning btn-sm btn-assign" data-id="@customer.Id"><span class="fas fa-user-shield"></span></button>
-                                    <button class="btn btn-primary btn-sm btn-update" data-id="@customer.Id"><span class="fas fa-edit"></span></button>
-                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@customer.Id"><span class="fas fa-minus-circle"></span></button>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=customer.Id,
+                            InMainPage=0,
+                            TableType=ViewBag.tableType,
+                            Action="Update",
+                            Controller="Customer"
+                            })
                                 </td>
                             </tr>
                         }
@@ -85,13 +90,16 @@
 }
 @section Scripts
     {
-    <script src="~/AdminArea/js/customerIndex.js" type="application/ecmascript"></script>
+    <script src="~/AdminArea/js/customerScripts/customerIndex.js" type="application/ecmascript"></script>
     <script>
         $(document).ready(function () {
             $('#btnAdd').click(function () {
-                window.location.href = '@Url.Action("Add", "Customer")';
+                // ViewBag.TableType değişkeninin değerini burada alıyoruz
+                var tableType = '@ViewBag.TableType';
+                // Add action'ına tableType parametresini yollamak için, Url.Action fonksiyonunun
+                // ikinci parametresine ekleyebilirsiniz
+                window.location.href = '@Url.Action("Add", "Customer")' + '?tableType=' + encodeURIComponent(tableType);
             });
-
         });
     </script>
 }

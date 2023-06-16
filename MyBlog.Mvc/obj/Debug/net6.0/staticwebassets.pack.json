@@ -85,16 +85,16 @@
       "PackagePath": "staticwebassets\\AdminArea\\js\\commentIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerAdd.js",
-      "PackagePath": "staticwebassets\\AdminArea\\js\\customerAdd.js"
-    },
-    {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerIndex.js",
-      "PackagePath": "staticwebassets\\AdminArea\\js\\customerIndex.js"
-    },
-    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerReferanceIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\customerReferanceIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerScripts\\customerIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\customerScripts\\customerIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerScripts\\customerUpdate.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\customerScripts\\customerUpdate.js"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerTypeIndex.js",
@@ -129,12 +129,28 @@
       "PackagePath": "staticwebassets\\AdminArea\\js\\employeeScripts\\employeeUpdate.js"
     },
     {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\expenseIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\expenseIndex.js"
+    },
+    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\homeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\homeIndex.js"
     },
     {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\paymentScripts\\paymentIndex.js"
+    },
+    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentTypeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\paymentTypeIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAdd.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\productAdd.js"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productGroupIndex.js",
@@ -633,12 +649,68 @@
       "PackagePath": "staticwebassets\\img\\postImages\\Asenkron JavaScript_56_18_9_23_10_3_2023.png"
     },
     {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_210_34_34_2_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_210_34_34_2_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_239_20_17_19_13_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_239_20_17_19_13_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_367_17_1_22_9_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_367_17_1_22_9_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_400_50_17_19_13_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_400_50_17_19_13_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_768_45_0_22_9_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_768_45_0_22_9_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_959_28_17_19_13_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_959_28_17_19_13_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Ikinci Personel_662_0_52_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Ikinci Personel_662_0_52_14_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Ikinci Personel_84_55_50_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Ikinci Personel_84_55_50_14_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Ikinci Personel_970_40_50_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Ikinci Personel_970_40_50_14_10_6_2023.jpeg"
+    },
+    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\MVC Proje Kam_357_14_17_4_18_3_2023.png",
       "PackagePath": "staticwebassets\\img\\postImages\\MVC Proje Kam_357_14_17_4_18_3_2023.png"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\ModelState.Remove(nameof(userUpdateDto.PictureFile));_983_52_37_15_10_3_2023.png",
       "PackagePath": "staticwebassets\\img\\postImages\\ModelState.Remove(nameof(userUpdateDto.PictureFile));_983_52_37_15_10_3_2023.png"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_260_30_44_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_260_30_44_14_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_263_22_52_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_263_22_52_14_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_338_25_49_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_338_25_49_14_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_403_54_44_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_403_54_44_14_10_6_2023.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_617_30_46_14_10_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_617_30_46_14_10_6_2023.jpeg"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\_______697_30_45_21_11_3_2023.png",
@@ -659,6 +731,10 @@
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\asdasdasdasdasdasd_395_30_19_16_10_3_2023.png",
       "PackagePath": "staticwebassets\\img\\postImages\\asdasdasdasdasdasd_395_30_19_16_10_3_2023.png"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\asdsadasd_65_17_43_21_9_6_2023.jpeg",
+      "PackagePath": "staticwebassets\\img\\postImages\\asdsadasd_65_17_43_21_9_6_2023.jpeg"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\asdsfdsgdfg_249_22_23_19_10_3_2023.png",

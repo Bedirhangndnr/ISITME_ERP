@@ -1,4 +1,5 @@
-﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.SaleTypeDtos.SaleTypeListDto
 @{
     Layout = "_Layout";
@@ -11,6 +12,7 @@
 </ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
+    <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />
     <div id="modalPlaceHolder" aria-hidden="true"></div>
     <div class="card mb-4 mt-2">
         <div class="card-header">
@@ -47,12 +49,12 @@
                                 <td>@saleType.Title</td>
                                 <td>@saleType.Description</td>
                                 <td class="dt-button-col">
-                                    <button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id="@saleType.Id">
-                                        <span class="fas fa-edit"></span>
-                                    </button>
-                                    <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@saleType.Id">
-                                        <span class="fas fa-minus-circle"></span>
-                                    </button>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=saleType.Id,
+                            TableType=ViewBag.tableType,
+                            })
+
                                 </td>
                             </tr>
                         }

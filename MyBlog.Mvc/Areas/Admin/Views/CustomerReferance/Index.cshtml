@@ -1,4 +1,5 @@
-﻿@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.CustomerReferanceDtos.CustomerReferanceListDto
 @{
     Layout = "_Layout";
@@ -11,7 +12,8 @@
 </ol>
 @if (Model.ResultStatus == ResultStatus.Success)
 {
-    <div id="modalPlaceHolder" aria-hidden="true"></div> 
+    <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />
+    <div id="modalPlaceHolder" aria-hidden="true"></div>
     <div class="card mb-4 mt-2">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
@@ -55,13 +57,13 @@
                                 <td>@customerReferance.Phone</td>
                                 <td>@(customerReferance.Description == null ? "Not Eklenmemiş" : (customerReferance.Description.Length > 75 ? customerReferance.Description.Substring(0, 75) : customerReferance.Description))</td>
                                 <td>@(customerReferance.Note == null ? "Not Eklenmemiş" : (customerReferance.Note.Length > 75 ? customerReferance.Note.Substring(0, 75) : customerReferance.Note))</td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm btn-update" data-id="@customerReferance.Id">
-                                        <span class="fas fa-edit"></span>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@customerReferance.Id">
-                                        <span class="fas fa-minus-circle"></span>
-                                    </button>
+                                <td class="dt-button-col">
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=customerReferance.Id,
+                            TableType=ViewBag.tableType,
+                            })
+
                                 </td>
                             </tr>
                         }
@@ -78,7 +80,7 @@
         Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="CustomerReferance" asp-action="Index">tıklayınız.</a>
     </div>
 }
-    
+
 @section Scripts
     {
     <script src="~/AdminArea/js/customerReferanceIndex.js" type="application/ecmascript"></script>

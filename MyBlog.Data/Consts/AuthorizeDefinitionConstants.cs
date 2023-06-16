@@ -16,6 +16,12 @@ namespace MyBlog.Mvc.Consts
         public const string EmployeeUpdate = "Employee.Update";
         public const string EmployeeDelete = "Employee.Delete";
 
+        // Expense
+        public const string ExpenseCreate = "Expense.Create";
+        public const string ExpenseRead = "Expense.Read";
+        public const string ExpenseUpdate = "Expense.Update";
+        public const string ExpenseDelete = "Expense.Delete";
+
         // Payment
         public const string PaymentCreate = "Payment.Create";
         public const string PaymentRead = "Payment.Read";

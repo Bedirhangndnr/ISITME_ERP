@@ -6,9 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyBlog.Entities.Concrete;
-using MyBlog.Entities.Dtos.PaymentTypeDtos;
 using MyBlog.Entities.Dtos.ProductGroupDtos;
-using MyBlog.Entities.Dtos.EmployeeTypeDtos;
 
 namespace MyBlog.Services.Abstract
 {
@@ -18,12 +16,16 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<ProductGroupUpdateDto>> GetProductGroupUpdateDtoAsync(int ProductGroupId);
         Task<IDataResult<ProductGroupListDto>> GetAllAsync();
         Task<IDataResult<ProductGroupDto>> DeleteAsync(int ProductGroupId, string modifiedByName);
-
-        //Task<IDataResult<ProductGroupListDto>> GetAllByDeletedAsync();
-        //Task<IDataResult<ProductGroupListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<ProductGroupListDto>> GetAllByNonDeletedAndActiveAsync();
         Task<IDataResult<ProductGroupDto>> AddAsync(ProductGroupAddDto ProductGroupAddDto, string createdByName);
-        //Task<IDataResult<ProductGroupDto>> ApproveAsync(int ProductGroupId, string modifiedByName);
         Task<IDataResult<ProductGroupDto>> UpdateAsync(ProductGroupUpdateDto ProductGroupUpdateDto, string modifiedByName);
+
+
+
+        Task<IDataResult<ProductGroupListDto>> GetAllByDeletedAsync();
+        Task<IDataResult<ProductGroupDto>> UndoDeleteAsync(int EmployeeTypeId, string modifiedByName);
+        Task<IResult> HardDeleteAsync(int EmployeeTypeId);
+        Task<IDataResult<int>> CountAsync();
+        Task<IDataResult<int>> CountByNonDeletedAsync();
     }
 }

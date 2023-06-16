@@ -42,6 +42,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new UserTokenMap());
             modelBuilder.ApplyConfiguration(new UserLoginMap());
             modelBuilder.ApplyConfiguration(new PaymentMap());
+            modelBuilder.ApplyConfiguration(new OutBoundPaymentMap());
             modelBuilder.ApplyConfiguration(new PaymentTypeMap());
             modelBuilder.ApplyConfiguration(new EmployeeMap());
             modelBuilder.ApplyConfiguration(new EmployeeTypeMap());
@@ -57,6 +58,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new ModuleMap());
             modelBuilder.ApplyConfiguration(new ProgramMap());
             modelBuilder.ApplyConfiguration(new SubProgramMap());
+            modelBuilder.ApplyConfiguration(new AssociatedInstitutionMap());
+            modelBuilder.ApplyConfiguration(new ExpenseMap());
         }
         public DbSet<Article> Articles{ get; set; }
         public DbSet<Category> Categories{ get; set; }
@@ -84,6 +87,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
         public DbSet<Program> Programs{ get; set; }
         public DbSet<SubProgram> SubPrograms { get; set; }
         public DbSet<Module> Modules{ get; set; }
+        public DbSet<AssociatedInstitution> AssociatedInstitutions { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<OutBoundPayment> OutBoundPayments { get; set; }
 
     }
 }

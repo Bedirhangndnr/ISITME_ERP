@@ -6,13 +6,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using MyBlog.Entities.Concrete;
+using MyBlog.Shared.Entities.Abstract;
 using MyBlog.Shared.Entities.Concrete;
 
 namespace MyBlog.Mvc.Areas.Admin.Models
 {
-    public class SaleAddViewModel
+    public class SaleAddViewModel : DtoGetBase
     {
-        [DisplayName("Satış Tutarı ")]
+        [DisplayName("SGK Tutarı | TL")]
+        public int? AmountOfSgk { get; set; }
+        public bool IsInvoiceDue { get; set; } = false;
+
+        [DisplayName("Satış Tutarı | TL")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int Amount { get; set; }
         [DisplayName("Hasta")]
@@ -35,9 +40,9 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<Employee> Employees { get; set; }
         public int EmployeeId { get; set; }
-        [DisplayName("Not")]
+        [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(3, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
-        public string? Not { get; set; }
+        public string? Description { get; set; }
     }
 }

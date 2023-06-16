@@ -11,7 +11,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-action="Update" id="form-customerReferance-update">
+                <form asp-action="Add" id="form-customerReferance-add">
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
                     <div class="form-group">
@@ -33,11 +33,6 @@
                     <div class="form-group">
                         <input class="form-control" asp-for="Note" placeholder="Not" />
                         <span class="text-danger" asp-validation-for="Note"></span>
-                    </div>
-                    <div class="form-group custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" asp-for="IsActive" id="customSwitch1">
-                        <span class="text-danger" asp-validation-for="IsActive"></span>
-                        <label class="custom-control-label" for="customSwitch1" asp-for="IsActive"> </label>
                     </div>
                 </form>
             </div>

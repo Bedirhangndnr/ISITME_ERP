@@ -13,13 +13,9 @@
     });
     $('#employeeList').select2({
         theme: 'bootstrap4',
-        placeholder: "Bir Personel Seçiniz...",
-        allowClear: true
-    });
-    $('#customerList').select2({
-        theme: 'bootstrap4',
-        placeholder: "Hasta Kategorisi Seçiniz...",
-        allowClear: true
+        placeholder: "Bir Alt Grup Seçiniz...",
+        allowClear: true,
+        dropdownParent: $('#employeeList').parent()
     });
     $('#saleStatusesList').select2({
         theme: 'bootstrap4',

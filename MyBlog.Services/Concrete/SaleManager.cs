@@ -7,6 +7,7 @@ using AutoMapper;
 using MyBlog.Data.Abstract;
 using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos.SaleDtos;
+using MyBlog.Entities.Dtos.SaleDtos;
 using MyBlog.Services.Abstract;
 using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Results;
@@ -134,124 +135,93 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
         }
 
-        //public async Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var Sales = await UnitOfWork.Sales.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (Sales.Count > -1)
-        //    {
-        //        return new DataResult<SaleListDto>(ResultStatus.Success, new SaleListDto
-        //        {
-        //            Sales = Sales,
-        //        });
-        //    }
-        //    return new DataResult<SaleListDto>(ResultStatus.Error, new SaleListDto
-        //    {
-        //        Sales = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Çalışan"));
-        //}
+        public async Task<IDataResult<SaleDto>> DeleteAsync(int SaleId, string modifiedByName)
+        {
+            var sale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleId);
+            if (sale != null)
+            {
+                sale.IsDeleted = true;
+                sale.IsActive = false;
+                sale.ModifiedByName = modifiedByName;
+                sale.ModifiedDate = DateTime.Now;
+                var deletedSale = await UnitOfWork.Sales.UpdateAsync(sale);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
+                {
+                    Sale = deletedSale,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage("Satış", "Hasta", MessagesConstants.DeletedSuccess)
 
+                }, Messages.General.GiveMessage("Satış", "Hasta", MessagesConstants.DeletedSuccess));
+            }
+            return new DataResult<SaleDto>(ResultStatus.Error, new SaleDto
+            {
+                Sale = null,
+            }, Messages.General.GiveMessage("Satış", "Hasta", MessagesConstants.DeletedError));
+        }
 
+        public async Task<IResult> HardDeleteAsync(int SaleId)
+        {
+            var sale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleId);
+            if (sale != null)
+            {
+                await UnitOfWork.Sales.DeleteAsync(sale);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage("Satış", "Hasta", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Hasta"));
+        }
 
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var SalesCount = await UnitOfWork.Sales.CountAsync();
+            if (SalesCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, SalesCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var SalesCount = await UnitOfWork.Sales.CountAsync(c => !c.IsDeleted);
+            if (SalesCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, SalesCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //public async Task<IDataResult<SaleDto>> DeleteAsync(int SaleId, string modifiedByName)
-        //{
-        //    var Sale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleId);
-        //    if (Sale != null)
-        //    {
-        //        Sale.IsDeleted = true;
-        //        Sale.IsActive = false;
-        //        Sale.ModifiedByName = modifiedByName;
-        //        Sale.ModifiedDate = DateTime.Now;
-        //        var deletedSale = await UnitOfWork.Sales.UpdateAsync(Sale);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
-        //        {
-        //            Sale = deletedSale,
-        //        }, Messages.Sale.Delete(deletedSale.CreatedByName));
-        //    }
-        //    return new DataResult<SaleDto>(ResultStatus.Error, new SaleDto
-        //    {
-        //        Sale = null,
-        //    }, Messages.Sale.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IResult> HardDeleteAsync(int SaleId)
-        //{
-        //    var Sale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleId);
-        //    if (Sale != null)
-        //    {
-        //        await UnitOfWork.Sales.DeleteAsync(Sale);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.Sale.HardDelete(Sale.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.Sale.NotFound(isPlural: false));
-        //}
-
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var SalesCount = await UnitOfWork.Sales.CountAsync();
-        //    if (SalesCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, SalesCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var SalesCount = await UnitOfWork.Sales.CountAsync(c=>!c.IsDeleted);
-        //    if (SalesCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, SalesCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
-
-        //public async Task<IDataResult<SaleDto>> ApproveAsync(int SaleId, string modifiedByName)
-        //{
-        //    var Sale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleId, c => c.Sale);
-        //    if (Sale != null)
-        //    {
-        //        Sale.IsActive = true;
-        //        Sale.ModifiedByName = modifiedByName;
-        //        Sale.ModifiedDate = DateTime.Now;
-        //        var updatedSale = await UnitOfWork.Sales.UpdateAsync(Sale);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
-        //        {
-        //            Sale = updatedSale
-        //        }, Messages.Sale.Approve(SaleId));
-        //    }
-
-        //    return new DataResult<SaleDto>(ResultStatus.Error, null, Messages.Sale.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<SaleDto>> UndoDeleteAsync(int SaleId, string modifiedByName)
-        //{
-        //    var Sale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleId);
-        //    if (Sale != null)
-        //    {
-        //        Sale.IsDeleted = false;
-        //        Sale.IsActive = true;
-        //        Sale.ModifiedByName = modifiedByName;
-        //        Sale.ModifiedDate = DateTime.Now;
-        //        var deletedSale = await UnitOfWork.Sales.UpdateAsync(Sale);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
-        //        {
-        //            Sale = deletedSale,
-        //        }, Messages.Sale.UndoDelete(deletedSale.CreatedByName));
-        //    }
-        //    return new DataResult<SaleDto>(ResultStatus.Error, new SaleDto
-        //    {
-        //        Sale = null,
-        //    }, Messages.Sale.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<SaleDto>> UndoDeleteAsync(int saleId, string modifiedByName)
+        {
+            var sale = await UnitOfWork.Sales.GetAsync(c => c.Id == saleId);
+            if (sale != null)
+            {
+                sale.IsDeleted = false;
+                sale.IsActive = true;
+                sale.ModifiedByName = modifiedByName;
+                sale.ModifiedDate = DateTime.Now;
+                var deletedSale = await UnitOfWork.Sales.UpdateAsync(sale);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
+                {
+                    Sale = deletedSale,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.General.GiveMessage("Satış", "Hasta", MessagesConstants.UpdateSuccess)
+                }, Messages.General.GiveMessage("Satış", "Hasta", MessagesConstants.UpdateError));
+            }
+            return new DataResult<SaleDto>(ResultStatus.Error, new SaleDto
+            {
+                Sale = null,
+                ResultStatus = ResultStatus.Error,
+                Message = Messages.General.NotFound(isPlural: false, "Hasta")
+            }, Messages.General.NotFound(isPlural: false, "Hasta"));
+        }
     }
 }

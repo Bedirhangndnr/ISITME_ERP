@@ -10,9 +10,9 @@ using MyBlog.Entities.Dtos.PaymentTypeDtos;
 
 namespace MyBlog.Services.AutoMapper.Profiles
 {
-    public class PaymentProfile:Profile
+    public class PaymentTypeProfile:Profile
     {
-        public PaymentProfile()
+        public PaymentTypeProfile()
         {
             CreateMap<PaymentTypeAddDto, PaymentType>()
                 .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))

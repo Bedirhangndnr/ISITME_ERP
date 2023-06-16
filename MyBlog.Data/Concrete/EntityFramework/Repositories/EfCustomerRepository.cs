@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyBlog.Data.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos.CustomerDtos;
+using MyBlog.Entities.Dtos.EmployeeDtos;
 using MyBlog.Shared.Data.Concrete.EntityFramework;
 using MyBlog.Shared.Entities.Abstract;
 using System;
@@ -38,6 +40,32 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 });
 
             return await query.ToListAsync();
+        }
+        public async Task<IList<CustomerListWithRelatedTable>> GetAllWithRelatedTablesAsync(Expression<Func<Customer, bool>> predicate = null, params Expression<Func<Customer, object>>[] includeProperties)
+        {
+            IQueryable<Customer> query = _context.Set<Customer>();
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+            List<CustomerListWithRelatedTable> Customers = await query
+                .Include(s => s.CustomerType)
+                .Select(s => new CustomerListWithRelatedTable
+                {
+                    Picture = s.Picture,
+                    CustomerTypeId = s.CustomerTypeId ?? 0,
+                    Address = s.Address,
+                    Email = s.Email,
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    CustomerTypeTitle = s.CustomerType != null ? s.CustomerType.Title : "Hasta tipi bulunamadı, silinmiş olabilir.",
+                    Phone = s.Phone,
+                    TC = s.TC,
+                    Id = s.Id,
+                    Note = s.Note != null ? s.Note : "Not bulunamadı.",
+                }).ToListAsync();
+
+            return Customers;
         }
     }
 }

@@ -6,11 +6,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using MyBlog.Entities.Concrete;
+using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
 using MyBlog.Shared.Entities.Concrete;
 
 namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
 {
-    public class CustomerUpdateViewModel
+    public class CustomerUpdateViewModel: ModelGetBase
     {
         [DisplayName("Ad")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]

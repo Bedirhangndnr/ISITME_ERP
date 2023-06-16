@@ -56,7 +56,7 @@
     });
     $('#customerList').select2({
         theme: 'bootstrap4',
-        placeholder: "Hasta Kategorisi Seçiniz...",
+        placeholder: "Hasta Seçiniz...",
         allowClear: true
     });
     $('#saleStatusesList').select2({
@@ -86,7 +86,7 @@
     });
     $('#customersList').select2({
         theme: 'bootstrap4',
-        placeholder: "Bir Alt Grup Seçiniz...",
+        placeholder: "Bir Hasta Seçiniz...",
         allowClear: true
     });
     $('#appointmentTypeList').select2({

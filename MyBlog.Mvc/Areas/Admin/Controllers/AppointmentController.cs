@@ -44,27 +44,59 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = "SuperAdmin")]
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string tableType)
         {
-            var result = await _appointmentService.GetAllByNonDeletedAndActiveAsync();
-            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            ViewBag.tableType = tableType;
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _appointmentService.GetAllByNonDeletedAndActiveAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _appointmentService.GetAllByDeletedAsync();
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
             return NotFound();
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentRead}")]
         [HttpGet]
-        public async Task<JsonResult> GetAllAppointments()
+        public async Task<JsonResult> GetAllAppointments(string tableType)
         {
-            var appointments = await _appointmentService.GetAllByNonDeletedAndActiveAsync();
-            var appointmentResult = JsonSerializer.Serialize(appointments, new JsonSerializerOptions
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                ReferenceHandler = ReferenceHandler.Preserve
+                var appointments = await _appointmentService.GetAllByNonDeletedAndActiveAsync();
+                var appointmentResult = JsonSerializer.Serialize(appointments, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(appointmentResult);
+
+            }   
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _appointmentService.GetAllByDeletedAsync();
+                var appointments = JsonSerializer.Serialize(result, new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                });
+                return Json(appointments);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile Karşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
             });
-            return Json(appointmentResult);
+            return Json(null);
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentCreate}")]
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(string tableType)
         {
+            ViewBag.tableType = tableType;
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
             var appointmentTypeList = await _appointmentTypeService.GetAllByNonDeletedAndActiveAsync();
@@ -84,8 +116,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentCreate}")]
         [HttpPost]
-        public async Task<IActionResult> Add(AppointmentAddViewModel appointmentAddViewModel)
+        public async Task<IActionResult> Add(AppointmentAddViewModel appointmentAddViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
                 var appointmentAddDto = Mapper.Map<AppointmentAddDto>(appointmentAddViewModel);
@@ -96,7 +129,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     {
                         Title = "Başarılı İşlem!"
                     });
-                    return RedirectToAction("Index", "Appointment");
+                    return RedirectToAction("Index", "Appointment", new { tableType = tableType });
                 }
                 else
                 {
@@ -114,9 +147,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int appointmentId)
+        public async Task<IActionResult> Update(int Id, string tableType)
         {
-            var appointmentList = await _appointmentService.GetAppointmentUpdateDtoAsync(appointmentId);
+            ViewBag.tableType = tableType;
+            var appointmentList = await _appointmentService.GetAppointmentUpdateDtoAsync(Id);
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
             var appointmentTypeList = await _appointmentTypeService.GetAllByNonDeletedAndActiveAsync();
@@ -138,8 +172,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentCreate}")]
         [HttpPost]
-        public async Task<IActionResult> Update(AppointmentUpdateViewModel AppointmentUpdateViewModel)
+        public async Task<IActionResult> Update(AppointmentUpdateViewModel AppointmentUpdateViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
                 var AppointmentUpdateDto = Mapper.Map<AppointmentUpdateDto>(AppointmentUpdateViewModel);
@@ -147,7 +182,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _appointmentService.UpdateAsync(AppointmentUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    return RedirectToAction("Index", "Appointment");
+                    _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                    {
+                        Title = "Başarılı İşlem!"
+                    });
+                    return RedirectToAction("Index", "Appointment", new { tableType = tableType });
                 }
                 else
                 {
@@ -166,6 +205,110 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             AppointmentUpdateViewModel.AppointmentTypes = appointmentTypeList.Data.AppointmentTypes;
             return View(AppointmentUpdateViewModel);
 
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteFromUpdatePage(int appointmentId, string tableType)
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                // Silme işlemi modaldan geldiyse normal controller işlemini yap => buradaki if koşulu bunun bir ajax sorgusuolup olamdığını kontrol eder.
+                return await Delete(appointmentId, tableType);
+            }
+            else
+            {
+                string errMessage = "";
+                if (tableType == TableReturnTypesConstants.NonDeletedTables)
+                {
+                    var result = await _appointmentService.DeleteAsync(appointmentId, LoggedInUser.UserName);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                        {
+                            Title = "Başarılı İşlem!"
+                        });
+                        return RedirectToAction("Index", "Appointment", new { tableType = tableType });
+                    }
+                    errMessage = result.Message;
+                }
+                else if (tableType == TableReturnTypesConstants.DeletedTables)
+                {
+                    var result = await _appointmentService.HardDeleteAsync(appointmentId);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                        {
+                            Title = "Başarılı İşlem!"
+                        });
+                        return RedirectToAction("Index", "Appointment", new { tableType = tableType });
+                    }
+                    errMessage = result.Message;
+                }
+                _toastNotification.AddErrorToastMessage(errMessage, new ToastrOptions
+                {
+                    Title = "Başarısız İşlem!"
+                });
+                // Silme işlemi update sayfasından geldiyse index sayfasına yönlendir 
+                return RedirectToAction("Update");
+            }
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentDelete}")]
+        [HttpPost]
+        public async Task<JsonResult> Delete(int appointmentId, string tableType)
+        {
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _appointmentService.DeleteAsync(appointmentId, LoggedInUser.UserName);
+                var appointmentResult = JsonSerializer.Serialize(result.Data);
+                return Json(appointmentResult);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _appointmentService.HardDeleteAsync(appointmentId);
+                var hardDeletedAppointmentResult = JsonSerializer.Serialize(result);
+                return Json(hardDeletedAppointmentResult);
+            }
+            else
+            {
+                // Hatalı silme türü parametresi durumunda hata döndürme
+                return Json("Hatalı silme türü parametresi!");
+            }
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentDelete}")]
+        [HttpPost]
+        public async Task<JsonResult> HardDelete(int appointmentId)
+        {
+            var result = await _appointmentService.HardDeleteAsync(appointmentId);
+            var hardDeletedAppointmentResult = JsonSerializer.Serialize(result);
+            return Json(hardDeletedAppointmentResult);
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentRead}")]
+        [HttpGet]
+        public async Task<IActionResult> DeletedAppointments()
+        {
+            var result = await _appointmentService.GetAllByDeletedAsync();
+            return View(result.Data);
+
+        }
+
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentRead}")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllDeletedAppointments()
+        {
+            var result = await _appointmentService.GetAllByDeletedAsync();
+            var appointments = JsonSerializer.Serialize(result, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(appointments);
+        }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentDelete}")]
+        [HttpPost]
+        public async Task<JsonResult> UndoDelete(int appointmentId)
+        {
+            var result = await _appointmentService.UndoDeleteAsync(appointmentId, LoggedInUser.UserName);
+            var undoDeleteAppointmentResult = JsonSerializer.Serialize(result.Data);
+            return Json(undoDeleteAppointmentResult);
         }
     }
 }

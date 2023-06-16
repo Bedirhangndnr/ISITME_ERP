@@ -117,6 +117,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(EmployeeAddViewModel employeeAddViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
                 var employeeTypeAddDto = Mapper.Map<EmployeeAddDto>(employeeAddViewModel);
@@ -152,11 +153,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int employeeId, string tableType)
+        public async Task<IActionResult> Update(int Id, string tableType)
         {
             ViewBag.tableType = tableType;
             ViewBag.controller = "updateController";
-            var employeeResult = await _employeeService.GetEmployeeUpdateDtoAsync(employeeId);
+            var employeeResult = await _employeeService.GetEmployeeUpdateDtoAsync(Id);
             var employeeTypeResult = await _employeeTypeService.GetAllByNonDeletedAndActiveAsync();
             if (employeeResult.ResultStatus == ResultStatus.Success && employeeTypeResult.ResultStatus == ResultStatus.Success)
             {
@@ -173,6 +174,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(EmployeeUpdateViewModel EmployeeUpdateViewModel, string tableType)
         {
+            ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
                 bool isPictureUploaded = false;
@@ -188,6 +190,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         : "postImages/defaultThumbnail.jpg";
                     if (oldPicture != "postImages/defaultThumbnail.jpg")
                     {
+                        EmployeeUpdateDto.Picture = EmployeeUpdateViewModel.Picture;
                         isPictureUploaded = true;
                     }
                 }
@@ -263,6 +266,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Update");
             }
         }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
+
         [HttpPost]
         public async Task<JsonResult> Delete(int employeeId, string tableType)
         {
@@ -284,7 +289,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return Json("Hatalı silme türü parametresi!");
             }
         }
-        [Authorize(Roles = "SuperAdmin,Employee.Delete")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
+
         [HttpPost]
         public async Task<JsonResult> HardDelete(int employeeId)
         {
@@ -292,7 +298,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var hardDeletedEmployeeResult = JsonSerializer.Serialize(result);
             return Json(hardDeletedEmployeeResult);
         }
-        [Authorize(Roles = "SuperAdmin,Employee.Read")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
+
         [HttpGet]
         public async Task<IActionResult> DeletedEmployees()
         {
@@ -301,7 +308,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = "SuperAdmin,Employee.Read")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedEmployees()
         {
@@ -312,7 +319,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(employees);
         }
-        [Authorize(Roles = "SuperAdmin,Employee.Update")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int employeeId)
         {

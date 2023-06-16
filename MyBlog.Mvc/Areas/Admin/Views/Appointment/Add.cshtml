@@ -1,4 +1,5 @@
-﻿@model MyBlog.Mvc.Areas.Admin.Models.AppointmentAddViewModel
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Mvc.Areas.Admin.Models.AppointmentAddViewModel
 @{
     Layout = "_Layout";
     ViewBag.Title = "Makale Ekle";
@@ -34,25 +35,25 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Temel Konfigürasyonlar
+                    Tipler
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="employeesList" asp-for="Employees"></label>
+                        <label for="employeesList">Personeller</label>
                         <select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="EmployeeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="customersList" asp-for="Customers"></label>
+                        <label for="customersList">Hastalar</label>
                         <select id="customersList" class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="CustomerID" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="appointmentTypeList" asp-for="AppointmentTypes"></label>
+                        <label for="appointmentTypeList">Randevu Tipleri</label>
                         <select id="appointmentTypeList" class="form-control" asp-for="AppointmentTypeId" asp-items="@(new SelectList(Model.AppointmentTypes,"Id","Title"))">
                             <option></option>
                         </select>
@@ -64,7 +65,14 @@
                         <span asp-validation-for="Date" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+                        @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                        {
+                        Id=0,
+                        InMainPage=1,
+                        TableType=ViewBag.tableType,
+                        Action="Update",
+                        Controller="Appointment"
+                        })
                     </div>
                 </div>
             </div>

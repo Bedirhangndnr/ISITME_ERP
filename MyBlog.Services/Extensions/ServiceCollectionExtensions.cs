@@ -62,6 +62,9 @@ namespace MyBlog.Services.Extensions
             serviceCollection.AddScoped<IProgramService, ProgramManager>();
             serviceCollection.AddScoped<IModuleService, ModuleManager>();
             serviceCollection.AddScoped<ISubProgramService, SubProgramManager>();
+            serviceCollection.AddScoped<IPaymentService, PaymentManager>();
+            serviceCollection.AddScoped<IAssociatedInstitutionService, AssociatedInstitutionManager>();
+            serviceCollection.AddScoped<IExpenseService, ExpenseManager>();
             return serviceCollection;
 
         }

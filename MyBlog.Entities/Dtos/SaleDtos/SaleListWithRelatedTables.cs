@@ -2,6 +2,7 @@
 using MyBlog.Shared.Entities.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace MyBlog.Entities.Dtos.SaleDtos
 {
     public class SaleListWithRelatedTables: DtoGetBase
     {
+        public int? AmountOfSgk { get; set; }
+        public bool IsInvoiceDue { get; set; } = false;
         public int Id { get; set; }
         public DateTime SaleDate { get; set; }
         public decimal Amount { get; set; }

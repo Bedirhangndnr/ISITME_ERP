@@ -1,4 +1,5 @@
-﻿@model MyBlog.Mvc.Areas.Admin.Models.EmployeeAddViewModel
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Mvc.Areas.Admin.Models.EmployeeAddViewModel
 
 @{
     ViewData["Title"] = "Add";
@@ -14,7 +15,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Kişisel Bilgiler
+                    Bilgiler
                 </div>
                 <div class="card-body">
                     <input type="hidden" id="tableType" value="@ViewBag.tableType" />
@@ -81,7 +82,14 @@
             </div>
             <div class="form-group">
 
-                <button type="submit" class="btn btn-primary btn-block mt-4" asp-route-tableType="@ViewBag.tableType">Kaydet</button>
+                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                {
+                Id=0,
+                InMainPage=1,
+                TableType=ViewBag.tableType,
+                Action="Update",
+                Controller="Employee"
+                })
             </div>
         </div>
     </div>

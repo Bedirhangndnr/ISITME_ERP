@@ -9,6 +9,7 @@ using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos.PaymentTypeDtos;
 using MyBlog.Entities.Dtos.BrandDtos;
 using MyBlog.Entities.Dtos.EmployeeTypeDtos;
+using MyBlog.Entities.Dtos.AppointmentTypeDtos;
 
 namespace MyBlog.Services.Abstract
 {
@@ -18,12 +19,15 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<BrandUpdateDto>> GetBrandUpdateDtoAsync(int BrandId);
         Task<IDataResult<BrandListDto>> GetAllAsync();
         Task<IDataResult<BrandDto>> DeleteAsync(int BrandId, string modifiedByName);
-
-        //Task<IDataResult<BrandListDto>> GetAllByDeletedAsync();
-        //Task<IDataResult<BrandListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<BrandListDto>> GetAllByNonDeletedAndActiveAsync();
         Task<IDataResult<BrandDto>> AddAsync(BrandAddDto BrandAddDto, string createdByName);
-        //Task<IDataResult<BrandDto>> ApproveAsync(int BrandId, string modifiedByName);
         Task<IDataResult<BrandDto>> UpdateAsync(BrandUpdateDto BrandUpdateDto, string modifiedByName);
+
+        Task<IDataResult<BrandListDto>> GetAllByDeletedAsync();
+        Task<IDataResult<BrandDto>> UndoDeleteAsync(int EmployeeTypeId, string modifiedByName);
+        Task<IResult> HardDeleteAsync(int EmployeeTypeId);
+        Task<IDataResult<int>> CountAsync();
+        Task<IDataResult<int>> CountByNonDeletedAsync();
+
     }
 }

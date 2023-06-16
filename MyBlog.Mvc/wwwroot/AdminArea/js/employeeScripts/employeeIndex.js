@@ -54,10 +54,11 @@
                                                 `<img src="/img/${employee.Picture}" alt="${employee.UserName}" class="my-image-table" />`,
                                                 employee.EmployeeTypeId + " " + employee.EmployeeTypeTitle,
                                                 `
-                                                <a title="Tricks Site" class="btn btn-outline-primary btn-sm btn-update" href="/Admin/Employee/Update?employeeId=${employee.Id}"><span class="fas fa-edit"></span></a>
-                                                <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" href="/Admin/Employee/Update?employeeId=${employee.Id}&tableType=${tableType}"><span class="fas fa-edit"></span></a>
+                                                <div class="form-group row justify-content-center">
+                                                <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" href="/Admin/employee/Update?Id=${employee.Id}&tableType=${tableType}"><span class="fas fa-edit"></span></a>
                                                 <button class="btn btn-danger btn-sm btn-delete" data-id="${employee.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                                <button class="btn btn-outline-danger btn-sm btn-delete" data-id="${employee.Id}"><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + employee.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                </div>
                                             `
                                             ]).node();
                                             const jqueryTableRow = $(newTableRow);
@@ -192,7 +193,7 @@
                 }
             });
         });
-    $('.btn-deletee').click(function () {
+    $('.btn-delete').click(function () {
         var employeeId = $(this).attr('data-id');
         var tableType = $(this).attr('data-tableType');
         $.ajax({

@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
 
+    const tableType = document.getElementById("tableType").value;
     /* DataTables start here. */
 
     const dataTable = $('#productsTable').DataTable({
@@ -24,6 +25,7 @@
                 action: function (e, dt, node, config) {
                     $.ajax({
                         type: 'GET',
+                        data: { tableType: tableType },
                         url: '/Admin/Product/GetAllProducts/',
                         contentType: "application/json",
                         beforeSend: function () {
@@ -35,23 +37,24 @@
                             dataTable.clear();
                             console.log(productListWithNamesDto);
                             if (productListWithNamesDto.Data.ResultStatus === 0) {
-                                $.each(productListWithNamesDto.Data.Products.$values,
+                                $.each(productListWithNamesDto.Data.ProductListWithRelatedTables.$values,
                                     function (index, product) {
                                         const newTableRow = dataTable.row.add([
                                             product.Id,
-                                            product.FirstName,
-                                            product.LastName,
-                                            product.Phone,
-                                            product.Email,
-                                            product.Type,
+                                            product.ProductName,
+                                            product.SerialNumber,
+                                            product.BrandTitle,
+                                            product.ProductSubGroupTitle == null ? "Alt Kategori Bulunmuyor" : product.ProductSubGroupTitle,
                                             product.Note == null ? "Not Eklenmemiş" : (product.Note.length > 75 ? product.Note.substring(0, 75) : product.Note),
-                                            `<img src="/img/${product.Picture}" alt="${product.UserName}" class="my-image-table" />`,
-                                            product.Email,
+                                            product.Note,
+                                            //`<img src="/img/${product.Picture}" alt="${product.UserName}" class="my-image-table" />`,
+                                            "1",
                                             `
-                                <button class="btn btn-info btn-sm btn-detail" data-id="${product.Id}"><span class="fas fa-newspaper"></span></button>
-                                <button class="btn btn-warning btn-sm btn-assign" data-id="${product.Id}"><span class="fas fa-product-shield"></span></button>
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${product.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${product.Id}"><span class="fas fa-minus-circle"></span></button>
+                                                <div class="form-group row justify-content-center">
+                                                <button class="btn btn-danger btn-sm btn-delete" data-id="${product.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + product.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                 <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="${product.Id}" href="/Admin/Product/Update/${product.Id}?tableType=${tableType}"><span class="fas fa-edit"></span></a>
+                                                </div>
                                             `
                                         ]).node();
                                         const jqueryTableRow = $(newTableRow);
@@ -116,11 +119,15 @@
         function (event) {
             event.preventDefault();
             const id = $(this).attr('data-id');
+            const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
-            const articleTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
+            const inUpdate = $(this).attr('data-inUpdate');
+
+            const productFirsName = tableRow.find('td:eq(1)').text(); // table datadan 2. indexdeki değeri aldık.
+            const productLastName = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
-                title: 'Silmek istediğinize emin misiniz?',
-                text: `${articleTitle} başlıklı makale silinicektir!`,
+                title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
+                text: `${productFirsName} Adlı Çalışam ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -132,23 +139,120 @@
                     $.ajax({
                         type: 'POST',
                         dataType: 'json',
-                        data: { productId: id },
+                        data: { productId: id, tableType: tableType },
                         url: '/Admin/Product/Delete/',
                         success: function (data) {
-                            const articleResult = jQuery.parseJSON(data);
-                            if (articleResult.ResultStatus === 0) {
-                                Swal.fire(
-                                    'Silindi!',
-                                    `${articleResult.Message}`,
-                                    'success'
-                                );
-
-                                dataTable.row(tableRow).remove().draw();
+                            const productResult = jQuery.parseJSON(data);
+                            if (productResult.ResultStatus === 0) {
+                                if (tableType === 'DeletedTables') {
+                                    Swal.fire(
+                                        'Tamamen Silindi!',
+                                        `${productResult.Message}`,
+                                        'success'
+                                    );
+                                }
+                                else {
+                                    Swal.fire(
+                                        'Silindi!',
+                                        `${productResult.Message}`,
+                                        'success'
+                                    );
+                                }
+                                if (inUpdate === '1') {
+                                    //update controller içindeyiz, sil butonuna tıklandığında şu adrese git
+                                    var url_ = '/Admin/Product/Index?tableType=' + tableType;
+                                    window.location.href = url_;
+                                } else {
+                                    // index controller içindeyiz, sil butonuna tıklandığında şu adrese git
+                                    tableRow.fadeOut(2000, function () {
+                                        dataTable.row($(this)).remove().draw();
+                                    });
+                                }
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Başarısız İşlem!',
-                                    text: `${articleResult.Message}`,
+                                    text: `${productResult.Message}`,
+                                });
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            toastr.error(`${err.responseText}`, "Hata!");
+                        }
+                    });
+                }
+            });
+        });
+    $('.btn-delete-from-update-page').click(function () {
+        var productId = $(this).attr('data-id');
+        var tableType = $(this).attr('data-tableType');
+        $.ajax({
+            url: '/Admin/Product/DeleteFromUpdatePage',
+            type: 'DELETE',
+            data: {
+                productId: productId,
+                tableType: tableType
+            },
+            success: function (result) {
+                // İşlem başarılıysa yapılacak işlemler
+            },
+            error: function () {
+                // Hata durumunda yapılacak işlemler
+            }
+        });
+    });
+    $(document).on('click',
+        '.btn-undo',
+        function (event) {
+            event.preventDefault();
+            const id = $(this).attr('data-id');
+            const tableType = $(this).attr('data-tableType');
+            const tableRow = $(`[name="${id}"]`);
+            const inUpdate = $(this).attr('data-inUpdate');
+
+            const productFirsName = tableRow.find('td:eq(1)').text();
+            const productLastName = tableRow.find('td:eq(2)').text();
+            Swal.fire({
+                title: tableType === 'DeletedTables' ? 'Silinen Personel Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${productFirsName} Adlı Personel Geri Getirilecektir!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, geri getirmek istiyorum.',
+                cancelButtonText: 'Hayır, geri getirmek istemiyorum.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        data: { productId: id, tableType: tableType },
+                        url: '/Admin/Product/UndoDelete/',
+                        success: function (data) {
+                            const productResult = jQuery.parseJSON(data);
+                            if (productResult.ResultStatus === 0) {
+                                Swal.fire(
+                                    'Geri Getirildi!',
+                                    `${productResult.Message}`,
+                                    'success'
+                                );
+
+                                if (inUpdate === '1') {
+                                    //update controller içindeyiz, sil butonuna tıklandığında şu adrese git
+                                    var url_ = '/Admin/Product/Index?tableType=' + tableType;
+                                    window.location.href = url_;
+                                } else {
+                                    // index controller içindeyiz, sil butonuna tıklandığında şu adrese git
+                                    tableRow.fadeOut(2000, function () {
+                                        dataTable.row($(this)).remove().draw();
+                                    });
+                                }
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Başarısız İşlem!',
+                                    text: `${productResult.Message}`,
                                 });
                             }
                         },

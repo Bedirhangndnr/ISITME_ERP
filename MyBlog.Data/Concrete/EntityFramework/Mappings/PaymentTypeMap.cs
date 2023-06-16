@@ -20,8 +20,20 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 new PaymentType
                 {
                     Id = 1,
-                    Title = "test",
-                    Description = "test description",
+                    Title = "KK | POS",
+                    Description = "Point of Sale"
+                },
+                new PaymentType
+                {
+                    Id = 2,
+                    Title = "Mail Order",
+                    Description = "Mail Order Payment"
+                },
+                new PaymentType
+                {
+                    Id = 3,
+                    Title = "Peşin",
+                    Description = "Point of Sale"
                 }
            );
         }

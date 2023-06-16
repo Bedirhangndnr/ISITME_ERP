@@ -35,6 +35,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 .Select(s => new SaleListWithRelatedTables
                 {
                     Id = s.Id,
+                    AmountOfSgk= s.AmountOfSgk,
+                    IsInvoiceDue= s.IsInvoiceDue,
                     Amount = s.Amount,
                     CustomerId = s.Customer.Id,
                     CustomerFirstName = s.Customer.FirstName,

@@ -42,7 +42,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductGroupDto>(ResultStatus.Error, new ProductGroupDto
             {
                 ProductGroup = null,
-            }, Messages.General.NotFound(isPlural: false, "Hasta"));
+            }, Messages.General.NotFound(isPlural: false, "Ürün Grupları"));
         }
         public async Task<IDataResult<ProductGroupListDto>> GetAllByNonDeletedAndActiveAsync()
         {
@@ -55,7 +55,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<ProductGroupListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Hasta"));
+            return new DataResult<ProductGroupListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün Grubu"));
 
         }
         public async Task<IDataResult<ProductGroupUpdateDto>> GetProductGroupUpdateDtoAsync(int ProductGroupId)
@@ -69,7 +69,7 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<ProductGroupUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Hasta Tipi"));
+                return new DataResult<ProductGroupUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Ürün Grubu"));
             }
         }
 
@@ -86,21 +86,20 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductGroupListDto>(ResultStatus.Error, new ProductGroupListDto
             {
                 ProductGroups = null,
-            }, Messages.General.NotFound(isPlural: true, "Hasta"));
+            }, Messages.General.NotFound(isPlural: true, "Ürün Grupları"));
         }
         public async Task<IDataResult<ProductGroupDto>> AddAsync(ProductGroupAddDto ProductGroupAddDto, string createdByName)
         {
             var productGroup = Mapper.Map<ProductGroup>(ProductGroupAddDto);
-
+            productGroup.ModifiedByName = createdByName;
             productGroup.CreatedByName = createdByName;
             var addedProductGroup = await UnitOfWork.ProductGroups.AddAsync(productGroup);
             await UnitOfWork.SaveAsync();
-            //EntityEntry enrty = _dbContext.Entry(productGroup);
-            //Console.WriteLine($"entity State: {enrty}");
             return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
             {
+                Message = Messages.General.GiveMessage(addedProductGroup.Title, "Ürün Grubu", MessagesConstants.UndoDeletedError),
                 ProductGroup = addedProductGroup,
-            }, Messages.General.GiveMessage(addedProductGroup.CreatedByName, "Hasta Tipi", "Eklendi"));
+            }, Messages.General.GiveMessage(addedProductGroup.CreatedByName, "Ürün Grubu", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<ProductGroupDto>> UpdateAsync(ProductGroupUpdateDto ProductGroupUpdateDto, string modifiedByName)
@@ -113,10 +112,10 @@ namespace MyBlog.Services.Concrete
             await UnitOfWork.SaveAsync();
             return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
             {
-                Message= Messages.General.GiveMessage(productGroup.Title, "Hasta Tipi", "Güncellendi."),
+                Message= Messages.General.GiveMessage(productGroup.Title, "Ürün Grubu", MessagesConstants.UpdateSuccess),
                 ProductGroup = updatedProductGroup,
                 ResultStatus = ResultStatus.Success,
-            }, Messages.General.GiveMessage(productGroup.Title, "Hasta Tipi", "Güncellendi."));
+            }, Messages.General.GiveMessage(productGroup.Title, "Ürün Grubu", MessagesConstants.UpdateSuccess));
         }
         public async Task<IDataResult<ProductGroupDto>> DeleteAsync(int ProductGroupId, string modifiedByName)
         {
@@ -131,163 +130,96 @@ namespace MyBlog.Services.Concrete
                 await UnitOfWork.SaveAsync();
                 return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
                 {
+                Message= Messages.General.GiveMessage(productGroup.Title, "Ürün Grubu", MessagesConstants.UndoDeletedError),
                     ProductGroup = deletedEmployeeType
                     
-                }, Messages.General.GiveMessage(productGroup.Title, "Hasta Tipi", "Güncellendi."));
+                }, Messages.General.GiveMessage(productGroup.Title, "Ürün Grubu", MessagesConstants.UpdateSuccess));
             }
             return new DataResult<ProductGroupDto>(ResultStatus.Error, new ProductGroupDto
             {
                 ProductGroup = null,
-            }, Messages.General.GiveMessage(productGroup.Title, "Hasta Tipi", "Güncellenemedi."));
+            }, Messages.General.GiveMessage(productGroup.Title, "Ürün Grubu", MessagesConstants.UpdateError));
         }
-        //public async Task<IDataResult<ProductGroupListDto>> GetAllByDeletedAsync()
-        //{
-        //    var ProductGroups = await UnitOfWork.ProductGroups.GetAllAsync(c=>c.IsDeleted, c => c.ProductGroup);
-        //    if (ProductGroups.Count > -1)
-        //    {
-        //        return new DataResult<ProductGroupListDto>(ResultStatus.Success, new ProductGroupListDto
-        //        {
-        //            ProductGroups = ProductGroups,
-        //        });
-        //    }
-        //    return new DataResult<ProductGroupListDto>(ResultStatus.Error, new ProductGroupListDto
-        //    {
-        //        ProductGroups = null,
-        //    }, Messages.ProductGroup.NotFound(isPlural: true));
-        //}
 
-        //public async Task<IDataResult<ProductGroupListDto>> GetAllByNonDeletedAsync()
-        //{
-        //    var ProductGroups = await UnitOfWork.ProductGroups.GetAllAsync(c => !c.IsDeleted, c => c.ProductGroup);
-        //    if (ProductGroups.Count > -1)
-        //    {
-        //        return new DataResult<ProductGroupListDto>(ResultStatus.Success, new ProductGroupListDto
-        //        {
-        //            ProductGroups = ProductGroups,
-        //        });
-        //    }
-        //    return new DataResult<ProductGroupListDto>(ResultStatus.Error, new ProductGroupListDto
-        //    {
-        //        ProductGroups = null,
-        //    }, Messages.ProductGroup.NotFound(isPlural: true));
-        //}
-
-        //public async Task<IDataResult<ProductGroupListDto>> GetAllByNonDeletedAndActiveAsync()
-        //{
-        //    var ProductGroups = await UnitOfWork.ProductGroups.GetAllAsync(c => !c.IsDeleted && c.IsActive);
-        //    if (ProductGroups.Count > -1)
-        //    {
-        //        return new DataResult<ProductGroupListDto>(ResultStatus.Success, new ProductGroupListDto
-        //        {
-        //            ProductGroups = ProductGroups,
-        //        });
-        //    }
-        //    return new DataResult<ProductGroupListDto>(ResultStatus.Error, new ProductGroupListDto
-        //    {
-        //        ProductGroups = null,
-        //    }, Messages.General.NotFound(isPlural: true, "Hasta"));
-        //}
+        public async Task<IDataResult<ProductGroupListDto>> GetAllByDeletedAsync()
+        {
+            var ProductGroups = await UnitOfWork.ProductGroups.GetAllAsync(c => c.IsDeleted);
+            if (ProductGroups.Count > -1)
+            {
+                return new DataResult<ProductGroupListDto>(ResultStatus.Success, new ProductGroupListDto
+                {
+                    ProductGroups = ProductGroups,
+                });
+            }
+            return new DataResult<ProductGroupListDto>(ResultStatus.Error, new ProductGroupListDto
+            {
+                ProductGroups = null,
+            }, Messages.General.TableNotFound("Ürün Grupları"));
+        }
+        public async Task<IResult> HardDeleteAsync(int ProductGroupId)
+        {
+            var ProductGroup = await UnitOfWork.ProductGroups.GetAsync(c => c.Id == ProductGroupId);
+            if (ProductGroup != null)
+            {
+                await UnitOfWork.ProductGroups.DeleteAsync(ProductGroup);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(ProductGroup.Title, "Ürün Grubu", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.GiveMessage(ProductGroup.Title, "Ürün Grubu", MessagesConstants.HardDeletedSuccess));
+        }
 
 
+        public async Task<IDataResult<ProductGroupDto>> UndoDeleteAsync(int ProductGroupId, string modifiedByName)
+        {
+            var ProductGroup = await UnitOfWork.ProductGroups.GetAsync(c => c.Id == ProductGroupId);
+            if (ProductGroup != null)
+            {
+                ProductGroup.IsDeleted = false;
+                ProductGroup.IsActive = true;
+                ProductGroup.ModifiedByName = modifiedByName;
+                ProductGroup.ModifiedDate = DateTime.Now;
+                var deletedProductGroup = await UnitOfWork.ProductGroups.UpdateAsync(ProductGroup);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
+                {
+                    Message = Messages.General.GiveMessage(ProductGroup.Title, "Ürün Grubu", MessagesConstants.UndoDeletedSuccess),
+                    ProductGroup = deletedProductGroup,
+                }, Messages.General.GiveMessage(ProductGroup.Title, "Ürün Grubu", MessagesConstants.UndoDeletedSuccess));
+            }
+            return new DataResult<ProductGroupDto>(ResultStatus.Error, new ProductGroupDto
+            {
+                Message= Messages.General.GiveMessage(ProductGroup.Title, "Ürün Grubu", MessagesConstants.UndoDeletedError),
+                ProductGroup = null,
+            }, Messages.General.GiveMessage(ProductGroup.Title, "Ürün Grubu", MessagesConstants.UndoDeletedError));
+        }
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var ProductGroupsCount = await UnitOfWork.ProductGroups.CountAsync();
+            if (ProductGroupsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, ProductGroupsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //public async Task<IDataResult<ProductGroupDto>> DeleteAsync(int ProductGroupId, string modifiedByName)
-        //{
-        //    var ProductGroup = await UnitOfWork.ProductGroups.GetAsync(c => c.Id == ProductGroupId);
-        //    if (ProductGroup != null)
-        //    {
-        //        ProductGroup.IsDeleted = true;
-        //        ProductGroup.IsActive = false;
-        //        ProductGroup.ModifiedByName = modifiedByName;
-        //        ProductGroup.ModifiedDate = DateTime.Now;
-        //        var deletedProductGroup = await UnitOfWork.ProductGroups.UpdateAsync(ProductGroup);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
-        //        {
-        //            ProductGroup = deletedProductGroup,
-        //        }, Messages.ProductGroup.Delete(deletedProductGroup.CreatedByName));
-        //    }
-        //    return new DataResult<ProductGroupDto>(ResultStatus.Error, new ProductGroupDto
-        //    {
-        //        ProductGroup = null,
-        //    }, Messages.ProductGroup.NotFound(isPlural: false));
-        //}
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var ProductGroupsCount = await UnitOfWork.ProductGroups.CountAsync(c => !c.IsDeleted);
+            if (ProductGroupsCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, ProductGroupsCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+            }
+        }
 
-        //public async Task<IResult> HardDeleteAsync(int ProductGroupId)
-        //{
-        //    var ProductGroup = await UnitOfWork.ProductGroups.GetAsync(c => c.Id == ProductGroupId);
-        //    if (ProductGroup != null)
-        //    {
-        //        await UnitOfWork.ProductGroups.DeleteAsync(ProductGroup);
-        //        await UnitOfWork.SaveAsync();
-        //        return new Result(ResultStatus.Success, Messages.ProductGroup.HardDelete(ProductGroup.CreatedByName));
-        //    }
-        //    return new Result(ResultStatus.Error, Messages.ProductGroup.NotFound(isPlural: false));
-        //}
 
-        //public async Task<IDataResult<int>> CountAsync()
-        //{
-        //    var ProductGroupsCount = await UnitOfWork.ProductGroups.CountAsync();
-        //    if (ProductGroupsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, ProductGroupsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1,$"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
 
-        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
-        //{
-        //    var ProductGroupsCount = await UnitOfWork.ProductGroups.CountAsync(c=>!c.IsDeleted);
-        //    if (ProductGroupsCount > -1)
-        //    {
-        //        return new DataResult<int>(ResultStatus.Success, ProductGroupsCount);
-        //    }
-        //    else
-        //    {
-        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
-        //    }
-        //}
 
-        //public async Task<IDataResult<ProductGroupDto>> ApproveAsync(int ProductGroupId, string modifiedByName)
-        //{
-        //    var ProductGroup = await UnitOfWork.ProductGroups.GetAsync(c => c.Id == ProductGroupId, c => c.ProductGroup);
-        //    if (ProductGroup != null)
-        //    {
-        //        ProductGroup.IsActive = true;
-        //        ProductGroup.ModifiedByName = modifiedByName;CustomerType
-        //        ProductGroup.ModifiedDate = DateTime.Now;
-        //        var updatedProductGroup = await UnitOfWork.ProductGroups.UpdateAsync(ProductGroup);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
-        //        {
-        //            ProductGroup = updatedProductGroup
-        //        }, Messages.ProductGroup.Approve(ProductGroupId));
-        //    }
-
-        //    return new DataResult<ProductGroupDto>(ResultStatus.Error, null, Messages.ProductGroup.NotFound(isPlural: false));
-        //}
-        //public async Task<IDataResult<ProductGroupDto>> UndoDeleteAsync(int ProductGroupId, string modifiedByName)
-        //{
-        //    var ProductGroup = await UnitOfWork.ProductGroups.GetAsync(c => c.Id == ProductGroupId);
-        //    if (ProductGroup != null)
-        //    {
-        //        ProductGroup.IsDeleted = false;
-        //        ProductGroup.IsActive = true;
-        //        ProductGroup.ModifiedByName = modifiedByName;
-        //        ProductGroup.ModifiedDate = DateTime.Now;
-        //        var deletedProductGroup = await UnitOfWork.ProductGroups.UpdateAsync(ProductGroup);
-        //        await UnitOfWork.SaveAsync();
-        //        return new DataResult<ProductGroupDto>(ResultStatus.Success, new ProductGroupDto
-        //        {
-        //            ProductGroup = deletedProductGroup,
-        //        }, Messages.ProductGroup.UndoDelete(deletedProductGroup.CreatedByName));
-        //    }
-        //    return new DataResult<ProductGroupDto>(ResultStatus.Error, new ProductGroupDto
-        //    {
-        //        ProductGroup = null,
-        //    }, Messages.ProductGroup.NotFound(isPlural: false));
-        //}
     }
 }

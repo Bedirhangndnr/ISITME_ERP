@@ -1,4 +1,5 @@
-﻿@model MyBlog.Mvc.Areas.Admin.Models.SaleAddViewModel
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Mvc.Areas.Admin.Models.SaleAddViewModel
 
 @{
     ViewData["Title"] = "Add";
@@ -9,12 +10,12 @@
     <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Index">Personeller</a></li>
     <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Add">Ekle</a></li>
 </ol>
-<form asp-controller="Sale" asp-action="Add" method="post" enctype="multipart/form-data">
+<form asp-controller="Sale" asp-action="Update" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Tipler
+                    Bilgiler
                 </div>
                 <div class="card-body">
                     <input type="hidden" asp-for="Customers" value="@Model.Customers" />
@@ -24,48 +25,81 @@
                     <input type="hidden" asp-for="SaleStatuses" value="@Model.SaleStatuses" />
 
                     <div class="form-group col-md-6">
-                        <input type="number" id="customerName" class="form-control" placeholder="Ad" asp-for="Amount" />
+                        <label asp-for="Amount"></label>
+                        <input type="number" id="Amount" class="form-control"asp-for="Amount" />
                         <span asp-validation-for="Amount" class="text-danger"></span>
                     </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="AmountOfSgk"></label>
+                        <input type="number" id="amountOfSgk" class="form-control"asp-for="AmountOfSgk" />
+                        <span asp-validation-for="AmountOfSgk" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Tipler
+                </div>
+                <div class="card-body">
                     <div class="form-group">
-                        <select id="customerTypeList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                        <label for="employeeList" asp-for="Employees"></label>
+                        <select id="EmployeeList1" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="EmployeeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <select id="customersList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
+                        <label for="customersList" asp-for="Customers"></label>
+                        <select id="customersList1" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="CustomerId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <select id="productsList" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
+                        <label for="productsList" asp-for="Products"></label>
+                        <select id="productsList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="ProductId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <select id="saleTypesList" class="form-control" asp-for="SaleTypeId" asp-items="@(new SelectList(Model.SaleTypes,"Id","Title"))">
+                        <label for="saleTypesList" asp-for="SaleTypes"></label>
+                        <select id="saleTypesList1" class="form-control" asp-for="SaleTypeId" asp-items="@(new SelectList(Model.SaleTypes,"Id","Title"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="SaleTypeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <select id="saleStatusesList" class="form-control" asp-for="SaleStatusId" asp-items="@(new SelectList(Model.SaleStatuses,"Id","Title"))">
+                        <label for="salestatusesList" asp-for="SaleStatuses"></label>
+                        <select id="saleStatusesList1" class="form-control" asp-for="SaleStatusId" asp-items="@(new SelectList(Model.SaleStatuses,"Id","Title"))">
                             <option></option>
                         </select>
                         <span asp-validation-for="SaleStatusId" class="text-danger"></span>
                     </div>
 
+                    <div class="form-group">
+                        @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                        {
+                        Id=0,
+                        InMainPage=1,
+                        TableType=ViewBag.tableType,
+                        Action="Update",
+                        Controller="Sale"
+                        })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
             </div>
         </div>
     </div>
+
+
+
+
 </form>
+
 @section Scripts
     {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js" integrity="sha512-sffB9/tXFFTwradcJHhojkhmrCj0hWeaz8M05Aaap5/vlYBfLx5Y7woKi6y0NrqVNgben6OIANTGGlojPTQGEw==" crossorigin="anonymous"></script>

@@ -17,6 +17,8 @@ namespace MyBlog.Entities.Dtos.NotificationDtos
         public string Description { get; set; }
         public string? Title { get; set; } 
         public int? CustomerId { get; set; }
+        public User? User{ get; set; }
+        public int? UserId { get; set; }
         public Customer? Customer { get; set; }
         public string? NotificationType { get; set; }
         public DateTime? TargetDate { get; set; }
