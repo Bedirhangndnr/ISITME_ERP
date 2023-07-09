@@ -1,4 +1,5 @@
-﻿    @using MyBlog.Shared.Utilities.Results.ComplexTypes;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+    @using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.CustomerTypeDtos.CustomerTypeListDto
 @{
     Layout = "_Layout";
@@ -46,13 +47,14 @@
                                 <td>@customerType.Id</td>
                                 <td>@customerType.Title</td>
                                 <td>@customerType.Note</td>
-                                <td>
-                                    <button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id="@customerType.Id">
-                                        <span class="fas fa-edit"></span>
-                                    </button>
-                                    <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id="@customerType.Id">
-                                        <span class="fas fa-minus-circle"></span>
-                                    </button>
+                                <td class="dt-button-col">
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=customerType.Id,
+                            TableType=ViewBag.tableType,
+                            })
+
+
                                 </td>
                             </tr>
                         }

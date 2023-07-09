@@ -20,60 +20,81 @@
 
         return '^' + formattedToday + '.*' + formattedNextWeek + '$';
     }
-        const tableType = document.getElementById("tableType").value;
-        /* DataTables start here. */
+    const tableType = document.getElementById("tableType").value;
+    /* DataTables start here. */
 
-        const dataTable = $('#appointmentsTable').DataTable({
-            dom:
-                "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
-                "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-            buttons: [
-                {
-                    text: 'Bugün',
-                    className: 'btn btn-primary',
-                    action: function (e, dt, node, config) {
-                        var today = new Date();
-                        var formattedToday = formatDate(today);
 
-                        dt.columns(1).search('^' + formattedToday, true, false).draw();
-                    }
-                },
-                {
-                    text: '1 Hafta',
-                    className: 'btn btn-primary',
-                    action: function (e, dt, node, config) {
-                        var today = new Date();
-                        var formattedToday = formatDate(today);
+    const dataTable = $('#appointmentsTable').DataTable({
 
-                        var endDate = new Date();
-                        endDate.setHours(23, 59, 59, 999); // Günün son saati ve dakikası
-                        endDate.setDate(today.getDate() + 7);
-                        var formattedEndDate = formatDate(endDate);
+        order: [[1, 'asc'], [3, 'asc']],
 
-                        var dateRange = '^(' + formattedToday;
-                        var currentDate = new Date(today);
-                        while (currentDate <= endDate) {
-                            currentDate.setDate(currentDate.getDate() + 1);
-                            var formattedNextDate = formatDate(currentDate);
-                            dateRange += '|' + formattedNextDate;
+        dom:
+            "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        buttons: [
+            {
+                text: 'Bugün',
+                className: 'btn btn-outline-secondary',
+                action: function (e, dt, node, config) {
+                    var today = new Date();
+                    var formattedToday = formatDate(today);
 
-                            if (currentDate.getDate() === 1 && currentDate.getMonth() !== endDate.getMonth()) {
-                                break;
-                            }
+                    dt.columns(1).search('^' + formattedToday, true, false).draw();
+                }
+            },
+            {
+                text: '1 Hafta',
+                className: 'btn btn-outline-primary',
+                action: function (e, dt, node, config) {
+                    var today = new Date();
+                    var formattedToday = formatDate(today);
+
+                    var endDate = new Date();
+                    endDate.setHours(23, 59, 59, 999); // Günün son saati ve dakikası
+                    endDate.setDate(today.getDate() + 7);
+                    var formattedEndDate = formatDate(endDate);
+
+                    var dateRange = '^(' + formattedToday;
+                    var currentDate = new Date(today);
+                    while (currentDate <= endDate) {
+                        currentDate.setDate(currentDate.getDate() + 1);
+                        var formattedNextDate = formatDate(currentDate);
+                        dateRange += '|' + formattedNextDate;
+
+                        if (currentDate.getDate() === 1 && currentDate.getMonth() !== endDate.getMonth()) {
+                            break;
                         }
-                        dateRange += ')';
+                    }
+                    dateRange += ')';
 
-                        dt.columns(1).search(dateRange, true, false).draw();
-                    }
-                },
-                {
-                    text: 'Tümünü Listele',
-                    className: 'btn btn-primary',
-                    action: function (e, dt, node, config) {
-                        dt.columns(1).search('').draw();
-                    }
-                },
+                    dt.columns(1).search(dateRange, true, false).draw();
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Excel\'e Aktar',
+                className: 'btn btn-success',
+                filename: 'musteriler', // Excel dosyasının adı
+            },
+            {
+                extend: 'collection',
+                text: 'Diğer İşlemler',
+                className: 'btn btn-primary dropdown-toggle',
+                buttons: [
+                    'copy',
+                    'csv',
+                    'pdf',
+                    'print'
+                ]
+            },
+            {
+                text: 'Tümünü Listele',
+                className: 'btn btn-outline-danger',
+                action: function (e, dt, node, config) {
+                    dt.columns(1).search('').draw();
+                }
+            },
 
             {
                 text: 'Ekle',
@@ -106,7 +127,7 @@
                             if (appointmentListWithNamesDto.Data.ResultStatus === 0) {
                                 $.each(appointmentListWithNamesDto.Data.AppointmentListWithRelatedTables.$values,
                                     function (index, appointment) {
-                                        const appointmentDate = new Date(appointment.Date); 
+                                        const appointmentDate = new Date(appointment.Date);
                                         const formattedDate = appointmentDate.toLocaleDateString();
                                         const formattedTime = appointmentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -133,6 +154,7 @@
                                 dataTable.draw();
                                 $('.spinner-border').hide();
                                 $('#appointmentsTable').fadeIn(1400);
+                                setRowColors();
                             } else {
                                 toastr.error(`${appointmentListWithNamesDto.Data.Message}`, 'İşlem Başarısız!');
                             }
@@ -145,8 +167,16 @@
                         }
                     });
                 }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Export to Excel',
+                filename: 'Randevular Tablosu',
+                className: 'btn btn-outline-secondary'
             }
+
         ],
+
         language: {
             "sDecimal": ",",
             "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
@@ -176,13 +206,105 @@
                     "0": "",
                     "1": "1 kayıt seçildi"
                 }
+            },
+        },
+    });
+    new $.fn.dataTable.Buttons(dataTable, {
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Excel\'e Aktar',
+                className: 'btn btn-success',
+                filename: 'musteriler', // Excel dosyasının adı
             }
-        }
+        ]
     });
 
-    /* DataTables end here */
+    // Butonu DataTables araç çubuğuna ekleme
+    dataTable.buttons().container()
+        .appendTo('#appointmentsTable_wrapper .col-sm-6:eq(0)');
 
-    /* Ajax POST / Deleting a User starts from here */
+    function setRowColors() {
+        const table = $('#appointmentsTable').DataTable();
+        const today = new Date();
+        const formattedToday = formatDate(today);
+        const parts = formattedToday.split(".");
+        const todayDay = parseInt(parts[0]);
+        const todayMonth = parseInt(parts[1]);
+        const todayYear = parseInt(parts[2]);
+        const currentHour = today.getHours();
+        const currentMinute = today.getMinutes();
+        const currentTime = `${currentHour}:${currentMinute}`;
+
+        table.rows().every(function () {
+            const rowData = this.data();
+            const date = rowData[1]; // Tarih sütununun indeksi
+            const time = rowData[2]; // Saat sütununun indeksi
+            const appointmentDate = formatAppointmentDate(date); // Tarihi formatlayarak al
+            const parts = appointmentDate.split(".");
+            const appointmentDay = parseInt(parts[2]);
+            const appointmentMonth = parseInt(parts[1]);
+            const appointmentYear = parseInt(parts[0]);
+            const rowNode = this.node();
+            const todayAppointment = new Date(todayYear, todayMonth - 1, todayDay); // today ve appointment tarihlerini birleştir
+
+            const appointmentDateTime = new Date(appointmentYear, appointmentMonth - 1, appointmentDay); // Appointment tarihini oluştur
+
+            if (appointmentDateTime.getTime() === todayAppointment.getTime()) {
+                if (time <= currentTime) { // bugün ama randevu saati geçmiş
+                    $(rowNode).find('td:eq(1)').addClass('text-warning'); // Tarih sütununun rengini koyu turuncu yapmak için 'text-dark' sınıfını ekle
+                    $(rowNode).find('td:eq(2)').addClass('text-warning'); // Saat sütununun rengini koyu turuncu yapmak için 'text-dark' sınıfını ekle
+                } else { //bugün ve randevu saati geçmemiş
+                    $(rowNode).find('td:eq(1)').addClass('text-success'); // Tarih sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
+                    $(rowNode).find('td:eq(2)').addClass('text-success'); // Saat sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
+                }
+            } else if (compareDates(date, formattedToday) < 0) { //geçmiş günler
+                $(rowNode).find('td:eq(1)').addClass('text-danger'); // Tarih sütununun rengini kırmızı yapmak için 'text-danger' sınıfını ekle
+                $(rowNode).find('td:eq(2)').addClass('text-danger'); // Saat sütununun rengini kırmızı yapmak için 'text-danger' sınıfını ekle
+            } else { //gelecek günler 
+                $(rowNode).find('td:eq(1)').addClass('text-primary'); // Tarih sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
+                $(rowNode).find('td:eq(2)').addClass('text-primary'); // Saat sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
+            }
+        });
+    }
+
+    // İki tarihi karşılaştırmak için işlev
+    function compareDates(date1, date2) {
+        const [day1, month1, year1] = date1.split('.');
+        const [day2, month2, year2] = date2.split('.');
+        return new Date(`${year1}-${month1}-${day1}`) - new Date(`${year2}-${month2}-${day2}`);
+    }
+
+    // Tarihi "yyyy.mm.dd" formatına dönüştürmek için işlev
+    function formatAppointmentDate(date) {
+        const [day, month, year] = date.split('.');
+        return `${year}.${month}.${day}`;
+    }
+
+    // Bir saat dizgisinden saat ve dakika değerlerini elde etmek için işlev
+    function getTimeFromString(timeString) {
+        const [hour, minute] = timeString.split(':');
+        return { hour: parseInt(hour), minute: parseInt(minute) };
+    }
+
+    // Bir saat değerinin geçmiş bir saat olup olmadığını kontrol etmek için işlev
+    function isPastTime(time, date) {
+        const currentTime = { hour: date.getHours(), minute: date.getMinutes() };
+        return (
+            time.hour < currentTime.hour ||
+            (time.hour === currentTime.hour && time.minute < currentTime.minute)
+        );
+    }
+
+    // Renkleri ayarla işlevini çağır
+    setRowColors();
+
+
+
+
+
+
+
 
     $(document).on('click',
         '.btn-delete',

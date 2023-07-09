@@ -42,11 +42,20 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             int id = 0;
 
             builder.HasData(
+                  new Role
+                  {
+                      Id = id = id + 1,
+                      Name = AuthorizeDefinitionConstants.SuperAdmin,
+                      NormalizedName = AuthorizeDefinitionConstants.SuperAdmin.ToUpperInvariant(),
+                      Definition = "SüperAdmin Yetkisi",
+                      ConcurrencyStamp = Guid.NewGuid().ToString(),
+                      AccessLevel = 1
+                  },
                 new Role
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.UserCreate,
-                    NormalizedName = AuthorizeDefinitionConstants.UserCreate.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.UserCreate.ToUpperInvariant(),
                     Definition = "Kullanıcı Ekleme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -56,7 +65,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.UserRead,
-                    NormalizedName = AuthorizeDefinitionConstants.UserRead.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.UserRead.ToUpperInvariant(),
                     Definition = "Kullanıcı Görüntüleme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -65,7 +74,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.UserUpdate,
-                    NormalizedName = AuthorizeDefinitionConstants.UserUpdate.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.UserUpdate.ToUpperInvariant(),
                     Definition = "Kullanıcı Güncelleme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -75,7 +84,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.UserDelete,
-                    NormalizedName = AuthorizeDefinitionConstants.UserDelete.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.UserDelete.ToUpperInvariant(),
                     Definition = "Kullanıcı Silme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -85,7 +94,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.RoleRead,
-                    NormalizedName = AuthorizeDefinitionConstants.RoleRead.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.RoleRead.ToUpperInvariant(),
                     Definition = "Rol Görüntüleme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -94,7 +103,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.RoleUpdate,
-                    NormalizedName = AuthorizeDefinitionConstants.RoleUpdate.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.RoleUpdate.ToUpperInvariant(),
                     Definition = "Rol Güncelleme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -104,7 +113,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.RoleDelete,
-                    NormalizedName = AuthorizeDefinitionConstants.RoleDelete.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.RoleDelete.ToUpperInvariant(),
                     Definition = "Rol Silme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -114,7 +123,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = id = id + 1,
                     Name = AuthorizeDefinitionConstants.RoleCreate,
-                    NormalizedName = AuthorizeDefinitionConstants.RoleCreate.ToUpper(),
+                    NormalizedName = AuthorizeDefinitionConstants.RoleCreate.ToUpperInvariant(),
                     Definition = "Rol Ekleme Yetkisi",
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
                     AccessLevel = 3
@@ -126,7 +135,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  {
                      Id = id = id + 1,
                      Name = AuthorizeDefinitionConstants.PaymentCreate,
-                     NormalizedName = AuthorizeDefinitionConstants.PaymentCreate.ToUpper(),
+                     NormalizedName = AuthorizeDefinitionConstants.PaymentCreate.ToUpperInvariant(),
                      Definition = "Ödeme Ekleme Yetkisi",
                      ConcurrencyStamp = Guid.NewGuid().ToString(),
                      AccessLevel = 3
@@ -135,7 +144,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  {
                      Id = id = id + 1,
                      Name = AuthorizeDefinitionConstants.PaymentRead,
-                     NormalizedName = AuthorizeDefinitionConstants.PaymentRead.ToUpper(),
+                     NormalizedName = AuthorizeDefinitionConstants.PaymentRead.ToUpperInvariant(),
                      Definition = "Ödeme Görüntüleme Yetkisi",
                      ConcurrencyStamp = Guid.NewGuid().ToString(),
                      AccessLevel = 3
@@ -144,7 +153,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  {
                      Id = id = id + 1,
                      Name = AuthorizeDefinitionConstants.PaymentUpdate,
-                     NormalizedName = AuthorizeDefinitionConstants.PaymentUpdate.ToUpper(),
+                     NormalizedName = AuthorizeDefinitionConstants.PaymentUpdate.ToUpperInvariant(),
                      Definition = "Ödeme Güncelleme Yetkisi",
                      ConcurrencyStamp = Guid.NewGuid().ToString(),
                      AccessLevel = 3
@@ -153,7 +162,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  {
                      Id = id = id + 1,
                      Name = AuthorizeDefinitionConstants.PaymentDelete,
-                     NormalizedName = AuthorizeDefinitionConstants.PaymentDelete.ToUpper(),
+                     NormalizedName = AuthorizeDefinitionConstants.PaymentDelete.ToUpperInvariant(),
                      Definition = "Ödeme Silme Yetkisi",
                      ConcurrencyStamp = Guid.NewGuid().ToString(),
                      AccessLevel = 3
@@ -164,7 +173,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.PaymentTypeCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeCreate.ToUpperInvariant(),
                  Definition = "Ödeme Türü Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -173,7 +182,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.PaymentTypeRead,
-                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeRead.ToUpperInvariant(),
                  Definition = "Ödeme Türü Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -182,7 +191,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.PaymentTypeUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeUpdate.ToUpperInvariant(),
                  Definition = "Ödeme Türü Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -191,7 +200,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.PaymentTypeDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.PaymentTypeDelete.ToUpperInvariant(),
                  Definition = "Ödeme Türü Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -203,7 +212,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeCreate.ToUpperInvariant(),
                  Definition = "Çalışan Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -212,7 +221,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeRead,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeRead.ToUpperInvariant(),
                  Definition = "Çalışan Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -221,7 +230,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeUpdate.ToUpperInvariant(),
                  Definition = "Çalışan Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -230,7 +239,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeDelete.ToUpperInvariant(),
                  Definition = "Çalışan Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -243,7 +252,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeCreate.ToUpperInvariant(),
                  Definition = "Çalışan Türü Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -252,7 +261,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeRead,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeRead.ToUpperInvariant(),
                  Definition = "Çalışan Türü Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -261,7 +270,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeUpdate.ToUpperInvariant(),
                  Definition = "Çalışan Türü Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -270,7 +279,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeDelete.ToUpperInvariant(),
                  Definition = "Çalışan Türü Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -281,7 +290,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerCreate.ToUpperInvariant(),
                  Definition = "Müşteri Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -290,7 +299,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerRead,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerRead.ToUpperInvariant(),
                  Definition = "Müşteri Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -299,7 +308,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerUpdate.ToUpperInvariant(),
                  Definition = "Müşteri Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -308,7 +317,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerDelete.ToUpperInvariant(),
                  Definition = "Müşteri Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -319,7 +328,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerTypeCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeCreate.ToUpperInvariant(),
                  Definition = "Müşteri Tipi Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -328,7 +337,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerTypeRead,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeRead.ToUpperInvariant(),
                  Definition = "Müşteri Tipi Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -337,7 +346,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerTypeUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeUpdate.ToUpperInvariant(),
                  Definition = "Müşteri Tipi Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -346,7 +355,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.CustomerTypeDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.CustomerTypeDelete.ToUpperInvariant(),
                  Definition = "Müşteri Tipi Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -357,7 +366,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.NotificationCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.NotificationCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.NotificationCreate.ToUpperInvariant(),
                  Definition = "Bildirim Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -366,7 +375,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.NotificationRead,
-                 NormalizedName = AuthorizeDefinitionConstants.NotificationRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.NotificationRead.ToUpperInvariant(),
                  Definition = "Bildirim Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -375,7 +384,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.NotificationUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.NotificationUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.NotificationUpdate.ToUpperInvariant(),
                  Definition = "Bildirim Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -384,7 +393,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.NotificationDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.NotificationDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.NotificationDelete.ToUpperInvariant(),
                  Definition = "Bildirim Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -394,7 +403,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.BrandCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.BrandCreate.ToUpperInvariant(),
                  Definition = "Marka Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -403,7 +412,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandRead,
-                 NormalizedName = AuthorizeDefinitionConstants.BrandRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.BrandRead.ToUpperInvariant(),
                  Definition = "Marka Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -412,7 +421,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.BrandUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.BrandUpdate.ToUpperInvariant(),
                  Definition = "Marka Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -421,7 +430,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.BrandDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.BrandDelete.ToUpperInvariant(),
                  Definition = "Marka Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -432,7 +441,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleStatusCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusCreate.ToUpperInvariant(),
                  Definition = "Satış Durumu Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -441,7 +450,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleStatusRead,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusRead.ToUpperInvariant(),
                  Definition = "Satış Durumu Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -450,7 +459,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleStatusUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusUpdate.ToUpperInvariant(),
                  Definition = "Satış Durumu Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -459,7 +468,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleStatusDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleStatusDelete.ToUpperInvariant(),
                  Definition = "Satış Durumu Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -469,7 +478,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleTypeCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeCreate.ToUpperInvariant(),
                  Definition = "Satış Türü Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -478,7 +487,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleTypeRead,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeRead.ToUpperInvariant(),
                  Definition = "Satış Türü Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -487,7 +496,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleTypeUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeUpdate.ToUpperInvariant(),
                  Definition = "Satış Türü Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -496,7 +505,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleTypeDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleTypeDelete.ToUpperInvariant(),
                  Definition = "Satış Türü Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -507,7 +516,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductGroupCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupCreate.ToUpperInvariant(),
                  Definition = "Ürün Grubu Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -516,7 +525,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductGroupRead,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupRead.ToUpperInvariant(),
                  Definition = "Ürün Grubu Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -525,7 +534,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductGroupUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupUpdate.ToUpperInvariant(),
                  Definition = "Ürün Grubu Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -534,7 +543,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductGroupDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductGroupDelete.ToUpperInvariant(),
                  Definition = "Ürün Grubu Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -545,7 +554,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupCreate.ToUpperInvariant(),
                  Definition = "Ürün Alt Grubu Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -554,7 +563,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupRead,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupRead.ToUpperInvariant(),
                  Definition = "Ürün Alt Grubu Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -563,7 +572,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupUpdate.ToUpperInvariant(),
                  Definition = "Ürün Alt Grubu Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -572,7 +581,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupDelete.ToUpperInvariant(),
                  Definition = "Ürün Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -584,7 +593,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentTypeCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeCreate.ToUpperInvariant(),
                  Definition = "Randevu Türü Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -593,7 +602,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentTypeRead,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeRead.ToUpperInvariant(),
                  Definition = "Randevu Türü Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -602,7 +611,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentTypeUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeUpdate.ToUpperInvariant(),
                  Definition = "Randevu Türü Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -611,7 +620,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentTypeDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentTypeDelete.ToUpperInvariant(),
                  Definition = "Randevu Türü Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -622,7 +631,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleCreate.ToUpperInvariant(),
                  Definition = "Satış Oluşturma Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -631,7 +640,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleRead,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleRead.ToUpperInvariant(),
                  Definition = "Satış Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -640,7 +649,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleUpdate.ToUpperInvariant(),
                  Definition = "Satış Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -649,7 +658,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.SaleDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.SaleDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.SaleDelete.ToUpperInvariant(),
                  Definition = "Satış Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -660,7 +669,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductCreate,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductCreate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductCreate.ToUpperInvariant(),
                  Definition = "Ürün Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -669,7 +678,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductRead,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductRead.ToUpperInvariant(),
                  Definition = "Ürün Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -678,7 +687,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductUpdate.ToUpperInvariant(),
                  Definition = "Ürün Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -687,7 +696,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.ProductDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.ProductDelete.ToUpperInvariant(),
                  Definition = "Ürün Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -699,7 +708,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
               {
                   Id = id = id + 1,
                   Name = AuthorizeDefinitionConstants.AppointmentCreate,
-                  NormalizedName = AuthorizeDefinitionConstants.AppointmentCreate.ToUpper(),
+                  NormalizedName = AuthorizeDefinitionConstants.AppointmentCreate.ToUpperInvariant(),
                   Definition = "Randevu Oluşturma Yetkisi",
                   ConcurrencyStamp = Guid.NewGuid().ToString(),
                   AccessLevel = 3
@@ -708,7 +717,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentRead,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentRead.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentRead.ToUpperInvariant(),
                  Definition = "Randevu Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -717,7 +726,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentUpdate,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentUpdate.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentUpdate.ToUpperInvariant(),
                  Definition = "Randevu Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
@@ -726,8 +735,83 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
              {
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.AppointmentDelete,
-                 NormalizedName = AuthorizeDefinitionConstants.AppointmentDelete.ToUpper(),
+                 NormalizedName = AuthorizeDefinitionConstants.AppointmentDelete.ToUpperInvariant(),
                  Definition = "Randevu Silme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+
+              // OutPayment
+              new Role
+              {
+                  Id = id = id + 1,
+                  Name = AuthorizeDefinitionConstants.OutPaymentCreate,
+                  NormalizedName = AuthorizeDefinitionConstants.OutPaymentCreate.ToUpperInvariant(),
+                  Definition = "Randevu Oluşturma Yetkisi",
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  AccessLevel = 3
+              },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.OutPaymentRead,
+                 NormalizedName = AuthorizeDefinitionConstants.OutPaymentRead.ToUpperInvariant(),
+                 Definition = "Randevu Görüntüleme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.OutPaymentUpdate,
+                 NormalizedName = AuthorizeDefinitionConstants.OutPaymentUpdate.ToUpperInvariant(),
+                 Definition = "Randevu Güncelleme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.OutPaymentDelete,
+                 NormalizedName = AuthorizeDefinitionConstants.OutPaymentDelete.ToUpperInvariant(),
+                 Definition = "Randevu Silme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+              // OutPaymentDetail
+              new Role
+              {
+                  Id = id = id + 1,
+                  Name = AuthorizeDefinitionConstants.OutPaymentDetailCreate,
+                  NormalizedName = AuthorizeDefinitionConstants.OutPaymentDetailCreate.ToUpperInvariant(),
+                  Definition = "Dış Ödeme Detayı Oluşturma Yetkisi",
+                  ConcurrencyStamp = Guid.NewGuid().ToString(),
+                  AccessLevel = 3
+              },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.OutPaymentDetailRead,
+                 NormalizedName = AuthorizeDefinitionConstants.OutPaymentDetailRead.ToUpperInvariant(),
+                 Definition = "Dış Ödeme Detayı Görüntüleme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.OutPaymentDetailUpdate,
+                 NormalizedName = AuthorizeDefinitionConstants.OutPaymentDetailUpdate.ToUpperInvariant(),
+                 Definition = "Dış Ödeme Detayı Güncelleme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.OutPaymentDetailDelete,
+                 NormalizedName = AuthorizeDefinitionConstants.OutPaymentDetailDelete.ToUpperInvariant(),
+                 Definition = "Dış Ödeme Detayı Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -737,16 +821,16 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                           new Role
                           {
                               Id = id = id + 1,
-                              Name = AuthorizeDefinitionConstants.BrandProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.BrandProgramRead.ToUpper(),
+                              Name = AuthorizeDefinitionConstants.EmployeeProgramRead,
+                              NormalizedName = AuthorizeDefinitionConstants.EmployeeProgramRead.ToUpperInvariant(),
                               Definition = "Markalar Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
                           }, new Role
                           {
                               Id = id = id + 1,
-                              Name = AuthorizeDefinitionConstants.AppointmentProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.AppointmentProgramRead.ToUpper(),
+                              Name = AuthorizeDefinitionConstants.InstitutionalProgramRead,
+                              NormalizedName = AuthorizeDefinitionConstants.InstitutionalProgramRead.ToUpperInvariant(),
                               Definition = "Randevular Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
@@ -754,83 +838,63 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                           {
                               Id = id = id + 1,
                               Name = AuthorizeDefinitionConstants.CustomerProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.CustomerProgramRead.ToUpper(),
+                              NormalizedName = AuthorizeDefinitionConstants.CustomerProgramRead.ToUpperInvariant(),
                               Definition = "Hastalar Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
                           }, new Role
                           {
                               Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.CustomerReferenceProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.CustomerReferenceProgramRead.ToUpper(),
+                              Name = AuthorizeDefinitionConstants.PaymentProgramRead,
+                              NormalizedName = AuthorizeDefinitionConstants.PaymentProgramRead.ToUpperInvariant(),
                               Definition = "Referanslar Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
-                          }, new Role
-                          {
-                              Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.EmployeeProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.EmployeeProgramRead.ToUpper(),
-                              Definition = "Personeller Programı Görüntüleme",
-                              ConcurrencyStamp = Guid.NewGuid().ToString(),
-                              AccessLevel = 2
-                          }, new Role
-                          {
-                              Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.NotificationProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.NotificationProgramRead.ToUpper(),
-                              Definition = "Bildirimler Programı Görüntüleme",
-                              ConcurrencyStamp = Guid.NewGuid().ToString(),
-                              AccessLevel = 2
-                          }, new Role
-                          {
-                              Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.PaymentProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.PaymentProgramRead.ToUpper(),
-                              Definition = "Ödemeler Programı Görüntüleme",
-                              ConcurrencyStamp = Guid.NewGuid().ToString(),
-                              AccessLevel = 2
-                          }, new Role
+                          }, 
+                          new Role
                           {
                               Id =id=id+1,
                               Name = AuthorizeDefinitionConstants.ProductProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.ProductProgramRead.ToUpper(),
+                              NormalizedName = AuthorizeDefinitionConstants.ProductProgramRead.ToUpperInvariant(),
                               Definition = "Ürünler Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
                           }, new Role
                           {
                               Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.RoleProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.RoleProgramRead.ToUpper(),
+                              Name = AuthorizeDefinitionConstants.MarketingProgramRead,
+                              NormalizedName = AuthorizeDefinitionConstants.MarketingProgramRead.ToUpperInvariant(),
                               Definition = "Roller Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
                           }, new Role
                           {
                               Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.SalesProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.SalesProgramRead.ToUpper(),
+                              Name = AuthorizeDefinitionConstants.AgendaProgramRead,
+                              NormalizedName = AuthorizeDefinitionConstants.AgendaProgramRead.ToUpperInvariant(),
                               Definition = "Satışlar Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
                           }, new Role
                           {
                               Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.StockProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.StockProgramRead.ToUpper(),
+                              Name = AuthorizeDefinitionConstants.FinanceProgramRead,
+                              NormalizedName = AuthorizeDefinitionConstants.FinanceProgramRead.ToUpperInvariant(),
                               Definition = "Stok Programı Görüntüleme",
                               ConcurrencyStamp = Guid.NewGuid().ToString(),
                               AccessLevel = 2
-                          },  new Role
-                          {
-                              Id =id=id+1,
-                              Name = AuthorizeDefinitionConstants.UserProgramRead,
-                              NormalizedName = AuthorizeDefinitionConstants.UserProgramRead.ToUpper(),
-                              Definition = "Kullanıcılar Programı Görüntüleme",
-                              ConcurrencyStamp = Guid.NewGuid().ToString(),
-                              AccessLevel = 2
                           },
+                                new Role
+                                {
+                                    Id = id = id + 1,
+                                    Name = AuthorizeDefinitionConstants.HomeProgramRead,
+                                    NormalizedName = AuthorizeDefinitionConstants.HomeProgramRead.ToUpperInvariant(),
+                                    Definition = "Anasayfa Görüntüleme Yetkisi",
+                                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                                    AccessLevel = 1
+                                },
+
+
 
              // MODULE ATAMALARI
 
@@ -846,27 +910,27 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             new Role
             {
                 Id =id=id+1,
-                Name = AuthorizeDefinitionConstants.MarketingModuleRead,
-                NormalizedName = AuthorizeDefinitionConstants.MarketingModuleRead.ToUpper(),
-                Definition = "MArketing Modülü Görüntüleme",
+                Name = AuthorizeDefinitionConstants.EmployeeTypeModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeModuleRead.ToUpperInvariant(),
+                Definition = "Personel Tipleri Modülü Görüntüleme",
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 AccessLevel = 1
             },
             new Role
             {
                 Id =id=id+1,
-                Name = AuthorizeDefinitionConstants.AgendaModuleRead,
-                NormalizedName = AuthorizeDefinitionConstants.AgendaModuleRead.ToUpper(),
-                Definition = "Ajanda Modülü Görüntüleme",
+                Name = AuthorizeDefinitionConstants.EmployeeModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.EmployeeModuleRead.ToUpperInvariant(),
+                Definition = "Personeller Modülü Görüntüleme",
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 AccessLevel = 1
             },
             new Role
             {
                 Id =id=id+1,
-                Name = AuthorizeDefinitionConstants.InstitutionalModuleRead,
-                NormalizedName = AuthorizeDefinitionConstants.InstitutionalModuleRead.ToUpper(),
-                Definition = "Kurumsal Modülü Görüntüleme",
+                Name = AuthorizeDefinitionConstants.UserModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.UserModuleRead.ToUpperInvariant(),
+                Definition = "Kullanıcılar Modülü Görüntüleme",
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 AccessLevel = 1
             },
@@ -874,35 +938,125 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             {
                 Id =id=id+1,
                 Name = AuthorizeDefinitionConstants.CustomerModuleRead,
-                NormalizedName = AuthorizeDefinitionConstants.CustomerModuleRead.ToUpper(),
-                Definition = "Müşteri Modülü Görüntüleme",
+                NormalizedName = AuthorizeDefinitionConstants.CustomerModuleRead.ToUpperInvariant(),
+                Definition = "Hastalar Modülü Görüntüleme",
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 AccessLevel = 1
             },
             new Role
             {
                 Id =id=id+1,
-                Name = AuthorizeDefinitionConstants.FinanceModuleRead,
-                NormalizedName = AuthorizeDefinitionConstants.FinanceModuleRead.ToUpper(),
-                Definition = "Finans Modülü Görüntüleme",
+                Name = AuthorizeDefinitionConstants.CustomerTypeModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.CustomerTypeModuleRead.ToUpperInvariant(),
+                Definition = "HAsta Tipleri Modülü Görüntüleme",
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 AccessLevel = 1
             },
-                  new Role
-            {
-                Id =id=id+1,
-                Name = AuthorizeDefinitionConstants.HomeModuleRead,
-                NormalizedName = AuthorizeDefinitionConstants.HomeModuleRead.ToUpper(),
-                Definition = "Anasayfa Görüntüleme Yetkisi",
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                      AccessLevel = 1
-                  },
             new Role
             {
                 Id =id=id+1,
-                Name = AuthorizeDefinitionConstants.SuperAdmin,
-                NormalizedName = AuthorizeDefinitionConstants.SuperAdmin.ToUpper(),
-                Definition = "SüperAdmin Yetkisi",
+                Name = AuthorizeDefinitionConstants.ProductModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.ProductModuleRead.ToUpperInvariant(),
+                Definition = "Ürünler Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.ProductGroupModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.ProductGroupModuleRead.ToUpperInvariant(),
+                Definition = "Ürün Grupları Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.ProductSubGroupModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupModuleRead.ToUpperInvariant(),
+                Definition = "Ürün Alt Grupları Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.BrandModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.BrandModuleRead.ToUpperInvariant(),
+                Definition = "Markalar Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.CustomerReferanceModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.CustomerReferanceModuleRead.ToUpperInvariant(),
+                Definition = "Hasta Referanları Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.AppointmentModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.AppointmentModuleRead.ToUpperInvariant(),
+                Definition = "Randevular Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.NotificationModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.NotificationModuleRead.ToUpperInvariant(),
+                Definition = "Bildirimler Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.OutPaymentModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.OutPaymentModuleRead.ToUpperInvariant(),
+                Definition = "Dış Ödemeler Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.SaleModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.SaleModuleRead.ToUpperInvariant(),
+                Definition = "Satışlar Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.PaymentModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.PaymentModuleRead.ToUpperInvariant(),
+                Definition = "Gelen Ödemeler Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.ExpenseModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.ExpenseModuleRead.ToUpperInvariant(),
+                Definition = "Gelir Giderler Modülü Yetkisi",
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                AccessLevel = 1
+            },
+            new Role
+            {
+                Id =id=id+1,
+                Name = AuthorizeDefinitionConstants.RoleModuleRead,
+                NormalizedName = AuthorizeDefinitionConstants.RoleModuleRead.ToUpperInvariant(),
+                Definition = "Roller Modülü Yetkisi",
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 AccessLevel = 1
             }

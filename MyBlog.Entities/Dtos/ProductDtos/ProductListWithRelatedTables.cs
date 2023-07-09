@@ -11,6 +11,7 @@ namespace MyBlog.Entities.Dtos.ProductDtos
     public class ProductListWithRelatedTables: DtoGetBase
     {
         public int Id { get; set; }
+        public int Price { get; set; }
         public int ProductSubGroupId { get; set; }
         public bool IsSold { get; set; }
 

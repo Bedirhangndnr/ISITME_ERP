@@ -4,11 +4,15 @@
     Layout = "_Layout";
     ViewBag.Title = "Makale Ekle";
 }
-<ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Appointment" asp-action="Index">Randevular</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Appointment" asp-action="Add">Ekle</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 3,
+        Controller = "Appointment",
+        Action = "Add",
+        ActionTR = "Ekle",
+        TableType = ViewBag.TableType
+
+})
 <form asp-controller="Appointment" asp-action="Add" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
         <div class="col-md-8">

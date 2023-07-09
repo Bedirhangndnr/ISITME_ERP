@@ -28,16 +28,22 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly IEmployeeService _employeeService;
         private readonly ICustomerService _customerService;
         private readonly IAppointmentTypeService _appointmentTypeService;
+        private readonly INotificationService _notificationService;
+
         private readonly IToastNotification _toastNotification;
 
         public AppointmentController(IAppointmentService appointmentService,
         ICustomerService customerService,
+                    INotificationService notificationService,
+
         IAppointmentTypeService appointmentTypeService,
         IEmployeeService employeeService,
         UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _appointmentTypeService = appointmentTypeService;
             _employeeService = employeeService;
+            _notificationService = notificationService;
+
             _appointmentService = appointmentService;
             _customerService = customerService;
             _toastNotification = toastNotification;
@@ -125,6 +131,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _appointmentService.AddAsync(appointmentAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Added,
+TableNamesConstants.Appointments,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+);
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -182,12 +194,18 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _appointmentService.UpdateAsync(AppointmentUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Updated,
+TableNamesConstants.Appointments,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+);
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
                     });
                     return RedirectToAction("Index", "Appointment", new { tableType = tableType });
-                }
+                } 
                 else
                 {
                     _toastNotification.AddErrorToastMessage(AppointmentUpdateDto.Message, new ToastrOptions
@@ -260,12 +278,24 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _appointmentService.DeleteAsync(appointmentId, LoggedInUser.UserName);
                 var appointmentResult = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Deleted,
+TableNamesConstants.Appointments,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+);
                 return Json(appointmentResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _appointmentService.HardDeleteAsync(appointmentId);
                 var hardDeletedAppointmentResult = JsonSerializer.Serialize(result);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.HardDeleted,
+TableNamesConstants.Appointments,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+);
                 return Json(hardDeletedAppointmentResult);
             }
             else
@@ -308,6 +338,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             var result = await _appointmentService.UndoDeleteAsync(appointmentId, LoggedInUser.UserName);
             var undoDeleteAppointmentResult = JsonSerializer.Serialize(result.Data);
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.UndoDeleted,
+TableNamesConstants.Appointments,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+);
             return Json(undoDeleteAppointmentResult);
         }
     }

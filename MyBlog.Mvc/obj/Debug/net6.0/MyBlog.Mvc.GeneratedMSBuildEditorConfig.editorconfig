@@ -184,6 +184,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Notification/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPaymentDetail/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudERldGFpbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPaymentDetail/_OutPaymentDetailAddPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudERldGFpbFxfT3V0UGF5bWVudERldGFpbEFkZFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPaymentDetail/_OutPaymentDetailUpdatePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudERldGFpbFxfT3V0UGF5bWVudERldGFpbFVwZGF0ZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPayment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPayment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPayment/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudFxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/PaymentType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFR5cGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -290,6 +318,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/AdminMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWRtaW5NZW51XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/breadCrumbs/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcYnJlYWRDcnVtYnNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/MainPagesAddUpButtons/Default.cshtml]

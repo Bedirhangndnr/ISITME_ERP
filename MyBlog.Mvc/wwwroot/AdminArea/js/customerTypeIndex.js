@@ -42,11 +42,12 @@
                                             user.Title,
                                             user.Note,
                                             `
-                                <button class="btn btn-info btn-sm btn-detail" data-id="${user.Id}"><span class="fas fa-newspaper"></span></button>
-                                <button class="btn btn-warning btn-sm btn-assign" data-id="${user.Id}"><span class="fas fa-user-shield"></span></button>
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${user.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${user.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
+                                <div class="form-group row justify-content-center">
+                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + user.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${user.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + user.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                </div>
+                                    `
                                         ]).node();
                                         const jqueryTableRow = $(newTableRow);
                                         jqueryTableRow.attr('name', `${user.Id}`);

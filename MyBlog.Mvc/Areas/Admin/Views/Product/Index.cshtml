@@ -1,15 +1,22 @@
 ﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Services.Utilities;
 @using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.ProductDtos.ProductListDto;
 @{
     Layout = "_Layout";
     ViewBag.Title = "Ürünler";
 }
-
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Product" asp-action="Index">Ürünler</a></li>
-</ol>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 2,
+        Controller = "Product",
+        Action = "Yok",
+        ActionTR = "Yok",
+        TableType = ViewBag.TableType
+})
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <input type="hidden" id="tableType" value="@ViewBag.TableType" />
@@ -33,7 +40,7 @@
                             <th>Marka</th>
                             <th>Alt Grup Adı</th>
                             <th>Not</th>
-                            <th>Aktif Mi</th>
+                            <th>Fiyat</th>
                             <th>Stok</th>
                             <th>İşlem</th>
                         </tr>
@@ -46,7 +53,7 @@
                             <th>Marka</th>
                             <th>Alt Grup Adı</th>
                             <th>Not</th>
-                            <th>Aktif Mi</th>
+                            <th>Fiyat</th>
                             <th>Stok</th>
                             <th>İşlem</th>
                         </tr>
@@ -61,8 +68,24 @@
                                 <td>@product.BrandTitle</td>
                                 <td>@product.ProductSubGroupTitle</td>
                                 <td>@product.Note</td>
-                                <td>@(product.IsActive ? "Evet" : "Hayır")</td>
+                                <td>
+                                    <span id="priceSpan">@{
+                                            if (product.Price != 0)
+                                            {
+                                                @product.Price
+                                                ;
+                                            }
+                                            else
+                                            {
+                                                <span style="color: red;">Fiyat Girilmemiş</span>
+                                            }
+                                        }</span>
+                                </td>
+
                                 <td>1 | konuşulacak</td>
+
+
+
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                                     {
@@ -101,5 +124,6 @@
                 window.location.href = '@Url.Action("Add", "Product")' + '?tableType=' + encodeURIComponent(tableType);
             });
         });
+
     </script>
 }

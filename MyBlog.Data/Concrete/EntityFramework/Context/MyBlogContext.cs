@@ -42,7 +42,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new UserTokenMap());
             modelBuilder.ApplyConfiguration(new UserLoginMap());
             modelBuilder.ApplyConfiguration(new PaymentMap());
-            modelBuilder.ApplyConfiguration(new OutBoundPaymentMap());
+            modelBuilder.ApplyConfiguration(new OutPaymentMap());
+            modelBuilder.ApplyConfiguration(new OutPaymentDetailMap());
             modelBuilder.ApplyConfiguration(new PaymentTypeMap());
             modelBuilder.ApplyConfiguration(new EmployeeMap());
             modelBuilder.ApplyConfiguration(new EmployeeTypeMap());
@@ -89,7 +90,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
         public DbSet<Module> Modules{ get; set; }
         public DbSet<AssociatedInstitution> AssociatedInstitutions { get; set; }
         public DbSet<Expense> Expenses { get; set; }
-        public DbSet<OutBoundPayment> OutBoundPayments { get; set; }
+        public DbSet<OutPayment> OutPayments { get; set; }
+        public DbSet<OutPaymentDetail> OutPaymentDetails { get; set; }
 
     }
 }

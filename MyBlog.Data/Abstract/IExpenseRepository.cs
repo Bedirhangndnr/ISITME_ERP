@@ -11,5 +11,6 @@ namespace MyBlog.Data.Abstract
 {
     public interface IExpenseRepository:IEntityRepository<Expense>
     {
+        Task<List<int>> GetDailyIncomeAsync(DateTime startDate, DateTime endDate);
     }
 }

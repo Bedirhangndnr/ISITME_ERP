@@ -24,11 +24,12 @@ namespace MyBlog.Services.Abstract
         Task<IResult> UpdateAsync(AppointmentUpdateDto AppointmentUpdateDto, string modifiedByName);
 
 
-        Task<IDataResult<AppointmentDto>> DeleteAsync(int AppointmentId, string modifiedByName);
         Task<IDataResult<AppointmentDto>> UndoDeleteAsync(int AppointmentId, string modifiedByName);
+        Task<IDataResult<AppointmentDto>> DeleteAsync(int AppointmentId, string modifiedByName);
+
         Task<IResult> HardDeleteAsync(int AppointmentId);
-        Task<IDataResult<int>> CountAsync();
-        Task<IDataResult<int>> CountByNonDeletedAsync();
+        Task<IDataResult<int>> CountAsync(bool isRestOfDay);
+        Task<IDataResult<int>> CountByNonDeletedAsync(bool isRestOfDay);
 
     }
 }

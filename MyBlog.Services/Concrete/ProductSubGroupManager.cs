@@ -127,7 +127,7 @@ namespace MyBlog.Services.Concrete
             if (productSubGroup != null)
             {
                 productSubGroup.IsDeleted = true;
-                productSubGroup.IsActive = false;
+                //productSubGroup.IsActive = false;
                 productSubGroup.ModifiedByName = modifiedByName;
                 productSubGroup.ModifiedDate = DateTime.Now;
                 var deletedEmployeeType = await UnitOfWork.ProductSubGroups.UpdateAsync(productSubGroup);

@@ -38,7 +38,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.AgendaModuleRead
+                    Name= AuthorizeDefinitionConstants.AgendaProgramRead
                 },
                 new Module
                 {
@@ -60,7 +60,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.FinanceModuleRead
+                    Name= AuthorizeDefinitionConstants.RoleModuleRead
                 },
                 new Module
                 {
@@ -71,7 +71,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.HomeModuleRead
+                    Name= AuthorizeDefinitionConstants.RoleModuleRead
                 },
                 new Module
                 {
@@ -82,7 +82,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.InstitutionalModuleRead
+                    Name= AuthorizeDefinitionConstants.RoleModuleRead
                 },
                 new Module
                 {
@@ -93,7 +93,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.MarketingModuleRead
+                    Name= AuthorizeDefinitionConstants.RoleModuleRead
                 },
                 new Module
                 {

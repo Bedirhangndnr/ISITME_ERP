@@ -19,15 +19,18 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<ExpenseUpdateDto>> GetExpenseUpdateDtoAsync(int ExpenseId);
         Task<IDataResult<ExpenseListDto>> GetAllAsync();
         Task<IDataResult<ExpenseDto>> DeleteAsync(int ExpenseId, string modifiedByName);
-        Task<IDataResult<ExpenseListDto>> GetAllByNonDeletedAndActiveAsync();
+        Task<IDataResult<ExpenseListDto>> GetAllByNonDeletedAndActiveAsync(int lastxDays=0);
+        //Task<IDataResult<ExpenseListDto>> GetAllByNonDeletedAndActiveDailyAmountsAsync(int lastxDays=0);
         Task<IDataResult<ExpenseDto>> AddAsync(ExpenseAddDto ExpenseAddDto, string createdByName);
         Task<IDataResult<ExpenseDto>> UpdateAsync(ExpenseUpdateDto ExpenseUpdateDto, string modifiedByName);
 
         Task<IDataResult<ExpenseListDto>> GetAllByDeletedAsync();
         Task<IDataResult<ExpenseDto>> UndoDeleteAsync(int EmployeeTypeId, string modifiedByName);
         Task<IResult> HardDeleteAsync(int EmployeeTypeId);
-        Task<IDataResult<int>> CountAsync();
-        Task<IDataResult<int>> CountByNonDeletedAsync();
+        Task<IDataResult<int>> CountAsync(int lastXDays, bool isIncome);
+        Task<IDataResult<int>> CountByNonDeletedAsync(int lastXDays, bool isIncome);
+        Task<IDataResult<List<int>>> GetDailyIncomeAsync(DateTime startDate, DateTime endDate);
+
 
     }
 }

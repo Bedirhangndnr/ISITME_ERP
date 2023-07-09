@@ -27,7 +27,7 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<SaleDto>> DeleteAsync(int SaleId, string modifiedByName);
         Task<IDataResult<SaleDto>> UndoDeleteAsync(int SaleId, string modifiedByName);
         Task<IResult> HardDeleteAsync(int SaleId);
-        Task<IDataResult<int>> CountAsync();
-        Task<IDataResult<int>> CountByNonDeletedAsync();
+        Task<IDataResult<int>> CountAsync(bool isRestOfTheMonth);
+        Task<IDataResult<int>> CountByNonDeletedAsync(bool isRestOfTheMonth);
     }
 }

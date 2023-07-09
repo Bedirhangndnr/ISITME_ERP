@@ -12,7 +12,7 @@
                 </a>
                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"></nav>
                 @*-------------------------------------------- KURUMSAL -------------------------------------------- *@
-                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.InstitutionalModuleRead)))
+                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.InstitutionalProgramRead)))
                 {
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstitutional" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
@@ -69,7 +69,7 @@
                             }
 
                             @*-------------------------------------------- USERS -------------------------------------------- *@
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.UserProgramRead)))
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.UserModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Kullanıcılar
@@ -85,7 +85,7 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Add">Ekle</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.RoleProgramRead) || r.Equals(AuthorizeDefinitionConstants.RoleRead)))
+                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.RoleModuleRead) || r.Equals(AuthorizeDefinitionConstants.RoleRead)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Role" asp-action="Index">Roller</a>
                                         }
@@ -109,7 +109,7 @@
 
                     <div class="collapse" id="stockLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceProgramRead)))
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Ürünler
@@ -132,7 +132,7 @@
                                     </nav>
                                 </div>
                             }
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceProgramRead)))
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrand" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Markalar
@@ -155,7 +155,7 @@
                                     </nav>
                                 </div>
                             }
-                                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceProgramRead)))
+                                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProductGroup" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Ürün Grupları
@@ -178,7 +178,7 @@
                                     </nav>
                                 </div>
                             }
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceProgramRead)))
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProductSubGroup" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Ürün Alt Grupları
@@ -213,19 +213,19 @@
 
 
                 @*-------------------------------------------- PAZARLAMA START -------------------------------------------- *@
-                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.MarketingModuleRead)))
+                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.MarketingProgramRead)))
                 {
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#marketingLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                         PAZARLAMA
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.UserProgramRead)))
+                    @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.UserModuleRead)))
                     {
                         @*-------------------------------------------- REFERANSLAR START -------------------------------------------- *@
                         <div class="collapse" id="marketingLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceProgramRead)))
+                                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
                                 {
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReferances" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                         Referanslar
@@ -237,14 +237,9 @@
                                             {
                                                 <a class="nav-link" asp-area="Admin" asp-controller="CustomerReferance" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables  >Listele</a>
                                             }
-                                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceCreate)))
-                                            {
-
-                                                <a class="nav-link" asp-area="Admin" asp-controller="CustomerReferance" asp-action="Add">Ekle</a>
-                                            }
                                             @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferenceRead)))
                                             {
-                                                <a class="nav-link" asp-area="Admin" asp-controller="CustomerReferance" asp-action="Add"  asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
+                                                <a class="nav-link" asp-area="Admin" asp-controller="CustomerReferance" asp-action="Index"  asp-route-tableType=@TableReturnTypesConstants.DeletedTables>Arşiv</a>
                                             }
                                         </nav>
                                     </div>
@@ -259,7 +254,7 @@
 
 
                 @*-------------------------------------------- AJANDA START -------------------------------------------- *@
-                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.AgendaModuleRead)))
+                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.AgendaProgramRead)))
                 {
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#agendaLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
@@ -269,7 +264,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <div class="collapse" id="agendaLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             @*-------------------------------------------- RANDEVULAR START -------------------------------------------- *@
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.AgendaModuleRead)))
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.AgendaProgramRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApp" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Randevular
@@ -308,8 +303,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.NotificationRead)))
                                     {
-                                        <a class="nav-link" asp-area="Admin" asp-controller="Notifications" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables  >Listele</a>
-                                        <a class="nav-link" asp-area="Admin" asp-controller="Notifications" asp-action="GetDeletedNotifications"  asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Notification" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Bildirimler</a>
                                     }
                                 </nav>
                             </div>
@@ -384,15 +378,11 @@
                                     <nav class="sb-sidenav-menu-nested nav">
                                         @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerTypeRead)))
                                         {
-                                            <a class="nav-link" asp-area="Admin" asp-controller="CustomerType" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables  >Listele</a>
-                                        }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerTypeCreate)))
-                                        {
-                                            <a class="nav-link" asp-area="Admin" asp-controller="CustomerType" asp-action="Add">Ekle</a>
+                                            <a class="nav-link" asp-area="Admin" asp-controller="CustomerType" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
                                         }
                                         @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerTypeRead)))
                                         {
-                                            <a class="nav-link" asp-area="Admin" asp-controller="CustomerType" asp-action="GetDeletedEmployees"  asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
+                                            <a class="nav-link" asp-area="Admin" asp-controller="CustomerType" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.DeletedTables>Arşiv</a>
                                         }
                                     </nav>
                                 </div>
@@ -402,7 +392,7 @@
                 }
                 @*-------------------------------------------- HASTALAR END -------------------------------------------- *@
                 @*-------------------------------------------- FINANCE START-------------------------------------------- *@
-                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.FinanceModuleRead)))
+                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.FinanceProgramRead)))
                 {
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#financeLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
@@ -520,21 +510,42 @@
                             }
                             @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
                             {
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePromissoryNote" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOutPayment" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Senetler
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                <div class="collapse" id="collapsePromissoryNote" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                <div class="collapse" id="collapseOutPayment" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
                                         {
-                                            <a class="nav-link disabled" asp-area="Admin" asp-controller="PromissoryNote" asp-action="Add">Listele</a>
+                                            <a class="nav-link" asp-area="Admin" asp-controller="OutPayment" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
                                         }@if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
                                         {
-                                            <a class="nav-link disabled" asp-area="Admin" asp-controller="PromissoryNote" asp-action="Index">Fatura Kes</a>
+                                            <a class="nav-link" asp-area="Admin" asp-controller="OutPayment" asp-action="Add">Ekle</a>
                                         }@if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
                                         {
-                                            <a class="nav-link disabled" asp-area="Admin" asp-controller="PromissoryNote" asp-action="DeletedPromissoryNote"  asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
+                                            <a class="nav-link" asp-area="Admin" asp-controller="OutPayment" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
+                                        }
+                                    </nav>
+                                </div>
+                            } 
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
+                            {
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOutPaymentDetail" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Senet Ödeme Detayları
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseOutPaymentDetail" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
+                                        {
+                                            <a class="nav-link" asp-area="Admin" asp-controller="OutPaymentDetail" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
+                                        }@if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
+                                        {
+                                            <a class="nav-link" asp-area="Admin" asp-controller="OutPaymentDetail" asp-action="Add">Ekle</a>
+                                        }@if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
+                                        {
+                                            <a class="nav-link" asp-area="Admin" asp-controller="OutPaymentDetail" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
                                         }
                                     </nav>
                                 </div>

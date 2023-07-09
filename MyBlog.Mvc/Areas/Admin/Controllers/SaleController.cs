@@ -34,11 +34,15 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly ICustomerService _customerService;
         private readonly IEmployeeService _employeeService;
         private readonly IToastNotification _toastNotification;
+        private readonly INotificationService _notificationService;
+
 
         public SaleController(ISaleService saleService,
             ISaleTypeService saleTypeService,
         ISaleStatusService saleStatusService,
         IProductService productService,
+                    INotificationService notificationService,
+
         ICustomerService customerService,
         IEmployeeService employeeService,
         ISaleTypeService SaleTypeService, UserManager<User> userManager,
@@ -49,6 +53,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _saleStatusService = saleStatusService;
             _productService = productService;
             _customerService = customerService;
+            _notificationService = notificationService;
+
             _employeeService = employeeService;
             _toastNotification = toastNotification;
         }
@@ -153,6 +159,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _saleService.AddAsync(saleTypeAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success && productUpdateResult.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+    NotificationMessageTypes.Added,
+    TableNamesConstants.Sales,
+    LoggedInUser.UserName),
+    NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+    );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -189,7 +201,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
-
+                
             var saleTypeResult = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             if ((saleTypeList.ResultStatus == ResultStatus.Success &&
                saleStatusList.ResultStatus == ResultStatus.Success &&
@@ -264,6 +276,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
                     if (result.ResultStatus == ResultStatus.Success)
                     {
+                        await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+   NotificationMessageTypes.Updated,
+   TableNamesConstants.Sales,
+   LoggedInUser.UserName),
+   NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+   );
                         _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                         {
                             Title = "Başarılı İşlem!"
@@ -294,7 +312,6 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
-
         [HttpPost]
         public async Task<JsonResult> Delete(int saleId, string tableType)
         {
@@ -302,13 +319,27 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
                 var saleResult = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+   NotificationMessageTypes.Deleted,
+   TableNamesConstants.Sales,
+   LoggedInUser.UserName),
+   NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+   );
                 return Json(saleResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _saleService.HardDeleteAsync(saleId);
                 var hardDeletedSaleResult = JsonSerializer.Serialize(result);
-                return Json(hardDeletedSaleResult);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+   NotificationMessageTypes.HardDeleted,
+   TableNamesConstants.Sales,
+   LoggedInUser.UserName),
+   NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+   );
+                // Başarılı mesajı ve IsSold değerini güncelleme sorusunu ekle
+                var confirmationMessage = "Silme işlemi başarıyla tamamlandı. IsSold değerini güncellemek ister misiniz?";
+                return Json(new { successMessage = hardDeletedSaleResult, confirmationMessage });
             }
             else
             {
@@ -316,6 +347,35 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return Json("Hatalı silme türü parametresi!");
             }
         }
+        private async Task UpdateProductIsSold(int productId, bool isSold)
+        {
+            var product = await _productService.GetProductUpdateDtoAsync(productId);
+            var productUpdateViewModel = Mapper.Map<ProductUpdateViewModel>(product.Data);
+            var productUpdateDto = Mapper.Map<ProductUpdateDto>(productUpdateViewModel);
+
+
+            if (productUpdateDto != null)
+            {
+                productUpdateDto.IsSold = isSold;
+                var result = await _productService.UpdateAsync(productUpdateDto, LoggedInUser.UserName);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateIsSold(int saleId, bool isSold)
+        {
+            var sale= await _saleService.GetSaleUpdateDtoAsync(saleId);
+            var productId = sale.Data.ProductId;
+            try
+            {
+                await UpdateProductIsSold(productId, isSold);
+                return Ok("IsSold değeri güncellendi.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("IsSold değeri güncelleme işlemi başarısız oldu: " + ex.Message);
+            }
+        }
+
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
 
         [HttpPost]
@@ -350,6 +410,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int saleId)
         {
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+    NotificationMessageTypes.UndoDeleted,
+    TableNamesConstants.Sales,
+    LoggedInUser.UserName),
+    NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+    );
             var result = await _saleService.UndoDeleteAsync(saleId, LoggedInUser.UserName);
             var undoDeleteSaleResult = JsonSerializer.Serialize(result.Data);
             return Json(undoDeleteSaleResult);

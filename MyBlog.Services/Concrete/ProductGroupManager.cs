@@ -123,7 +123,7 @@ namespace MyBlog.Services.Concrete
             if (productGroup != null)
             {
                 productGroup.IsDeleted = true;
-                productGroup.IsActive = false;
+                //productGroup.IsActive = false;
                 productGroup.ModifiedByName = modifiedByName;
                 productGroup.ModifiedDate = DateTime.Now;
                 var deletedEmployeeType = await UnitOfWork.ProductGroups.UpdateAsync(productGroup);
@@ -175,7 +175,7 @@ namespace MyBlog.Services.Concrete
             if (ProductGroup != null)
             {
                 ProductGroup.IsDeleted = false;
-                ProductGroup.IsActive = true;
+                //ProductGroup.IsActive = true;
                 ProductGroup.ModifiedByName = modifiedByName;
                 ProductGroup.ModifiedDate = DateTime.Now;
                 var deletedProductGroup = await UnitOfWork.ProductGroups.UpdateAsync(ProductGroup);

@@ -126,7 +126,7 @@ namespace MyBlog.Services.Concrete
             if (brand != null)
             {
                 brand.IsDeleted = true;
-                brand.IsActive = false;
+                //brand.IsActive = false;
                 brand.ModifiedByName = modifiedByName;
                 brand.ModifiedDate = DateTime.Now;
                 var deletedEmployeeType = await UnitOfWork.Brands.UpdateAsync(brand);

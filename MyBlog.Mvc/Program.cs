@@ -32,7 +32,7 @@ builder.Services.AddAutoMapper(typeof(PaymentProfile),typeof(CategoryProfile), t
     typeof(CustomerTypeProfile), typeof(EmployeeProfile), typeof(EmployeeTypeProfile), typeof(CustomerReferanceProfile),
     typeof(NotificationProfile),typeof(AppointmentTypeProfile),typeof(SaleStatusProfile),typeof(SaleTypeProfile), 
     typeof(ProductGroupProfile), typeof(ProductSubGroupProfile),typeof(ProductProfile), typeof(SaleProfile), typeof(ProgramsProfile),
-    typeof(AssociatedInstitutionsProfile), typeof(AppointmentProfile), typeof(ExpenseProfile)); // Eklendi
+    typeof(AssociatedInstitutionsProfile), typeof(AppointmentProfile), typeof(ExpenseProfile), typeof(OutPaymentProfile), typeof(OutPaymentDetailProfile)); // Eklendi
 
 // Eklendi // mvc katmanı ile diğer katmanlar arasında köprü görevi görür
 var Configuration = builder.Configuration;

@@ -16,6 +16,7 @@ using MyBlog.Entities.Dtos.ArticleDtos;
 using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Mvc.Consts;
+using MyBlog.Mvc.Areas.Admin.Models.UserModels;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -28,9 +29,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly IProductSubGroupService _productSubGroupService;
         private readonly IBrandService _brandService;
         private readonly IToastNotification _toastNotification;
+        private readonly INotificationService _notificationService;
+
 
         public ProductController(IProductService productService,
             IProductSubGroupService productSubGroupService,
+                        INotificationService notificationService,
+
         IBrandService brandService,
         IProductSubGroupService ProductSubGroupService,
         UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
@@ -39,6 +44,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _productService = productService;
             _brandService = brandService;
             _toastNotification = toastNotification;
+            _notificationService = notificationService;
+
         }
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductRead}")]
@@ -100,34 +107,59 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
             var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
-            if ((productSubGroupList.ResultStatus == ResultStatus.Success &&
+
+            if (productSubGroupList.ResultStatus == ResultStatus.Success &&
                 brandList.ResultStatus == ResultStatus.Success &&
-                productList.ResultStatus == ResultStatus.Success))
+                productList.ResultStatus == ResultStatus.Success)
             {
-                return View(new ProductAddViewModel
+                var user = await UserManager.GetUserAsync(HttpContext.User);
+                var roles = await UserManager.GetRolesAsync(user);
+
+                if (user != null && roles != null)
                 {
-                    Brands = brandList.Data.Brands,
-                    ProductSubGroups = productSubGroupList.Data.ProductSubGroups
-                });
+                    var viewModel = new ProductAddViewModel
+                    {
+                        Brands = brandList.Data.Brands,
+                        ProductSubGroups = productSubGroupList.Data.ProductSubGroups,
+                        UserWithRolesModel = new UserWithRolesViewModel
+                        {
+                            User = user,
+                            Roles = roles
+                        }
+                    };
+
+                    return View(viewModel);
+                }
             }
+
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductCreate }")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(ProductAddViewModel productAddViewModel, string tableType)
         {
             ModelState.Remove("tableType");
+            ModelState.Remove("UserWithRolesModel");
+
             if (ModelState.IsValid)
             {
                 var productSubGroupAddDto = Mapper.Map<ProductAddDto>(productAddViewModel);
                 var result = await _productService.AddAsync(productSubGroupAddDto, LoggedInUser.UserName, LoggedInUser.Id);
+
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+   NotificationMessageTypes.Added,
+   TableNamesConstants.Sales,
+   LoggedInUser.UserName),
+   NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+   );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
                     });
+
                     return RedirectToAction("Index", "Product", new { tableType = tableType });
                 }
                 else
@@ -139,14 +171,32 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
             var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
+
             productAddViewModel.Brands = brandList.Data.Brands;
             productAddViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
-            return View(productAddViewModel);
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+
+            if (user != null && roles != null)
+            {
+                productAddViewModel.UserWithRolesModel = new UserWithRolesViewModel
+                {
+                    User = user,
+                    Roles = roles
+                };
+
+                return View(productAddViewModel);
+            }
+            return NotFound();
+
         }
+
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductUpdate }")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
             ViewBag.tableType = tableType;
             var productList = await _productService.GetProductUpdateDtoAsync(Id);
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
@@ -160,6 +210,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var ProductUpdateViewModel = Mapper.Map<ProductUpdateViewModel>(productList.Data);
                 ProductUpdateViewModel.Brands = brandList.Data.Brands;
                 ProductUpdateViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
+                ProductUpdateViewModel.UserWithRolesModel= new UserWithRolesViewModel
+                {
+                    User = user,
+                    Roles = roles
+                };
                 return View(ProductUpdateViewModel);
             }
             else
@@ -171,14 +226,24 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(ProductUpdateViewModel ProductUpdateViewModel, string tableType)
         {
+            ModelState.Remove("UserWithRolesModel");
             ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
                 var ProductUpdateDto = Mapper.Map<ProductUpdateDto>(ProductUpdateViewModel);
-
                 var result = await _productService.UpdateAsync(ProductUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+   NotificationMessageTypes.Updated,
+   TableNamesConstants.Sales,
+   LoggedInUser.UserName),
+   NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+   );
+                    _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                    {
+                        Title = "Başarılı İşlem!"
+                    });
                     return RedirectToAction("Index", "Product", new { tableType = tableType });
                 }
                 else
@@ -195,6 +260,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
             ProductUpdateViewModel.Brands = brandList.Data.Brands;
             ProductUpdateViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ProductUpdateViewModel.UserWithRolesModel= new UserWithRolesViewModel
+            {
+                User = user,
+                Roles = roles
+            };
             return View(ProductUpdateViewModel);
 
         }
@@ -254,12 +326,24 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _productService.DeleteAsync(productId, LoggedInUser.UserName);
                 var productResult = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Deleted ,
+TableNamesConstants.Sales,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted ), userId: LoggedInUser.Id
+);
                 return Json(productResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _productService.HardDeleteAsync(productId);
                 var hardDeletedProductResult = JsonSerializer.Serialize(result);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.HardDeleted,
+TableNamesConstants.Sales,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+);
                 return Json(hardDeletedProductResult);
             }
             else
@@ -304,6 +388,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             var result = await _productService.UndoDeleteAsync(productId, LoggedInUser.UserName);
             var undoDeleteProductResult = JsonSerializer.Serialize(result.Data);
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.UndoDeleted,
+TableNamesConstants.Sales,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+);
             return Json(undoDeleteProductResult);
         }
 

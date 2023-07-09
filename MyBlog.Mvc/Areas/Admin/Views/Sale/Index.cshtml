@@ -6,10 +6,14 @@
     ViewBag.Title = "Satışlar";
 }
 
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Sale" asp-action="Index">Çalışanlar</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 2,
+        Controller = "Sale",
+        Action = "Yok",
+        ActionTR = "Yok",
+        TableType = ViewBag.TableType
+})
 @if (Model.ResultStatus == ResultStatus.Success)
 {
 

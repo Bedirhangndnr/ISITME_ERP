@@ -5,7 +5,11 @@
     Layout = "_Layout";
     ViewBag.Title = "Hastalar";
 }
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <ol class="breadcrumb mb-r mt-2">
     <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
     <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Customer" asp-action="Index">Hastalar</a></li>
@@ -30,10 +34,10 @@
                             <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
+                            <th>Fotoğraf</th>
                             <th>Telefon Numarası</th>
                             <th>E-Posta</th>
                             <th>Not</th>
-                            <th>Resim</th>
                             <th>Tip</th>
                             <th>İşlem</th>
                         </tr>
@@ -43,10 +47,10 @@
                             <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
+                            <th>Fotoğraf</th>
                             <th>Telefon Numarası</th>
                             <th>E-Posta</th>
                             <th>Not</th>
-                            <th>Resim</th>
                             <th>Tip</th>
                             <th>İşlem</th>
                         </tr>
@@ -58,10 +62,11 @@
                                 <td>@customer.Id</td>
                                 <td>@customer.FirstName</td>
                                 <td>@customer.LastName</td>
+                                <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td>
+
                                 <td>@customer.Phone</td>
                                 <td>@customer.Email</td>
                                 <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>  
-                                <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td>
                                 <td>"Tip: @customer.CustomerTypeTitle"</td>
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
@@ -76,10 +81,17 @@
                             </tr>
                         }
                     </tbody>
+
+
                 </table>
+
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+
 }
 @if (Model.ResultStatus == ResultStatus.Error)
 {
@@ -90,7 +102,10 @@
 }
 @section Scripts
     {
+
     <script src="~/AdminArea/js/customerScripts/customerIndex.js" type="application/ecmascript"></script>
+  
+
     <script>
         $(document).ready(function () {
             $('#btnAdd').click(function () {

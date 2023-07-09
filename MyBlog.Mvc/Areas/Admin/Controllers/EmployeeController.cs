@@ -16,6 +16,7 @@ using MyBlog.Mvc.Consts;
 using MyBlog.Services.Utilities;
 using MyBlog.Entities.Dtos.EmployeeTypeDtos;
 using MyBlog.Shared.Utilities.Results.Concrete;
+using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -28,16 +29,22 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly IEmployeeTypeService _employeeTypeService;
         private readonly IPaymentService _paymentService;
         private readonly IPaymentTypeService _paymentTypeService;
+        private readonly INotificationService _notificationService;
+
         private readonly IToastNotification _toastNotification;
 
         public EmployeeController(IEmployeeService employeeService,
             IPaymentService paymentService,
             IPaymentTypeService paymentTypeService,
+                        INotificationService notificationService,
+
             IEmployeeTypeService EmployeeTypeService, UserManager<User> userManager,
             IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _paymentService = paymentService;
             _paymentTypeService = paymentTypeService;
+            _notificationService = notificationService;
+
             _employeeService = employeeService;
             _employeeTypeService = EmployeeTypeService;
             _toastNotification = toastNotification;
@@ -134,6 +141,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _employeeService.AddAsync(employeeTypeAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Added,
+TableNamesConstants.Employees,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+);
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -202,6 +215,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     {
                         ImageHelper.Delete(oldPicture);
                     }
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Updated,
+TableNamesConstants.Employees,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+);
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -275,13 +294,25 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _employeeService.DeleteAsync(employeeId, LoggedInUser.UserName);
                 var employeeResult = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Deleted,
+TableNamesConstants.Employees,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+);
                 return Json(employeeResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _employeeService.HardDeleteAsync(employeeId);
                 var hardDeletedEmployeeResult = JsonSerializer.Serialize(result);
-                return Json(hardDeletedEmployeeResult);
+                  await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.HardDeleted,
+TableNamesConstants.Employees,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+);
+                    return Json(hardDeletedEmployeeResult);
             }
             else
             {
@@ -325,6 +356,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             var result = await _employeeService.UndoDeleteAsync(employeeId, LoggedInUser.UserName);
             var undoDeleteEmployeeResult = JsonSerializer.Serialize(result.Data);
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.UndoDeleted,
+TableNamesConstants.Employees,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+);
             return Json(undoDeleteEmployeeResult);
         }
 

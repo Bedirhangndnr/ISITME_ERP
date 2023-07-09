@@ -12,40 +12,43 @@ using MyBlog.Shared.Utilities.Results.ComplexTypes;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.HomeModuleRead}")]
+    //[Authorize(Roles = $"{AuthorizeDefinitikonConstants.SuperAdmin}, {AuthorizeDefinitionConstants.HomeProgramRead}")]
     public class HomeController : Controller
     {
-        private readonly ICategoryService _categoryService;
-        private readonly IArticleService _articleService;
-        private readonly ICommentService _commentService;
+        private readonly ISaleService _saleService;
+        private readonly IExpenseService _expenseService;
+        private readonly IAppointmentService _appointmentService;
         private readonly UserManager<User> _userManager;
 
-        public HomeController(ICategoryService categoryService, IArticleService articleService, ICommentService commentService, UserManager<User> userManager)
+        public HomeController(ISaleService saleService, IExpenseService expenseService, IAppointmentService appointmentService, UserManager<User> userManager)
         {
-            _categoryService = categoryService;
-            _articleService = articleService;
-            _commentService = commentService;
+            _saleService = saleService;
+            _expenseService = expenseService;
+            _appointmentService = appointmentService;
             _userManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
-            var categoriesCountResult= await _categoryService.CountByNonDeletedAsync();
-            var articlesCountResult= await _articleService.CountByNonDeletedAsync();
-            var commentsCountResult= await _commentService.CountByNonDeletedAsync();
+            var salesCountResult= await _saleService.CountByNonDeletedAsync(isRestOfTheMonth:true);
+            var expensesIncomeCountResult= await _expenseService.CountByNonDeletedAsync(lastXDays:7, isIncome:true);
+            var expensesOutcomeCountResult= await _expenseService.CountByNonDeletedAsync(lastXDays:7, isIncome:false);
+            var appointmentsCountResult= await _appointmentService.CountByNonDeletedAsync(isRestOfDay:true);
             var usersCount= await _userManager.Users.CountAsync();
-            var articlesResult= await _articleService.GetAllAsync();
-            if (categoriesCountResult.ResultStatus==ResultStatus.Success&&
-                articlesCountResult.ResultStatus==ResultStatus.Success&&
-                commentsCountResult.ResultStatus==ResultStatus.Success&&
-                articlesResult.ResultStatus==ResultStatus.Success)
+            var expensesResult= await _expenseService.GetAllAsync();
+            if (salesCountResult.ResultStatus==ResultStatus.Success&&
+                expensesIncomeCountResult.ResultStatus==ResultStatus.Success&&
+                expensesOutcomeCountResult.ResultStatus==ResultStatus.Success&&
+                appointmentsCountResult.ResultStatus==ResultStatus.Success&&
+                expensesResult.ResultStatus==ResultStatus.Success)
             {
                 return View(new DashboardViewModel
                 {
-                    ArticlesCount = articlesCountResult.Data,
-                    CategoriesCount = categoriesCountResult.Data,
-                    CommentsCount = commentsCountResult.Data,
+                    ExpensesIncomeCount = expensesIncomeCountResult.Data,
+                    ExpensesOutcomeCount = expensesOutcomeCountResult.Data,
+                    SalesCount = salesCountResult.Data,
+                    AppointmentsCount = appointmentsCountResult.Data,
                     UsersCount = usersCount,
-                    Articles = articlesResult.Data
+                    Expenses = expensesResult.Data
                 });
             }
             return NotFound();

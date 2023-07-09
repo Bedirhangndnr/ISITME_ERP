@@ -39,6 +39,8 @@ namespace MyBlog.Data.Concrete
         private EfProgramRepository _programRepository;
         private EfModuleRepository _moduleRepository;
         private EfExpenseRepository _expenseRepository;
+        private EfOutPaymentRepository _outPaymentRepository;
+        private EfOutPaymentDetailRepository _outPaymentDetailRepository;
         private EfAssociatedInstitutionRepositoryRepository _associatedInstitutionRepository;
         public UnitOfWork(MyBlogContext context)
         {
@@ -59,6 +61,8 @@ namespace MyBlog.Data.Concrete
         public IAppointmentRepository Appointments => _appointmentRepository ?? new EfAppointmentRepository(_context);
         public IEmployeeRepository Employees => _employeeRepository ?? new EfEmployeeRepository(_context);
         public IEmployeeTypeRepository EmployeeTypes => _employeeTypeRepository ?? new EfEmployeeTypeRepository(_context);
+        public IOutPaymentRepository OutPayments => _outPaymentRepository ?? new EfOutPaymentRepository(_context);
+        public IOutPaymentDetailRepository OutPaymentDetails => _outPaymentDetailRepository ?? new EfOutPaymentDetailRepository(_context);
         public IExpenseRepository Expenses => _expenseRepository ?? new EfExpenseRepository(_context);
         public INotificationRepository Notifications => _notificationRepository ?? new EfNotificationRepository(_context);
         public IProductGroupRepository ProductGroups=> _productGroupRepository ?? new EfProductGroupRepository(_context);

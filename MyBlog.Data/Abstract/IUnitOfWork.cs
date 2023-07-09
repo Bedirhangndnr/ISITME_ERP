@@ -35,6 +35,8 @@ namespace MyBlog.Data.Abstract
         IModuleRepository Modules { get; }
         IExpenseRepository Expenses { get; }
         IAssociatedInstitutionRepository AssociatedInstitutions { get; }
+        IOutPaymentRepository OutPayments { get; }
+        IOutPaymentDetailRepository OutPaymentDetails { get; }
         Task<int> SaveAsync();
     }
 }

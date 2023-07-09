@@ -75,6 +75,12 @@
                         }
                     });
                 }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Export to Excel',
+                filename: 'Satışlar',
+                className: 'btn btn-outline-secondary'
             }
         ],
         language: {
@@ -152,11 +158,44 @@
                                     );
                                 }
                                 else {
-                                    Swal.fire(
-                                        'Silindi!',
-                                        `${saleResult.Message}`,
-                                        'success'
-                                    );
+                                    // Silme işlemi tamamlandıktan sonra başarılı mesajı ve IsSold değerini güncelleme sorusunu işle
+                                    swal.fire({
+                                        title: "Silme işlemi başarılı!",
+                                        text: "Ürün Tekrar Satışa Çıkarılsın mı?",
+                                        icon: "success",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Evet, güncellemek istiyorum.",
+                                        cancelButtonText: "Hayır, güncelleme yapmak istemiyorum."
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            // Kullanıcı güncelleme yapmayı kabul ettiğinde yapılacak işlemler
+                                            // IsSold değerini false olarak güncelle
+                                            $.ajax({
+                                                url: "/Admin/Sale/UpdateIsSold",
+                                                type: "POST",
+                                                data: { saleId: id, isSold: !result.value },
+                                                success: function (response) {
+                                                    // Güncelleme işlemi başarılı oldu
+                                                    Swal.fire({
+                                                        title: "Güncelleme işlemi tamamlandı!",
+                                                        text: response,
+                                                        icon: "success"
+                                                    });
+                                                },
+                                                error: function (error) {
+                                                    // Güncelleme işlemi sırasında bir hata oluştu
+                                                    Swal.fire({
+                                                        title: "Hata!",
+                                                        text: "Güncelleme işlemi sırasında bir hata oluştu.",
+                                                        icon: "error"
+                                                    });
+                                                }
+                                            });
+                                        }
+
+                                    });
                                 }
                                 if (inUpdate === '1') {
                                     //update controller içindeyiz, sil butonuna tıklandığında şu adrese git

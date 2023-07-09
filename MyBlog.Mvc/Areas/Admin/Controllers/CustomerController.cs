@@ -16,6 +16,7 @@ using MyBlog.Entities.Dtos.ArticleDtos;
 using MyBlog.Mvc.Areas.Admin.Models.CustomerModels;
 using MyBlog.Mvc.Consts;
 using MyBlog.Services.Utilities;
+using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -152,6 +153,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _customerService.AddAsync(customerAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Added,
+TableNamesConstants.Customers,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+);
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -229,6 +236,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     {
                         ImageHelper.Delete(oldPicture);
                     }
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Updated,
+TableNamesConstants.Customers,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+);
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -306,12 +319,24 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _customerService.DeleteAsync(customerId, LoggedInUser.UserName);
                 var customerResult = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Deleted,
+TableNamesConstants.Customers,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+);
                 return Json(customerResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _customerService.HardDeleteAsync(customerId);
                 var hardDeletedCustomerResult = JsonSerializer.Serialize(result);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.HardDeleted,
+TableNamesConstants.Customers,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+);
                 return Json(hardDeletedCustomerResult);
             }
             else
@@ -320,40 +345,19 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return Json("Hatalı silme türü parametresi!");
             }
         }
-        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
-        //[HttpPost]
-        //public async Task<JsonResult> HardDelete(int customerId)
-        //{
-        //    var result = await _customerService.HardDeleteAsync(customerId);
-        //    var hardDeletedCustomerResult = JsonSerializer.Serialize(result);
-        //    return Json(hardDeletedCustomerResult);
-        //}
-        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
-        //[HttpGet]
-        //public async Task<IActionResult> DeletedCustomers()
-        //{
-        //    var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
-        //    return View(result.Data);
 
-        //}
-
-        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
-        //[HttpGet]
-        //public async Task<JsonResult> GetAllDeletedCustomers()
-        //{
-        //    var result = await _customerService.GetAllByNonDeletedAndActiveAsync();
-        //    var customers = JsonSerializer.Serialize(result, new JsonSerializerOptions
-        //    {
-        //        ReferenceHandler = ReferenceHandler.Preserve
-        //    });
-        //    return Json(customers);
-        //}
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int customerId)
         {
             var result = await _customerService.UndoDeleteAsync(customerId, LoggedInUser.UserName);
             var undoDeleteCustomerResult = JsonSerializer.Serialize(result.Data);
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.UndoDeleted,
+TableNamesConstants.Customers,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+);
             return Json(undoDeleteCustomerResult);
         }
     }

@@ -25,131 +25,108 @@
                     <button type="button" class="btn btn-primary btn-block" id="btnAssign"><span class="fas fa-save"></span> Kaydet-Ata</button>
                 </div>
                 <form asp-action="Assign" id="form-role-assign">
+
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none;"></div>
-                    <input type="hidden" asp-for="UserId" />
+                    <input type="hidden" asp-for="@Model.UserId" value="@Model.UserId" />
+                    <input type="hidden" asp-for="@Model.UserName" value="@Model.UserName" />
 
                     <div class="form-row">
-                        @for (int i = 0; i < Model.RoleAssignDtos.Count; i++)
+                        @{
+                            var i = 0;
+                            var roleGroups = Model.RoleAssignDtos.GroupBy(r => r.RoleName.Split(".")[0].ToLower());
+                            var roleNames = Model.RoleAssignDtos.GroupBy(r => r.RoleDefinition.Split(" ")[0].ToLower());
+                            var roleIds = Model.RoleAssignDtos.GroupBy(r => r.RoleId);
+                            bool moduleControl = true;
+                            bool programControl = true;
+                        }
+
+                        @foreach (var roleGroup in roleGroups)
                         {
-                            //alt programlar
-                            if (@Model.RoleAssignDtos[i].AccessLevel==1)
-                            {   
-                                if (accessLevelController==2)
-                                {
-                                    accessLevelController = 3;
-                                    <div class="form-group col-md-12">
-                                        <h6 class="text-center"><span class="fas fa-th-list"></span> Modüller</h6>
-                                    </div>
-                                }
-                            }
-                            // programlar
-                            else if (@Model.RoleAssignDtos[i].AccessLevel == 2)
+                            var roleName = roleNames.FirstOrDefault(r => r.Key.ToLower() == roleGroup.Key)?.First()?.RoleDefinition;
+                            roleName ??= roleGroup.Key.ToUpper();
+
+                            if (roleName.Contains("PROGRAM") && programControl == true)
                             {
-                                if (accessLevelController == 1)
-                                {
-                                    accessLevelController = 2;
-                                    <div class="form-group col-md-12">
-                                        <h6 class="text-center"><span class="fas fa-th-list"></span> Programlar</h6>
-                                    </div>
-                                }
-                            }
-                            //modüller
-                            else if (@Model.RoleAssignDtos[i].AccessLevel == 3)
-                            {
-                                if (accessLevelController == 0)
-                                {
-                                    accessLevelController = 1;
-                                    <div class="form-group col-md-12">
-                                        <h6 class="text-center"><span class="fas fa-th-list"></span> Alt Programlar</h6>
-                                    </div>
-                                }
-                            }
-                            <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" asp-for="@Model.RoleAssignDtos[i].HasRole" />
-                                    <label asp-for="@Model.RoleAssignDtos[i].RoleId">@Model.RoleAssignDtos[i].RoleDefinition</label>
-                                    <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleId" />
-                                    <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleName" />
-                                    <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleDefinition" />
-                                    <input type="hidden" asp-for="@Model.RoleAssignDtos[i].AccessLevel" />
-                                    <input type="hidden" asp-for="@Model.UserName" />
+                                programControl = false;
+                                <div class="form-group col-md-12">
+                                    <h6 class="text-center"><span class="fas fa-th-list"></span> Program Yetkileri</h6>
                                 </div>
-                            </div>
+                            }
+                            else if (roleName.Contains("MODULE") && moduleControl == true)
+                            {
+                                moduleControl = false;
+                                <div class="form-group col-md-12">
+                                    <h6 class="text-center"><span class="fas fa-th-list"></span> Modül Yetkileri</h6>
+                                </div>
+                            }
+                            else if (!roleName.Contains("PROGRAM") && !roleName.Contains("MODULE"))
+                            {
+                                <div class="form-group col-md-12">
+                                    <h6 class="text-center"><span class="fas fa-th-list"></span> @roleName Yetkileri</h6>
+                                </div>
+                            }
 
+                            @foreach (var role in roleGroup)
+                            {
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" asp-for="@Model.RoleAssignDtos[i].HasRole" />
+                                        <label asp-for="@Model.RoleAssignDtos[i].RoleId">@role.RoleDefinition</label>
+                                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleId" />
+                                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleName" />
+                                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleDefinition" />
+                                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].AccessLevel" />
+                                    </div>
+                                </div>
+                                i++;
+                            }
                         }
 
-                        @*                        <div class="form-group col-md-12">
-                        <h6 class="text-center"><span class="fas fa-th-list"></span>Genel Başlık Yetkileriwwwwwww</h6>
-                        </div>
-                        @foreach (var module in Model.RoleAssignDtos.Where(r=> allowedRoleNames.Contains(r.RoleName)).ToList())
+@*
+                        @foreach (var roleGroup in roleGroups)
                         {
-                        roleId = Model.RoleAssignDtos.Where(dto => dto.RoleName == module.RoleName).Select(dto => dto.RoleId).SingleOrDefault();
-                        roleName = Model.RoleAssignDtos.Where(dto => dto.RoleName == module.RoleName).Select(dto => dto.RoleName).SingleOrDefault();
-                        roleDefinition = Model.RoleAssignDtos.Where(dto => dto.RoleName == module.RoleName).Select(dto => dto.RoleDefinition).SingleOrDefault();
-                        <div class="form-group col-md-12">
-                        <div class="form-check">
-                        <input type="checkbox" class="form-check-input" asp-for="@module.HasRole" />
-                        <label asp-for="@module.RoleId">@module.RoleDefinition</label>
-                        <input type="hidden" asp-for="@roleId" />
-                        <input type="hidden" asp-for="@roleDefinition" />
-                        <input type="hidden" asp-for="@roleName" />
-                        <input type="hidden" asp-for="@Model.UserName" />
-                        </div>
-                        </div>
-                        allowedProgramNames = Model.Modules
-                        .Where(m => m.Id == module.RoleId)
-                        .SelectMany(m => m.Programs)
-                        .Select(p => p.Name)
-                        .ToArray();
-                        @foreach (var program in Model.RoleAssignDtos.Where(r => allowedProgramNames.Contains(r.RoleName)).ToList())
-                        {
-                        <div class="form-group col-md-3">
-                        <div class="form-check">
-                        <input type="checkbox" class="form-check-input" asp-for="@program.HasRole" />
-                        <label asp-for="@program.RoleId">@program.RoleDefinition</label>
-                        <input type="hidden" asp-for="@program.RoleId" />
-                        <input type="hidden" asp-for="@program.RoleName" />
-                        <input type="hidden" asp-for="@program.RoleDefinition" />
-                        <input type="hidden" asp-for="@Model.UserName" />
-                        </div>
-                        </div>
-                        }
+                            var roleName = roleNames.FirstOrDefault(r => r.Key.ToLower() == roleGroup.Key)?.First()?.RoleDefinition;
+                            roleName ??= roleGroup.Key.ToUpper();
+
+                            if (roleName.Contains("PROGRAM") && programControl == true)
+                            {
+                                programControl = false;
+                                <div class="form-group col-md-12">
+                                    <h6 class="text-center"><span class="fas fa-th-list"></span> Program Yetkileri</h6>
+                                </div>
+                            }
+                            else if (roleName.Contains("MODULE") && moduleControl == true)
+                            {
+                                moduleControl = false;
+                                <div class="form-group col-md-12">
+                                    <h6 class="text-center"><span class="fas fa-th-list"></span> Modül Yetkileri</h6>
+                                </div>
+                            }
+                            else if (!roleName.Contains("PROGRAM") && !roleName.Contains("MODULE"))
+                            {
+                                <div class="form-group col-md-12">
+                                    <h6 class="text-center"><span class="fas fa-th-list"></span> @roleName Yetkileri</h6>
+                                </div>
+                            }
+
+
+                            @foreach (var role in roleGroup)
+                            {
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" asp-for="@role.HasRole" />
+                                        <label asp-for="@role.RoleId">@role.RoleDefinition</label>
+                                        <input type="hidden" asp-for="@role.RoleId" />
+                                        <input type="hidden" asp-for="@role.RoleName" />
+                                        <input type="hidden" asp-for="@role.RoleDefinition" />
+                                        <input type="hidden" asp-for="@role.AccessLevel" />
+                                        <input type="hidden" asp-for="@Model.UserName" />
+                                    </div>
+                                </div>
+                            }
+
                         }*@
-
-                        @*                        @foreach (var item in Model.RoleAssignDtos.Where(r => allowedRoleNames.Contains(r.RoleName)).ToList())
-                        {
-                        <div class="form-group col-md-3">
-                        <div class="form-check">
-
-                        <input type="checkbox" class="form-check-input" asp-for="@item.HasRole" />
-                        <label asp-for="@item.RoleId">@item.RoleDefinition</label>
-                        <input type="hidden" asp-for="@item.RoleId" />
-                        <input type="hidden" asp-for="@item.RoleName" />
-                        <input type="hidden" asp-for="@item.RoleDefinition" />
-                        <input type="hidden" asp-for="@Model.UserName" />
-                        </div>
-                        </div>*@
-                        @*                       @for (int i = 0; i < Model.RoleAssignDtos.Count; i++)
-                        {
-                        if (i % 4 == 0)
-                        {
-                        <div class="form-group col-md-12">
-                        <h6 class="text-center"><span class="fas fa-th-list"></span> @Model.RoleAssignDtos[i].RoleDefinition.Split(' ')[0] Yetkileri</h6>
-                        </div>
-                        }
-                        <div class="form-group col-md-3">
-                        <div class="form-check">
-                        <input type="checkbox" class="form-check-input" asp-for="@Model.RoleAssignDtos[i].HasRole" />
-                        <label asp-for="@Model.RoleAssignDtos[i].RoleId">@Model.RoleAssignDtos[i].RoleDefinition</label>
-                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleId" />
-                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleName" />
-                        <input type="hidden" asp-for="@Model.RoleAssignDtos[i].RoleDefinition" />
-                        <input type="hidden" asp-for="@Model.UserName" />
-                        </div>
-                        </div>
-                        }*@
-                        @*}*@
 
                     </div>
                 </form>
@@ -161,3 +138,7 @@
         </div>
     </div>
 </div>
+
+<script>
+
+</script>

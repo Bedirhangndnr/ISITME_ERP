@@ -30,14 +30,20 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly ICustomerService _customerService;
         private readonly IAssociatedInstitutionService _associatedInstitutionService;
         private readonly IToastNotification _toastNotification;
+        private readonly INotificationService _notificationService;
+
 
         public PaymentController(IPaymentService paymentService,
+                        INotificationService notificationService,
+
             IPaymentTypeService paymentTypeService,
         IAssociatedInstitutionService associatedInstitutionService,
         IEmployeeService employeeService,
         ICustomerService customerService,
         UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
+            _notificationService = notificationService;
+
             _customerService = customerService;
             _employeeService = employeeService;
             _paymentTypeService = paymentTypeService;
@@ -136,6 +142,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _paymentService.AddAsync(paymentTypeAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+                       NotificationMessageTypes.Added,
+                       TableNamesConstants.Payments,
+                       LoggedInUser.UserName),
+                       NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+                       );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -208,6 +220,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _paymentService.UpdateAsync(PaymentUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+                      NotificationMessageTypes.Updated,
+                      TableNamesConstants.Payments,
+                      LoggedInUser.UserName),
+                      NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+                      );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -296,10 +314,22 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _paymentService.DeleteAsync(paymentId, LoggedInUser.UserName);
                 var paymentResult = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+                      NotificationMessageTypes.Deleted,
+                      TableNamesConstants.Payments,
+                      LoggedInUser.UserName),
+                      NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+                      );
                 return Json(paymentResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+                      NotificationMessageTypes.HardDeleted,
+                      TableNamesConstants.Payments,
+                      LoggedInUser.UserName),
+                      NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+                      );
                 var result = await _paymentService.HardDeleteAsync(paymentId);
                 var hardDeletedPaymentResult = JsonSerializer.Serialize(result);
                 return Json(hardDeletedPaymentResult);
@@ -344,6 +374,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int paymentId)
         {
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+                      NotificationMessageTypes.UndoDeleted,
+                      TableNamesConstants.Payments,
+                      LoggedInUser.UserName),
+                      NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+                      );
             var result = await _paymentService.UndoDeleteAsync(paymentId, LoggedInUser.UserName);
             var undoDeletePaymentResult = JsonSerializer.Serialize(result.Data);
             return Json(undoDeletePaymentResult);

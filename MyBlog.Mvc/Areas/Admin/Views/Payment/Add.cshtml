@@ -6,15 +6,18 @@
     Layout = "_Layout";
 }
 
-<ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Index">Makaleler</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Add">Ekle</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 3,
+        Controller = "Payment",
+        Action = "Add",
+        ActionTR = "Ekle",
+        TableType = ViewBag.TableType
 
-<form asp-controller="Payment" asp-action="Update" method="post" enctype="multipart/form-data">
+})
+<form asp-controller="Payment" asp-action="Add" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     Bilgiler
@@ -24,14 +27,22 @@
                     <input type="hidden" asp-for="Customers" value="@Model.Customers" />
                     <input type="hidden" asp-for="Employees" value="@Model.Employees" />
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <textarea id="sescription" class="form-control" asp-for="Description" placeholder="Açıklama.."></textarea>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Açıklama</span>
+                            </div><input type="text" id="text-editor" class="form-control" asp-for="Description" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="number" id="amount" class="form-control" placeholder="Miktar" asp-for="AmountPaid" />
-                            <span asp-validation-for="AmountPaid" class="text-danger"></span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Ödeme Tutarı | TL</span>
+                                </div><input type="number" id="amount" class="form-control" asp-for="AmountPaid" />
+                                <span asp-validation-for="AmountPaid" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
 
@@ -40,39 +51,51 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     Tipler
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="customersList" asp-for="Customers">Hastalar</label>
-                        <select id="customeList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Hasta</span>
+                            </div><select id="customeList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="employeesList" asp-for="Employees">Personeller</label>
-                        <select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Personel</span>
+                            </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="paymentTypesList" asp-for="PaymentTypes">Ödeme Tipleri</label>
-                        <select id="paymentTypesList" class="form-control" asp-for="PaymentTypeId" asp-items="@(new SelectList(Model.PaymentTypes,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="PaymentTypeId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ödeme Tipi</span>
+                            </div><select id="paymentTypesList" class="form-control" asp-for="PaymentTypeId" asp-items="@(new SelectList(Model.PaymentTypes,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="PaymentTypeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="associatedInstitutionsList" asp-for="AssociatedInstitutions">İlişkili Kurum</label>
-                        <select id="associatedInstitutionsList" class="form-control" asp-for="AssociatedInstitutionsId" asp-items="@(new SelectList(Model.AssociatedInstitutions,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="AssociatedInstitutionsId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">İlişkili Kurum</span>
+                            </div><select id="associatedInstitutionsList" class="form-control" asp-for="AssociatedInstitutionsId" asp-items="@(new SelectList(Model.AssociatedInstitutions,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="AssociatedInstitutionsId" class="text-danger"></span>
+                        </div>
                     </div>
 
                     <div class="form-group">

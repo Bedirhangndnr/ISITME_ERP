@@ -8,7 +8,7 @@ namespace MyBlog.Mvc.Consts
         public const string Sales = "Sales";
         public const string Customer = "Customer";
         public const string InstitutionalRead = "Institutional.Read";
-        public const string SuperAdmin = "SuperAdmin";
+        public const string SuperAdmin= "SuperAdmin";
 
         // Employee
         public const string EmployeeCreate = "Employee.Create";
@@ -130,43 +130,76 @@ namespace MyBlog.Mvc.Consts
         public const string RoleUpdate = "Role.Update";
         public const string RoleDelete = "Role.Delete";
         
+        
         // User
         public const string UserCreate = "User.Create";
         public const string UserRead = "User.Read";
         public const string UserUpdate = "User.Update";
         public const string UserDelete = "User.Delete";
+        
+        // Payment
+        public const string OutPaymentCreate = "OutPayment.Create";
+        public const string OutPaymentRead = "OutPayment.Read";
+        public const string OutPaymentUpdate = "OutPayment.Update";
+        public const string OutPaymentDelete = "OutPayment.Delete";
+        // Payment
+        public const string OutPaymentDetailCreate = "OutPaymentDetail.Create";
+        public const string OutPaymentDetailRead = "OutPaymentDetail.Read";
+        public const string OutPaymentDetailUpdate = "OutPaymentDetail.Update";
+        public const string OutPaymentDetailDelete = "OutPaymentDetail.Delete";
 
         // PROGRAMS // PROGRAMS // PROGRAMS
         // SUBPROGRAMS // SUBPROGRAMS // SUBPROGRAMS
         public const string EmployeeProgramRead = "EmployeeProgram.Read";
+        public const string InstitutionalProgramRead = "InstitutionalProgram.Read";
         public const string PaymentProgramRead = "PaymentProgram.Read";
-        //public const string PaymentTypeProgramRead = "PaymentTypeProgram.Read";
-        //public const string EmployeeTypeProgramRead = "EmployeeTypeProgram.Read";
-        public const string CustomerReferenceProgramRead = "CustomerReferenceProgram.Read";
         public const string CustomerProgramRead = "CustomerProgram.Read";
-        //public const string CustomerTypeProgramRead = "CustomerTypeProgram.Read";
-        public const string NotificationProgramRead = "NotificationProgram.Read";
-        public const string BrandProgramRead = "BrandProgram.Read";
-        //public const string SaleStatusProgramRead = "SaleStatusProgram.Read";
-        //public const string SaleTypeProgramRead = "SaleTypeProgram.Read";
-        public const string SalesProgramRead = "SaleProgram.Read";
-        //public const string ProductGroupProgramRead = "ProductGroupProgram.Read";
-        //public const string ProductSubGroupProgramRead = "ProductSubGroupProgram.Read";
         public const string ProductProgramRead = "ProductProgram.Read";
-        public const string AppointmentProgramRead = "AppointmentProgram.Read";
-        //public const string AppointmentTypeProgramRead = "AppointmentTypeProgram.Read";
-        public const string StockProgramRead = "StockProgram.Read";
-        public const string RoleProgramRead = "RoleProgram.Create";
-        public const string UserProgramRead = "UserProgram.Read";
-        // MODULES // MODULES // MODULES
-        public const string HomeModuleRead = "HomeModule.Read";
-        public const string StockModuleRead = "StockModule.Read";
-        public const string FinanceModuleRead = "FinanceModule.Read";
-        public const string MarketingModuleRead = "MarketingModule.Read";
+        public const string MarketingProgramRead = "MarketingProgram.Read";
+        public const string AgendaProgramRead = "AgendaProgram.Read";
+        public const string FinanceProgramRead = "FinanceProgram.Read";
+        public const string HomeProgramRead= "HomeProgram.Read";
+
+
+
+        // MODULES MODULES MODULES MODULES
+        public const string EmployeeTypeModuleRead = "EmployeeTypeModule.Read";
+
+        public const string EmployeeModuleRead = "EmployeeModule.Read";
+
+        public const string UserModuleRead = "UserModule.Read";
+
         public const string CustomerModuleRead = "CustomerModule.Read";
-        public const string MarketingRead = "MarketingModule.Read";
-        public const string InstitutionalModuleRead = "InstitutionalModule.Read";
-        public const string AgendaModuleRead = "AgendaModule.Read";
+
+        public const string CustomerTypeModuleRead = "CustomerTypeModule.Read";
+
+
+        public const string ProductModuleRead = "ProductModule.Read";
+
+        public const string ProductGroupModuleRead = "ProductGroupModule.Read";
+
+        public const string ProductSubGroupModuleRead = "ProductSubGroupModule.Read";
+
+        public const string BrandModuleRead = "BrandModule.Read";
+
+        public const string CustomerReferanceModuleRead = "CustomerReferanceModule.Read";
+
+        public const string AppointmentModuleRead = "AppointmentModule.Read";
+
+        public const string NotificationModuleRead = "NotificationModule.Read";
+
+
+        public const string OutPaymentModuleRead = "OutPaymentModule.Read";
+
+        public const string SaleModuleRead = "SaleModule.Read";
+
+        public const string PaymentModuleRead = "PaymentModule.Read";
+
+        public const string ExpenseModuleRead = "ExpenseModule.Read";
+
+        public const string StockModuleRead = "StockModule.Read";
+
+        public const string RoleModuleRead = "RoleModule.Read";
 
     }
 }

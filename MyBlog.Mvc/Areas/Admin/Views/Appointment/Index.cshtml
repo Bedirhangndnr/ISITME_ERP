@@ -6,10 +6,14 @@
     ViewBag.Title = "Ürünler";
 }
 
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Appointment" asp-action="Index">Ürünler</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 2,
+        Controller = "Appointment",
+        Action = "Yok",
+        ActionTR = "Yok",
+        TableType = ViewBag.TableType
+})
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <input type="hidden" id="tableType" value="@ViewBag.TableType" />
@@ -91,7 +95,6 @@
 @section Scripts
     {
     <script src="~/AdminArea/js/appointmentScripts/appointmentIndex.js" type="application/ecmascript"></script>
-
     <script>
         $(document).ready(function () {
             $('#btnAdd').click(function () {
@@ -102,5 +105,7 @@
                 window.location.href = '@Url.Action("Add", "Appointment")' + '?tableType=' + encodeURIComponent(tableType);
             });
         });
+
+
     </script>
 }

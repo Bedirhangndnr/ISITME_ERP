@@ -13,8 +13,10 @@ namespace MyBlog.Services.AutoMapper.Profiles
     {
         public ExpenseProfile()
         {
-            CreateMap<ExpenseAddDto, Expense>();
-            CreateMap<ExpenseUpdateDto, Expense>().ReverseMap();
+            CreateMap<ExpenseAddDto, Expense>().ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            CreateMap<ExpenseUpdateDto, Expense>().ReverseMap().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now)); ;
+            CreateMap<Expense, ExpenseUpdateDto>().ReverseMap().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now)); ;
         
         }
     }

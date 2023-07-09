@@ -99,6 +99,7 @@ namespace MyBlog.Services.Concrete
             var oldSale = await UnitOfWork.Sales.GetAsync(c => c.Id == SaleUpdateDto.Id);
             var Sale = Mapper.Map<SaleUpdateDto, Sale>(SaleUpdateDto, oldSale);
             Sale.ModifiedByName = modifiedByName;
+            Sale.CreatedByName = SaleUpdateDto.CreatedByName;
             var updatedSale = await UnitOfWork.Sales.UpdateAsync(Sale);
             updatedSale.SaleType = await UnitOfWork.SaleTypes.GetAsync(a => a.Id == SaleUpdateDto.SaleTypeId);
             await UnitOfWork.SaveAsync();
@@ -141,7 +142,7 @@ namespace MyBlog.Services.Concrete
             if (sale != null)
             {
                 sale.IsDeleted = true;
-                sale.IsActive = false;
+                //sale.IsActive = false;
                 sale.ModifiedByName = modifiedByName;
                 sale.ModifiedDate = DateTime.Now;
                 var deletedSale = await UnitOfWork.Sales.UpdateAsync(sale);
@@ -172,29 +173,50 @@ namespace MyBlog.Services.Concrete
             return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Hasta"));
         }
 
-        public async Task<IDataResult<int>> CountAsync()
+        public async Task<IDataResult<int>> CountAsync(bool isRestOfTheMonth)
         {
-            var SalesCount = await UnitOfWork.Sales.CountAsync();
-            if (SalesCount > -1)
+            try
             {
-                return new DataResult<int>(ResultStatus.Success, SalesCount);
+                var salesCount = 0;
+                if (isRestOfTheMonth)
+                {
+                    var lastMonth = DateTime.Now.AddMonths(-1);
+                    salesCount = await UnitOfWork.Sales.CountAsync(s=>s.CreatedDate >= lastMonth);
+                }
+                else
+                {
+                    salesCount = await UnitOfWork.Sales.CountAsync();
+                }
+
+                return new DataResult<int>(ResultStatus.Success, salesCount);
             }
-            else
+            catch (Exception ex)
             {
-                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+                // Hata durumunda gerekli işlemler yapılabilir
+                return new DataResult<int>(ResultStatus.Error, -1, "Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
-
-        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        public async Task<IDataResult<int>> CountByNonDeletedAsync(bool isRestOfTheMonth)
         {
-            var SalesCount = await UnitOfWork.Sales.CountAsync(c => !c.IsDeleted);
-            if (SalesCount > -1)
+            try
             {
-                return new DataResult<int>(ResultStatus.Success, SalesCount);
+                var salesCount = 0;
+                if (isRestOfTheMonth)
+                {
+                    var lastMonth = DateTime.Now.AddMonths(-1);
+                    salesCount = await UnitOfWork.Sales.CountAsync(s => !s.IsDeleted && s.CreatedDate >= lastMonth);
+                }
+                else
+                {
+                    salesCount = await UnitOfWork.Sales.CountAsync(s => !s.IsDeleted);
+                }
+
+                return new DataResult<int>(ResultStatus.Success, salesCount);
             }
-            else
+            catch (Exception ex)
             {
-                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+                // Hata durumunda gerekli işlemler yapılabilir
+                return new DataResult<int>(ResultStatus.Error, -1, "Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
 
@@ -204,7 +226,7 @@ namespace MyBlog.Services.Concrete
             if (sale != null)
             {
                 sale.IsDeleted = false;
-                sale.IsActive = true;
+                //sale.IsActive = true;
                 sale.ModifiedByName = modifiedByName;
                 sale.ModifiedDate = DateTime.Now;
                 var deletedSale = await UnitOfWork.Sales.UpdateAsync(sale);

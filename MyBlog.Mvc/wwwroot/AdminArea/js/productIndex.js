@@ -46,7 +46,8 @@
                                             product.BrandTitle,
                                             product.ProductSubGroupTitle == null ? "Alt Kategori Bulunmuyor" : product.ProductSubGroupTitle,
                                             product.Note == null ? "Not Eklenmemiş" : (product.Note.length > 75 ? product.Note.substring(0, 75) : product.Note),
-                                            product.Note,
+                                            product.Price != 0 ? product.Price : '<span style="color: red;">Fiyat Girilmemiş</span>',
+
                                             //`<img src="/img/${product.Picture}" alt="${product.UserName}" class="my-image-table" />`,
                                             "1",
                                             `
@@ -63,6 +64,7 @@
                                 dataTable.draw();
                                 $('.spinner-border').hide();
                                 $('#productsTable').fadeIn(1400);
+ 
                             } else {
                                 toastr.error(`${productListWithNamesDto.Data.Message}`, 'İşlem Başarısız!');
                             }
@@ -75,6 +77,12 @@
                         }
                     });
                 }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Export to Excel',
+                filename: 'Ürünler',
+                className: 'btn btn-outline-secondary'
             }
         ],
         language: {

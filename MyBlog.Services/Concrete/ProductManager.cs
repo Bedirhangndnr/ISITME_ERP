@@ -104,7 +104,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
             {
                 Product = addedProduct,
-            }, Messages.General.GiveMessage("xxKx", "Ürün", "eklendi."));
+            }, Messages.General.GiveMessage(addedProduct.ProductName, "Ürün", "eklendi."));
         }
         public async Task<IResult> UpdateAsync(ProductUpdateDto ProductUpdateDto, string modifiedByName)
         {
@@ -116,7 +116,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
             {
                 Product = updatedProduct,
-            }, Messages.General.GiveMessage("xxKx", "Ürün", "Güncellendi."));
+            }, Messages.General.GiveMessage(updatedProduct.ProductName, "Ürün", "Güncellendi."));
         }
         public async Task<IDataResult<ProductListDto>> GetAllByDeletedAsync()
         {

@@ -17,9 +17,10 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [DataType(DataType.Upload)]
         public IFormFile? PictureFile { get; set; }
         public string? Picture { get; set; }
-        [DisplayName("Çalışan Kategorisi")]
+        [DisplayName("Personel Kategorisi")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public int EmployeeTypeId { get; set; } 
+        public int EmployeeTypeId { get; set; }
+        [DisplayName("Personeller")]
         public IList<EmployeeType>? EmployeeTypes { get; set; }
         [DisplayName("Hakkında")]
         [MaxLength(500, ErrorMessage = "{0} alanı {1}'den büyük olamaz.")]
@@ -34,10 +35,12 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MinLength(2, ErrorMessage = "{0} alanı {1}'den küçük olamaz.")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public string LastName { get; set; }
+        [EmailAddress]
         [DisplayName("E-posta")]
         [MaxLength(25, ErrorMessage = "{0} alanı {1}'den büyük olamaz.")]
         [MinLength(10, ErrorMessage = "{0} alanı {1}'den küçük olamaz.")]
         public string? Email { get; set; }
+        [Phone]
         [DisplayName("Telefon Numarası")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(15, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]

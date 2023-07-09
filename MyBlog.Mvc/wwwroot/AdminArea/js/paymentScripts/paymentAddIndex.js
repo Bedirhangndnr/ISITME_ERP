@@ -5,24 +5,32 @@
     var associatedInstitutionsList = document.getElementById("associatedInstitutionsList");
 
     // İlk select elementinin değeri değiştiğinde tetiklenecek olan fonksiyonu tanımlıyoruz
-    paymentTypesList.addEventListener("change", function () {
-        // İlk select elementinin seçili değerini alıyoruz
-        var selectedPaymentTypeId = paymentTypesList.value;
+    paymentTypesList.addEventListener("click", function () {
+        var selectedPaymentTypeId = parseInt(paymentTypesList.value);
+        var selectedPaymentTypeText = paymentTypesList.options[paymentTypesList.selectedIndex].text;
 
-        // İkinci select elementinin options'larını güncelliyoruz
-        associatedInstitutionsList.innerHTML = "";
-        var selectedPaymentTypeId = $(this).val(); // Seçilen PaymentTypeId değerini al
+        associatedInstitutionsList.innerHTML = ""; // associatedInstitutionsList'i temizle
 
-        // AssociatedInstitutionsId select listesini güncelle
-        $.ajax({
-            url: '/Admin/Payment/LoadAssociatedInstitutions',
-            type: "GET",
-            data: { paymentTypeId: selectedPaymentTypeId },
-            success: function (result) {
-                $("#associatedInstitutionsList").html(result); // Yeni seçenekleri yükle    
-            }
-        });
+        if (selectedPaymentTypeText === "Peşin") {
+            var option = document.createElement("option");
+            option.value = "yok";
+            option.text = "Yok";
+            option.selected = true; // Seçili olarak işaretle
+            associatedInstitutionsList.appendChild(option);
+        } else {
+            $.ajax({
+                url: '/Admin/Payment/LoadAssociatedInstitutions',
+                type: "GET",
+                data: { paymentTypeId: selectedPaymentTypeId },
+                success: function (result) {
+                    associatedInstitutionsList.innerHTML = result; // associatedInstitutionsList'i güncelle
+                }
+            });
+        }
     });
+
+
+
     $('#text-editor').trumbowyg({
         lang: 'tr',
         btns: [

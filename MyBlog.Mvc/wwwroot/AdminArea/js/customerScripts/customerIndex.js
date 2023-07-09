@@ -48,10 +48,11 @@
                                                 customer.Id,
                                                 customer.FirstName,
                                                 customer.LastName,
+                                                `<img src="/img/${customer.Picture}" alt="${customer.UserName}" class="my-image-table" />`,
+
                                                 customer.Phone,
                                                 customer.Email,
                                                 customer.Note == null ? "Hakkında Kısmı Eklenmemiş" : (customer.Note.length > 100 ? customer.Note.substring(0, 100) : customer.Note),
-                                                `<img src="/img/${customer.Picture}" alt="${customer.UserName}" class="my-image-table" />`,
                                                 customer.CustomerTypeId + " " + customer.CustomerTypeTitle,
                                                 `
                                                 <div class="form-group row justify-content-center">
@@ -82,7 +83,14 @@
                         }
                     });
                 }
-            }
+            },
+
+            {
+                extend: 'excelHtml5',
+                text: 'Export to Excel',
+                filename: 'Hastalar Tablosu',
+                className: 'btn btn-outline-secondary'
+            },
         ],
         language: {
             "sDecimal": ",",
@@ -116,6 +124,12 @@
             }
         }
     });
+
+
+
+
+
+
     $(document).on('click',
         '.btn-deneme',
         function (event) {
@@ -211,6 +225,7 @@
             }
         });
     });
+
     $(document).on('click',
         '.btn-undo',
         function (event) {

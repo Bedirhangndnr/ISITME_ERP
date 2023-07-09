@@ -13,20 +13,23 @@ namespace MyBlog.Mvc.Areas.Admin.Models
 {
     public class SaleAddViewModel : DtoGetBase
     {
-        [DisplayName("SGK Tutarı | TL")]
+        [DisplayName("SGK Tutarı")]
         public int? AmountOfSgk { get; set; }
         public bool IsInvoiceDue { get; set; } = false;
 
-        [DisplayName("Satış Tutarı | TL")]
+        [DisplayName("Satış Tutarı")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int Amount { get; set; }
         [DisplayName("Hasta")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<Customer> Customers { get; set; }
+        [DisplayName("Hasta")]
+
         public int CustomerId { get; set; }
         [DisplayName("Satış Tipi")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<SaleType> SaleTypes { get; set; }
+        [DisplayName("Satış Tipi")]
         public int SaleTypeId { get; set; }
         [DisplayName("Satış Durumu")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
@@ -35,10 +38,12 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [DisplayName("Ürün")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<Product> Products { get; set; }
+        [DisplayName("Ürün")]
         public int ProductId { get; set; }
         [DisplayName("Personel")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<Employee> Employees { get; set; }
+        [DisplayName("Personel")]
         public int EmployeeId { get; set; }
         [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]

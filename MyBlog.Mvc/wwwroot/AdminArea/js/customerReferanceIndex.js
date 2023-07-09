@@ -186,10 +186,10 @@
             const id = $(this).attr('data-id');
             const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
-            const CustomerReferanceName = tableRow.find('td:eq(1)').text();
+            const customerReferanceName = tableRow.find('td:eq(1)').text();
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${customerReferanceTitle} Başlıklı Marka ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${customerReferanceName} Başlıklı Marka ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

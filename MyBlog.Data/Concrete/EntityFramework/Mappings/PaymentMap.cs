@@ -28,11 +28,11 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.ToTable("Payments");
             builder.HasOne(p => p.AssociatedInstitutions)
     .WithMany()
-    .HasForeignKey(p => p.PaymentTypeId)
+    .HasForeignKey(p => p.AssociatedInstitutionsId)
     .OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(p => p.PaymentType)
     .WithMany()
-    .HasForeignKey(p => p.AssociatedInstitutionsId)
+    .HasForeignKey(p => p.PaymentTypeId)
     .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(p => p.Customer)
@@ -66,7 +66,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 new Payment
                 {
                     Id = 2,
-                    PaymentTypeId = 2,
+                    PaymentTypeId = 1,
                     IsActive = true,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
@@ -83,7 +83,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 3,
                     IsActive = true,
-                    PaymentTypeId = 3,  
+                    PaymentTypeId = 1,  
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
@@ -99,7 +99,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 {
                     Id = 4,
                     IsActive = true,
-                    PaymentTypeId = 4,
+                    PaymentTypeId = 1,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
@@ -116,7 +116,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 5,
                     IsActive = true,
                     IsDeleted = false,
-                    PaymentTypeId= 5,
+                    PaymentTypeId= 1,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
@@ -132,7 +132,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 6,
                     IsActive = true,
                     IsDeleted = false,
-                    PaymentTypeId= 6,
+                    PaymentTypeId= 1,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
@@ -150,7 +150,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
                     CreatedDate = DateTime.Now,
-                    PaymentTypeId = 7,
+                    PaymentTypeId = 1,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",

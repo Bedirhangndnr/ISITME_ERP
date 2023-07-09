@@ -75,6 +75,12 @@
                         }
                     });
                 }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Export to Excel',
+                filename: 'Ödemeler',
+                className: 'btn btn-outline-secondary'
             }
         ],
         language: {

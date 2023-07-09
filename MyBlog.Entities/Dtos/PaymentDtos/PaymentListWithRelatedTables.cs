@@ -17,7 +17,7 @@ namespace MyBlog.Entities.Dtos.PaymentDtos
         public string? AssociatedInstitutionTitle { get; set; }
         public int? SaleTypeId { get; set; }
         public string? SaleTypeTitle { get; set; }
-        public int AmountPaid { get; set; } // defaullt olarak tl olarak yazılacak
+        public decimal AmountPaid { get; set; } // defaullt olarak tl olarak yazılacak
         public string? Description { get; set; }
         public string CustomerName { get; set; }
         public string? Note { get; set; }

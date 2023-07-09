@@ -14,6 +14,7 @@ using MyBlog.Mvc.Areas.Admin.Models.ArticleModels;
 using MyBlog.Mvc.Areas.Admin.Models.CustomerModels;
 using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
 using MyBlog.Entities.Dtos.PaymentDtos;
+using MyBlog.Entities.Dtos.OutPaymentDtos;
 
 namespace MyBlog.Mvc.AutoMapper.Profiles
 {
@@ -34,9 +35,11 @@ namespace MyBlog.Mvc.AutoMapper.Profiles
             CreateMap<ProductAddViewModel, ProductAddDto>().ReverseMap();
             CreateMap<ProductUpdateDto, ProductUpdateViewModel>().ReverseMap();
             CreateMap<AppointmentAddViewModel, AppointmentAddDto>().ReverseMap();
-            CreateMap<AppointmentUpdateDto, AppointmentUpdateViewModel>().ReverseMap(); 
+            CreateMap<AppointmentUpdateDto, AppointmentUpdateViewModel>().ReverseMap();
             CreateMap<PaymentAddViewModel, PaymentAddDto>().ReverseMap();
             CreateMap<PaymentUpdateDto, PaymentUpdateViewModel>().ReverseMap();
+            CreateMap<OutPaymentAddViewModel, OutPaymentAddDto>().ReverseMap();
+            CreateMap<OutPaymentUpdateDto, OutPaymentUpdateViewModel>().ReverseMap();
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
             CreateMap<NotificationListDto, NotificationViewModel>();

@@ -50,7 +50,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name = AuthorizeDefinitionConstants.UserProgramRead,
+                    Name = AuthorizeDefinitionConstants.UserModuleRead,
                     ModuleId = 5
                 },
                 new Program
@@ -62,7 +62,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.StockProgramRead,
+                    Name= AuthorizeDefinitionConstants.StockModuleRead,
                     ModuleId= 7
                 },
                 new Program
@@ -74,7 +74,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.CustomerReferenceProgramRead,
+                    Name= AuthorizeDefinitionConstants.CustomerReferanceModuleRead,
                     ModuleId=6
                 },
                 new Program
@@ -86,7 +86,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.AppointmentProgramRead,
+                    Name= AuthorizeDefinitionConstants.AppointmentModuleRead,
                     ModuleId=1
                 },
                 new Program
@@ -98,7 +98,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.NotificationProgramRead,
+                    Name= AuthorizeDefinitionConstants.NotificationModuleRead,
                     ModuleId = 1
                 },
                 new Program
@@ -134,7 +134,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.BrandProgramRead,
+                    Name= AuthorizeDefinitionConstants.BrandModuleRead,
                     ModuleId=7
                 },
                 new Program
@@ -146,7 +146,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.SalesProgramRead,
+                    Name= AuthorizeDefinitionConstants.SaleModuleRead,
                     ModuleId=3
                 },
                 new Program
@@ -170,7 +170,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
-                    Name= AuthorizeDefinitionConstants.RoleProgramRead,
+                    Name= AuthorizeDefinitionConstants.RoleModuleRead,
                     ModuleId=5
                 }
             );

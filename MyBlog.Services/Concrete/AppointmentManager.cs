@@ -139,7 +139,7 @@ namespace MyBlog.Services.Concrete
             if (appointment != null)
             {
                 appointment.IsDeleted = true;
-                appointment.IsActive = false;
+                //appointment.IsActive = false;
                 appointment.ModifiedByName = modifiedByName;
                 appointment.ModifiedDate = DateTime.Now;
                 var deletedAppointment = await UnitOfWork.Appointments.UpdateAsync(appointment);
@@ -169,30 +169,52 @@ namespace MyBlog.Services.Concrete
             }
             return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Randevu"));
         }
-
-        public async Task<IDataResult<int>> CountAsync()
+        public async Task<IDataResult<int>> CountAsync(bool isRestOfDay)
         {
-            var AppointmentsCount = await UnitOfWork.Appointments.CountAsync();
-            if (AppointmentsCount > -1)
+            try
             {
-                return new DataResult<int>(ResultStatus.Success, AppointmentsCount);
+                int appointmentsCount;
+
+                if (isRestOfDay)
+                {
+                    appointmentsCount = await UnitOfWork.Appointments.CountAsync(a => a.Date >= DateTime.Today);
+                }
+                else
+                {
+                    appointmentsCount = await UnitOfWork.Appointments.CountAsync();
+                }
+
+                return new DataResult<int>(ResultStatus.Success, appointmentsCount);
             }
-            else
+            catch (Exception ex)
             {
-                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+                // Hata durumunda gerekli işlemler yapılabilir
+                return new DataResult<int>(ResultStatus.Error, -1, "Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
 
-        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+
+        public async Task<IDataResult<int>> CountByNonDeletedAsync(bool isRestOfDay)
         {
-            var AppointmentsCount = await UnitOfWork.Appointments.CountAsync(c => !c.IsDeleted);
-            if (AppointmentsCount > -1)
+            try
             {
-                return new DataResult<int>(ResultStatus.Success, AppointmentsCount);
+                int appointmentsCount;
+
+                if (isRestOfDay)
+                {
+                    appointmentsCount = await UnitOfWork.Appointments.CountAsync(a => a.Date >= DateTime.Today && !a.IsDeleted);
+                }
+                else
+                {
+                    appointmentsCount = await UnitOfWork.Appointments.CountAsync(a => !a.IsDeleted);
+                }
+
+                return new DataResult<int>(ResultStatus.Success, appointmentsCount);
             }
-            else
+            catch (Exception ex)
             {
-                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+                // Hata durumunda gerekli işlemler yapılabilir
+                return new DataResult<int>(ResultStatus.Error, -1, "Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
 
@@ -202,7 +224,7 @@ namespace MyBlog.Services.Concrete
             if (appointment != null)
             {
                 appointment.IsDeleted = false;
-                appointment.IsActive = true;
+                //appointment.IsActive = true;
                 appointment.ModifiedByName = modifiedByName;
                 appointment.ModifiedDate = DateTime.Now;
                 var deletedAppointment = await UnitOfWork.Appointments.UpdateAsync(appointment);

@@ -33,15 +33,17 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 .Select(s => new ProductListWithRelatedTables
                 {
                     Id = s.Id,
-                    ProductSubGroupId = s.ProductSubGroup.Id,
-                    ProductSubGroupTitle = s.ProductSubGroup.Title,
-                    BrandId = s.Brand.Id,
-                    BrandTitle = s.Brand.Title,
+                    ProductSubGroupId = s.ProductSubGroup != null ? s.ProductSubGroup.Id : 0, // Örnek bir değer atama
+                    ProductSubGroupTitle = s.ProductSubGroup != null ? s.ProductSubGroup.Title : string.Empty, // Örnek bir değer atama
+                    BrandId = s.Brand != null ? s.Brand.Id : 0, // Örnek bir değer atama
+                    BrandTitle = s.Brand != null ? s.Brand.Title : string.Empty, // Örnek bir değer atama
                     SerialNumber = s.SerialNumber,
                     IsActive = s.IsActive,
                     Note = s.Note,
+                    Price = s.Price,
                     ProductName = s.ProductName,
                 }).ToListAsync();
+
 
             return Products;
         }

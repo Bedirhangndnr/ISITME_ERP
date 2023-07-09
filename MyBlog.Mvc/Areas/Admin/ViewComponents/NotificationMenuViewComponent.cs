@@ -27,7 +27,7 @@ namespace MyBlog.Mvc.Areas.Notification.ViewComponents
             var notifications = await _notificationService.GetAllByNonDeletedAndActiveAsync();
             return View(new NotificationViewModel
             {
-                Notifications=notifications.Data.Notifications
+                notificationListWithRelatedTables=notifications.Data.NotificationListWithRelatedTables
             }) ;
         }
     }

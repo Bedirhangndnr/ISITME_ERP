@@ -50,7 +50,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             ViewBag.TableType = tableType;
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                var result = await _expenseService.GetAllByNonDeletedAndActiveAsync();
+                var result = await _expenseService.GetAllByNonDeletedAndActiveAsync(365);
                 if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
@@ -64,6 +64,62 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> GetChartIncomeAndOutcomeData()
+        {
+            var result = await _expenseService.GetAllByNonDeletedAndActiveAsync(30);
+
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                var expenses = result.Data.Expenses;
+
+                // Bugünün tarihini alın
+                var today = DateTime.Today;
+
+                // Tüm gelirleri ve giderleri filtreleyin ve toplamlarını hesaplayın
+                var totalIncome = expenses.Where(e => e.IsIncome && e.CreatedDate.Date <= today).Sum(e => e.Amount);
+                var totalOutcome = expenses.Where(e => !e.IsIncome && e.CreatedDate.Date <= today).Sum(e => e.Amount);
+
+                // Tüm gelir ve gider verilerini almak için gerekli işlemleri yapın
+                var incomeData = expenses
+                    .Where(e => e.IsIncome)
+                    .GroupBy(e => e.CreatedDate.Date)
+                    .Select(g => new { Date = g.Key, Amount = g.Sum(e => e.Amount) })
+                    .OrderBy(item => item.Date)
+                    .ToList();
+
+                var outcomeData = expenses
+                    .Where(e => !e.IsIncome)
+                    .GroupBy(e => e.CreatedDate.Date)
+                    .Select(g => new { Date = g.Key, Amount = g.Sum(e => e.Amount) })
+                    .OrderBy(item => item.Date)
+                    .ToList();
+
+                // Düne ait geliri toplam gelire ekle
+                var yesterdayIncome = incomeData.FirstOrDefault(item => item.Date == today.AddDays(-1));
+                if (yesterdayIncome != null)
+                    totalIncome += yesterdayIncome.Amount;
+
+                // Dönecek veri nesnesini oluşturun
+                var data = new
+                {
+                    IncomeData = incomeData.Select(item => item.Amount),
+                    OutcomeData = outcomeData.Select(item => item.Amount),
+                    TotalIncome = totalIncome,
+                    TotalOutcome = totalOutcome
+                };
+
+                // JavaScript tarafına verileri döndürün
+                return Content(Newtonsoft.Json.JsonConvert.SerializeObject(data), "application/json");
+            }
+
+            return Json(new { ErrorMessage = "Kayıtlar bulunamadı." });
+        }
+
+
+
+
+
         [HttpGet]
         public async Task<JsonResult> GetAllExpenses(string tableType)
         {
@@ -112,6 +168,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                         ExpenseDto = result.Data,
                         ExpenseAddPartial = await this.RenderViewToStringAsync("_ExpenseAddPartial", expenseAddDto)
                     });
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Added,
+TableNamesConstants.Expenses,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+);
+
                     return Json(categoryAddAjaxModel);
                 }
             }
@@ -173,12 +236,24 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 var result = await _expenseService.DeleteAsync(expenseId, LoggedInUser.UserName);
                 var deletedExpense = JsonSerializer.Serialize(result.Data);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.Deleted,
+TableNamesConstants.Expenses,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+);
                 return Json(deletedExpense);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _expenseService.HardDeleteAsync(expenseId);
                 var hardDeletedAppointmentResult = JsonSerializer.Serialize(result);
+                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.HardDeleted,
+TableNamesConstants.Expenses,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+);
                 return Json(hardDeletedAppointmentResult);
             }
             else
@@ -193,6 +268,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             var result = await _expenseService.UndoDeleteAsync(expenseId, LoggedInUser.UserName);
             var undoDeletedExpense = JsonSerializer.Serialize(result.Data);
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+NotificationMessageTypes.UndoDeleted,
+TableNamesConstants.Expenses,
+LoggedInUser.UserName),
+NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
+);
             return Json(undoDeletedExpense);
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseDelete}")]

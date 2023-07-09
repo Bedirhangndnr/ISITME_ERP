@@ -30,8 +30,8 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         public string? About { get; set; } = "";
         [DisplayName("Telefon Numarası")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(0, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
+        [MinLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         public string Phone { get; set; }
         [DisplayName("E-Posta")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]

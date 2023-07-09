@@ -19,7 +19,7 @@ public class NotificationMessageService
             case NotificationMessageTypes.UndoDeleted:
                 return $"{tableName} Adlı Tabloya {modifiedByName} Adlı Kullanıcı Tarafından Kalıcı Olarak Silindi!.";
             case NotificationMessageTypes.HardDeleted:
-                return $"{tableName} Adlı Tabloya {modifiedByName} Adlı Kullanıcı Tarafından Veri Eklendi.";
+                return $"{tableName} Adlı Tabloya {modifiedByName} Adlı Kullanıcı Tarafından Veri Kalıcı Olarak Silindi.";
             default:
                 return "";
         }

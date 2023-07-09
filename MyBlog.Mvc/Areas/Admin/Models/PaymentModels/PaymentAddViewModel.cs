@@ -35,9 +35,9 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [DisplayName("İlgili Personel")]
         public IList<Employee>? Employees { get; set; }
         [DisplayName("Açıklama")]
-        [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public string? Description { get; set; }
-        [DisplayName("Ödenen Tutar")]
+        [PaymentAmount]
+        [DisplayName("Ödeme Tutarı")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? AmountPaid { get; set; }
     }

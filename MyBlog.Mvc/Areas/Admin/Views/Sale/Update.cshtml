@@ -5,16 +5,18 @@
     ViewData["Title"] = "Add";
     Layout = "_Layout";
 }
-<ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Index">Personeller</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Add">Ekle</a></li>
-</ol>
-
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 3,
+        Controller = "Sale",
+        Action = "Update",
+        ActionTR = "Güncelle",
+        TableType = ViewBag.TableType
+})
 <form asp-controller="Sale" asp-action="Update" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="col-md-8">
-            <div class="card">fkkbd
+        <div class="col-md-6">
+            <div class="card">
                 <div class="card-header">
                     Bilgiler
                 </div>
@@ -24,79 +26,112 @@
                     <input type="hidden" asp-for="Products" value="@Model.Products" />
                     <input type="hidden" asp-for="SaleTypes" value="@Model.SaleTypes" />
                     <input type="hidden" asp-for="SaleStatuses" value="@Model.SaleStatuses" />
+                    <input type="hidden" asp-for="IsActive" value=true/>
+                    <input type="hidden" asp-for="CreatedByName" value="@Model.CreatedByName" />
                     <input type="hidden" asp-for="Id" />
-
-                    <div class="form-group col-md-6">
-                        <input type="number" id="Amount" class="form-control" placeholder="Tutar" asp-for="Amount" />
-                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Amount"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                            <input type="number" id="Amount" class="form-control" asp-for="Amount"/>
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <input type="number" id="amountOfSgk" class="form-control" placeholder="Sgk Tutarı" asp-for="AmountOfSgk" />
-                        <span asp-validation-for="AmountOfSgk" class="text-danger"></span>
+                    <div class="form-group col-md-12">
+                        <label asp-for="AmountOfSgk"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">TL</span>
+                            </div><input type="number" id="amountOfSgk" class="form-control" asp-for="AmountOfSgk" />
+                            <span asp-validation-for="AmountOfSgk" class="text-danger"></span>
+                        </div>
                     </div>
 
                 </div>
+
             </div>
+            @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+            {
+            CreatedByName = Model.CreatedByName,
+            CreatedDate = Model.CreatedDate,
+            ModifiedByName = Model.ModifiedByName,
+            ModifiedDate = Model.ModifiedDate
+            })
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     Tipler
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="employeeList" asp-for="Employees"></label>
-                        <select id="EmployeeList1" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Personel</span>
+                            </div><select id="EmployeeList1" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="customersList" asp-for="Customers"></label>
-                        <select id="customersList1" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Hasta</span>
+                            </div><select id="customersList1" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="productsList" asp-for="Products"></label>
-                        <select id="productsList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="ProductId" class="text-danger"></span>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ürün</span>
+                            </div><select id="productsList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="ProductId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="saleTypesList" asp-for="SaleTypes"></label>
-                        <select id="saleTypesList1" class="form-control" asp-for="SaleTypeId" asp-items="@(new SelectList(Model.SaleTypes,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="SaleTypeId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Satış Tipi</span>
+                            </div><select id="saleTypesList1" class="form-control" asp-for="SaleTypeId" asp-items="@(new SelectList(Model.SaleTypes,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="SaleTypeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="salestatusesList" asp-for="SaleStatuses"></label>
-                        <select id="saleStatusesList1" class="form-control" asp-for="SaleStatusId" asp-items="@(new SelectList(Model.SaleStatuses,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="SaleStatusId" class="text-danger"></span>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Satış Durumu</span>
+                            </div><select id="saleStatusesList1" class="form-control" asp-for="SaleStatusId" asp-items="@(new SelectList(Model.SaleStatuses,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="SaleStatusId" class="text-danger"></span>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                         {
-                        Id=0,
+                        Id=Model.Id,
                         InMainPage=1,
+                        InUpdate=1,
                         TableType=ViewBag.tableType,
                         Action="Update",
                         Controller="Sale"
                         })
+                     
                     </div>
-                        @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
-                        {
-                        CreatedByName = Model.CreatedByName,
-                        CreatedDate = Model.CreatedDate,
-                        ModifiedByName = Model.ModifiedByName,
-                        ModifiedDate = Model.ModifiedDate
-                        })
+                       
                 </div>
             </div>
         </div>
@@ -118,6 +153,8 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
     <script src="~/AdminArea/js/toolsScripts/select2.js" type="application/ecmascript"></script>
+    <script src="~/AdminArea/js/saleAdd.js" type="application/ecmascript"></script>
+
 }
 @section Styles
     {

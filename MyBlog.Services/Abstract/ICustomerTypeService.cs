@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos.CustomerTypeDtos;
+using MyBlog.Entities.Dtos.CustomerReferanceDtos;
 
 namespace MyBlog.Services.Abstract
 {
@@ -15,16 +16,15 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<CustomerTypeDto>> GetAsync(int CustomerTypeId);
         Task<IDataResult<CustomerTypeUpdateDto>> GetCustomerTypeUpdateDtoAsync(int CustomerTypeId);
         Task<IDataResult<CustomerTypeListDto>> GetAllAsync();
-        //Task<IDataResult<CustomerTypeListDto>> GetAllByDeletedAsync();
-        //Task<IDataResult<CustomerTypeListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<CustomerTypeListDto>> GetAllByNonDeletedAndActiveAsync();
         Task<IDataResult<CustomerTypeDto>> AddAsync(CustomerTypeAddDto CustomerTypeAddDto, string createdByName);
-        //Task<IDataResult<CustomerTypeDto>> ApproveAsync(int CustomerTypeId, string modifiedByName);
         Task<IDataResult<CustomerTypeDto>> UpdateAsync(CustomerTypeUpdateDto CustomerTypeUpdateDto, string modifiedByName);
-        //Task<IDataResult<CustomerTypeDto>> DeleteAsync(int CustomerTypeId, string modifiedByName);
-        //Task<IDataResult<CustomerTypeDto>> UndoDeleteAsync(int CustomerTypeId, string modifiedByName);
-        //Task<IResult> HardDeleteAsync(int CustomerTypeId);
-        //Task<IDataResult<int>> CountAsync();
-        //Task<IDataResult<int>> CountByNonDeletedAsync();
+
+        Task<IDataResult<CustomerTypeDto>> DeleteAsync(int TypeId, string modifiedByName);
+        Task<IDataResult<CustomerTypeListDto>> GetAllByDeletedAsync();
+        Task<IDataResult<CustomerTypeDto>> UndoDeleteAsync(int EmployeeTypeId, string modifiedByName);
+        Task<IResult> HardDeleteAsync(int EmployeeTypeId);
+        Task<IDataResult<int>> CountAsync();
+        Task<IDataResult<int>> CountByNonDeletedAsync();
     }
 }

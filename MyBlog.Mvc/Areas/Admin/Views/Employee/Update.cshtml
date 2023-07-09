@@ -6,14 +6,17 @@
     ViewData["Title"] = "Add";
     Layout = "_Layout";
 }
-<ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Index">Personeller</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Add">Ekle</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 3,
+        Controller = "Employee",
+        Action = "Update",
+        ActionTR = "Güncelle",
+        TableType = ViewBag.TableType
+})
 <form asp-controller="Employee" asp-action="Update" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="col-md-8">
+        <div class="col-md-8">p
             <div class="card">
                 <div class="card-header">
                     Bilgiler
@@ -25,40 +28,63 @@
                     <input type="hidden" asp-for="CreatedByName" />
                     <input type="hidden" asp-for="CreatedDate" />
                     <div class="form-group">
-                        <label for="picture" asp-for="Picture"></label>
-                        <input type="hidden" id="picture" class="form-control-file" asp-for="Picture" />
                         <img class="my-image" src="~/img/@Model.Picture" alt="@Model.FirstName" />
-                        <span asp-validation-for="Picture" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="PictureFile"></label>
+                        <label asp-for="PictureFile"></label> 
                         <input type="file" accept="image/*" class="form-control-file" asp-for="PictureFile" />
                         <span class="text-danger" asp-validation-for="PictureFile"></span>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <input type="text" id="customerName" class="form-control" placeholder="Ad" asp-for="FirstName" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Ad</span>
+                                </div>
+                                <input type="text" id="customerName" class="form-control" placeholder="Ad" asp-for="FirstName" />
+
+                            </div>
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" >
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Soyad</span>
+                                </div>
                             <input type="text" id="customerSurname" class="form-control" placeholder="Soyad" asp-for="LastName" />
+                            </div>
+
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <input type="text" id="customerPhone" class="form-control" placeholder="Telefon Numarası" asp-for="Phone" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i>+90</span>
+                                </div>
+                                <input type="text" id="customerPhone" class="form-control" placeholder="Telefon Numarası" asp-for="Phone" />
+                            </div>
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
 
                         <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text"><i class=" fas fa-envelope"></i></span>
+                            </div>
                             <input type="text" id="customerMail" class="form-control" placeholder="E-Posta" asp-for="Email" />
+                            </div>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Soyad</span>
+                                </div>
                             <input type="text" id="customerTc" class="form-control" placeholder="TC Kimlik Numarası" asp-for="TC" />
+                            </div>
+
                             <span asp-validation-for="TC" class="text-danger"></span>
                         </div>
                     </div>
@@ -67,11 +93,23 @@
                         <span asp-validation-for="About" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">   Not   </span>
+                            </div>
                         <input type="text" class="form-control" placeholder="Not" asp-for="Note" />
                     </div>
+                </div>
 
                     <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Adres</span>
+                            </div>
                         <textarea class="form-control" style="min-height:100px" placeholder="Adres Giriniz" asp-for="Address"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,16 +121,18 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Çalışan Tipi</label>
-                        <select id="employeeTypeList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
-                            <option></option>   
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Çalışan Tipi</span>
+                            </div>
+                        <select id="customerReferanceList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
+                            <option></option>
                         </select>
                         <span asp-validation-for="EmployeeTypeId" class="text-danger"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
 
             @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
             {

@@ -29,6 +29,21 @@ namespace MyBlog.Services.Concrete
         {
             _dbContext = dbContext;
         }
+        public async Task<IDataResult<List<int>>> GetDailyIncomeAsync(DateTime startDate, DateTime endDate)
+        {
+            // Günlük gelirleri çekmek için ilgili metodu ExpenseService üzerinden çağırın
+            var result = await UnitOfWork.Expenses.GetDailyIncomeAsync(startDate, endDate);
+
+            try
+            {
+                return new DataResult<List<int>>(ResultStatus.Success, result);
+
+            }
+            catch (Exception)
+            {
+                return new DataResult<List<int>>(ResultStatus.Error, new List<int>(), "Gelir Gider Yönetiminde Bir Sorun İle Karşılaşıldı");
+            }
+        }
 
         public async Task<IDataResult<ExpenseDto>> GetAsync(int ExpenseId)
         {
@@ -45,20 +60,28 @@ namespace MyBlog.Services.Concrete
                 Expense = null,
             }, Messages.General.NotFound(isPlural: false, "Tutar"));
         }
-        public async Task<IDataResult<ExpenseListDto>> GetAllByNonDeletedAndActiveAsync()
+        public async Task<IDataResult<ExpenseListDto>> GetAllByNonDeletedAndActiveAsync(int lastXDays=365)
         {
-            var customers = await UnitOfWork.Expenses.GetAllAsync(x => !x.IsDeleted);
-            if (customers.Count > -1)
+            DateTime startDate = DateTime.Today.AddDays(-lastXDays);
+            DateTime endDate;
+            if (lastXDays==365)
+                endDate = DateTime.Today.AddDays(1);
+            else
+                endDate = DateTime.Today;
+
+            var expenses = await UnitOfWork.Expenses.GetAllAsync(x => !x.IsDeleted && x.CreatedDate >= startDate && x.CreatedDate <= endDate);
+            if (expenses.Count > 0)
             {
                 return new DataResult<ExpenseListDto>(ResultStatus.Success, new ExpenseListDto
                 {
-                    Expenses = customers,
+                    Expenses = expenses,
                     ResultStatus = ResultStatus.Success
                 });
             }
             return new DataResult<ExpenseListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Tutar"));
-
         }
+
+
         public async Task<IDataResult<ExpenseUpdateDto>> GetExpenseUpdateDtoAsync(int ExpenseId)
         {
             var result = await UnitOfWork.Expenses.AnyAsync(c => c.Id == ExpenseId);
@@ -193,30 +216,63 @@ namespace MyBlog.Services.Concrete
                 Expense = null,
             }, Messages.General.GiveMessage(expense.Amount.ToString(), "Tutar", MessagesConstants.UndoDeletedError));
         }
-        public async Task<IDataResult<int>> CountAsync()
+        //public async Task<IDataResult<int>> CountAsync()
+        //{
+        //    var ExpensesCount = await UnitOfWork.Expenses.CountAsync();
+        //    if (ExpensesCount > -1)
+        //    {
+        //        return new DataResult<int>(ResultStatus.Success, ExpensesCount);
+        //    }
+        //    else
+        //    {
+        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+        //    }
+        //}
+
+        //public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        //{
+        //    var ExpensesCount = await UnitOfWork.Expenses.CountAsync(c => !c.IsDeleted);
+        //    if (ExpensesCount > -1)
+        //    {
+        //        return new DataResult<int>(ResultStatus.Success, ExpensesCount);
+        //    }
+        //    else
+        //    {
+        //        return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+        //    }
+        //}
+        public async Task<IDataResult<int>> CountAsync(int lastXDays, bool isIncome)
         {
-            var ExpensesCount = await UnitOfWork.Expenses.CountAsync();
-            if (ExpensesCount > -1)
+            try
             {
-                return new DataResult<int>(ResultStatus.Success, ExpensesCount);
+                var startDate = DateTime.Now.Date.AddDays(-lastXDays);
+                var expensesCount = await UnitOfWork.Expenses.CountAsync(e => e.CreatedDate >= startDate && e.IsIncome && e.IsIncome == isIncome);
+
+                return new DataResult<int>(ResultStatus.Success, expensesCount);
             }
-            else
+            catch (Exception ex)
             {
-                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+                // Hata durumunda gerekli işlemler yapılabilir
+                return new DataResult<int>(ResultStatus.Error, -1, "Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
 
-        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        public async Task<IDataResult<int>> CountByNonDeletedAsync(int lastXDays, bool isIncome)
         {
-            var ExpensesCount = await UnitOfWork.Expenses.CountAsync(c => !c.IsDeleted);
-            if (ExpensesCount > -1)
+            try
             {
-                return new DataResult<int>(ResultStatus.Success, ExpensesCount);
+                var startDate = DateTime.Now.Date.AddDays(-lastXDays);
+                var expensesCount = await UnitOfWork.Expenses.CountAsync(e => !e.IsDeleted && e.CreatedDate >= startDate && e.IsIncome && e.IsIncome == isIncome);
+
+                return new DataResult<int>(ResultStatus.Success, expensesCount);
             }
-            else
+            catch (Exception ex)
             {
-                return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
+                // Hata durumunda gerekli işlemler yapılabilir
+                return new DataResult<int>(ResultStatus.Error, -1, "Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
+
+
     }
 }

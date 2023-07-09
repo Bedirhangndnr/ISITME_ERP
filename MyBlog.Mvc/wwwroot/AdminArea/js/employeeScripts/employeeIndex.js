@@ -82,7 +82,14 @@
                         }
                     });
                 }
-            }
+            },
+
+            {
+                extend: 'excelHtml5',
+                text: 'Export to Excel',
+                filename: 'Personeller',
+                className: 'btn btn-outline-secondary'
+            },
         ],
         language: {
             "sDecimal": ",",

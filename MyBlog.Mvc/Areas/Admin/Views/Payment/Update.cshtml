@@ -5,14 +5,17 @@
     ViewData["Title"] = "Add";
     Layout = "_Layout";
 }
-<ol class="breadcrumb mb-3 mt-2">
-    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Index">Personeller</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Employee" asp-action="Add">Ekle</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 3,
+        Controller = "Payment",
+        Action = "Update",
+        ActionTR = "Güncelle",
+        TableType = ViewBag.TableType
+})
 <form asp-controller="Payment" asp-action="Update" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     Bilgiler
@@ -23,16 +26,21 @@
                     <input type="hidden" asp-for="Employees" value="@Model.Employees" />
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <label asp-for="Description"></label>
-                            <textarea id="text-editor" class="form-control" asp-for="Description" placeholder="Açıklama.."></textarea>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Açıklama</span>
+                            </div><input type="text" id="text-editor" class="form-control" asp-for="Description" />
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <label asp-for="AmountPaid"></label>
-                            <input type="number" id="amount" class="form-control" placeholder="Miktar" asp-for="AmountPaid" />
-                            <span asp-validation-for="AmountPaid" class="text-danger"></span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Ödeme Tutarı</span>
+                                </div><input type="number" id="amount" class="form-control" asp-for="AmountPaid" />
+                                <span asp-validation-for="AmountPaid" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
 
@@ -41,39 +49,51 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     Tipler
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="customersList" asp-for="Customers"></label>
-                        <select id="customeList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Hasta</span>
+                            </div><select id="customeList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="employeesList" asp-for="Employees"></label>
-                        <select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Personel</span>
+                            </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="paymentTypesList" asp-for="PaymentTypes"></label>
-                        <select id="paymentTypesList" class="form-control" asp-for="PaymentTypeId" asp-items="@(new SelectList(Model.PaymentTypes,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="PaymentTypeId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ödeme Tipi</span>
+                            </div><select id="paymentTypesList" class="form-control" asp-for="PaymentTypeId" asp-items="@(new SelectList(Model.PaymentTypes,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="PaymentTypeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="associatedInstitutionsList" asp-for="AssociatedInstitutions"></label>
-                        <select id="associatedInstitutionsList" class="form-control" asp-for="AssociatedInstitutionsId" asp-items="@(new SelectList(Model.AssociatedInstitutions,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="AssociatedInstitutionsId" class="text-danger"></span>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">İlişkili Kurum</span>
+                            </div><select id="associatedInstitutionsList" class="form-control" asp-for="AssociatedInstitutionsId" asp-items="@(new SelectList(Model.AssociatedInstitutions,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="AssociatedInstitutionsId" class="text-danger"></span>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -110,11 +130,27 @@
 </script>
 @section Scripts
     {
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js" integrity="sha512-sffB9/tXFFTwradcJHhojkhmrCj0hWeaz8M05Aaap5/vlYBfLx5Y7woKi6y0NrqVNgben6OIANTGGlojPTQGEw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/langs/tr.min.js" integrity="sha512-+HGzdrYvtA0U9cp5kJad8OpjTvUi6ywZ9z9kXFGiV3EaAR1II5X6lfulUm6/F9GKesHW+jHFfAqwXK0juybvMw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/colors/trumbowyg.colors.min.js" integrity="sha512-iT7g30i1//3OBZsfoc5XmlULnKQKyxir582Z9fIFWI6+ohfrTdns118QYhCTt0d09aRGcE7IRvCFjw2wngaqRQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/emoji/trumbowyg.emoji.min.js" integrity="sha512-C1y8Ma4rukPZAgoB+9AWiKNMWXvWXGDygpcYuL/lM3YKUcZLUgFwF8brKYML73a5YeZ4y7hmY3604Tzx4f4k0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontfamily/trumbowyg.fontfamily.min.js" integrity="sha512-tDDpWlhruXFSzPin7PeSOo/ZklJv354ZUibgoTnthgO9lQUiNn4etCFGNwT4c3WUCZ1jWZgOVrXGMqiApe9sBg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontsize/trumbowyg.fontsize.min.js" integrity="sha512-DOJaq3OCe5hLSr73aQBMiJY4kc+L5UwessOl6g2oxyy7VDnZVWt+TgWVy2nh2ypf7bwoaxZmPnIMiRC5PNZecA==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+    <script src="~/AdminArea/js/toolsScripts/select2.js" type="application/ecmascript"></script>
     <script src="~/AdminArea/js/paymentScripts/paymentAddIndex.js" type="application/ecmascript"></script>
+
 
 }
 @section Styles
     {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" integrity="sha512-iw/TO6rC/bRmSOiXlanoUCVdNrnJBCOufp2s3vhTPyP1Z0CtTSBNbEd5wIo8VJanpONGJSyPOZ5ZRjZ/ojmc7g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/colors/ui/trumbowyg.colors.min.css" integrity="sha512-8dXb2ITE13jLrqqGDVTU8kKl9vHZI9E4TpZGyfhevHeF+/cWWA17wVj+SKX3+QHqZISiGihaCOyK3nA152ShDg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/emoji/ui/trumbowyg.emoji.min.css" integrity="sha512-T2q2UM7Pm3t6Fu0VTRcuVMuaQf3/wP1aFi+/NyvpoVV0VBxN1Pqlmq57Jfg1IPRQCfFQOPLKBwoXA28+1gd/Ow==" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.min.css" integrity="sha512-ug/p2fTnYRx/TfVgL8ejTWolaq93X+48/FLS9fKf7AiazbxHkSEENdzWkOxbjJO/X1grUPt9ERfBt21iLh2dxg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/theme.min.css" integrity="sha512-adRIgePtMQgAVB+Mfkhl+Nyva/WllWlFzJyyhYCjznU3Di+Z4SsYi1Rqsep11PYLpUsW/SjE4NXUkIjabQJCOQ==" crossorigin="anonymous" />
+    <link href="~/AdminArea/css/select2-bootstrap4.min.css" rel="stylesheet" />
 
 }

@@ -53,3 +53,100 @@ tr.removed {
 .expense-row {
     background-color: #FAC8C8; /* Gider olan satırlar için kırmızı veya turuncu */
 }
+.text-danger {
+    color: #dc3545 !important; /* Kırmızı renk */
+}
+
+.text-primary {
+    color: #007bff !important; /* Mavi renk */
+}
+
+.text-dark {
+    color: #343a40 !important; /* Koyu renk */
+}
+
+.bg-warning {
+    background-color: #ffc107 !important; /* Turuncu renk */
+}
+
+
+.total-section {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+    .total-section .total-box {
+        display: inline-block;
+        height: 100px; /* Örnek: Kutucukların yüksekliği 50px */
+    }
+
+.total-box {
+    width: 48%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.total-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.total-amount {
+    font-size: 24px;
+}
+
+.green {
+    background-color: #cccccc;
+    color: black;
+}
+
+.blue {
+    background-color: #333333;
+    color: white;
+}
+
+.red {
+    background-color: #445566;
+    color: white;
+}
+
+.total-box:hover {
+color:black;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.total-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;
+}
+
+    .total-section .total-box {
+        display: inline-block;
+    }
+
+        .total-section .total-box:first-child {
+            margin-left: 0;
+            transform: none;
+        }
+
+.table-responsive {
+    position: relative;
+}
+
+.total-section {
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+

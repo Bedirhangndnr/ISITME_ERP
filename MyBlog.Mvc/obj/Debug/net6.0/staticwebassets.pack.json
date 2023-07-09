@@ -137,6 +137,22 @@
       "PackagePath": "staticwebassets\\AdminArea\\js\\homeIndex.js"
     },
     {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\notification.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\notification.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentAddIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\outPaymentScripts\\outPaymentAddIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentDetailIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\outPaymentScripts\\outPaymentDetailIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentIndex.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\outPaymentScripts\\outPaymentIndex.js"
+    },
+    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js"
     },
@@ -167,6 +183,10 @@
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\roleIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\roleIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleAdd.js",
+      "PackagePath": "staticwebassets\\AdminArea\\js\\saleAdd.js"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleIndex.js",
@@ -649,6 +669,10 @@
       "PackagePath": "staticwebassets\\img\\postImages\\Asenkron JavaScript_56_18_9_23_10_3_2023.png"
     },
     {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan123_525_20_45_3_28_6_2023.jpg",
+      "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan123_525_20_45_3_28_6_2023.jpg"
+    },
+    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Bedirhan_210_34_34_2_10_6_2023.jpeg",
       "PackagePath": "staticwebassets\\img\\postImages\\Bedirhan_210_34_34_2_10_6_2023.jpeg"
     },
@@ -723,6 +747,10 @@
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\asd_241_14_14_10_29_3_2023.png",
       "PackagePath": "staticwebassets\\img\\postImages\\asd_241_14_14_10_29_3_2023.png"
+    },
+    {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\asdasd_816_57_58_0_26_6_2023.PNG",
+      "PackagePath": "staticwebassets\\img\\postImages\\asdasd_816_57_58_0_26_6_2023.PNG"
     },
     {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\asdasdasd_722_39_2_19_10_3_2023.png",

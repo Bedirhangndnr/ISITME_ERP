@@ -42,6 +42,8 @@ namespace MyBlog.Services.Extensions
             serviceCollection.AddScoped<IArticleService, ArticleManager>();
             serviceCollection.AddScoped<ICommentService, CommentManager>();
             serviceCollection.AddScoped<IPaymentService, PaymentManager>();
+            serviceCollection.AddScoped<IOutPaymentService, OutPaymentManager>();
+            serviceCollection.AddScoped<IOutPaymentDetailService, OutPaymentDetailManager>();
             serviceCollection.AddScoped<IPaymentTypeService, PaymentTypeManager>();
             serviceCollection.AddScoped<IEmployeeService, EmployeeManager>();
             serviceCollection.AddScoped<IEmployeeTypeService, EmployeeTypeManager>();

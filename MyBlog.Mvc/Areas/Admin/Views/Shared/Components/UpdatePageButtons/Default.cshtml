@@ -17,12 +17,13 @@
         {
             <a class="btn btn-warning btn-sm btn-undo" data-id="@Model.Id" data-inUpdate="0" data-tableType="@ViewBag.tableType"><span class="fas fa-undo"></span></a>
         }
+
     }
     else if (Model.InMainPage == 1)
     {
         if (Model.InUpdate==0)
         {
-            <button type="submit" class="btn btn-primary btn-block mt-4" asp-route-tableType="@Model.TableType">Kaydet</button>
+            <button type="submit" class="btn btn-primary btn-block mt-4" asp-route-tableType="@Model.TableType" onclick="updateValuesAmount();">Kaydet</button>
         }
         else if (Model.InUpdate == 1 && ViewBag.TableType == TableReturnTypesConstants.NonDeletedTables)
         {

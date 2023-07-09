@@ -5,7 +5,9 @@
     Layout = "_Layout";
     ViewBag.Title = "Hasta Referansları";
 }
-
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <ol class="breadcrumb mb-r mt-2">
     <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
     <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="CustomerReferance" asp-action="Index">Hasta Referansları</a></li>
@@ -63,6 +65,7 @@
                             Id=customerReferance.Id,
                             TableType=ViewBag.tableType,
                             })
+
 
                                 </td>
                             </tr>

@@ -15,76 +15,268 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
         public void Configure(EntityTypeBuilder<Expense> builder)
         {
             builder.ToTable("Expenses");
-
+            int id = 1;
+            int i = -30;
             builder.HasData(
                 new Expense
                 {
-                    Id=1,
-                   Amount = 1,
+                   Id=id++,Amount = 100,
                    IsDaily = true,
                    IsIncome = true,
                    IsActive = true,
                    IsDeleted = false,
                    CreatedByName = "InitialCreate",
-                   CreatedDate = DateTime.Now,
+                   CreatedDate = DateTime.Now.AddDays(i+1),
                    ModifiedByName = "InitialCreate",
                    ModifiedDate = DateTime.Now,
                    Note = "TEST",
                 },
                 new Expense
                 {
-                    Id = 2,
-                    Amount = 1,
+                    Id=id++,Amount = 122,
                     IsDaily = true,
                     IsIncome = true,
                     IsActive = true,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Note = "TEST",
                 },
                 new Expense
                 {
-                    Id = 3,
-                    Amount = 1,
-                    IsDaily = true,
-                    IsIncome = true,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "InitialCreate",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
-                    ModifiedDate = DateTime.Now,
-                    Note = "TEST",
-
-                },
-                new Expense
-                {
-                    Id= 4,
-                    Amount = 1,
-                    IsDaily = false,
-                    IsIncome = true,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "InitialCreate",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
-                    ModifiedDate = DateTime.Now,
-                    Note = "TEST",
-
-                },
-                new Expense
-                {
-                    Id = 5,
-                    Amount = 22,
+                    Id=id++,Amount = 21,
                     IsDaily = false,
                     IsIncome = false,
                     IsActive = true,
                     IsDeleted = false,
                     CreatedByName = "InitialCreate",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 341,
+                    IsDaily = false,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 422,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 122,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 322,
+                    IsDaily = true,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 422,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 522,
+                    IsDaily = true,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 122,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 232,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 122,
+                    IsDaily = true,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 222,
+                    IsDaily = false,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 22,
+                    IsDaily = false,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 22,
+                    IsDaily = false,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 22,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 22,
+                    IsDaily = true,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 22,
+                    IsDaily = false,
+                    IsIncome = false,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "TEST",
+
+                },
+                new Expense
+                {
+                    Id=id++,Amount = 22,
+                    IsDaily = false,
+                    IsIncome = true,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now.AddDays(i + 1),
                     ModifiedByName = "InitialCreate",
                     ModifiedDate = DateTime.Now,
                     Note = "TEST",

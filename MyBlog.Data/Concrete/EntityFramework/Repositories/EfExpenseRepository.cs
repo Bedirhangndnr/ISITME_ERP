@@ -14,9 +14,22 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
 {
     public class EfExpenseRepository : EfEntityRepositoryBase<Expense>, IExpenseRepository
     {
+        private readonly DbContext _dbContext;
+
         public EfExpenseRepository(DbContext dbContext) : base(dbContext)
         {
+            _dbContext = dbContext;
         }
+        public async Task<List<int>> GetDailyIncomeAsync(DateTime startDate, DateTime endDate)
+        {
+            IQueryable<Expense> query = _dbContext.Set<Expense>();
+
+            return await query
+                .Where(e => e.CreatedDate >= startDate && e.CreatedDate <= endDate && e.IsIncome)
+                .Select(e => e.Amount)
+                .ToListAsync();
+        }
+
 
     }
 }

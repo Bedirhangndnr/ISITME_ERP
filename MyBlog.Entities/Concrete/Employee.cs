@@ -14,6 +14,7 @@ namespace MyBlog.Entities.Concrete
         public ICollection<Sale> Sales { get; set; }
         public ICollection<Appointment> Appointments { get; set; }
         public ICollection<Customer> Customers{ get; set; }
+        public ICollection<OutPaymentDetail> outPaymentDetails{ get; set; }
         public ICollection<Notification> Notifications{ get; set; }
         public ICollection<Payment> Payments{ get; set; }
         public EmployeeType? EmployeeType { get; set; }

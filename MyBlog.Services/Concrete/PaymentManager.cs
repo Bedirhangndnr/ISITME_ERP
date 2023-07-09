@@ -70,6 +70,19 @@ namespace MyBlog.Services.Concrete
                 Payments = null,
             }, Messages.General.NotFound(isPlural: true, "Ödeme"));
         }
+        public async Task<IDataResult<PaymentListDto>> GetAllByDeletedAsync()
+        {
+            var payments = await UnitOfWork.Payments.GetAllWithNamesAsync(x => x.IsDeleted);
+            if (payments.Count > -1)
+            {
+                return new DataResult<PaymentListDto>(ResultStatus.Success, new PaymentListDto
+                {
+                    PaymentListWithRelatedTables = payments,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<PaymentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ödeme"));
+        }
 
         public async Task<IResult> AddAsync(PaymentAddDto PaymentAddDto, string createdByName, int userId)
         {
@@ -94,19 +107,7 @@ namespace MyBlog.Services.Concrete
             return new Result(ResultStatus.Success, Messages.General.GiveMessage(payment.AmountPaid.ToString(), "Ödeme", "Güncellendi"));
         }
 
-        public async Task<IDataResult<PaymentListDto>> GetAllByDeletedAsync()
-        {
-            var payments = await UnitOfWork.Payments.GetAllWithNamesAsync(x => x.IsDeleted);
-            if (payments.Count > -1)
-            {
-                return new DataResult<PaymentListDto>(ResultStatus.Success, new PaymentListDto
-                {
-                    PaymentListWithRelatedTables = payments,
-                    ResultStatus = ResultStatus.Success
-                });
-            }
-            return new DataResult<PaymentListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ödeme"));
-        }
+
 
         public async Task<IDataResult<PaymentDto>> DeleteAsync(int PaymentId, string modifiedByName)
         {
