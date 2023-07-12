@@ -1,4 +1,14 @@
 {
+  "ConnectionStrings": {
+    "LocalDB": "Server=tcp:ases-erp-server.database.windows.net,1433;Initial Catalog=AsesErpDB;Persist Security Info=False;User ID=AsesAdmin;Password=AsesPasswX_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  },
+  "DetailedErrors": true,
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
   "profiles": {
     "MyBlog.Mvc": {
       "commandName": "Project",
@@ -22,7 +32,7 @@
     }
   },
   "iisSettings": {
-    "windowsAuthentication": true,
+    "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:55949",

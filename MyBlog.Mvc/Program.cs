@@ -36,7 +36,7 @@ builder.Services.AddAutoMapper(typeof(PaymentProfile),typeof(CategoryProfile), t
 
 // Eklendi // mvc katmanı ile diğer katmanlar arasında köprü görevi görür
 var Configuration = builder.Configuration;
-builder.Services.LoadMyServices(connectionString: Configuration.GetConnectionString("LocalDb"));
+builder.Services.LoadMyServices(connectionString: Configuration.GetConnectionString("AsesErpDB"));
 
 // sevis kaydedilmeli
     builder.Services.AddScoped<IImageHelper, ImageHelper>();
