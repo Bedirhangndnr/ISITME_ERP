@@ -114,7 +114,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapAreaControllerRoute(
             name: "Admin",
-            areaName: "Admin",
+            areaName: "Admin", 
             pattern: "Admin/{controller=Home}/{action=Index}/{id?}" // buradaki soru işareti id nin nullable olduğuna işaret eder.
             );
 });
