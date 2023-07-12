@@ -35,7 +35,7 @@
                         <span asp-validation-for="Quantity" class="text-danger"></span>
                         </div>
                     </div>
-                    @if (Model.UserWithRolesModel.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.InstitutionalProgramRead)))
+                    @if (Model.UserWithRolesModel.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
                     {
                     <div class="form-group col-md-12">
                         <div class="input-group">
