@@ -7,7 +7,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:7010;https://aseserp.azurewebsites.net",
+      "applicationUrl": "https://aseserp.azurewebsites.net",
       "nativeDebugging": true,
       "sqlDebugging": true
     },
