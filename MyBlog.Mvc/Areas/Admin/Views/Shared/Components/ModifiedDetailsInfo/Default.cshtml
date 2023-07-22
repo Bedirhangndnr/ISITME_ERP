@@ -1,0 +1,21 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Mvc.Areas.Admin.Models.SingleModels.ModifiedDetailsInfoModel
+
+<div class="d-flex justify-content-between align-items-center ml-4 mt-4">
+    <div class="flex-grow-1 mr-3">
+        <span class="mr-2 font-weight-bold" style="color: #444">Oluşturulma Tarihi:</span>
+        <span>@Model.CreatedDate.ToShortDateString()</span>
+    </div>
+    <div class="flex-grow-1 mr-3">
+        <span class="mr-2 font-weight-bold" style="color: #444">Oluşturan Kişi:</span>
+        <span>@Model.CreatedByName</span>
+    </div>
+    <div class="flex-grow-1 mr-3">
+        <span class="mr-2 font-weight-bold" style="color: #444">Son Güncellenme Tarihi:</span>
+        <span>@Model.ModifiedDate.ToShortDateString()</span>
+    </div>
+    <div class="flex-grow-1">
+        <span class="mr-2 font-weight-bold" style="color: #334443">Güncelleyen Kişi:</span>
+        <span>@Model.ModifiedByName</span>
+    </div>
+</div>

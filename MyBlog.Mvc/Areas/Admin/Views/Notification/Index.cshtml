@@ -1,0 +1,110 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.NotificationDtos.NotificationListDto;
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Ürünler";
+}
+
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 2,
+        Controller = "Notification",
+        Action = "Yok",
+        ActionTR = "Yok",
+        TableType = ViewBag.TableType
+})
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <input type="hidden" id="tableType" value="@ViewBag.TableType" />
+    <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Randevular
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="notificationsTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Hasta</th>
+                            <th>Kullanıcı</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>Okundu Mu</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Hasta</th>
+                            <th>Kullanıcı</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>Okundu Mu</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var notification in Model.NotificationListWithRelatedTables)
+                        {
+                            <tr name="@notification.Id">
+                                <td>@notification.Id</td>
+                                <td>@notification.CreatedDate.ToShortDateString() </td>
+                                <td>@notification.CreatedDate.TimeOfDay.ToString("hh\\:mm") </td>
+                                <td>@notification.CustomerName</td>
+                                <td>@notification.UserName</td>
+                                <td>@notification.Title</td>
+                                <td>@notification.Description</td>
+                                <td>@(notification.IsRead ? "Evet" : "Hayır")</td>
+                                <td>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=notification.Id,
+                            InMainPage=0,
+                            TableType=ViewBag.tableType,
+                            Action="Update",
+                            Controller="Notification"
+                            })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+@section Scripts
+    {
+    <script src="~/AdminArea/js/notification.js" type="application/ecmascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                // ViewBag.TableType değişkeninin değerini burada alıyoruz
+                var tableType = '@ViewBag.TableType';
+                // Add action'ına tableType parametresini yollamak için, Url.Action fonksiyonunun
+                // ikinci parametresine ekleyebilirsiniz
+                window.location.href = '@Url.Action("Add", "Notification")' + '?tableType=' + encodeURIComponent(tableType);
+            });
+        });
+    </script>
+}

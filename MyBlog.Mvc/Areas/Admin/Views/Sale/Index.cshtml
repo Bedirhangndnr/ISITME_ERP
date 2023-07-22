@@ -1,0 +1,110 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.SaleDtos.SaleListDto;
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Satışlar";
+}
+
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 2,
+        Controller = "Sale",
+        Action = "Yok",
+        ActionTR = "Yok",
+        TableType = ViewBag.TableType
+})
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+
+    <input type="hidden" id="tableType" value="@ViewBag.TableType" />
+    <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Satışlar
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="salesTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Personel</th>
+                            <th>Hasta</th>
+                            <th>Satış Tipi</th>
+                            <th>Satış Durumu</th>
+                            <th>Ürün</th>
+                            <th>Satış Tutarı</th>
+                            @*<th>Açıklama</th>*@
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Personel</th>
+                            <th>Hasta</th>
+                            <th>Satış Tipi</th>
+                            <th>Satış Durumu</th>
+                            <th>Ürün</th>
+                            <th>Satış Tutarı</th>
+                            @*<th>Açıklama</th>*@
+                            <th>İşlem</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var sale in Model.SaleListWithRelatedTables)
+                        {
+                            <tr name="@sale.Id">
+                                <td>@sale.Id</td>
+                                <td>@sale.EmployeeFirstName </td>
+                                <td>@sale.CustomerFirstName</td>
+                                <td>@sale.SaleTypeName</td>
+                                <td>@sale.SaleStatusName</td>
+                                <td>@sale.ProductName</td>
+                                <td>@sale.Amount</td>
+                                @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
+                                <td>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=sale.Id,
+                            InMainPage=0,
+                            TableType=ViewBag.tableType,
+                            Action="Update",
+                            Controller="Sale"
+                            })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+@section Scripts
+    {
+    <script src="~/AdminArea/js/saleIndex.js" type="application/ecmascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                // ViewBag.TableType değişkeninin değerini burada alıyoruz
+                var tableType = '@ViewBag.TableType';
+                // Add action'ına tableType parametresini yollamak için, Url.Action fonksiyonunun
+                // ikinci parametresine ekleyebilirsiniz
+                window.location.href = '@Url.Action("Add", "Sale")' + '?tableType=' + encodeURIComponent(tableType);
+            });
+        });
+    </script>
+}

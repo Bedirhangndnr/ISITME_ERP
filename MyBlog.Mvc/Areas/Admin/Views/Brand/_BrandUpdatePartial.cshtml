@@ -1,0 +1,48 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Entities.Dtos.BrandDtos.BrandUpdateDto
+<!-- Modal -->
+
+<div class="modal fade" role="dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Hasta Tipi Güncelle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Update" id="form-brand-update">
+                    <input type="hidden" asp-for="CreatedByName" />
+                    <input type="hidden" id="tableType" value="@ViewBag.tableType" />
+                    <input type="hidden" asp-for="Id" />
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+                    <div class="form-group">
+                        <input class="form-control" asp-for="Title" placeholder="Başlık" />
+                        <span class="text-danger" asp-validation-for="Title"></span>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="isActive" class="form-check-input" asp-for="IsActive" />
+                        <label for="isActive" class="form-check-label" asp-for="IsActive"></label>
+                        <span asp-validation-for="IsActive" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+            @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+            {
+            CreatedByName = Model.CreatedByName,
+            CreatedDate = Model.CreatedDate,
+            ModifiedByName = Model.ModifiedByName,
+            ModifiedDate = Model.ModifiedDate
+            })
+
+
+            @await Component.InvokeAsync("PartialButtons", new PartialButtonsModel
+            {
+            Id=Model.Id,
+            TableType=ViewBag.tableType,
+            })
+        </div>
+    </div>
+</div>

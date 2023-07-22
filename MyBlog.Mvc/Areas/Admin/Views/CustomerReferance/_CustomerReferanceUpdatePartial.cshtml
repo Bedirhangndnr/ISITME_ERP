@@ -1,0 +1,60 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Entities.Dtos.CustomerReferanceDtos.CustomerReferanceUpdateDto
+<!-- Modal -->
+
+<div class="modal fade" role="dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Hasta Referansı Güncelleme</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Update" id="form-CustomerReferance-update">
+                    <input type="hidden" asp-for="Id" />                    
+                    <input type="hidden" asp-for="CreatedByName" />
+                    <input type="hidden" id="tableType" value="@ViewBag.tableType" />
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+                    <div class="form-group">
+                        <input class="form-control" asp-for="FirstName" placeholder="Ad" />
+                        <span class="text-danger" asp-validation-for="FirstName"></span>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" asp-for="LastName" placeholder="Soyad" />
+                        <span class="text-danger" asp-validation-for="LastName"></span>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" asp-for="Phone" placeholder="Telefon Numarası" />
+                        <span class="text-danger" asp-validation-for="Phone"></span>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" asp-for="Description" placeholder="Açıklama" />
+                        <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" asp-for="Note" placeholder="Not" />
+                        <span class="text-danger" asp-validation-for="Note"></span>
+                    </div>
+
+                </form>
+            </div>
+            @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+            {
+            CreatedByName = Model.CreatedByName,
+            CreatedDate = Model.CreatedDate,
+            ModifiedByName = Model.ModifiedByName,
+            ModifiedDate = Model.ModifiedDate
+            })
+
+
+            @await Component.InvokeAsync("PartialButtons", new PartialButtonsModel
+            {
+            Id=Model.Id,
+            TableType=ViewBag.tableType,
+            })
+        </div>
+    </div>
+</div>

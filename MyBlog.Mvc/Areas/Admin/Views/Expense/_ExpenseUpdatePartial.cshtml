@@ -1,0 +1,80 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@model MyBlog.Entities.Dtos.ExpenseDtos.ExpenseUpdateDto
+<!-- Modal -->
+
+<div class="modal fade" role="dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Hasta Tipi Güncelle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Update" id="form-expense-update"> 
+                    <input type="hidden" asp-for="CreatedByName" />
+                    <input type="hidden" asp-for="CreatedDate" />
+                    <input type="hidden" id="tableType" value="@ViewBag.tableType" />
+                    <input type="hidden" asp-for="Id" />
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">TL</span>
+                                </div><input type="number" id="amount" class="form-control" placeholder="Miktar" asp-for="Amount" />
+                                <span asp-validation-for="Amount" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Not</span>
+                                </div><input class="form-control" id="note" asp-for="Note" placeholder="Not" />
+                                <span class="text-danger" asp-validation-for="Note"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="isDaily" asp-for="IsDaily">
+                                <label class="form-check-label" for="isDaily">Günlük</label>
+                                <span asp-validation-for="IsDaily" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="isIncome" asp-for="IsIncome">
+                                <label class="form-check-label" for="isIncome">Gelir</label>
+                                <span asp-validation-for="IsIncome" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+            {
+            CreatedByName = Model.CreatedByName,
+            CreatedDate = Model.CreatedDate,
+            ModifiedByName = Model.ModifiedByName,
+            ModifiedDate = Model.ModifiedDate
+            })
+
+
+            @await Component.InvokeAsync("PartialButtons", new PartialButtonsModel
+            {
+            Id=Model.Id,
+            TableType=ViewBag.tableType,
+            })
+        </div>
+    </div>
+</div>
