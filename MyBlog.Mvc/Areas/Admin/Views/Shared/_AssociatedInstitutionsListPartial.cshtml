@@ -1,8 +1,0 @@
-﻿@using MyBlog.Entities.Concrete;
-@model IList<AssociatedInstitution>
-
-<option value="">Seçiniz</option>
-@foreach (var institution in Model)
-{
-    <option value="@institution.Id">@institution.Title</option>
-}
