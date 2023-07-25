@@ -1,14 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Remove="Views\Shared\_ErrorLayout.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="bin\Debug\net6.0\appsettings.Development.json" />
@@ -28,6 +24,7 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.14" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -46,7 +43,6 @@
     <Folder Include="bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\" />
     <Folder Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 // AddAsync services to the container.
 builder.Services.AddRazorPages();
 builder.Services.ConfigureApplicationCookie(options => { });
-builder.Services.AddControllersWithViews(options=> {
+builder.Services.AddControllersWithViews(options => {
     options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boş geçilemez");
     options.Filters.Add<MvcExceptionFilter>();
 
@@ -27,11 +27,11 @@ builder.Services.AddControllersWithViews(options=> {
 }).AddNToastNotifyToastr(); // Eklendi
 
 builder.Services.AddSession();
-builder.Services.AddAutoMapper(typeof(PaymentProfile),typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile),
+builder.Services.AddAutoMapper(typeof(PaymentProfile), typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile),
     typeof(ViewModelsProfile), typeof(CommentProfile), typeof(CustomerProfile), typeof(PaymentTypeProfile),
     typeof(CustomerTypeProfile), typeof(EmployeeProfile), typeof(EmployeeTypeProfile), typeof(CustomerReferanceProfile),
-    typeof(NotificationProfile),typeof(AppointmentTypeProfile),typeof(SaleStatusProfile),typeof(SaleTypeProfile), 
-    typeof(ProductGroupProfile), typeof(ProductSubGroupProfile),typeof(ProductProfile), typeof(SaleProfile), typeof(ProgramsProfile),
+    typeof(NotificationProfile), typeof(AppointmentTypeProfile), typeof(SaleStatusProfile), typeof(SaleTypeProfile),
+    typeof(ProductGroupProfile), typeof(ProductSubGroupProfile), typeof(ProductProfile), typeof(SaleProfile), typeof(ProgramsProfile),
     typeof(AssociatedInstitutionsProfile), typeof(AppointmentProfile), typeof(ExpenseProfile), typeof(OutPaymentProfile), typeof(OutPaymentDetailProfile)); // Eklendi
 
 // Eklendi // mvc katmanı ile diğer katmanlar arasında köprü görevi görür
@@ -39,8 +39,8 @@ var Configuration = builder.Configuration;
 builder.Services.LoadMyServices(connectionString: Configuration.GetConnectionString("AsesErpDB"));
 
 // sevis kaydedilmeli
-    builder.Services.AddScoped<IImageHelper, ImageHelper>();
-    builder.Services.Configure<FormOptions>(options =>options.ValueCountLimit= 10000);
+builder.Services.AddScoped<IImageHelper, ImageHelper>();
+builder.Services.Configure<FormOptions>(options => options.ValueCountLimit = 10000);
 //builder.Services.AddControllers(mvcoptions => mvcoptions.ValueProviderFactories().)
 
 builder.Services.ConfigureApplicationCookie(options =>
@@ -71,7 +71,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
-builder.Services.AddControllersWithViews(option=> option.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(_ => "Bu alan boş geçilemez."));
+builder.Services.AddControllersWithViews(option => option.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(_ => "Bu alan boş geçilemez."));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -114,11 +114,22 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapAreaControllerRoute(
             name: "Admin",
-            areaName: "Admin", 
+            areaName: "Admin",
             pattern: "Admin/{controller=Home}/{action=Index}/{id?}" // buradaki soru işareti id nin nullable olduğuna işaret eder.
             );
 });
-app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute()); // varsayılan olarak homecontroller ve index sayfalarına gidecek.
+app.UseEndpoints(endpoints =>
+{
+    // Ana sayfayı belirtilen URL'ye yönlendir
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "",
+        defaults: new { area = "Admin", controller = "User", action = "Login" }
+    );
+
+    // Diğer Controller ve Action tanımlamaları
+});
+app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute()); // varsayılan olarak homecontroller ve index sayfalarına gidecek
 // blog-> home sayfasında blog bilgilerini admin->home sayfasında admin home bilgilerini görmek için.
 app.UseAuthorization();
 app.MapRazorPages();

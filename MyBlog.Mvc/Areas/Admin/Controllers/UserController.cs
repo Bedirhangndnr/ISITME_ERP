@@ -48,6 +48,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            //throw new NullReferenceException();
             return View("UserLogin");
         }
         [HttpPost]

@@ -1,7 +1,12 @@
-﻿body {
-    background: linear-gradient(-45deg , #ee7752,#2F4F4F, #ADD8E6);
+﻿/* C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\wwwroot\AdminArea\css\userLogin.css */
+body {
+    /* Resmi belirtilen background stilinin arka planı olarak kullanın */
+    background-image: url('../img/GeneralImgs/AsesBG.png');
+    background-size: cover;
+    /* Gradient animasyonu uygulayın */
+    background: linear-gradient(-45deg, #ee7752, #2F4F4F, #ADD8E6);
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 8s ease infinite;
 }
 
 @keyframes gradient {

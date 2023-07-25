@@ -28,8 +28,9 @@
                     <input type="hidden" asp-for="CreatedByName" />
                     <input type="hidden" asp-for="CreatedDate" />
                     <div class="form-group">
+                        <label asp-for="PictureFile"></label>
+                        <input type="hidden" id="picture" class="form-control-file" asp-for="Picture" />
                         <img class="my-image" src="~/img/@Model.Picture" alt="@Model.FirstName" />
-                        <label asp-for="PictureFile"></label> 
                         <input type="file" accept="image/*" class="form-control-file" asp-for="PictureFile" />
                         <span class="text-danger" asp-validation-for="PictureFile"></span>
                     </div>
