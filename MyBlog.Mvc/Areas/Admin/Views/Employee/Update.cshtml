@@ -10,13 +10,14 @@
 {
         Depth = 3,
         Controller = "Employee",
+        ControllerTr = "Personeller",
         Action = "Update",
         ActionTR = "Güncelle",
         TableType = ViewBag.TableType
 })
 <form asp-controller="Employee" asp-action="Update" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
-        <div class="col-md-8">p
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     Bilgiler
@@ -45,12 +46,12 @@
                             </div>
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-md-6" >
+                        <div class="form-group col-md-6">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Soyad</span>
                                 </div>
-                            <input type="text" id="customerSurname" class="form-control" placeholder="Soyad" asp-for="LastName" />
+                                <input type="text" id="customerSurname" class="form-control" placeholder="Soyad" asp-for="LastName" />
                             </div>
 
                             <span asp-validation-for="LastName" class="text-danger"></span>
@@ -70,9 +71,9 @@
                         <div class="form-group col-md-6">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                <span class="input-group-text"><i class=" fas fa-envelope"></i></span>
-                            </div>
-                            <input type="text" id="customerMail" class="form-control" placeholder="E-Posta" asp-for="Email" />
+                                    <span class="input-group-text"><i class=" fas fa-envelope"></i></span>
+                                </div>
+                                <input type="text" id="customerMail" class="form-control" placeholder="E-Posta" asp-for="Email" />
                             </div>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
@@ -83,7 +84,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Soyad</span>
                                 </div>
-                            <input type="text" id="customerTc" class="form-control" placeholder="TC Kimlik Numarası" asp-for="TC" />
+                                <input type="text" id="customerTc" class="form-control" placeholder="TC Kimlik Numarası" asp-for="TC" />
                             </div>
 
                             <span asp-validation-for="TC" class="text-danger"></span>
@@ -98,22 +99,25 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">   Not   </span>
                             </div>
-                        <input type="text" class="form-control" placeholder="Not" asp-for="Note" />
+                            <input type="text" class="form-control" placeholder="Not" asp-for="Note" />
+                        </div>
                     </div>
-                </div>
 
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Adres</span>
                             </div>
-                        <textarea class="form-control" style="min-height:100px" placeholder="Adres Giriniz" asp-for="Address"></textarea>
+                            <textarea class="form-control" style="min-height:100px" placeholder="Adres Giriniz" asp-for="Address"></textarea>
                             <span asp-validation-for="Address" class="text-danger"></span>
 
                         </div>
                     </div>
                 </div>
+                
+             
             </div>
+
         </div>
         <div class="col-md-4">
             <div class="card">
@@ -126,14 +130,17 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Çalışan Tipi</span>
                             </div>
-                        <select id="customerReferanceList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="EmployeeTypeId" class="text-danger"></span>
+                            <select id="customerReferanceList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="EmployeeTypeId" class="text-danger"></span>
                         </div>
+
                     </div>
                 </div>
+
             </div>
+
 
             @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
             {
@@ -144,16 +151,16 @@
             Action="Update",
             Controller="Employee"
             })
+            @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
+                   {
+                       CreatedByName = Model.CreatedByName,
+                       CreatedDate = Model.CreatedDate,
+                       ModifiedByName = Model.ModifiedByName,
+                       ModifiedDate = Model.ModifiedDate
+                   })
         </div>
 
-        @await Component.InvokeAsync("ModifiedDetailsInfo", new ModifiedDetailsInfoModel
-        {
-        CreatedByName = Model.CreatedByName,
-        CreatedDate = Model.CreatedDate,
-        ModifiedByName = Model.ModifiedByName,
-        ModifiedDate = Model.ModifiedDate
-        })
- l
+        
     </div>
 </form>
 @section Scripts

@@ -27,7 +27,12 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.Note).HasMaxLength(1000).IsRequired(false);
             builder.Property(a => a.FirstName).HasMaxLength(50);
             builder.Property(a => a.LastName).HasMaxLength(50);
-            builder.Property(a => a.Phone).HasMaxLength(20);
+            builder.Property(a => a.Phone).HasMaxLength(20).IsRequired(false);
+            builder.Property(a => a.CustomerReferanceTitleId).IsRequired(false);
+            builder.HasOne(s => s.CustomerReferanceTitle)
+                .WithMany(st => st.CustomersReferances)
+                .HasForeignKey(s => s.CustomerReferanceTitleId)
+                .OnDelete(DeleteBehavior.SetNull);
             builder.ToTable("CustomerReferances");
             builder.HasData(
                 new CustomerReferance
@@ -44,6 +49,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     LastName = "Gündöner",
                     Phone = "+905050102249",
                     Description = "Description",
+                    CustomerReferanceTitleId = 2,
                 },
                 new CustomerReferance
                 {
@@ -59,6 +65,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     LastName = "Gündöner",
                     Phone = "+905050102249",
                     Description = "Description",
+                    CustomerReferanceTitleId = 2,
                 }
             );
         }

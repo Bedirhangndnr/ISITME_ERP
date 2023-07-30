@@ -248,7 +248,7 @@
         updateCurrentDebt(); // Güncel borç değerini getir
         calculateRemainingAmount(); // Kalan tutarı hesapla
     }
-    function checkPaymentAmount() {
+    function checkPaymentAmount(buttoneName= "default") {
         var totalAmountInput = document.getElementById("totalAmount");
         var totalAmount = parseFloat(totalAmountInput.value.replace(/,/g, ''));
         var paymentAmount = parseFloat(document.getElementById("paymentAmount").value.replace(",", ""));
@@ -273,7 +273,7 @@
             // paymentAmount'in en sağındaki rakamı silmek için aşağıdaki kodu ekleyin
             paymentAmountInput.value = paymentAmountInput.value.slice(0, -1);
         }
-        else {
+        else if(buttoneName=="Default") {
             calculateRemainingAmount();
         }
     }
@@ -287,7 +287,7 @@
     function updateCurrentDebt() {
         // AJAX veya diğer yöntemlerle güncel borç değerini al
     }
-
+    var keep_payAmount=0;
     function calculateRemainingAmount() {
         var totalAmount = parseFloat(document.getElementById("totalAmount").value.replace(",", ""));
         var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(",", ""));
@@ -297,7 +297,8 @@
         var paymentAmount = 0;
 
         if (paymentAmountInput && paymentAmountInput.value) {
-            paymentAmount = parseFloat(paymentAmountInput.value.replace(",", ""));
+            paymentAmount = parseFloat(paymentAmountInput.value.replace(",", "")) - keep_payAmount;
+            keep_payAmount = paymentAmount
         }
         if (paymentAmountCurr && paymentAmountCurr.value) {
             paymentAmountInputCurr = parseFloat(paymentAmountCurr.value.replace(",", ""))/100;
@@ -308,7 +309,50 @@
         document.getElementById("totalAmount").value=currentDebt - remainingAmount;
 
     }
+    function calculateRemainingAmountFromDetail() {
+        var totalAmount = parseFloat(document.getElementById("totalAmount").value.replace(",", ""));
+        var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(",", ""));
+        var paymentAmountInput = document.getElementById("paymentAmountDetail");
+        var paymentAmountCurr = document.getElementById("paymentAmountCurr");
+        var paymentAmountInputCurr = 0
+        var paymentAmount = 0;
 
+        if (paymentAmountInput && paymentAmountInput.value) {
+            paymentAmount = parseFloat(paymentAmountInput.value.replace(",", "")) - keep_payAmount;
+            keep_payAmount = paymentAmount
+        }
+        if (paymentAmountCurr && paymentAmountCurr.value) {
+            paymentAmountInputCurr = parseFloat(paymentAmountCurr.value.replace(",", ""))/100;
+        }
+    }
+    function checkPaymentAmountFromDetail() {
+        var paymentAmountInput = document.getElementById("paymentAmountDetail");
+        var paymentAmount = parseFloat(paymentAmountInput.value.replace(/,/g, ''));
+
+        var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(/,/g, ''));
+
+        if (paymentAmount > currentDebt) {
+            Swal.fire({
+                title: 'Toplam borcu aşan bir ödeme yapamazsınız.',
+                text: 'Lütfen ödenecek tutarı düzeltin.',
+                icon: 'warning',
+                confirmButtonColor: '#FF3200',
+                confirmButtonText: 'İşleme Devam Et',
+                showCancelButton: true,
+                cancelButtonText: 'Tümünü Öde',
+                cancelButtonColor: '#2CB8FA',
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.cancel) {
+                    payFullAmountFromDetail();
+                }
+            });
+            // paymentAmount'in en sağındaki rakamı silmek için aşağıdaki kodu ekleyin
+            paymentAmountInput.value = paymentAmountInput.value.slice(0, -1);
+        }
+        else {
+            calculateRemainingAmountFromDetail();
+        }
+    }
 
     function formatNumber(number) {
         var formattedNumber = number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
@@ -324,6 +368,15 @@
 
         calculateRemainingAmount();
     }
+    function payFullAmountFromDetail() {
+        var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(",", ""));
+        var totalAmount = parseFloat(document.getElementById("totalAmount").value.replace(",", ""));
+
+        document.getElementById("paymentAmountDetail").value = currentDebt-totalAmount ;
+
+        //calculateRemainingAmount();
+    }
+
     //function calculateRemainingAmount() {
     //    var paymentAmount = parseFloat(document.getElementById("paymentAmount").value.replace(/[^0-9.]/g, ''));
     //    var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(/[^0-9.]/g, '').replace(/,/g, '')); // Virgülleri ve virgül sonrası sayıları kaldırarak güncel borç değerini al

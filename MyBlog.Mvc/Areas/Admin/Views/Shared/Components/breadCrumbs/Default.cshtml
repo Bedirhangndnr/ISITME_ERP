@@ -6,7 +6,7 @@
     @{
         if (Model.Depth>1)
         {
-            <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller=@Model.Controller asp-action="Index" asp-route-tableType=@Model.TableType>Listele</a></li>
+            <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller=@Model.Controller asp-action="Index" asp-route-tableType=@Model.TableType>@Model.ControllerTr</a></li>
 
         }
         if (Model.Depth>2)

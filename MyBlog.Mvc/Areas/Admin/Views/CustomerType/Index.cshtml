@@ -6,10 +6,15 @@
     ViewBag.Title = "Hasta Referansları";
 }
 
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="CustomerTypes" asp-action="Index">Hasta Tipleri</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+       {
+           Depth = 2,
+           Controller = "CustomerType",
+           ControllerTr = "Hasta Tipleri",
+           Action = "Yok",
+           ActionTR = "Yok",
+           TableType = ViewBag.TableType
+       })
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <div id="modalPlaceHolder" aria-hidden="true"></div>

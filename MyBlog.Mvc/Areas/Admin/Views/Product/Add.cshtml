@@ -11,6 +11,7 @@
 {
         Depth = 3,
         Controller = "Product",
+        ControllerTr = "Ürünler",
         Action = "Add",
         ActionTR = "Ekle",
         TableType = ViewBag.TableType
@@ -40,7 +41,7 @@
                     <div class="form-group col-md-12">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Fiyat</span>
+                                <span class="input-group-text">Fiyat | TL</span>
                             </div>
                         <input type="number" id="price" class="form-control" asp-for="Price" />
                         <span asp-validation-for="Price" class="text-danger"></span>

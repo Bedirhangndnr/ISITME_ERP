@@ -20,7 +20,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
     [Area("Admin")]
     [Authorize(Roles = "SuperAdmin, Editor")]
 
-    public class Deneme : BaseController
+    public class CustomerReferanceTitle : BaseController
     {
         private readonly ICustomerService _customerService;
         private readonly ICustomerReferanceService _customerReferanceService;
@@ -31,7 +31,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly IPaymentTypeService _paymentTypeService;
         private readonly IToastNotification _toastNotification;
 
-        public Deneme(ICustomerService customerService,
+        public CustomerReferanceTitle(ICustomerService customerService,
             ICustomerReferanceService customerReferanceService,
             IPaymentService paymentService,
             IPaymentTypeService paymentTypeService,

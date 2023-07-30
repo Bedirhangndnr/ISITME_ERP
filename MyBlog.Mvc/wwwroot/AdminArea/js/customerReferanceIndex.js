@@ -152,12 +152,12 @@
                             customerReferance.Description,
                             customerReferance.Note,
                             `
-                                <div class="form-group row justify-content-center">
-                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
-                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
-                                </div>              
-                                `
+                                                <div class="form-group row justify-content-center">
+                                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                </div>
+                                                    `
                         ]).node();
                         const jqueryTableRow = $(newTableRow);
                         jqueryTableRow.attr('name', `${customerReferance.Id}`);
@@ -252,7 +252,7 @@
                 event.preventDefault();
                 const tableType = document.getElementById("tableType").value;
                 const id = $(this).attr('data-id');
-                $.get(url, { customerReferanceId: id, tableType: tableType }).done(function (data) {
+                $.get(url, { Id: id, tableType: tableType }).done(function (data) {
                     placeHolderDiv.html(data);
                     placeHolderDiv.find('.modal').modal('show');
                 }).fail(function () {
@@ -289,10 +289,12 @@
                             customerReferance.Description == null ? "Not Eklenmemiş" : (customerReferance.Description.length > 75 ? customerReferance.Description.substring(0, 75) : customerReferance.Description),
                             customerReferance.Note == null ? "Not Eklenmemiş" : (customerReferance.Note.length > 75 ? customerReferance.Note.substring(0, 75) : customerReferance.Note),
                             `
-                                  ${document.getElementById("tableType").value === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
-                                  <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                  ${document.getElementById("tableType").value === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
-                            `
+                                                <div class="form-group row justify-content-center">
+                                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerReferance.Id + '><span class="fas fa-edit"></span></button>' : ''}
+                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerReferance.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerReferance.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+                                                </div>
+                                                    `
 
                         ]);
                         tableRow.attr("name", `${id}`);
@@ -303,8 +305,8 @@
                         $('#validation-summary > ul > li').each(function () {
                             let text = $(this).text();
                             summaryText = `*${text}\n`;
-                        });
-                        toastr.warning(summaryText);
+                            });
+                            toastr.warning(summaryText);
                     }
                 }).fail(function (response) {
                     console.log(response);

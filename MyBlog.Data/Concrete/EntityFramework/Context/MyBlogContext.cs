@@ -28,6 +28,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new CategoryMap());
             modelBuilder.ApplyConfiguration(new CommentMap());
             modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new CustomerReferanceTitleMap());
             modelBuilder.ApplyConfiguration(new CustomerReferanceMap());
             modelBuilder.ApplyConfiguration(new CustomerTypeMap());
             modelBuilder.ApplyConfiguration(new ProductCategoryMap());
@@ -67,6 +68,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
         public DbSet<Comment> Comments{ get; set; }
         public DbSet<Appointment> Appointments{ get; set; }
         public DbSet<Customer> Customers{ get; set; }
+        public DbSet<CustomerReferanceTitle> CustomerReferanceTitles { get; set; }
         public DbSet<CustomerReferance> CustomerReferances{ get; set; }
         public DbSet<Product> Products{ get; set; }
         public DbSet<ProductCategory> ProductsCategories{ get; set; }

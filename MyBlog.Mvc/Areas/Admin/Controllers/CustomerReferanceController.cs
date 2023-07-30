@@ -30,18 +30,21 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
     public class CustomerReferanceController : BaseController
     {
         private readonly ICustomerReferanceService _customerReferanceService;
+        private readonly ICustomerReferanceTitleService _customerReferanceTitleService;
         private readonly INotificationService _notificationService;
         private readonly ICategoryService _categoryService;
         private readonly IToastNotification _toastNotification;
 
 
         public CustomerReferanceController(ICustomerReferanceService customerReferanceService,
+            ICustomerReferanceTitleService customerReferanceTitleService,
             INotificationService notificationService,
             ICategoryService categoryService, UserManager<User> userManager,
             IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _notificationService = notificationService;
             _customerReferanceService = customerReferanceService;
+            _customerReferanceTitleService = customerReferanceTitleService;
             _categoryService = categoryService;
             _toastNotification = toastNotification;
         }
@@ -74,12 +77,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             ViewBag.TableType = tableType;
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                var employeeTypes = await _customerReferanceService.GetAllByNonDeletedAndActiveAsync();
-                var employeeTypeResult = JsonSerializer.Serialize(employeeTypes, new JsonSerializerOptions
+                var customerReferanceTypes = await _customerReferanceService.GetAllByNonDeletedAndActiveAsync();
+                var customerReferanceTypeResult = JsonSerializer.Serialize(customerReferanceTypes, new JsonSerializerOptions
                 {
                     ReferenceHandler = ReferenceHandler.Preserve
                 });
-                return Json(employeeTypeResult);
+                return Json(customerReferanceTypeResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
@@ -98,40 +101,84 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            return PartialView("_CustomerReferanceAddPartial");
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
+            var referanceTitleList = await _customerReferanceTitleService.GetAllByNonDeletedAndActiveAsync();
+
+            if (referanceTitleList.ResultStatus == ResultStatus.Success)
+            {
+                var model = new CustomerReferanceAddDto()
+                {
+                    CustomerReferanceTitles = referanceTitleList.Data.CustomerReferanceTitles
+                };
+
+                return PartialView("_CustomerReferanceAddPartial", model);
+            }
+            return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
+
+        [Authorize(Roles =
+            $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(CustomerReferanceAddDto customerReferanceAddDto)
         {
-            if (ModelState.IsValid)
             {
-                var result = await _customerReferanceService.AddAsync(customerReferanceAddDto, LoggedInUser.UserName);
-                if (result.ResultStatus == ResultStatus.Success)
+                var referanceTitleList = await _customerReferanceTitleService.GetAllByNonDeletedAndActiveAsync();
+
+                if (referanceTitleList.ResultStatus == ResultStatus.Success)
                 {
-                    var categoryAddAjaxModel = JsonSerializer.Serialize(new CustomerReferanceAddAjaxViewModel
-                    {
-                        CustomerReferanceDto = result.Data,
-                        CustomerReferanceAddPartial = await this.RenderViewToStringAsync("_CustomerReferanceAddPartial", customerReferanceAddDto)
-                    });
-                    return Json(categoryAddAjaxModel);
+                    customerReferanceAddDto.CustomerReferanceTitles = referanceTitleList.Data.CustomerReferanceTitles;
                 }
+
+                ModelState.Remove("CustomerReferanceTitles");
+                if (ModelState.IsValid)
+                {
+                    var result =
+                        await _customerReferanceService.AddAsync(customerReferanceAddDto, LoggedInUser.UserName);
+                    if (result.ResultStatus == ResultStatus.Success)
+                    {
+                        var options = new JsonSerializerOptions
+                        {
+                            ReferenceHandler = ReferenceHandler.Preserve
+                        };
+                        var customerReferanceAddAjaxModel = JsonSerializer.Serialize(new CustomerReferanceAddAjaxViewModel
+                        {
+                            CustomerReferanceDto = result.Data,
+                            CustomerReferanceAddPartial =
+                                await this.RenderViewToStringAsync("_CustomerReferanceAddPartial",
+                                    customerReferanceAddDto)
+                        }, options);
+                        return Json(customerReferanceAddAjaxModel);
+                    }
+                }
+
+                var customerReferanceAddAjaxErrorModel = JsonSerializer.Serialize(new CustomerReferanceAddAjaxViewModel
+                {
+                    CustomerReferanceAddPartial =
+                        await this.RenderViewToStringAsync("_CustomerReferanceAddPartial", customerReferanceAddDto)
+                });
+                return Json(customerReferanceAddAjaxErrorModel);
             }
-            var categoryAddAjaxErrorModel = JsonSerializer.Serialize(new CustomerReferanceAddAjaxViewModel
-            {
-                CustomerReferanceAddPartial = await this.RenderViewToStringAsync("_CustomerReferanceAddPartial", customerReferanceAddDto)
-            });
-            return Json(categoryAddAjaxErrorModel);
 
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
         [HttpGet]
-        public async Task<IActionResult> Update(int customerReferanceId, string tableType)
+        public async Task<IActionResult> Update(int Id, string tableType)
         {
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
             ViewBag.TableType = tableType;
-            var result = await _customerReferanceService.GetCustomerReferanceUpdateDtoAsync(customerReferanceId);
+            var result = await _customerReferanceService.GetCustomerReferanceUpdateDtoAsync(Id);  // burda bir sıkıntı var.
+
+            var customerReferanceTitleList = await _customerReferanceTitleService.GetAllByNonDeletedAndActiveAsync();
+            result.Data.CustomerReferanceTitles = customerReferanceTitleList.Data.CustomerReferanceTitles;
             if (result.ResultStatus == ResultStatus.Success)
             {
                 return PartialView("_CustomerReferanceUpdatePartial", result.Data);
@@ -143,17 +190,19 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Update(CustomerReferanceUpdateDto customerReferanceUpdateDto, string tableType)
         {
             ViewBag.tableType = tableType;
+            ModelState.Remove("tableType");
+
             if (ModelState.IsValid)
             {
                 var result = await _customerReferanceService.UpdateAsync(customerReferanceUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    await _notificationService.AddAsync( NotificationMessageService.GetMessage(
-                        NotificationMessageTypes.Updated,
-                        "Marka",
-                        result.Data.CustomerReferance.ModifiedByName),
+                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+                            NotificationMessageTypes.Updated,
+                            "Referans",
+                            result.Data.CustomerReferance.ModifiedByName),
                         NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
-                        );
+                    );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new CustomerReferanceUpdateAjaxViewModel
                     {
                         CustomerReferanceDto = result.Data,
@@ -162,11 +211,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     return Json(categoryUpdateAjaxModel);
                 }
             }
-            var categoryUpdateAjaxErrorModel = JsonSerializer.Serialize(new CustomerReferanceUpdateAjaxViewModel
+            var referanceUpdateAjaxErrorModel = JsonSerializer.Serialize(new CustomerReferanceUpdateAjaxViewModel
             {
                 CustomerReferanceUpdatePartial = await this.RenderViewToStringAsync("_CustomerReferanceUpdatePartial", customerReferanceUpdateDto)
             });
-            return Json(categoryUpdateAjaxErrorModel);
+            return Json(referanceUpdateAjaxErrorModel);
 
         }
         public async Task<JsonResult> Delete(int customerReferanceId, string tableType)

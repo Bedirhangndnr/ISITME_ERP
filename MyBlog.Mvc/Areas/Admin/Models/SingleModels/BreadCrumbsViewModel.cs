@@ -8,6 +8,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models.SingleModels
         
         public string Area { get; set; } 
         public string Controller { get; set; }
+        public string ControllerTr { get; set; }
         public string Action { get; set; }
         public string ActionTR{ get; set; }
         public string TableType { get; set; }

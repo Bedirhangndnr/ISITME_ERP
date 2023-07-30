@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "agJY+GZ+6wELvGOk/6KxIbr0Be6EeGF90Q9PgqrygGQ=",
+  "Hash": "XS5eZXyIplV8vTC88qBNA/7Jnt9OMLs2LfCMZExWCRA=",
   "Source": "MyBlog.Mvc",
   "BasePath": "_content/MyBlog.Mvc",
   "Mode": "Default",
@@ -2871,6 +2871,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\postImages\\defaultThumbnail.png"
+    },
+    {
+      "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png",
+      "SourceId": "MyBlog.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\",
+      "BasePath": "_content/MyBlog.Mvc",
+      "RelativePath": "img/postImages/Personel 1_890_38_33_22_23_7_2023.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png"
     },
     {
       "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\TestUser_459_19_21_1_6_3_2023.png",

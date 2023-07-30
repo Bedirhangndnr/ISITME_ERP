@@ -26,6 +26,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.IsDeleted).IsRequired();
             builder.Property(a => a.Note).HasMaxLength(500);
             builder.ToTable("Payments");
+            builder.Property(p => p.AmountPaid).HasColumnType("decimal(18,4)");
             builder.HasOne(p => p.AssociatedInstitutions)
     .WithMany()
     .HasForeignKey(p => p.AssociatedInstitutionsId)

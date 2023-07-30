@@ -48,7 +48,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">TL</span>
                                 </div>
-                                <input type="number" id="paymentAmount" class="form-control" placeholder="Ödenecek Tutar" oninput="  checkPaymentAmount()" asp-for="AmountPaid" />
+                                <input type="number" id="paymentAmount" class="form-control" placeholder="Ödenecek Tutar" readonly oninput="  checkPaymentAmount()" asp-for="AmountPaid" />
 
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button" onclick="payFullAmount()">Tümünü Öde</button>
@@ -197,6 +197,34 @@
     }
     function checkPaymentAmount() {
         var paymentAmountInput = document.getElementById("paymentAmount");
+        var paymentAmount = parseFloat(paymentAmountInput.value.replace(/,/g, ''));
+
+        var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(/,/g, ''));
+
+        if (paymentAmount > currentDebt) {
+            Swal.fire({
+                title: 'Toplam borcu aşan bir ödeme yapamazsınız.',
+                text: 'Lütfen ödenecek tutarı düzeltin.',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Tamam',
+                showCancelButton: true,
+                cancelButtonText: 'Tümünü Öde',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.cancel) {
+                    payFullAmount();
+                }
+            });
+            // paymentAmount'in en sağındaki rakamı silmek için aşağıdaki kodu ekleyin
+            paymentAmountInput.value = paymentAmountInput.value.slice(0, -1);
+        }
+        else {
+            calculateRemainingAmount();
+        }
+    }
+    function checkPaymentAmountFromDetail() {
+        var paymentAmountInput = document.getElementById("paymentAmountDetail");
         var paymentAmount = parseFloat(paymentAmountInput.value.replace(/,/g, ''));
 
         var currentDebt = parseFloat(document.getElementById("currentDebt").value.replace(/,/g, ''));

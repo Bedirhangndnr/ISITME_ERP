@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyBlog.Entities.Concrete;
 using MyBlog.Mvc.Consts;
-using MyBlog.Mvc.Enums;
 
 namespace MyBlog.Data.Concrete.EntityFramework.Mappings
 {

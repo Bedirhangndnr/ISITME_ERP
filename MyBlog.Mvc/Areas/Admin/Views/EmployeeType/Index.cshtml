@@ -1,4 +1,5 @@
-﻿@using MyBlog.Services.Utilities;
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels
+@using MyBlog.Services.Utilities;
 @using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.EmployeeTypeDtos.EmployeeTypeListDto
 @{
@@ -6,10 +7,15 @@
     ViewBag.Title = "Personel Tipleri";
 }
 
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="EmployeeType" asp-action="Index">Hasta Tipleri</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+       {
+           Depth = 2,
+           Controller = "EmployeeType",
+           ControllerTr = "Personel Tipleri",
+           Action = "Yok",
+           ActionTR = "Yok",
+           TableType = ViewBag.TableType
+       })
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />

@@ -13,6 +13,8 @@ namespace MyBlog.Entities.Concrete
         public string LastName { get; set; }
         public string Phone  { get; set; }
         public string Description  { get; set; }
+        public CustomerReferanceTitle? CustomerReferanceTitle { get; set; }
+        public int? CustomerReferanceTitleId { get; set; }
         public ICollection<Customer> Customers { get; set; }
     }
 }

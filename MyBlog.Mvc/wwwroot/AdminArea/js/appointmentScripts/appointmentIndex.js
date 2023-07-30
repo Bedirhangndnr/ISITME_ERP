@@ -72,23 +72,6 @@
                 }
             },
             {
-                extend: 'excelHtml5',
-                text: 'Excel\'e Aktar',
-                className: 'btn btn-success',
-                filename: 'musteriler', // Excel dosyasının adı
-            },
-            {
-                extend: 'collection',
-                text: 'Diğer İşlemler',
-                className: 'btn btn-primary dropdown-toggle',
-                buttons: [
-                    'copy',
-                    'csv',
-                    'pdf',
-                    'print'
-                ]
-            },
-            {
                 text: 'Tümünü Listele',
                 className: 'btn btn-outline-danger',
                 action: function (e, dt, node, config) {

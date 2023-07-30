@@ -8,10 +8,15 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="CustomerReferance" asp-action="Index">Hasta Referansları</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+       {
+           Depth = 2,
+           Controller = "CustomerReferance",
+           ControllerTr = "Hasta Referansları",
+           Action = "Yok",
+           ActionTR = "Yok",
+           TableType = ViewBag.TableType
+       })
 @if (Model.ResultStatus == ResultStatus.Success)
 {
     <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />

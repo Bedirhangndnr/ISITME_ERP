@@ -23,10 +23,10 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">TL</span>
-                                    </div><input type="number" id="paymentAmount" class="form-control" placeholder="Ödenecek Tutar" oninput="checkPaymentAmount()" asp-for="AmountPaid" value="0" />
+                                    </div><input type="number" id="paymentAmountDetail" class="form-control" placeholder="Ödenecek Tutar" oninput="checkPaymentAmountFromDetail('fromDefault')" asp-for="AmountPaid" value="0" />
 
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="payFullAmount()">Tümünü Öde</button>
+                                        <button class="btn btn-primary" type="button" onclick="payFullAmountFromDetail()">Tümünü Öde</button>
                                 </div>
                                 </div> 
 

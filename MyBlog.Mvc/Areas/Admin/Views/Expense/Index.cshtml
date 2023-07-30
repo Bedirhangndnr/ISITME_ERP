@@ -6,10 +6,15 @@
     ViewBag.Title = "Hasta Referansları";
 }
 
-<ol class="breadcrumb mb-r mt-2">
-    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Expense" asp-action="Index">MArkalar</a></li>
-</ol>
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+       {
+           Depth = 2,
+           Controller = "Brand",
+           ControllerTr = "Markalar",
+           Action = "Yok",
+           ActionTR = "Yok",
+           TableType = ViewBag.TableType
+       })
 <style>
     body {
         margin: 0;

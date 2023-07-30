@@ -13,6 +13,7 @@ namespace MyBlog.Data.Abstract
         ICommentRepository Comments { get; }
         IAppointmentRepository Appointments { get; }
         ICustomerReferanceRepository CustomerReferances { get; }
+        ICustomerReferanceTitleRepository CustomerReferanceTitles { get; }
         ICustomerRepository Customers { get; }
         ICustomerTypeRepository CustomerTypes { get; }
         IStockRepository Stocks { get; }

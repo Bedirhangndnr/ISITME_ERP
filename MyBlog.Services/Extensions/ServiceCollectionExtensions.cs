@@ -48,6 +48,7 @@ namespace MyBlog.Services.Extensions
             serviceCollection.AddScoped<IEmployeeService, EmployeeManager>();
             serviceCollection.AddScoped<IEmployeeTypeService, EmployeeTypeManager>();
             serviceCollection.AddScoped<ICustomerReferanceService, CustomerReferanceManager>();
+            serviceCollection.AddScoped<ICustomerReferanceTitleService, CustomerReferanceTitleManager>();
             serviceCollection.AddScoped<ICustomerService, CustomerManager>();
             serviceCollection.AddScoped<ICustomerTypeService, CustomerTypeManager>();
             serviceCollection.AddScoped<INotificationService, NotificationManager>();

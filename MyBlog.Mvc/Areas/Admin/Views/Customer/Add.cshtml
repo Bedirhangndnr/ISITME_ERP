@@ -8,6 +8,7 @@
 {
         Depth = 3,
         Controller = "Customer",
+        ControllerTr = "Hastalar",
         Action = "Add",
         ActionTR = "Ekle",
         TableType = ViewBag.TableType
@@ -38,7 +39,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Soyd</span>
+                                <span class="input-group-text">Soy Ad</span>
                             </div><input type="text" id="customerLastName" class="form-control" asp-for="LastName" />
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>

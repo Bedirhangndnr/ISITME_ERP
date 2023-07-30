@@ -18,6 +18,7 @@ namespace MyBlog.Data.Concrete
         private EfCommentRepository _commentRepository;
         private EfAppointmentRepository _appointmentRepository;
         private EfCustomerReferanceRepository _customerReferanceRepository;
+        private EfCustomerReferanceTitleRepository _customerReferanceUnvanRepository;
         private EfCustomerRepository _customerRepository;
         private EfProductCategoryRepository _productCategoryRepository;
         private EfProductRepository _productRepository;
@@ -51,6 +52,7 @@ namespace MyBlog.Data.Concrete
         public ICategoryRepository Categories => _categoryRepository ?? new EfCategoryRepository(_context);
         public ICommentRepository Comments => _commentRepository ?? new EfCommentRepository(_context);
         public ICustomerReferanceRepository CustomerReferances => _customerReferanceRepository ?? new EfCustomerReferanceRepository(_context);
+        public ICustomerReferanceTitleRepository CustomerReferanceTitles => _customerReferanceUnvanRepository ?? new EfCustomerReferanceTitleRepository(_context);
         public ICustomerRepository Customers => _customerRepository ?? new EfCustomerRepository(_context);
         public ICustomerTypeRepository CustomerTypes => _customerTypeRepository ?? new EfCustomerTypeRepository(_context);
         public IProductCategoryRepository ProductCategorys => _productCategoryRepository ?? new EfProductCategoryRepository(_context);
