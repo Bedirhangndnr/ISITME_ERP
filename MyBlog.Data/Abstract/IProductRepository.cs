@@ -14,5 +14,6 @@ namespace MyBlog.Data.Abstract
     {
         public Task<IList<ProductListWithRelatedTables>> GetAllWithNamesAsync(Expression<Func<Product, bool>> predicate = null, params Expression<Func<Product, object>>[] includeProperties);
 
+
     }
 }

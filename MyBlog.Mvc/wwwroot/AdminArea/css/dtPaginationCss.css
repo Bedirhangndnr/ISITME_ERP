@@ -1,0 +1,14 @@
+﻿.dataTables_wrapper .paginate_button {
+    padding: 5px 10px;
+    margin: 0 3px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0; /* Daha açık gri */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .dataTables_wrapper .paginate_button:hover {
+        background-color: #d9d9d9; /* Daha koyu gri */
+        color: #fff;
+    }

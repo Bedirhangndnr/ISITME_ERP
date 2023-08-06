@@ -38,7 +38,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     CreatedDate = s.CreatedDate,
                     Title = s.Title,
                     IsRead= s.IsRead
-                }).ToListAsync();
+                })
+                .OrderByDescending(c => c.CreatedDate)
+                .ToListAsync();
 
             return notification;
         }

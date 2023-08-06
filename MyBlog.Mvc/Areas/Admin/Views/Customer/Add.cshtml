@@ -1,4 +1,5 @@
-﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+﻿@using Microsoft.CodeAnalysis.Scripting
+@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
 @model MyBlog.Mvc.Areas.Admin.Models.CustomerModels.CustomerAddViewModel
 @{
     Layout = "_Layout";
@@ -32,7 +33,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Ad</span>
-                            </div><input type="text" id="customerFirstName" class="form-control"asp-for="FirstName" />
+                            </div><input type="text" id="customerFirstName" class="form-control" asp-for="FirstName" />
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                     </div>
@@ -64,7 +65,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Telefon Numarası</span>
-                            </div><input type="text" id="customerPhone" class="form-control"  asp-for="Phone" />
+                            </div><input type="text" id="customerPhone" class="form-control" asp-for="Phone" />
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                     </div>
@@ -119,30 +120,33 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Personel</span>
                             </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        </div>
                     </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Hasta Tipi</span>
+                            </div>
+                            <select id="appointmentTypeList" class="form-control" asp-for="CustomerTypeId" asp-items="@(new SelectList(Model.CustomerTypes, "Id", "Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="CustomerTypeId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Hasta Referansı</span>
-                                </div><select id="customersList" class="form-control" asp-for="CustomerReferanceId" asp-items="@(new SelectList(Model.CustomerReferances,"Id","FirstName"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="CustomerReferanceId" class="text-danger"></span>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Hasta Tipi</span>
-                                    </div><select id="appointmentTypeList" class="form-control" asp-for="CustomerTypeId" asp-items="@(new SelectList(Model.CustomerTypes,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="CustomerTypeId" class="text-danger"></span>
-                    </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Hasta Referansı</span>
+                            </div>
+                            <select id="customerReferancesList" class="form-control" asp-for="CustomerReferanceId" asp-items="@(new SelectList(Model.CustomerReferances, "Id", "FirstName"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="CustomerReferanceId" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel

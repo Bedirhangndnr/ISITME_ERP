@@ -25,6 +25,7 @@
                     <input type="hidden" asp-for="Customers" value="@Model.Customers" />
                     <input type="hidden" asp-for="Employees" value="@Model.Employees" />
                     <input type="hidden" asp-for="Products" value="@Model.Products" />
+                    <input type="hidden" asp-for="OldProductId" value="@Model.ProductId" />
                     <input type="hidden" asp-for="SaleTypes" value="@Model.SaleTypes" />
                     <input type="hidden" asp-for="SaleStatuses" value="@Model.SaleStatuses" />
                     <input type="hidden" asp-for="IsActive" value=true/>
@@ -90,12 +91,14 @@
                     <div class="form-group">
 
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Ürün</span>
-                            </div><select id="productsList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
-                                <option></option>
-                            </select>
-                            <span asp-validation-for="ProductId" class="text-danger"></span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Ürünler</span>
+                                </div><select id="EmployeeList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
+                                    <option></option>
+                                </select>
+                                <span asp-validation-for="ProductId" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

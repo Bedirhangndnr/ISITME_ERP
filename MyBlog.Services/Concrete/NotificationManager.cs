@@ -62,18 +62,18 @@ namespace MyBlog.Services.Concrete
 
         public async Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync()
         {
-            var Notifications = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
-            if (Notifications.Count > -1)
+            var notifications = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
+            if (notifications.Count > -1)
             {
                 return new DataResult<NotificationListDto>(ResultStatus.Success, new NotificationListDto
                 {
-                    NotificationListWithRelatedTables = Notifications,
+                    NotificationListWithRelatedTables = notifications,
                     ResultStatus = ResultStatus.Success
                 });
             }
             return new DataResult<NotificationListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Bildirim"));
-
         }
+
 
 
         public async Task<bool> AddAsync(string message, string title, int userId,  NotificationTypes notificationType= NotificationTypes.DatabaseTracking)

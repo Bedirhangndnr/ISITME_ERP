@@ -73,7 +73,7 @@
             const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
             const inUpdate = $(this).attr('data-inUpdate');
-              
+
             const customerFirsName = tableRow.find('td:eq(1)').text(); // table datadan 2. indexdeki değeri aldık.
             const customerLastName = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
@@ -199,4 +199,15 @@
                 }
             });
         });
+    $("#appointmentTypeList").change(function () {
+        var selectedType = $(this).find(":selected").text();
+        var customerReferanceList = $("#customerReferancesList");
+
+        if (selectedType === "Yönlendirme" || selectedType === "Tavsiye") {
+            customerReferanceList.parent().show();
+        } else {
+            customerReferanceList.parent().hide();
+        }
+    });
+
 });

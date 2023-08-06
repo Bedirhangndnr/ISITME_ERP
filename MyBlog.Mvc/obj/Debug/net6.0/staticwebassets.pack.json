@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\AdminArea\\css\\AsesBG.png"
     },
     {
+      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\dtPaginationCss.css",
+      "PackagePath": "staticwebassets\\AdminArea\\css\\dtPaginationCss.css"
+    },
+    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\httpErrorBgAnimation.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\httpErrorBgAnimation.css"
     },

@@ -53,32 +53,32 @@ namespace MyBlog.Services.Concrete
             }
         }
 
-        public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds=false)
+        public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id=0)
         {
-            IList < ProductListWithRelatedTables> productsWithRelated;
+            IList<ProductListWithRelatedTables> productsWithRelated;
             IList<Product> products;
-            if (getSolds==true)
+            if (getSolds == true)
             {
                 productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
                 products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive);
             }
             else
             {
-                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && !c.IsSold);
-                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && !c.IsSold);
+                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive );
+                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && (!c.IsSold || c.Id == Id));
             }
 
             if (products.Count > -1)
             {
                 return new DataResult<ProductListDto>(ResultStatus.Success, new ProductListDto
                 {
-                    Products=products,
+                    Products = products,
                     ProductListWithRelatedTables = productsWithRelated,
                     ResultStatus = ResultStatus.Success
                 });
             }
             return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
-
+            
         }
 
         public async Task<IDataResult<ProductListDto>> GetAllAsync()

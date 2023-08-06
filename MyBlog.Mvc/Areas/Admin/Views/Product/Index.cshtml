@@ -34,77 +34,97 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="productsTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Adı</th>
-                            <th>Seri Numarası</th>
-                            <th>Marka</th>
-                            <th>Alt Grup Adı</th>
-                            <th>Not</th>
-                            <th>Fiyat</th>
-                            <th>Stok</th>
-                            <th>İşlem</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Adı</th>
+                        <th>Seri Numarası</th>
+                        <th>Marka</th>
+                        <th>Alt Grup Adı</th>
+                        <th>Not</th>
+                        <th>Fiyat</th>
+                        <th>Stok</th>
+                        <th>İşlem</th>
+                    </tr>
                     </thead>
                     <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Adı</th>
-                            <th>Seri Numarası</th>
-                            <th>Marka</th>
-                            <th>Alt Grup Adı</th>
-                            <th>Not</th>
-                            <th>Fiyat</th>
-                            <th>Stok</th>
-                            <th>İşlem</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Adı</th>
+                        <th>Seri Numarası</th>
+                        <th>Marka</th>
+                        <th>Alt Grup Adı</th>
+                        <th>Not</th>
+                        <th>Fiyat</th>
+                        <th>Stok</th>
+                        <th>İşlem</th>
+                    </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var product in Model.ProductListWithRelatedTables)
-                        {
-                            <tr name="@product.Id">
-                                <td>@product.Id</td>
-                                <td>@product.ProductName </td>
-                                <td>@product.SerialNumber </td>
-                                <td>@product.BrandTitle</td>
-                                <td>@product.ProductSubGroupTitle</td>
-                                <td>@product.Note</td>
-                                <td>
-                                    <span id="priceSpan">@{
-                                            if (product.Price != 0)
-                                            {
-                                                @product.Price
-                                                ;
-                                            }
-                                            else
-                                            {
-                                                <span style="color: red;">Fiyat Girilmemiş</span>
-                                            }
-                                        }</span>
-                                </td>
+                    @foreach (var product in Model.ProductListWithRelatedTables)
+                    {
+                        <tr name="@product.Id">
+                            <td>@product.Id</td>
+                            <td>@product.ProductName </td>
+                            <td>@product.SerialNumber </td>
+                            <td>@product.BrandTitle</td>
+                            <td>@product.ProductSubGroupTitle</td>
+                            <td>@product.Note</td>
+                            <td>
+                                <span id="priceSpan">@{
+                                                         if (product.Price != 0)
+                                                         {
+                                                             @product.Price
+                                                             ;
+                                                         }
+                                                         else
+                                                         {
+                                                             <span style="color: red;">Fiyat Girilmemiş</span>
+                                                         }
+                                                     }</span>
+                            </td>
 
-                                <td>1 | konuşulacak</td>
+                            <td>1 | konuşulacak</td>
 
 
 
-                                <td>
-                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                                    {
-                                        Id=product.Id,
-                                        InMainPage=0,
-                                        TableType=ViewBag.tableType,
-                                        Action="Update",
-                                        Controller="Product"
-                                    })
-                                </td>
-                            </tr>
-                        }
+                            <td>
+                                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                                       {
+                                           Id=product.Id,
+                                           InMainPage=0,
+                                           TableType=ViewBag.tableType,
+                                           Action="Update",
+                                           Controller="Product"
+                                       })
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <table id="myTable" class="display">
+        <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Row 1 Data 1</td>
+            <td>Row 1 Data 2</td>
+        </tr>
+        <tr>
+            <td>Row 2 Data 1</td>
+            <td>Row 2 Data 2</td>
+        </tr>
+        </tbody>
+    </table>
+    
 }
+
 @if (Model.ResultStatus == ResultStatus.Error)
 {
     <div class="alert alert-danger mt-3">
@@ -117,6 +137,7 @@
     <script src="~/AdminArea/js/productIndex.js" type="application/ecmascript"></script>
     <script>
         $(document).ready(function () {
+            $('#myTable').DataTable();
             $('#btnAdd').click(function () {
                 // ViewBag.TableType değişkeninin değerini burada alıyoruz
                 var tableType = '@ViewBag.TableType';

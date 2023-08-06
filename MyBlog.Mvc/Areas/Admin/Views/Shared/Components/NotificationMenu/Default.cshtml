@@ -4,16 +4,21 @@
 
 <ul class="navbar-nav ml-auto ml-md-0">
     <li class="nav-item dropdown">
+        @{
+            var count = Model.notificationListWithRelatedTables.Count();
+            var displayCount = count < 50 ? count.ToString() : "50+";
+        }
         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
             <i class="bi bi-bell-fill"></i>
-            <span class="badge badge-danger badge-counter">@Model.notificationListWithRelatedTables.Count()</span>
+            <span class="badge badge-danger badge-counter">@displayCount</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <div class="dropdown-header d-flex align-items-center">
                 <i class="bi bi-bell-fill"></i>
                 <span class="mr-2">Bildirimler</span>
-                <span class="badge badge-danger">@Model.notificationListWithRelatedTables.Count()</span>
+
+                <span class="badge badge-danger">@displayCount</span>
             </div>
             <div class="dropdown-list">
                 @foreach (var notification in Model.notificationListWithRelatedTables.Take(5))
@@ -25,7 +30,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="small text-gray-500">@notification.ModifiedDate</div>
+                            <div class="small text-gray-500">@notification.CreatedDate</div>
                             <span class="font-weight-bold">@notification.Title</span>
                             <p>@notification.Description</p>
                         </div>

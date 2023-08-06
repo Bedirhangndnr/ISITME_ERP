@@ -57,8 +57,8 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         public CustomerType CustomerType { get; set; }
         [DisplayName("Hasta Referansı")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public int CustomerReferanceId { get; set; }
-        public CustomerReferance CustomerReferance { get; set; }
+        public int? CustomerReferanceId { get; set; }
+        public CustomerReferance? CustomerReferance { get; set; }
         [DisplayName("Randevu Tarihi")]
         public DateTime? AppointmentDate { get; set; }
         [DisplayName("Randevu Saati")]

@@ -43,7 +43,7 @@
                                         const newTableRow = dataTable.row.add([
                                             sale.Id,
                                             sale.EmployeeFirstName,
-                                            sale.CustomerFirstName,
+                                            sale.SaleFirstName,
                                             sale.SaleTypeName,
                                             sale.SaleStatusName,
                                             sale.ProductName,
@@ -120,12 +120,12 @@
 
     /* Ajax POST / Deleting a User starts from here */
 
-    $(document).on('click',
+      $(document).on('click',
         '.btn-delete',
         function (event) {
             event.preventDefault();
             const id = $(this).attr('data-id');
-            const tableType = $(this).attr('data-tableType');
+            const tableType = "DeletedTables";
             const tableRow = $(`[name="${id}"]`);
             const inUpdate = $(this).attr('data-inUpdate');
 
@@ -133,7 +133,7 @@
             const saleLastName = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${saleFirsName} Adlı Çalışam ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${saleFirsName} Satış ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -158,48 +158,81 @@
                                     );
                                 }
                                 else {
-                                    // Silme işlemi tamamlandıktan sonra başarılı mesajı ve IsSold değerini güncelleme sorusunu işle
-                                    swal.fire({
-                                        title: "Silme işlemi başarılı!",
-                                        text: "Ürün Tekrar Satışa Çıkarılsın mı?",
-                                        icon: "success",
-                                        showCancelButton: true,
-                                        confirmButtonColor: "#3085d6",
-                                        cancelButtonColor: "#d33",
-                                        confirmButtonText: "Evet, güncellemek istiyorum.",
-                                        cancelButtonText: "Hayır, güncelleme yapmak istemiyorum."
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            // Kullanıcı güncelleme yapmayı kabul ettiğinde yapılacak işlemler
-                                            // IsSold değerini false olarak güncelle
-                                            $.ajax({
-                                                url: "/Admin/Sale/UpdateIsSold",
-                                                type: "POST",
-                                                data: { saleId: id, isSold: !result.value },
-                                                success: function (response) {
-                                                    // Güncelleme işlemi başarılı oldu
-                                                    Swal.fire({
-                                                        title: "Güncelleme işlemi tamamlandı!",
-                                                        text: response,
-                                                        icon: "success"
-                                                    });
-                                                },
-                                                error: function (error) {
-                                                    // Güncelleme işlemi sırasında bir hata oluştu
-                                                    Swal.fire({
-                                                        title: "Hata!",
-                                                        text: "Güncelleme işlemi sırasında bir hata oluştu.",
-                                                        icon: "error"
-                                                    });
-                                                }
-                                            });
-                                        }
-
-                                    });
+                                    Swal.fire(
+                                        'Silindi!',
+                                        `${saleResult.Message}`,
+                                        'success'
+                                    );
                                 }
+
+                                swal.fire({
+                                    title: "Silme işlemi başarılı!",
+                                    text: "Ütün Stoğa Geri Mi Eklensin Tamamen Silinsin Mi?",
+                                    icon: "success",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Geri Ekle.",
+                                    cancelButtonText: "Ürünü Sil."
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        // Kullanıcı güncelleme yapmayı kabul ettiğinde yapılacak işlemler
+                                        // IsSold değerini false olarak güncelle
+                                        $.ajax({
+                                            url: "/Admin/Sale/UpdateIsSold",
+                                            type: "POST",
+                                            data: { saleId: id, isSold: false },
+                                            success: function (response) {
+                                                // Güncelleme işlemi başarılı oldu
+                                                Swal.fire({
+                                                    title: "Ürün Geri Eklendi!",
+                                                    text: response,
+                                                    icon: "success"
+                                                });
+                                            },
+                                            error: function (error) {
+                                                // Güncelleme işlemi sırasında bir hata oluştu
+                                                Swal.fire({
+                                                    title: "Hata!",
+                                                    text: "Güncelleme işlemi sırasında bir hata oluştu.",
+                                                    icon: "error"
+                                                });
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        $.ajax({
+                                            url: "/Admin/Sale/DeleteProduct",
+                                            type: "POST",
+                                            data: { saleId: id },
+                                            success: function (response) {
+                                                // Güncelleme işlemi başarılı oldu
+                                                Swal.fire({
+                                                    title: "Ürün Silindi!",
+                                                    text: response,
+                                                    icon: "success"
+                                                });
+                                            },
+                                            error: function (error) {
+                                                // Güncelleme işlemi sırasında bir hata oluştu
+                                                Swal.fire({
+                                                    title: "Hata!",
+                                                    text: "Ürün silme işlemi sırasında bir hata oluştu.",
+                                                    icon: "error"
+                                                });
+                                            }
+                                        });
+                                    };
+                                });
+                                
+
+
+
+
+
                                 if (inUpdate === '1') {
                                     //update controller içindeyiz, sil butonuna tıklandığında şu adrese git
-                                    var url_ = '/Admin/Sale/Index?tableType=' + tableType;
+                                    var url_ = '/Admin/Sale/Index?tableType=' + "NonDeletedTables";
                                     window.location.href = url_;
                                 } else {
                                     // index controller içindeyiz, sil butonuna tıklandığında şu adrese git

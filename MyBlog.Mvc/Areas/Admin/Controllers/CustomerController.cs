@@ -134,9 +134,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             ModelState.Remove("tableType");
             ModelState.Remove("Adress");
-            var customerReferance = await _customerReferanceService.GetAsync(customerAddViewModel.CustomerReferanceId);
-            var customerType = await _customerTypeService.GetAsync(customerAddViewModel.CustomerTypeId);
-            var employee = await _employeeService.GetAsync(customerAddViewModel.EmployeeId);
+            //var customerReferance = await _customerReferanceService.GetAsync(customerAddViewModel.CustomerReferanceId);
+            //var customerType = await _customerTypeService.GetAsync(customerAddViewModel.CustomerTypeId);
+            //var employee = await _employeeService.GetAsync(customerAddViewModel.EmployeeId);
             if (ModelState.IsValid)
             {
                 var customerAddDto = Mapper.Map<CustomerAddDto>(customerAddViewModel);

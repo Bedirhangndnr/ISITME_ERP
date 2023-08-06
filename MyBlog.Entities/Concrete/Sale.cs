@@ -18,8 +18,8 @@ namespace MyBlog.Entities.Concrete
         public int? SaleTypeId { get; set; }
         public SaleStatus? SaleStatus { get; set; }
         public int? SaleStatusId { get; set; }
-        public Product? Product { get; set; }
-        public int? ProductId { get; set; }
+        public Product Product { get; set; }
+        public int ProductId { get; set; }
         public Employee? Employee { get; set; }
         public int? EmployeeId { get; set; }
 

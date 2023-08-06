@@ -22,7 +22,6 @@
     /* DataTables start here. */
 
     const dataTable = $('#notificationsTable').DataTable({
-
         order: [[1, 'desc'], [2, 'desc']],
 
         dom:

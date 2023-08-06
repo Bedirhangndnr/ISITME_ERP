@@ -40,6 +40,8 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         public IList<Product> Products { get; set; }
         [DisplayName("Ürün")]
         public int ProductId { get; set; }
+
+        public int OldProductId { get; set; } = 0;
         [DisplayName("Personel")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<Employee> Employees { get; set; }

@@ -56,8 +56,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         public int CustomerTypeId { get; set; }
         public IList<CustomerType>? CustomerTypes { get; set; }
         [DisplayName("Hasta Referansı")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public int CustomerReferanceId { get; set; }
+        public int? CustomerReferanceId { get; set; }
         public IList<CustomerReferance>? CustomerReferances { get; set; }
         [DisplayName("İlgilenen Kişi")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]

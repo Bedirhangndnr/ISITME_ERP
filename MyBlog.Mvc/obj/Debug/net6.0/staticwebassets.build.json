@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XS5eZXyIplV8vTC88qBNA/7Jnt9OMLs2LfCMZExWCRA=",
+  "Hash": "yA+fzNzyYxNqD+9SzcxIocXap6CCEmYnY48a4DbbmkI=",
   "Source": "MyBlog.Mvc",
   "BasePath": "_content/MyBlog.Mvc",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\AdminArea\\css\\AsesBG.png"
+    },
+    {
+      "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\dtPaginationCss.css",
+      "SourceId": "MyBlog.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\",
+      "BasePath": "_content/MyBlog.Mvc",
+      "RelativePath": "AdminArea/css/dtPaginationCss.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AdminArea\\css\\dtPaginationCss.css"
     },
     {
       "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\httpErrorBgAnimation.css",

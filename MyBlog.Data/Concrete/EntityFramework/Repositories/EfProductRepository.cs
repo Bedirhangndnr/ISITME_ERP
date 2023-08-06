@@ -18,7 +18,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
     {
         public EfProductRepository(DbContext dbContext) : base(dbContext)
         {
-            
+
         }
         public async Task<IList<ProductListWithRelatedTables>> GetAllWithNamesAsync(Expression<Func<Product, bool>> predicate = null, params Expression<Func<Product, object>>[] includeProperties)
         {
@@ -47,5 +47,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
 
             return Products;
         }
+
     }
 }
