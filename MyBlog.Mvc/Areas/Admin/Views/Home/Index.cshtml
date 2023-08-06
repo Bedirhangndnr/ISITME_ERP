@@ -1,10 +1,15 @@
-﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Mvc.Consts
 @using MyBlog.Services.Utilities;
 @using MyBlog.Shared.Utilities.Results.ComplexTypes
 @model MyBlog.Mvc.Areas.Admin.Models.SingleModels.DashboardViewModel
 @{
     Layout = "_Layout";
     ViewBag.Title = "Yönetim Paneli | Dashboard";
+    // ViewBag'den değerleri çekelim
+    var user = ViewBag.User;
+    var roles = ViewBag.Roles;
 }
 @*<div class="container-fluid">*@
 <ol class="breadcrumb mb-r mt-2">
@@ -58,16 +63,25 @@
 
 
 <div class="row">
-    <div class="col-xl-6">
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-chart-area mr-1"></i>
-                Genel Gelir-Gider Tablosu | Son 1 Ay
-            </div>
-            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+    @if (ViewBag.Roles != null && ViewBag.Roles.Contains(AuthorizeDefinitionConstants.SuperAdmin) )
+    {
+        <div class="col-xl-2">
         </div>
-    </div>
-    <div class="col-xl-6">
+
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area mr-1"></i>
+                    Genel Gelir-Gider Tablosu | Son 1 Ay
+                </div>
+                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+        <div class="col-xl-2">
+        </div>
+
+}
+    @*    <div class="col-xl-6">
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-chart-bar mr-1"></i>
@@ -75,7 +89,7 @@
             </div>
             <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
         </div>
-    </div>
+    </div>*@
 </div>
 
 

@@ -21,7 +21,7 @@ using MyBlog.Mvc.Areas.Admin.Models.UserModels;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin, Editor")]
+    
 
     public class ProductController : BaseController
     {
@@ -49,6 +49,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductRead}")]
+
+
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
