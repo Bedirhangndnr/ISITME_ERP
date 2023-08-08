@@ -26,7 +26,7 @@ using MyBlog.Shared.Utilities.Results;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+    [Authorize(Roles = "SuperAdmin, Editor")]
 
     public class EmployeeTypeController : BaseController
     {
