@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +6,6 @@ using MyBlog.Entities.Concrete;
 using MyBlog.Mvc.Areas.Admin.Models;
 using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
 using MyBlog.Mvc.Consts;
-using MyBlog.Mvc.Halpers.Abstract;
 using MyBlog.Services.Abstract;
 using MyBlog.Shared.Utilities.Results.ComplexTypes;
 
@@ -15,14 +13,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
     //[Authorize(Roles = $"{AuthorizeDefinitikonConstants.SuperAdmin}, {AuthorizeDefinitionConstants.HomeProgramRead}")]
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         private readonly ISaleService _saleService;
         private readonly IExpenseService _expenseService;
         private readonly IAppointmentService _appointmentService;
         private readonly UserManager<User> _userManager;
 
-        public HomeController(ISaleService saleService, IExpenseService expenseService, IAppointmentService appointmentService, UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper) : base(userManager, mapper, imageHelper)
+        public HomeController(ISaleService saleService, IExpenseService expenseService, IAppointmentService appointmentService, UserManager<User> userManager)
         {
             _saleService = saleService;
             _expenseService = expenseService;
@@ -31,10 +29,6 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var user = await UserManager.GetUserAsync(HttpContext.User);
-            var roles = await UserManager.GetRolesAsync(user);
-            ViewBag.User = user;
-            ViewBag.Roles = roles;
             var salesCountResult= await _saleService.CountByNonDeletedAsync(isRestOfTheMonth:true);
             var expensesIncomeCountResult= await _expenseService.CountByNonDeletedAsync(lastXDays:7, isIncome:true);
             var expensesOutcomeCountResult= await _expenseService.CountByNonDeletedAsync(lastXDays:7, isIncome:false);

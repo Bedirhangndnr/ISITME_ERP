@@ -20,7 +20,7 @@ using MyBlog.Mvc.Consts;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+    [Authorize(Roles = "SuperAdmin, Editor")]
 
     public class OutPaymentController : BaseController
     {

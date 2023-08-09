@@ -23,6 +23,7 @@ using MyBlog.Services.Utilities;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin, Editor")]
 
     public class BrandController : BaseController
     {
