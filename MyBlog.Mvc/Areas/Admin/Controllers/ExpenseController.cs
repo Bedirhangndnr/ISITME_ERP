@@ -23,6 +23,7 @@ using MyBlog.Services.Utilities;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    
 
     public class ExpenseController : BaseController
     {
@@ -42,7 +43,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseRead}")]
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {

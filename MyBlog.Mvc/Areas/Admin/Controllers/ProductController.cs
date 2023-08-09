@@ -21,7 +21,7 @@ using MyBlog.Mvc.Areas.Admin.Models.UserModels;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin, Editor")]
+    
 
     public class ProductController : BaseController
     {
