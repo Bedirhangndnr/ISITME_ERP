@@ -11,7 +11,7 @@ using MyBlog.Mvc;
 namespace ProgrammersBlog.Mvc
 {
     public class Program
-    { //x
+    {
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
