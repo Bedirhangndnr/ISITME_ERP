@@ -32,57 +32,83 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="salesTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Personel</th>
-                            <th>Hasta</th>
-                            <th>Satış Tipi</th>
-                            <th>Satış Durumu</th>
-                            <th>Ürün</th>
-                            <th>Satış Tutarı</th>
-                            @*<th>Açıklama</th>*@
-                            <th>İşlem</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Personel</th>
+                        <th>Hasta</th>
+                        <th>Satış Tipi</th>
+                        <th>Satış Durumu</th>
+                        <th>Ürün</th>
+                        <th>Satış Tutarı</th>
+                        @*<th>Açıklama</th>*@
+                        <th>İşlem</th>
+                    </tr>
                     </thead>
                     <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Personel</th>
-                            <th>Hasta</th>
-                            <th>Satış Tipi</th>
-                            <th>Satış Durumu</th>
-                            <th>Ürün</th>
-                            <th>Satış Tutarı</th>
-                            @*<th>Açıklama</th>*@
-                            <th>İşlem</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Personel</th>
+                        <th>Hasta</th>
+                        <th>Satış Tipi</th>
+                        <th>Satış Durumu</th>
+                        <th>Ürün</th>
+                        <th>Satış Tutarı</th>
+                        @*<th>Açıklama</th>*@
+                        <th>İşlem</th>
+                    </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var sale in Model.SaleListWithRelatedTables)
-                        {
-                            <tr name="@sale.Id">
-                                <td>@sale.Id</td>
-                                <td>@sale.EmployeeFirstName </td>
-                                <td>@sale.CustomerFirstName</td>
-                                <td>@sale.SaleTypeName</td>
-                                <td>@sale.SaleStatusName</td>
-                                <td>@sale.ProductName</td>
-                                <td>@sale.Amount</td>
-                                @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
-                                <td>
-                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                            {
-                            Id=sale.Id,
-                            InMainPage=0,
-                            TableType=ViewBag.tableType,
-                            Action="Update",
-                            Controller="Sale"
-                            })
-                                </td>
-                            </tr>
-                        }
+                    @foreach (var sale in Model.SaleListWithRelatedTables)
+                    {
+                        <tr name="@sale.Id">
+                            <td>@sale.Id</td>
+                            <td>@sale.EmployeeFirstName </td>
+                            <td>@sale.CustomerFirstName</td>
+                            <td>@sale.SaleTypeName</td>
+                            <td>@sale.SaleStatusName</td>
+                            <td>@sale.ProductName</td>
+                            <td>@sale.Amount</td>
+                            @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
+                            <td>
+                                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                                       {
+                                           Id=sale.Id,
+                                           InMainPage=0,
+                                           TableType=ViewBag.tableType,
+                                           Action="Update",
+                                           Controller="Sale"
+                                       })
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
+                <div class="total-section col-md-10" style="position: fixed; bottom: 0; left: 0; right: 0;">
+                    <div class="total-box green" style="display: inline-block;">
+                        <div class="total-label">Toplam Gelir</div>
+                        <div class="total-amount" id="totalIncome"></div>
+                    </div>
+                    <div class="total-box red" style="display: inline-block;">
+                        <div class="total-label">Toplam Gider</div>
+                        <div class="total-amount" id="totalExpense"></div>
+                    </div>
+                    <div class="total-box green" style="display: inline-block;">
+                        <div class="total-label">Günlük Gelir</div>
+                        <div class="total-amount" id="dailyTotalIncome"></div>
+                    </div>
+                    <div class="total-box red" style="display: inline-block;">
+                        <div class="total-label">Günlük Gider</div>
+                        <div class="total-amount" id="dailyTotalExpense"></div>
+                    </div>
+                    <div class="total-box green" style="display: inline-block;">
+                        <div class="total-label">Genel Gelir</div>
+                        <div class="total-amount" id="overallTotalIncome"></div>
+                    </div>
+                    <div class="total-box red" style="display: inline-block;">
+                        <div class="total-label">Genel Gider</div>
+                        <div class="total-amount" id="overallTotalExpense"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -95,7 +121,21 @@
     </div>
 }
 @section Scripts
-    {
+{
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
     <script src="~/AdminArea/js/saleIndex.js" type="application/ecmascript"></script>
     <script>
         $(document).ready(function () {
