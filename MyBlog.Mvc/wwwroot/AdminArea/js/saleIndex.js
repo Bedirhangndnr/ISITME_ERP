@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿ded$(document).ready(function () {
 
     const tableType = document.getElementById("tableType").value;
     /* DataTables start here. */
