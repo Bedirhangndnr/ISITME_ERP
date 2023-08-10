@@ -98,7 +98,7 @@
                     </a>
                     <div class="collapse" id="stockLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
+                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Ürünler
@@ -106,7 +106,7 @@
                                 </a>
                                 <div class="collapse" id="collapseProduct" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductRead)))
+                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin))  || Model.Roles.Any( r=>r.Equals(AuthorizeDefinitionConstants.ProductRead)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables  >Listele</a>
                                         }

@@ -16,7 +16,7 @@ using System.Data;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin, Editor")]
+    
     public class HomeController1 : BaseController
     {
         private readonly MyBlogContext _dbContext;

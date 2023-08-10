@@ -48,7 +48,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _customerService = customerService;
             _toastNotification = toastNotification;
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.AppointmentRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
