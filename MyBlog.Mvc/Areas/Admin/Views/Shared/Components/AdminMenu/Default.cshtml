@@ -133,11 +133,7 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Brand" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.BrandDelete)))
-                                        {
-                                            <a class="nav-link" asp-area="Admin" asp-controller="Brand" asp-action="Add">Ekle</a>
-                                        }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.BrandRead)))
+                                             @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.BrandRead)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Brand" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.DeletedTables>Arşiv</a>
                                         }
@@ -156,11 +152,7 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductGroup" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductGroupDelete)))
-                                        {
-                                            <a class="nav-link" asp-area="Admin" asp-controller="ProductGroup" asp-action="Add">Ekle</a>
-                                        }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductGroupRead)))
+                                         @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductGroupRead)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductGroup" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.DeletedTables>Arşiv</a>
                                         }
@@ -178,10 +170,6 @@
                                         @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductSubGroupRead)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductSubGroup" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
-                                        }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductSubGroupDelete)))
-                                        {
-                                            <a class="nav-link" asp-area="Admin" asp-controller="ProductSubGroup" asp-action="Add">Ekle</a>
                                         }
                                         @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductSubGroupRead)))
                                         {
@@ -214,7 +202,7 @@
                         @*-------------------------------------------- REFERANSLAR START -------------------------------------------- *@
                         <div class="collapse" id="marketingLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
+                                @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) @*|| r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)*@))
                                 {
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReferances" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                         Referanslar

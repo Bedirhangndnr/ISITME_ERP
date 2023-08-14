@@ -20,6 +20,124 @@
                 }
             },
             {
+                text: 'Bugün',
+                className: 'btn btn-outline-secondary',
+                action: function (e, dt, node, config) {
+                    var today = new Date();
+                    var formattedToday = formatDate(today);
+
+                    dt.column(1).search(formattedToday).draw();
+
+                    // Calculate and update total values
+                    let totalSaleAmount = 0;
+                    let totalSaleCount = 0;
+
+                    dt.rows({ search: 'applied' }).every(function () {
+                        var rowData = this.data();
+                        totalSaleAmount += parseFloat(rowData[7]); // Assuming Amount is the 8th column
+                        totalSaleCount++;
+                    });
+
+                    // Update total values
+                    $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
+                    $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
+                }
+            }
+,
+            {
+                text: '1 Hafta',
+                className: 'btn btn-outline-primary',
+                action: function (e, dt, node, config) {
+                    var today = new Date();
+                    var formattedToday = formatDate(today);
+
+                    var endDate = new Date();
+                    endDate.setHours(23, 59, 59, 999); // Günün son saati ve dakikası
+                    endDate.setDate(today.getDate() - 7);
+                    var formattedEndDate = formatDate(endDate);
+
+                    var dateRange = '^(' + formattedToday;
+                    var currentDate = new Date(today);
+                    while (endDate <= currentDate) {
+                        endDate.setDate(endDate.getDate() + 1);
+                        var formattedNextDate = formatDate(endDate);
+                        dateRange += '|' + formattedNextDate;
+
+                        if (endDate.getDate() === 1 && endDate.getMonth() !== currentDate.getMonth()) {
+                            break;
+                        }
+                    }
+                    dateRange += ')';
+
+                    dt.columns(1).search(dateRange, true, false).draw();
+
+                    // Calculate and update total values
+                    let totalSaleAmount = 0;
+                    let totalSaleCount = 0;
+
+                    dt.rows({ search: 'applied' }).every(function () {
+                        var rowData = this.data();
+                        totalSaleAmount += parseFloat(rowData[7]); // Assuming Amount is the 8th column
+                        totalSaleCount++;
+                    });
+
+                    // Update total values
+                    $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
+                    $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
+                }
+            }
+
+            ,
+            {
+                text: 'Son 1 Ay',
+                className: 'btn btn-outline-primary',
+                action: function (e, dt, node, config) {
+                    var today = new Date();
+                    var formattedToday = formatDate(today);
+
+                    var endDate = new Date();
+                    endDate.setHours(23, 59, 59, 999); // Günün son saati ve dakikası
+                    endDate.setDate(today.getDate() - 30);
+                    var formattedEndDate = formatDate(endDate);
+
+                    var dateRange = '^(' + formattedToday;
+                    var currentDate = new Date(today);
+                    while (endDate <= currentDate) {
+                        endDate.setDate(endDate.getDate() + 1);
+                        var formattedNextDate = formatDate(endDate);
+                        dateRange += '|' + formattedNextDate;
+
+                        if (endDate.getDate() === 1 && endDate.getMonth() !== currentDate.getMonth()) {
+                            break;
+                        }
+                    }
+                    dateRange += ')';
+
+                    dt.columns(1).search(dateRange, true, false).draw();
+
+                    // Calculate and update total values
+                    let totalSaleAmount = 0;
+                    let totalSaleCount = 0;
+
+                    dt.rows({ search: 'applied' }).every(function () {
+                        var rowData = this.data();
+                        totalSaleAmount += parseFloat(rowData[7]); // Assuming Amount is the 8th column
+                        totalSaleCount++;
+                    });
+
+                    // Update total values
+                    $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
+                    $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
+                }
+            },
+            {
+                text: 'Tümünü Listele',
+                className: 'btn btn-outline-danger',
+                action: function (e, dt, node, config) {
+                    dt.columns(1).search('').draw();
+                }
+            },
+            {
                 text: 'Yenile',
                 className: 'btn btn-warning',
                 action: function (e, dt, node, config) {
@@ -37,13 +155,19 @@
                             dataTable.clear();
                             console.log(saleListWithNamesDto);
                             if (saleListWithNamesDto.Data.ResultStatus === 0) {
+                                let totalSaleAmount = 0;
+                                let totalSaleCount = 0;
                                 $.each(saleListWithNamesDto.Data.SaleListWithRelatedTables.$values,
                                     function (index, sale) {
-                                        const saleDate = new Date(sale.Date);
+                                        const saleDate = new Date(sale.CreatedDate);
+                                        const formattedDate = saleDate.toLocaleDateString();
+                                        totalSaleAmount += sale.Amount;
+                                        totalSaleCount++;
                                         const newTableRow = dataTable.row.add([
                                             sale.Id,
+                                            formattedDate,
                                             sale.EmployeeFirstName,
-                                            sale.SaleFirstName,
+                                            sale.CustomerFirstName,
                                             sale.SaleTypeName,
                                             sale.SaleStatusName,
                                             sale.ProductName,
@@ -61,6 +185,10 @@
                                         jqueryTableRow.attr('name', `${sale.Id}`);
                                     });
                                 dataTable.draw();
+                                // Update total values
+                                $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
+                                $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
+
                                 $('.spinner-border').hide();
                                 $('#salesTable').fadeIn(1400);
                             } else {
@@ -115,12 +243,42 @@
             }
         }
     });
+        function updateTotalValues() {
+        let totalSaleAmount = 0;
+        let totalSaleCount = 0;
 
+        dataTable.rows({ search: 'applied' }).every(function () {
+            var rowData = this.data();
+            totalSaleAmount += parseFloat(rowData[7]); // Assuming Amount is the 8th column
+            totalSaleCount++;
+        });
+
+        // Update total values
+        $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
+        $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
+    }
+
+     //"search.dt" olayını dinleyerek arama sonuçlarını güncelle
+    dataTable.on('search.dt', function () {
+        updateTotalValues();
+    });
+
+    // Toplam değerleri başlangıçta güncelle
+    //updateTotalValues();
+    function formatDate(date) {
+        var day = date.getDate().toString();
+        var month = String(date.getMonth() + 1).padStart(2, '0');
+        var year = date.getFullYear();
+        var formattedDay = (day.startsWith('0') ? day.substring(1) : day);
+        var formattedDate = formattedDay + '.' + month + '.' + year;
+
+        return formattedDate;
+    }
     /* DataTables end here */
 
     /* Ajax POST / Deleting a User starts from here */
 
-      $(document).on('click',
+    $(document).on('click',
         '.btn-delete',
         function (event) {
             event.preventDefault();
@@ -129,11 +287,11 @@
             const tableRow = $(`[name="${id}"]`);
             const inUpdate = $(this).attr('data-inUpdate');
 
-            const saleFirsName = tableRow.find('td:eq(1)').text(); // table datadan 2. indexdeki değeri aldık.
-            const saleLastName = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
+            const saleFirsName = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
+            const saleLastName = tableRow.find('td:eq(3)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${saleFirsName} Satış ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${saleFirsName} Personeline Ait Satış ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -167,7 +325,7 @@
 
                                 swal.fire({
                                     title: "Silme işlemi başarılı!",
-                                    text: "Ütün Stoğa Geri Mi Eklensin Tamamen Silinsin Mi?",
+                                    text: "Ürün Stoğa Geri Mi Eklensin Tamamen Silinsin Mi?",
                                     icon: "success",
                                     showCancelButton: true,
                                     confirmButtonColor: "#3085d6",
@@ -224,7 +382,7 @@
                                         });
                                     };
                                 });
-                                
+
 
 
 

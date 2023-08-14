@@ -34,9 +34,10 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [DisplayName("Hakkında")]
         public string? About { get; set; } = "";
         [DisplayName("Telefon Numarası")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(0, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        [Required(ErrorMessage = "{0} boş geçilmemelidir.")]
+        [MaxLength(11, ErrorMessage = "{0} {1} karakterden büyük olmamalıdır. (0 ile birlikte)")] // +905555555555 // 13 characters
+        [MinLength(11, ErrorMessage = "{0} {1} karakterden küçük olmamalıdır. (0 ile birlikte)")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         [DisplayName("Address")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]

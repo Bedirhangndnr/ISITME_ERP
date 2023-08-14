@@ -1,9 +1,15 @@
-﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Mvc.Consts
 @using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.SaleDtos.SaleListDto;
 @{
     Layout = "_Layout";
     ViewBag.Title = "Satışlar";
+    decimal totalSaleAmount = 0;
+    decimal totalSaleCount = 0;
+    var user = ViewBag.User;
+    var roles = ViewBag.Roles;
 }
 
 @await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
@@ -32,57 +38,76 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="salesTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Personel</th>
-                            <th>Hasta</th>
-                            <th>Satış Tipi</th>
-                            <th>Satış Durumu</th>
-                            <th>Ürün</th>
-                            <th>Satış Tutarı</th>
-                            @*<th>Açıklama</th>*@
-                            <th>İşlem</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tarih</th>
+                        <th>Personel</th>
+                        <th>Hasta</th>
+                        <th>Satış Tipi</th>
+                        <th>Satış Durumu</th>
+                        <th>Ürün</th>
+                        <th>Satış Tutarı</th>
+                        @*<th>Açıklama</th>*@
+                        <th>İşlem</th>
+                    </tr>
                     </thead>
                     <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Personel</th>
-                            <th>Hasta</th>
-                            <th>Satış Tipi</th>
-                            <th>Satış Durumu</th>
-                            <th>Ürün</th>
-                            <th>Satış Tutarı</th>
-                            @*<th>Açıklama</th>*@
-                            <th>İşlem</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tarih</th>
+                        <th>Personel</th>
+                        <th>Hasta</th>
+                        <th>Satış Tipi</th>
+                        <th>Satış Durumu</th>
+                        <th>Ürün</th>
+                        <th>Satış Tutarı</th>
+                        @*<th>Açıklama</th>*@
+                        <th>İşlem</th>
+                    </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var sale in Model.SaleListWithRelatedTables)
-                        {
-                            <tr name="@sale.Id">
-                                <td>@sale.Id</td>
-                                <td>@sale.EmployeeFirstName </td>
-                                <td>@sale.CustomerFirstName</td>
-                                <td>@sale.SaleTypeName</td>
-                                <td>@sale.SaleStatusName</td>
-                                <td>@sale.ProductName</td>
-                                <td>@sale.Amount</td>
-                                @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
-                                <td>
-                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                            {
-                            Id=sale.Id,
-                            InMainPage=0,
-                            TableType=ViewBag.tableType,
-                            Action="Update",
-                            Controller="Sale"
-                            })
-                                </td>
-                            </tr>
-                        }
+                    @foreach (var sale in Model.SaleListWithRelatedTables)
+                    {
+                        <tr name="@sale.Id">
+                            <td>@sale.Id</td>
+                            <td>@sale.CreatedDate.ToShortDateString()</td>
+
+                            <td>@sale.EmployeeFirstName </td>
+                            <td>@sale.CustomerFirstName</td>
+                            <td>@sale.SaleTypeName</td>
+                            <td>@sale.SaleStatusName</td>
+                            <td>@sale.ProductName</td>
+                            <td>@sale.Amount</td>
+                            @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
+                            <td>
+                                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                                       {
+                                           Id=sale.Id,
+                                           InMainPage=0,
+                                           TableType=ViewBag.tableType,
+                                           Action="Update",
+                                           Controller="Sale"
+                                       })
+                            </td>
+                        </tr>
+                        totalSaleCount++;
+                        totalSaleAmount += sale.Amount;
+                    }
                     </tbody>
                 </table>
+            @if (ViewBag.Roles != null && ViewBag.Roles.Contains(AuthorizeDefinitionConstants.SuperAdmin))
+            {
+                <div class=" total-section col-md-10" style="position: fixed; bottom: 0; left: 0; right: 0;">
+                    <div class="total-box green" style="display: inline-block;">
+                        <div class="total-label">Toplam Satış Tutarı</div>
+                        <div class="total-amount" id="totalIncome">@totalSaleAmount TL</div>
+                    </div>
+                    <div class="total-box red" style="display: inline-block;">
+                        <div class="total-label">Toplam Satış Sayısı</div>
+                        <div class="total-amount" id="totalsale">@totalSaleCount TL</div>
+                    </div>
+                </div>
+            }
             </div>
         </div>
     </div>
@@ -97,6 +122,20 @@
 @section Scripts
     {
     <script src="~/AdminArea/js/saleIndex.js" type="application/ecmascript"></script>
+    @*<script>
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>*@
     <script>
         $(document).ready(function () {
             $('#btnAdd').click(function () {

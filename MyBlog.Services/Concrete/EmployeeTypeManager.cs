@@ -36,7 +36,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<EmployeeTypeDto>(ResultStatus.Error, new EmployeeTypeDto
             {
                 EmployeeType = null,
-            }, Messages.General.NotFound(isPlural: false, "Çalışan"));
+            }, Messages.General.NotFound(isPlural: false, "Personel"));
         }
         public async Task<IDataResult<EmployeeTypeListDto>> GetAllByNonDeletedAndActiveAsync()
         {
@@ -49,7 +49,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<EmployeeTypeListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<EmployeeTypeListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
 
         }
         public async Task<IDataResult<EmployeeTypeUpdateDto>> GetEmployeeTypeUpdateDtoAsync(int EmployeeTypeId)
@@ -63,7 +63,7 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<EmployeeTypeUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Çalışan Tipi"));
+                return new DataResult<EmployeeTypeUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Personel Tipi"));
             }
         }
 
@@ -80,7 +80,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<EmployeeTypeListDto>(ResultStatus.Error, new EmployeeTypeListDto
             {
                 EmployeeTypes = null,
-            }, Messages.General.NotFound(isPlural: true, "Çalışan"));
+            }, Messages.General.NotFound(isPlural: true, "Personel"));
         }
         public async Task<IDataResult<EmployeeTypeDto>> AddAsync(EmployeeTypeAddDto EmployeeTypeAddDto, string createdByName)
         {
@@ -92,8 +92,8 @@ namespace MyBlog.Services.Concrete
             return new DataResult<EmployeeTypeDto>(ResultStatus.Success, new EmployeeTypeDto
             {
                 EmployeeType = addedEmployeeType,
-                Message= Messages.General.GiveMessage(addedEmployeeType.CreatedByName, "Çalışan Tipi", "Eklendi")
-            }, Messages.General.GiveMessage(addedEmployeeType.CreatedByName, "Çalışan Tipi", "Eklendi"));
+                Message= Messages.General.GiveMessage(addedEmployeeType.CreatedByName, "Personel Tipi", "Eklendi")
+            }, Messages.General.GiveMessage(addedEmployeeType.CreatedByName, "Personel Tipi", "Eklendi"));
         }
 
         public async Task<IDataResult<EmployeeTypeDto>> UpdateAsync(EmployeeTypeUpdateDto EmployeeTypeUpdateDto, string modifiedByName)
@@ -106,10 +106,10 @@ namespace MyBlog.Services.Concrete
             await UnitOfWork.SaveAsync();
             return new DataResult<EmployeeTypeDto>(ResultStatus.Success, new EmployeeTypeDto
             {
-                Message= Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", "Güncellendi."),
+                Message= Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", "Güncellendi."),
                 EmployeeType = updatedEmployeeType,
                 ResultStatus = ResultStatus.Success,
-            }, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", "Güncellendi."));
+            }, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", "Güncellendi."));
         }
         public async Task<IDataResult<EmployeeTypeDto>> DeleteAsync(int EmployeeTypeId, string modifiedByName)
         {
@@ -124,15 +124,15 @@ namespace MyBlog.Services.Concrete
                 await UnitOfWork.SaveAsync();
                 return new DataResult<EmployeeTypeDto>(ResultStatus.Success, new EmployeeTypeDto
                 {
-                    Message = Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", "Güncellendi."),
+                    Message = Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", "Güncellendi."),
                     EmployeeType = deletedEmployeeType,
                     ResultStatus = ResultStatus.Success,
-                }, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", "Güncellendi."));
+                }, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", "Güncellendi."));
             }
             return new DataResult<EmployeeTypeDto>(ResultStatus.Error, new EmployeeTypeDto
             {
                 EmployeeType = null,
-            }, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", "Güncellendi."));
+            }, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", "Güncellendi."));
         }
         public async Task<IDataResult<EmployeeTypeListDto>> GetAllByDeletedAsync()
         {
@@ -147,7 +147,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<EmployeeTypeListDto>(ResultStatus.Error, new EmployeeTypeListDto
             {
                 EmployeeTypes = null,
-            }, Messages.General.TableNotFound("Çalışan Tipi"));
+            }, Messages.General.TableNotFound("Personel Tipi"));
         }
 
 
@@ -158,9 +158,9 @@ namespace MyBlog.Services.Concrete
             {
                 await UnitOfWork.EmployeeTypes.DeleteAsync(employeeType);
                 await UnitOfWork.SaveAsync();
-                return new Result(ResultStatus.Success, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", MessagesConstants.HardDeletedSuccess));
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", MessagesConstants.HardDeletedSuccess));
             }
-            return new Result(ResultStatus.Error, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", MessagesConstants.HardDeletedSuccess));
+            return new Result(ResultStatus.Error, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", MessagesConstants.HardDeletedSuccess));
         }
 
         public async Task<IDataResult<int>> CountAsync()
@@ -202,12 +202,12 @@ namespace MyBlog.Services.Concrete
                 return new DataResult<EmployeeTypeDto>(ResultStatus.Success, new EmployeeTypeDto
                 {
                     EmployeeType = deletedEmployeeType,
-                }, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", MessagesConstants.UndoDeletedSuccess));
+                }, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", MessagesConstants.UndoDeletedSuccess));
             }
             return new DataResult<EmployeeTypeDto>(ResultStatus.Error, new EmployeeTypeDto
             {
                 EmployeeType = null,
-            }, Messages.General.GiveMessage(employeeType.Title, "Çalışan Tipi", MessagesConstants.UndoDeletedError));
+            }, Messages.General.GiveMessage(employeeType.Title, "Personel Tipi", MessagesConstants.UndoDeletedError));
         }
 
 

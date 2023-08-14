@@ -98,7 +98,7 @@ namespace MyBlog.Mvc
 
             });
 
-            //services.AddHostedService<DailyNotifications>();
+            //services.AddHostedService<BackGroundWorkerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -161,4 +161,6 @@ namespace MyBlog.Mvc
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute()); // varsayılan olarak homecontroller ve index sayfalarına gidecek
         }
     }
+
+
 }

@@ -75,13 +75,26 @@
 
     $.get("/Admin/Expense/GetChartIncomeAndOutcomeData", function (data) {
         var incomeData_ = data.IncomeData;
+        var incomeDate_ = data.IncomeDate;
         var outcomeData_ = data.OutcomeData;
-        console.log(incomeData_);
-        console.log(outcomeData_);
+        var outcomeDate_ = data.OutcomeDate;
+        var outcomeAmounts = new Array(30).fill(0); // 30 günlük gider dizisi, başlangıçta 0
+
         var currentDate = new Date(); // Get the current date
         var labels = []; // Etiketleri depolamak için bir dizi oluştur
+        var incomeAmounts = new Array(30).fill(0); // 30 günlük gelir dizisi, başlangıçta 0
+
+        function formatDate(dateString) {
+            var date = new Date(dateString);
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            return `${day < 10 ? '0' : ''}${day}.${month < 10 ? '0' : ''}${month}.${year}`;
+        }
 
         // Son 30 gün için etiketleri oluştur
+        var k = 0;
         for (var i = 29; i >= 0; i--) {
             var date = new Date(currentDate.getTime() - i * 24 * 60 * 60 * 1000); // Geçerli tarihten i günü çıkar
             var monthIndex = date.getMonth(); // Ayın indeksini al
@@ -92,7 +105,32 @@
 
             var label = month + " " + day; // Etiketi "AA GG" şeklinde biçimlendir
             labels.push(label);
+
+            var formattedDate = formatDate(date); // Tarihi uygun formata çevir
+
+            for (var j = 0; j < incomeDate_.length; j++) {
+                var incomeDate = new Date(incomeDate_[j]); // Gelir tarihini al
+                var formattedIncomeDate = formatDate(incomeDate);
+
+                if (formattedDate === formattedIncomeDate) {
+                    incomeAmounts[k] = incomeData_[j];
+                    break; // Eşleşme bulunduğunda döngüyü sonlandır
+                }
+            }
+            for (var j = 0; j < outcomeDate_.length; j++) {
+                var outcomeDate = new Date(outcomeDate_[j]); // Gelir tarihini al
+                var formattedOutcomeDate = formatDate(outcomeDate);
+
+                if (formattedDate === formattedOutcomeDate) {
+                    outcomeAmounts[k] = outcomeData_[j];
+                    break; // Eşleşme bulunduğunda döngüyü sonlandır
+                }
+            }
+            k++;
         }
+
+// Daha sonrasında buradaki 'incomeAmounts' dizisini kullanarak grafiği oluşturabilirsiniz
+
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -110,7 +148,7 @@
                         pointHoverBackgroundColor: "rgba(2,117,216,1)",
                         pointHitRadius: 50,
                         pointBorderWidth: 2,
-                        data: incomeData_,
+                        data: incomeAmounts,
                     },
                     {
                         label: "Gider",
@@ -124,7 +162,7 @@
                         pointHoverBackgroundColor: "rgba(255,0,0,1)",
                         pointHitRadius: 50,
                         pointBorderWidth: 2,
-                        data: outcomeData_,
+                        data: outcomeAmounts,
                     }
                 ],
             },

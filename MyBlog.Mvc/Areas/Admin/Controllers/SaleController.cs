@@ -64,14 +64,19 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Index(string tableType)
         {
             ViewBag.tableType = tableType;
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
+            bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                var result = await _saleService.GetAllByNonDeletedAndActiveAsync();
+                var result = await _saleService.GetAllByNonDeletedAndActiveAsync(isSuperAdmin);
                 if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
-                var result = await _saleService.GetAllByDeletedAsync();
+                var result = await _saleService.GetAllByDeletedAsync(isSuperAdmin);
                 if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             }
             _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
@@ -84,9 +89,15 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpGet]
         public async Task<JsonResult> GetAllSales(string tableType)
         {
+            ViewBag.tableType = tableType;
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
+            bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                var sales = await _saleService.GetAllByNonDeletedAndActiveAsync();
+                var sales = await _saleService.GetAllByNonDeletedAndActiveAsync(isSuperAdmin);
                 var saleResult = JsonSerializer.Serialize(sales, new JsonSerializerOptions
                 {
                     ReferenceHandler = ReferenceHandler.Preserve
@@ -96,7 +107,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
-                var result = await _saleService.GetAllByDeletedAsync();
+                var result = await _saleService.GetAllByDeletedAsync(isSuperAdmin);
                 var sales = JsonSerializer.Serialize(result, new JsonSerializerOptions
                 {
                     ReferenceHandler = ReferenceHandler.Preserve
@@ -413,7 +424,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> DeletedSales()
         {
-            var result = await _saleService.GetAllByDeletedAsync();
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
+            bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
+            var result = await _saleService.GetAllByDeletedAsync(isSuperAdmin);
             return View(result.Data);
 
         }
@@ -422,7 +438,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedSales()
         {
-            var result = await _saleService.GetAllByDeletedAsync();
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
+            bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
+            var result = await _saleService.GetAllByDeletedAsync(isSuperAdmin);
             var sales = JsonSerializer.Serialize(result, new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.Preserve

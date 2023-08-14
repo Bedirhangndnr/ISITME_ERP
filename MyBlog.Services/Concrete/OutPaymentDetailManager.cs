@@ -145,7 +145,7 @@ namespace MyBlog.Services.Concrete
                 {
                     Message= Messages.General.GiveMessage(outPaymentDetail.AmountPaid.ToString(), "Satış Tipi", MessagesConstants.DeletedSuccess),
                     OutPaymentDetail = deletedEmployeeType
-                    
+
                 }, Messages.General.GiveMessage(outPaymentDetail.AmountPaid.ToString(), "Satış Tipi", MessagesConstants.DeletedSuccess));
             }
             return new DataResult<OutPaymentDetailDto>(ResultStatus.Error, new OutPaymentDetailDto
@@ -228,5 +228,64 @@ namespace MyBlog.Services.Concrete
                 return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
+
+ 
+
+        public async Task<IResult> DeleteByOutPaymentIdAsync(int outPaymentId, string modifiedByName)
+        {
+            var outPaymentDetails = await UnitOfWork.OutPaymentDetails.GetAllAsync(c => c.OutPaymentId == outPaymentId);
+
+            foreach (var outPaymentDetail in outPaymentDetails)
+            {
+                outPaymentDetail.IsDeleted = true;
+                outPaymentDetail.IsActive = false;
+                outPaymentDetail.ModifiedDate = DateTime.Now; // İhtiyaca göre değiştirilebilir
+                // Diğer gerekli değişiklikleri yapabilirsiniz
+
+                await UnitOfWork.OutPaymentDetails.UpdateAsync(outPaymentDetail);
+            }
+
+            await UnitOfWork.SaveAsync();
+
+            return new Result(ResultStatus.Success, "Dış Ödeme Detay verileri başarıyla güncellendi/silindi.");
+        }
+        public async Task<IResult> HardDeleteByOutPaymentIdAsync(int outPaymentId)
+        {
+            var outPaymentDetails = await UnitOfWork.OutPaymentDetails.GetAllAsync(c => c.OutPaymentId == outPaymentId);
+
+            foreach (var outPaymentDetail in outPaymentDetails)
+            {
+                await UnitOfWork.OutPaymentDetails.DeleteAsync(outPaymentDetail);
+            }
+
+            await UnitOfWork.SaveAsync();
+
+            return new Result(ResultStatus.Success, "Dış Ödeme Detay verileri başarıyla sildi.");
+        }
+
+        public async Task<IDataResult<OutPaymentDetailDto>> UndoDeleteByOutPaymentIdAsync(int outPaymentId, string modifiedByName)
+        {
+            var outPaymentDetails = await UnitOfWork.OutPaymentDetails.GetAllAsync(c => c.OutPaymentId == outPaymentId);
+
+            foreach (var outPaymentDetail in outPaymentDetails)
+            {
+                outPaymentDetail.IsDeleted = false;
+                outPaymentDetail.IsActive = true;
+                outPaymentDetail.ModifiedByName = modifiedByName;
+                outPaymentDetail.ModifiedDate = DateTime.Now;
+
+                await UnitOfWork.OutPaymentDetails.UpdateAsync(outPaymentDetail);
+            }
+
+            await UnitOfWork.SaveAsync();
+
+            return new DataResult<OutPaymentDetailDto>(ResultStatus.Success, new OutPaymentDetailDto
+            {
+                Message = "Dış Ödeme Detay verileri başarıyla geri alındı.",
+                // Gerekirse diğer değerleri de ekleyebilirsiniz
+            });
+        }
+
+
     }
 }

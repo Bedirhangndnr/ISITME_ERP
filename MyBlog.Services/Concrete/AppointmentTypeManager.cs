@@ -157,7 +157,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentTypeListDto>(ResultStatus.Error, new AppointmentTypeListDto
             {
                 AppointmentTypes = null,
-            }, Messages.General.TableNotFound("Çalışan Tipi"));
+            }, Messages.General.TableNotFound("Personel Tipi"));
         }
         public async Task<IResult> HardDeleteAsync(int AppointmentTypeId)
         {

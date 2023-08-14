@@ -14,7 +14,7 @@
             const ProductLastName = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${ProductFirsName} Adlı Çalışam ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${ProductFirsName} Adlı Ürün ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

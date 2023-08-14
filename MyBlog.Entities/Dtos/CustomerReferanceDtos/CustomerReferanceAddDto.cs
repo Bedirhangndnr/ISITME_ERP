@@ -24,8 +24,10 @@ namespace MyBlog.Entities.Dtos.CustomerReferanceDtos
         [MinLength(2, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string LastName { get; set; }
         [DisplayName("Telefon Numarası")]
-        [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(0, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        [Required(ErrorMessage = "{0} boş geçilmemelidir.")]
+        [MaxLength(11, ErrorMessage = "{0} {1} karakterden büyük olmamalıdır. (0 ile birlikte)")] // +905555555555 // 13 characters
+        [MinLength(11, ErrorMessage = "{0} {1} karakterden küçük olmamalıdır. (0 ile birlikte)")]
+        [DataType(DataType.PhoneNumber)]
         public string? Phone { get; set; }
         [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
@@ -35,8 +37,7 @@ namespace MyBlog.Entities.Dtos.CustomerReferanceDtos
 
         [DisplayName("Aktif Mi?")]
         public bool IsActive { get; set; }=true;
-        [Required(ErrorMessage = "Ref. Unvan")]
-        public int CustomerReferanceTitleId { get; set; }
-        public IList<CustomerReferanceTitle> CustomerReferanceTitles { get; set; }
+        public int? CustomerReferanceTitleId { get; set; }
+        public IList<CustomerReferanceTitle>? CustomerReferanceTitles { get; set; }
     }
 }

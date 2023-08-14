@@ -3426,7 +3426,7 @@ namespace MyBlog.Data.Migrations
                             Id = 18,
                             AccessLevel = 3,
                             ConcurrencyStamp = "b14647bd-372d-4baf-a972-dac13e7e2683",
-                            Definition = "Çalışan Ekleme Yetkisi",
+                            Definition = "Personel Ekleme Yetkisi",
                             Name = "Employee.Create",
                             NormalizedName = "EMPLOYEE.CREATE"
                         },
@@ -3435,7 +3435,7 @@ namespace MyBlog.Data.Migrations
                             Id = 19,
                             AccessLevel = 3,
                             ConcurrencyStamp = "405fb974-1b52-4584-b74e-fd093591fb4d",
-                            Definition = "Çalışan Görüntüleme Yetkisi",
+                            Definition = "Personel Görüntüleme Yetkisi",
                             Name = "Employee.Read",
                             NormalizedName = "EMPLOYEE.READ"
                         },
@@ -3444,7 +3444,7 @@ namespace MyBlog.Data.Migrations
                             Id = 20,
                             AccessLevel = 3,
                             ConcurrencyStamp = "b9c2d210-e5f4-4b47-819d-9626a70bb75a",
-                            Definition = "Çalışan Güncelleme Yetkisi",
+                            Definition = "Personel Güncelleme Yetkisi",
                             Name = "Employee.Update",
                             NormalizedName = "EMPLOYEE.UPDATE"
                         },
@@ -3453,7 +3453,7 @@ namespace MyBlog.Data.Migrations
                             Id = 21,
                             AccessLevel = 3,
                             ConcurrencyStamp = "2875677d-b5b5-41d8-8e66-57520f8cc8d6",
-                            Definition = "Çalışan Silme Yetkisi",
+                            Definition = "Personel Silme Yetkisi",
                             Name = "Employee.Delete",
                             NormalizedName = "EMPLOYEE.DELETE"
                         },
@@ -3462,7 +3462,7 @@ namespace MyBlog.Data.Migrations
                             Id = 22,
                             AccessLevel = 3,
                             ConcurrencyStamp = "ba6e2fe1-cdaa-4aa4-865f-c65256e70600",
-                            Definition = "Çalışan Türü Ekleme Yetkisi",
+                            Definition = "Personel Türü Ekleme Yetkisi",
                             Name = "EmployeeType.Create",
                             NormalizedName = "EMPLOYEETYPE.CREATE"
                         },
@@ -3471,7 +3471,7 @@ namespace MyBlog.Data.Migrations
                             Id = 23,
                             AccessLevel = 3,
                             ConcurrencyStamp = "d9532262-6487-43f8-90d9-8289eeb608e7",
-                            Definition = "Çalışan Türü Görüntüleme Yetkisi",
+                            Definition = "Personel Türü Görüntüleme Yetkisi",
                             Name = "EmployeeType.Read",
                             NormalizedName = "EMPLOYEETYPE.READ"
                         },
@@ -3480,7 +3480,7 @@ namespace MyBlog.Data.Migrations
                             Id = 24,
                             AccessLevel = 3,
                             ConcurrencyStamp = "a58fb023-b8af-4f60-be41-ca087a2ef7fa",
-                            Definition = "Çalışan Türü Güncelleme Yetkisi",
+                            Definition = "Personel Türü Güncelleme Yetkisi",
                             Name = "EmployeeType.Update",
                             NormalizedName = "EMPLOYEETYPE.UPDATE"
                         },
@@ -3489,7 +3489,7 @@ namespace MyBlog.Data.Migrations
                             Id = 25,
                             AccessLevel = 3,
                             ConcurrencyStamp = "80d72fdb-b00d-45e6-acf2-e670721b9f87",
-                            Definition = "Çalışan Türü Silme Yetkisi",
+                            Definition = "Personel Türü Silme Yetkisi",
                             Name = "EmployeeType.Delete",
                             NormalizedName = "EMPLOYEETYPE.DELETE"
                         },

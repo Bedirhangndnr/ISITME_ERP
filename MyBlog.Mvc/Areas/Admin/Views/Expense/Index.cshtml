@@ -4,13 +4,19 @@
 @{
     Layout = "_Layout";
     ViewBag.Title = "Hasta Referansları";
+        decimal totalIncome = 0;
+        decimal totalExpense = 0;
+        decimal dailyTotalIncome = 0;
+        decimal dailyTotalExpense = 0;
+        decimal overallTotalIncome = 0;
+        decimal overallTotalExpense = 0;
 }
 
 @await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
        {
            Depth = 2,
-           Controller = "Brand",
-           ControllerTr = "Markalar",
+           Controller = "Expense",
+           ControllerTr = "Gelirler | Giderler",
            Action = "Yok",
            ActionTR = "Yok",
            TableType = ViewBag.TableType
@@ -74,7 +80,7 @@
     <div class="card mb-4 mt-2">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
-            Markalar
+            Gelir | Gider
         </div>
         <div class="card-body">
             <div class="spinner-border" role="status" style="display: none;">
@@ -119,12 +125,30 @@
                                 <td>@(expense.IsDaily ? "Günlük" : "Genel")</td>
                                 <td class="dt-button-col">
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                            {
-                            Id = expense.Id,
-                            TableType = ViewBag.tableType,
-                            })
+                                           {
+                                               Id = expense.Id,
+                                               TableType = ViewBag.tableType,
+                                           })
                                 </td>
                             </tr>
+                         @*   if (expense.IsIncome)
+                            {
+                                totalIncome += expense.Amount;
+                                if (expense.IsDaily)
+                                {
+                                    dailyTotalIncome += expense.Amount;
+                                }
+                                overallTotalIncome += expense.Amount;
+                            }
+                            else
+                            {
+                                totalExpense += expense.Amount;
+                                if (expense.IsDaily)
+                                {
+                                    dailyTotalExpense += expense.Amount;
+                                }
+                                overallTotalExpense += expense.Amount;
+                            }*@
                         }
 
                     </tbody>
@@ -133,29 +157,30 @@
                 <div class="total-section col-md-10" style="position: fixed; bottom: 0; left: 0; right: 0;">
                     <div class="total-box green" style="display: inline-block;">
                         <div class="total-label">Toplam Gelir</div>
-                        <div class="total-amount" id="totalIncome"></div>
+                        <div class="total-amount" id="totalIncome">@totalIncome</div>
                     </div>
                     <div class="total-box red" style="display: inline-block;">
                         <div class="total-label">Toplam Gider</div>
-                        <div class="total-amount" id="totalExpense"></div>
+                        <div class="total-amount" id="totalExpense">@totalExpense</div>
                     </div>
                     <div class="total-box green" style="display: inline-block;">
                         <div class="total-label">Günlük Gelir</div>
-                        <div class="total-amount" id="dailyTotalIncome"></div>
+                        <div class="total-amount" id="dailyTotalIncome">@dailyTotalIncome</div>
                     </div>
                     <div class="total-box red" style="display: inline-block;">
                         <div class="total-label">Günlük Gider</div>
-                        <div class="total-amount" id="dailyTotalExpense"></div>
+                        <div class="total-amount" id="dailyTotalExpense">@dailyTotalExpense</div>
                     </div>
                     <div class="total-box green" style="display: inline-block;">
                         <div class="total-label">Genel Gelir</div>
-                        <div class="total-amount" id="overallTotalIncome"></div>
+                        <div class="total-amount" id="overallTotalIncome">@overallTotalIncome</div>
                     </div>
                     <div class="total-box red" style="display: inline-block;">
                         <div class="total-label">Genel Gider</div>
-                        <div class="total-amount" id="overallTotalExpense"></div>
+                        <div class="total-amount" id="overallTotalExpense">@overallTotalExpense</div>
                     </div>
                 </div>
+
 
             </div>
         </div>

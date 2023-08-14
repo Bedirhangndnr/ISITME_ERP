@@ -212,7 +212,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeCreate,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeCreate.ToUpperInvariant(),
-                 Definition = "Çalışan Ekleme Yetkisi",
+                 Definition = "Personel Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -221,7 +221,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeRead,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeRead.ToUpperInvariant(),
-                 Definition = "Çalışan Görüntüleme Yetkisi",
+                 Definition = "Personel Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -230,7 +230,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeUpdate,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeUpdate.ToUpperInvariant(),
-                 Definition = "Çalışan Güncelleme Yetkisi",
+                 Definition = "Personel Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -239,7 +239,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeDelete,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeDelete.ToUpperInvariant(),
-                 Definition = "Çalışan Silme Yetkisi",
+                 Definition = "Personel Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -252,7 +252,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeCreate,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeCreate.ToUpperInvariant(),
-                 Definition = "Çalışan Türü Ekleme Yetkisi",
+                 Definition = "Personel Türü Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -261,7 +261,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeRead,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeRead.ToUpperInvariant(),
-                 Definition = "Çalışan Türü Görüntüleme Yetkisi",
+                 Definition = "Personel Türü Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -270,7 +270,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeUpdate,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeUpdate.ToUpperInvariant(),
-                 Definition = "Çalışan Türü Güncelleme Yetkisi",
+                 Definition = "Personel Türü Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -279,7 +279,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.EmployeeTypeDelete,
                  NormalizedName = AuthorizeDefinitionConstants.EmployeeTypeDelete.ToUpperInvariant(),
-                 Definition = "Çalışan Türü Silme Yetkisi",
+                 Definition = "Personel Türü Silme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },

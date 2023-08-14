@@ -13,7 +13,7 @@ namespace MyBlog.Entities.Dtos.EmployeeDtos
     public class EmployeeAddDto : DtoGetBase
     {
         public string Picture { get; set; }
-        [DisplayName("Çalışan Kategorisi")]
+        [DisplayName("Personel Kategorisi")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int EmployeeTypeId { get; set; }
         public EmployeeType EmployeeType { get; set; }

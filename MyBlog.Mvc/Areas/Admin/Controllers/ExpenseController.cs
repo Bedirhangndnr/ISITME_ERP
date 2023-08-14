@@ -103,7 +103,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 // Dönecek veri nesnesini oluşturun
                 var data = new
                 {
+                    IncomeDate = incomeData.Select(item => item.Date),
                     IncomeData = incomeData.Select(item => item.Amount),
+                    OutcomeDate = outcomeData.Select(item => item.Date),
                     OutcomeData = outcomeData.Select(item => item.Amount),
                     TotalIncome = totalIncome,
                     TotalOutcome = totalOutcome

@@ -101,9 +101,9 @@ namespace MyBlog.Services.Concrete
             //Console.WriteLine($"entity State: {enrty}");
             return new DataResult<ProductSubGroupDto>(ResultStatus.Success, new ProductSubGroupDto
             {
-                Message=Messages.General.GiveMessage(addedProductSubGroup.CreatedByName, "Ürün Alt Grubu", MessagesConstants.AddSuccess),
+                Message=Messages.General.GiveMessage(addedProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.AddSuccess),
                 ProductSubGroup = addedProductSubGroup,
-            }, Messages.General.GiveMessage(addedProductSubGroup.CreatedByName, "Ürün Alt Grubu", MessagesConstants.AddSuccess));
+            }, Messages.General.GiveMessage(addedProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<ProductSubGroupDto>> UpdateAsync(ProductSubGroupUpdateDto ProductSubGroupUpdateDto, string modifiedByName)

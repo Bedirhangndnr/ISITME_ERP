@@ -58,7 +58,7 @@ namespace MyBlog.Services.Concrete
         }
         public async Task<IDataResult<CustomerListDto>> GetAllForRemainds()
         {
-            // çalışanlar arasında kayıt tarihinin ardından 1., 6. 12. aylarının dolmasına ve doğum günlerinin gelmesine 3 gün kalmış kullanıcıları listeleyecek.   
+            // Personellar arasında kayıt tarihinin ardından 1., 6. 12. aylarının dolmasına ve doğum günlerinin gelmesine 3 gün kalmış kullanıcıları listeleyecek.   
             var today = DateTime.Today;
             var customers = await UnitOfWork.Customers.GetAllForRemaindAsync();
             if (customers.Count > -1)

@@ -60,7 +60,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _productSubGroupService.GetAllByDeletedAsync();
                 if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             }
-            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            _toastNotification.AddErrorToastMessage("Bir Hata ile Karşılaşıldı", new ToastrOptions
             {
                 Title = "Başarısız İşlem!"
             });

@@ -57,7 +57,7 @@ namespace MyBlog.Services.Concrete
         }
         //public async Task<IDataResult<ModuleListDto>> GetAllForRemainds()
         //{
-        //    // çalışanlar arasında kayıt tarihinin ardından 1., 6. 12. aylarının dolmasına ve doğum günlerinin gelmesine 3 gün kalmış kullanıcıları listeleyecek.   
+        //    // Personellar arasında kayıt tarihinin ardından 1., 6. 12. aylarının dolmasına ve doğum günlerinin gelmesine 3 gün kalmış kullanıcıları listeleyecek.   
         //    var today = DateTime.Today;
         //    var programs = await UnitOfWork.Modules.GetAllForRemaindAsync();
         //    if (programs.Count > -1)

@@ -20,7 +20,7 @@ using MyBlog.Mvc.Consts;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+
 
     public class OutPaymentController : BaseController
     {
@@ -119,7 +119,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentCreate }")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(OutPaymentAddViewModel outPaymentAddViewModel, string tableType)
         {
@@ -150,21 +150,21 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 }
             }
             return View(outPaymentAddViewModel);
-            }
+        }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int id, string tableType)
-        {   
+        {
 
             // Kodun u kısmında nalayamadığım bir sorun var. developer toolsu açında buraya tekrar giriyor sonra bakacağım.
-            if( id != 0 && tableType != null)
+            if (id != 0 && tableType != null)
             {
                 ViewBag.TableType = tableType;
 
                 var outPaymentUpdateDto = await _outPaymentService.GetOutPaymentUpdateDtoAsync(id);
                 var outPaymentDetailList = await _outPaymentDetailService.GetAllByNonDeletedAndActiveAsync(id);
-                outPaymentUpdateDto.Data.TotalAmount =Convert.ToDecimal(outPaymentDetailList.Data.OutPaymentDetails.Sum(d => d.AmountPaid).ToString("0.##"));
-                outPaymentUpdateDto.Data.DebtAmount= Convert.ToDecimal(outPaymentUpdateDto.Data.DebtAmount.ToString("0.##"));
+                outPaymentUpdateDto.Data.TotalAmount = Convert.ToDecimal(outPaymentDetailList.Data.OutPaymentDetails.Sum(d => d.AmountPaid).ToString("0.##"));
+                outPaymentUpdateDto.Data.DebtAmount = Convert.ToDecimal(outPaymentUpdateDto.Data.DebtAmount.ToString("0.##"));
                 if (outPaymentUpdateDto.ResultStatus != ResultStatus.Success)
                 {
                     return NotFound();
@@ -195,11 +195,11 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-   NotificationMessageTypes.Updated,
-   TableNamesConstants.OutPayments,
-   LoggedInUser.UserName),
-   NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
-   );
+                       NotificationMessageTypes.Updated,
+                       TableNamesConstants.OutPayments,
+                       LoggedInUser.UserName),
+                       NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+                       );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -282,23 +282,29 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             {
                 var result = await _outPaymentService.DeleteAsync(outPaymentId, LoggedInUser.UserName);
                 var outPaymentResult = JsonSerializer.Serialize(result.Data);
+                // update detail
+                var outPaymentDetail = _outPaymentDetailService
+                    .DeleteByOutPaymentIdAsync(outPaymentId, LoggedInUser.UserName);
                 await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-NotificationMessageTypes.Deleted,
-TableNamesConstants.OutPayments,
-LoggedInUser.UserName),
-NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
-); return Json(outPaymentResult);
+                    NotificationMessageTypes.Deleted,
+                    TableNamesConstants.OutPayments,
+                    LoggedInUser.UserName),
+                    NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+                    ); return Json(outPaymentResult);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
             {
                 var result = await _outPaymentService.HardDeleteAsync(outPaymentId);
                 var hardDeletedOutPaymentResult = JsonSerializer.Serialize(result);
+                // update detail
+                var outPaymentDetail = _outPaymentDetailService
+                    .HardDeleteByOutPaymentIdAsync(outPaymentId);
                 await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-NotificationMessageTypes.HardDeleted,
-TableNamesConstants.OutPayments,
-LoggedInUser.UserName),
-NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
-); return Json(hardDeletedOutPaymentResult);
+                    NotificationMessageTypes.HardDeleted,
+                    TableNamesConstants.OutPayments,
+                    LoggedInUser.UserName),
+                    NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userId: LoggedInUser.Id
+                    ); return Json(hardDeletedOutPaymentResult);
             }
             else
             {
@@ -342,6 +348,9 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
         {
             var result = await _outPaymentService.UndoDeleteAsync(outPaymentId, LoggedInUser.UserName);
             var undoDeleteOutPaymentResult = JsonSerializer.Serialize(result.Data);
+            // update detail
+            var outPaymentDetail = _outPaymentDetailService
+                .UndoDeleteByOutPaymentIdAsync(outPaymentId, LoggedInUser.UserName);
             await _notificationService.AddAsync(NotificationMessageService.GetMessage(
 NotificationMessageTypes.UndoDeleted,
 TableNamesConstants.OutPayments,

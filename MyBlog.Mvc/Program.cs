@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MyBlog.BackgroundServices;
 using MyBlog.Mvc;
 
 namespace ProgrammersBlog.Mvc
@@ -26,5 +27,9 @@ namespace ProgrammersBlog.Mvc
                 {
                     logging.ClearProviders();
                 });
+                //.ConfigureServices((hostContext, services) =>
+                //{
+                //    services.AddHostedService<BackGroundWorkerService>(); // Arka plan servisi ekleyin
+                //});
     }
 }

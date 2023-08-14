@@ -159,7 +159,7 @@
             const employeeTypeTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${employeeTypeTitle} Başlıklı Çalışan Tipi ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${employeeTypeTitle} Başlıklı Personel Tipi ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

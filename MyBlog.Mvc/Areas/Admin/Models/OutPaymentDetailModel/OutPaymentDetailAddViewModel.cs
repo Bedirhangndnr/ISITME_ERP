@@ -19,7 +19,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         public int OutPaymentId { get; set; }
         public IList<OutPayment> OutPayments { get; set; }
 
-        [Required(ErrorMessage = "Çalışan kimlik numarası gereklidir.")]
+        [Required(ErrorMessage = "Personel kimlik numarası gereklidir.")]
         public int EmployeeId { get; set; }
         public IList<Employee> Employees { get; set; }
 

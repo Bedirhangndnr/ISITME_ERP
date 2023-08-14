@@ -30,7 +30,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? CustomerID { get; set; }
         public IList<Customer>? Customers { get; set; }
-        [Display(Name = "Çalışanlar")]
+        [Display(Name = "Personellar")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int EmployeeId { get; set; }
         public IList<Employee> Employees { get; set; }    

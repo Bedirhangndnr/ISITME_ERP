@@ -37,7 +37,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleDto>(ResultStatus.Error, new SaleDto
             {
                 Sale = null,
-            }, Messages.General.NotFound(isPlural: false, "Çalışan"));
+            }, Messages.General.NotFound(isPlural: false, "Personel"));
         }
         public async Task<IDataResult<SaleUpdateDto>> GetSaleUpdateDtoAsync(int SaleId)
         {
@@ -50,22 +50,36 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<SaleUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Çalışan"));
+                return new DataResult<SaleUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Personel"));
             }
         }
 
-        public async Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveAsync()
+        public async Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveAsync(bool isSuperAdmin)
         {
-            var Sales = await UnitOfWork.Sales.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
-            if (Sales.Count > -1)
+            IList<SaleListWithRelatedTables> saleListWithRelatedTables;
+            if (isSuperAdmin)
+            {
+                saleListWithRelatedTables = await UnitOfWork.Sales.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
+            }
+            else
+            {
+                var today = DateTime.Today;
+                var lastMonth = today.AddMonths(-1);
+
+                saleListWithRelatedTables = await UnitOfWork.Sales.GetAllWithNamesAsync(c =>
+                    !c.IsDeleted &&
+                    c.IsActive &&
+                    c.CreatedDate >= lastMonth);
+            }
+            if (saleListWithRelatedTables.Count > -1)
             {
                 return new DataResult<SaleListDto>(ResultStatus.Success, new SaleListDto
                 {
-                    SaleListWithRelatedTables = Sales,
+                    SaleListWithRelatedTables = saleListWithRelatedTables,
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
 
         }
 
@@ -80,7 +94,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
         }
         public async Task<IResult> AddAsync(SaleAddDto SaleAddDto, string createdByName, int userId)
         {
@@ -92,7 +106,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
             {
                 Sale = addedSale,
-            }, Messages.General.GiveMessage("xxKx", "Çalışan", "eklendi."));
+            }, Messages.General.GiveMessage("xxKx", "Personel", "eklendi."));
         }
         public async Task<IResult> UpdateAsync(SaleUpdateDto SaleUpdateDto, string modifiedByName)
         {
@@ -106,9 +120,9 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
             {
                 Sale = updatedSale,
-            }, Messages.General.GiveMessage("xxKx", "Çalışan", "Güncellendi."));
+            }, Messages.General.GiveMessage("xxKx", "Personel", "Güncellendi."));
         }
-        public async Task<IDataResult<SaleListDto>> GetAllByDeletedAsync()
+        public async Task<IDataResult<SaleListDto>> GetAllByDeletedAsync(bool isSuperAdmin)
         {
             var Sales = await UnitOfWork.Sales.GetAllWithNamesAsync(x => x.IsDeleted);
             if (Sales.Count > -1)
@@ -119,7 +133,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
         }
 
         public async Task<IDataResult<SaleListDto>> GetAllByNonDeletedAsync()
@@ -133,7 +147,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Çalışan"));
+            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
         }
 
         public async Task<IDataResult<SaleDto>> DeleteAsync(int SaleId, string modifiedByName)

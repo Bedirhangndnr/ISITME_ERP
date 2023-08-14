@@ -35,7 +35,8 @@ namespace MyBlog.Entities.Dtos.UserDtos
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
         [DisplayName("Resim")]
-        //[Required(ErrorMessage = "Lütfen, bir {0} seçiniz.")]
+        //[Required(ErrorMessage = "Lütfen, bir {0} seçiniz.")]         
+
         [DataType(DataType.Upload)]
         public IFormFile? PictureFile { get; set; }
         public string? Picture { get; set; }

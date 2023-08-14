@@ -13,8 +13,13 @@ namespace MyBlog.Services.AutoMapper.Profiles
     {
         public PaymentProfile()
         {
-            CreateMap<PaymentAddDto, Payment>();
-            CreateMap<PaymentUpdateDto, Payment>();
+            CreateMap<PaymentAddDto, Payment>()
+                .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName))
+                .ForMember(dest => dest.IsActive, opt => opt.MapFrom(x => false)); // dto dan Paymente aktarılırken ısactive değeri default olarak false atandı.
+            CreateMap<PaymentUpdateDto, Payment>()
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
             CreateMap<Payment, PaymentUpdateDto>();
         }
     }

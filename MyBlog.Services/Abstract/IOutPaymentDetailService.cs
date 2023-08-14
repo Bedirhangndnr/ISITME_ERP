@@ -27,5 +27,9 @@ namespace MyBlog.Services.Abstract
         Task<IResult> HardDeleteAsync(int EmployeeTypeId);
         Task<IDataResult<int>> CountAsync();
         Task<IDataResult<int>> CountByNonDeletedAsync();
+
+        Task<IResult> DeleteByOutPaymentIdAsync(int outPaymentDetailId, string modifiedByName);
+        Task<IResult> HardDeleteByOutPaymentIdAsync(int outPaymentId);
+        Task<IDataResult<OutPaymentDetailDto>> UndoDeleteByOutPaymentIdAsync(int outPaymentId, string modifiedByName);
     }
 }
