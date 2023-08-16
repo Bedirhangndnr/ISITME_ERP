@@ -22,7 +22,7 @@ namespace MyBlog.BackgroundServices
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
+            while (true)
             {
                 using (var scope = _serviceProvider.CreateScope())
                 {
@@ -33,15 +33,11 @@ namespace MyBlog.BackgroundServices
                         "aa"
                     );
 
-                    await notificationService.AddAsync(notificationMessage, "Notification Title | Try ZZZZZZZ", userId: 1);
+                    await notificationService.AddAsync(notificationMessage, "Notification Title | Try", userId: 1);
 
-                    // Dispose the scope to release resources
-                    ((IDisposable)scope).Dispose();
-
-                    await Task.Delay(TimeSpan.FromSeconds(60), stoppingToken);
+                    Thread.Sleep(TimeSpan.FromSeconds(2));
                 }
             }
         }
-
     }
 }
