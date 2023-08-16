@@ -22,26 +22,26 @@ namespace MyBlog.BackgroundServices
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (true)
+            while (!stoppingToken.IsCancellationRequested)
             {
                 using (var scope = _serviceProvider.CreateScope())
                 {
                     var notificationService = scope.ServiceProvider.GetRequiredService<INotificationService>();
-                    // Burada yeni bir "önemli olmayan" bildirim oluşturabilirsiniz
                     var notificationMessage = NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Added,
                         TableNamesConstants.Expenses,
                         "aa"
                     );
 
-                    await notificationService.AddAsync(notificationMessage, "Bildirim Başlığıx", userId: 1);
+                    await notificationService.AddAsync(notificationMessage, "Notification Title | Try ZZZZZZZ", userId: 1);
 
-                    // Her 20 saniyede bir çalışması için 20 saniye bekleyin
-                    Thread.Sleep(TimeSpan.FromSeconds(1));
-                    Thread.Sleep(TimeSpan.FromSeconds(1));
-                    Thread.Sleep(TimeSpan.FromSeconds(1));
+                    // Dispose the scope to release resources
+                    ((IDisposable)scope).Dispose();
+
+                    await Task.Delay(TimeSpan.FromSeconds(60), stoppingToken);
                 }
             }
         }
+
     }
 }
