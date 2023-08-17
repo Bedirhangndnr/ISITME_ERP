@@ -19,6 +19,7 @@ namespace MyBlog.Entities.Dtos.AppointmentDtos
         public string? Title { get; set; }
         public string? Description { get; set; }
         public bool IsRead { get; set; }
+        public string NotificaitonType { get; set; }
 
     }
 }

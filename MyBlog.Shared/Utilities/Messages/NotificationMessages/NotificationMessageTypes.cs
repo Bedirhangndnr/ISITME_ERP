@@ -16,4 +16,9 @@ namespace MyBlog.Shared.Utilities.Messages.NotificationMessages
         UndoDeleted = 5,
         HardDeleted = 6,
     }
+    static public class DeleteTypesConstants
+    {
+        public const string Reminder = "Reminder";
+        public const string DatabaseTracking = "DatabaseTracking";
+    }
 }

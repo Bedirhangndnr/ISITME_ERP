@@ -30,6 +30,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 .Select(s => new NotificationListWithRelatedTable
                 {
                     Id = s.Id,
+                    NotificaitonType = s.NotificationType,
                     CustomerId = s.Customer != null ? s.Customer.Id : null,
                     UserId = s.User != null ? s.User.Id : null,
                     CustomerName = s.Customer != null ? (s.Customer.FirstName + " " + s.Customer.LastName) : "Belirtilmemiş Ya Da Silinmiş.",

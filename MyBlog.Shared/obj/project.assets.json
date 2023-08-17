@@ -8215,24 +8215,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bedir\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\bedir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
       "projectName": "MyBlog.Shared",
-      "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
+      "projectPath": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
       "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\obj\\",
+      "outputPath": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8287,7 +8282,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

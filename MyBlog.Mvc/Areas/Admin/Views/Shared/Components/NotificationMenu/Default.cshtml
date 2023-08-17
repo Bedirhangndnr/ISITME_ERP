@@ -1,4 +1,5 @@
 ﻿@using MyBlog.Services.Utilities;
+@using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 
 @model MyBlog.Mvc.Areas.Admin.Models.SingleModels.NotificationViewModel
 
@@ -7,6 +8,48 @@
         @{
             var count = Model.notificationListWithRelatedTables.Count();
             var displayCount = count < 50 ? count.ToString() : "50+";
+        }
+        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-bell-fill"></i>
+            <span class="badge badge-danger badge-counter">@displayCount</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <div class="dropdown-header d-flex align-items-center">
+                <i class="bi bi-bell-fill"></i>
+                <span class="mr-2">Bildirimler</span>
+
+                <span class="badge badge-danger">@displayCount</span>
+            </div>
+            <div class="dropdown-list">
+                @foreach (var notification in Model.notificationListWithRelatedTables.Take(5))
+                {
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="bi bi-envelope-fill text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">@notification.CreatedDate</div>
+                            <span class="font-weight-bold">@notification.Title</span>
+                            <p>@notification.Description</p>
+                        </div>
+                    </a>
+                }
+            </div>
+            @if (Model.notificationListWithRelatedTables.Count() > 5)
+            {
+                <a class="dropdown-item text-center small text-gray-500" asp-area="Admin" asp-controller="Notification" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Tüm bildirimleri gör</a>
+            }
+        </div>
+    </li>
+</ul>
+<ul class="navbar-nav ml-auto ml-md-0">
+    <li class="nav-item dropdown">
+        @{
+            var countx = Model.notificationListWithRelatedTables.Select(i=>i.NotificaitonType== "Reminder").Count();
+            var displayCountx = count < 50 ? count.ToString() : "50+";
         }
         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
