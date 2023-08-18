@@ -39,12 +39,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index(string tableType)
+        public async Task<IActionResult> Index(string tableType, string notificationType)
         {
             ViewBag.tableType = tableType;
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                var result = await _notificationService.GetAllByNonDeletedAndActiveAsync();
+                var result = await _notificationService.GetAllByNonDeletedAndActiveAsync(notificationType);
                 if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             }
             _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
@@ -55,9 +55,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationRead}")]
         [HttpGet]
-        public async Task<JsonResult> GetAllNotifications()
+        public async Task<JsonResult> GetAllNotifications(string notificationType)
         {
-            var notifications = await _notificationService.GetAllByNonDeletedAndActiveAsync();
+            var notifications = await _notificationService.GetAllByNonDeletedAndActiveAsync(notificationType);
             var notificationResult = JsonSerializer.Serialize(notifications, new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.Preserve

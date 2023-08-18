@@ -16,7 +16,7 @@ namespace MyBlog.Services.Abstract
     {
         Task<IDataResult<NotificationDto>> GetAsync(int NotificationId);
         Task<IDataResult<NotificationUpdateDto>> GetNotificationUpdateDtoAsync(int NotificationId);
-        Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync(); //--
+        Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync(string notificationType="All"); //--
         Task<bool> AddAsync(string message, string title, int userId, NotificationTypes notificationType = NotificationTypes.DatabaseTracking);//--
         Task<bool> UpdateAsync(NotificationUpdateDto NotificationUpdateDto, string modifiedByName);
 

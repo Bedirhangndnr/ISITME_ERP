@@ -18,6 +18,7 @@ using MyBlog.Shared.Utilities.Results.Concrete;
 using MyBlog.Data.Concrete.EntityFramework.Context;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Entities.Dtos.NotificationDtos;
+using MyBlog.Entities.Dtos.AppointmentDtos;
 
 namespace MyBlog.Services.Concrete
 {
@@ -60,19 +61,29 @@ namespace MyBlog.Services.Concrete
             }
         }
 
-        public async Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync()
+        public async Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync(string notificaitonType = "All")
         {
-            var notifications = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
-            if (notifications.Count > -1)
+            IList<NotificationListWithRelatedTable> notificationListWithRelatedTable;
+            if (notificaitonType == "All")
+            {
+                notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
+            }
+            else
+            {
+                notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.NotificationType == notificaitonType);
+
+            }
+            if (notificationListWithRelatedTable.Count > -1)
             {
                 return new DataResult<NotificationListDto>(ResultStatus.Success, new NotificationListDto
                 {
-                    NotificationListWithRelatedTables = notifications,
+                    NotificationListWithRelatedTables = notificationListWithRelatedTable,
                     ResultStatus = ResultStatus.Success
                 });
             }
             return new DataResult<NotificationListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Bildirim"));
         }
+
 
 
 
