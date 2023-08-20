@@ -7,7 +7,7 @@
     <li class="nav-item dropdown">
         @{
             var countRemainders = Model.notificationListWithRelatedTables
-            .Select(n => n.NotificaitonType == "Remainder").Count();
+            .Where(n => n.NotificaitonType == "Reminder").Count();
             var displayCountRemainders = countRemainders < 50 ? countRemainders.ToString() : "50+";
         }
         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
@@ -24,7 +24,7 @@
             </div>
             <div class="dropdown-list">
                 @foreach (var notification in Model.notificationListWithRelatedTables
-                .Where(n => n.NotificaitonType == "Remainder")
+                .Where(n => n.NotificaitonType == "Reminder")
                 .Take(5))
                 {
                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -41,15 +41,12 @@
                     </a>
                 }
             </div>
-            @if (countRemainders > 5)
-            {
                 <a class="dropdown-item text-center small text-gray-500" asp-area="Admin" asp-controller="Notification" asp-action="Index"
                asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables asp-route-tableType="Remainder">Tüm Hatırlatmaları Gör</a>
-            }
         </div>
     <li class="nav-item dropdown">
             @{
-                var count = Model.notificationListWithRelatedTables.Select(n => n.NotificaitonType == "DatabaseTracking").Count();
+                var count = Model.notificationListWithRelatedTables.Where(n => n.NotificaitonType == "DatabaseTracking").Count();
                 var displayCount = count < 50 ? count.ToString() : "50+";
             }
         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
@@ -83,11 +80,8 @@
                     </a>
                     }
             </div>
-                @if (count > 5)
-                {
                 <a class="dropdown-item text-center small text-gray-500" asp-area="Admin" asp-controller="Notification" asp-action="Index"
                asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables asp-route-tableType="DatabaseTracking">Tüm Bildirimleri Gör</a>
-                }
         </div>
     </li>
     </li>
