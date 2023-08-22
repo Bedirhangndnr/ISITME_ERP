@@ -57,63 +57,117 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             // Each User can have many entries in the UserRole join table
             builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
 
-            var adminUser = new User
+            var bilal = new User
             {
                 Id = 1,
-                UserName = "adminuser",
-                NormalizedUserName = "ADMINUSER",
-                Email = "adminuser@gmail.com",
-                NormalizedEmail = "ADMINUSER@GMAIL.COM",
-                PhoneNumber = "+905555555555",
+                UserName = "bilalAdmin",
+                NormalizedUserName = "BILALADMIN",
+                Email = "bilalAdmin@gmail.com",
+                NormalizedEmail = "BILALADMIN@GMAIL.COM",
+                PhoneNumber = "+905537314131",
                 Picture = "/userImages/defaultUser.png",
-                FirstName = "Admin",
-                LastName = "User",
-                About = "Admin User of MyBlog",
-                Link = "https://twitter.com/adminuser",
+                FirstName = "Bilal",
+                LastName = "Meto",
+                About = "Admin | Bilal",
+                Link = "-",
                 
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            adminUser.PasswordHash = CreatePasswordHash(adminUser, "adminuser");
-            var editorUser = new User
+            bilal.PasswordHash = CreatePasswordHash(bilal, "bilPaswX_.");
+            var nazli = new User
             {
                 Id = 2,
-                UserName = "editoruser",
-                NormalizedUserName = "EDITORUSER",
-                Email = "editoruser@gmail.com",
-                NormalizedEmail = "EDITORUSER@GMAIL.COM",
-                PhoneNumber = "+905555555555",
+                UserName = "nazliAdmin",
+                NormalizedUserName = "NAZLIADMIN",
+                Email = "nazliAdmin@gmail.com",
+                NormalizedEmail = "NAZLIADMIN@GMAIL.COM",
+                PhoneNumber = "+905398815246",
                 Picture = "/userImages/defaultUser.png",
-                FirstName = "Admin",
-                LastName = "User",
-                About = "Editor User of MyBlog",
-                Link = "https://twitter.com/adminuser",
+                FirstName = "Nazlı",
+                LastName = "-",
+                About = "Admin | Nazlı",
+                Link = "-",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            editorUser.PasswordHash = CreatePasswordHash(editorUser, "editoruser");
-            var editorUser2 = new User
+            nazli.PasswordHash = CreatePasswordHash(nazli, "nazPaswX_n");
+            var sema = new User
             {
                 Id = 3,
-                UserName = "editoruser2",
-                NormalizedUserName = "EDITORUSER2",
-                Email = "editoruser2@gmail.com",
-                NormalizedEmail = "EDITORUSER2@GMAIL.COM",
-                PhoneNumber = "+905555555555",
+                UserName = "sema",
+                NormalizedUserName = "SEMA",
+                Email = "sema@gmail.com",
+                NormalizedEmail = "SEMA@GMAIL.COM",
+                PhoneNumber = "+905071273567",
                 Picture = "/userImages/defaultUser.png",
-                FirstName = "Admin",
-                LastName = "User",
-                About = "Editor User 2 of MyBlog",
+                FirstName = "Sema",
+                LastName = "-",
+                About = "-",
                 Link = "https://twitter.com/adminuser",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            editorUser.PasswordHash = CreatePasswordHash(editorUser2, "editoruser2");
+            sema.PasswordHash = CreatePasswordHash(sema, "XSemaP");
+            var dev = new User
+            {
+                Id = 4,
+                UserName = "dev",
+                NormalizedUserName = "DEV",
+                Email = "x@gmail.com",
+                NormalizedEmail = "X@GMAIL.COM",
+                PhoneNumber = "+905050102249",
+                Picture = "/userImages/defaultUser.png",
+                FirstName = "Bedirhan",
+                LastName = "Gündöner",
+                About = "Geliştirici",
+                Link = "-",
+                EmailConfirmed = true,
+                PhoneNumberConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            dev.PasswordHash = CreatePasswordHash(dev, "x");
+            var berra = new User
+            {
+                Id = 5,
+                UserName = "berra",
+                NormalizedUserName = "BERRA",
+                Email = "berra@gmail.com",
+                NormalizedEmail = "BERRA@GMAIL.COM",
+                PhoneNumber = "+905050102249",
+                Picture = "/userImages/defaultUser.png",
+                FirstName = "Berra",
+                LastName = "-",
+                About = "-",
+                Link = "-",
+                EmailConfirmed = true,
+                PhoneNumberConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            berra.PasswordHash = CreatePasswordHash(berra, "XBerraP");
+            var elif = new User
+            {
+                Id = 6,
+                UserName = "Elif",
+                NormalizedUserName = "ELIF",
+                Email = "Elif@gmail.com",
+                NormalizedEmail = "ELIF@GMAIL.COM",
+                PhoneNumber = "+905050102249",
+                Picture = "/userImages/defaultUser.png",
+                FirstName = "Elif",
+                LastName = "-",
+                About = "-",
+                Link = "-",
+                EmailConfirmed = true,
+                PhoneNumberConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            elif.PasswordHash = CreatePasswordHash(elif, "XElifP");
 
-            builder.HasData(adminUser, editorUser, editorUser2);
+            builder.HasData(bilal, nazli, sema, dev, berra, elif);
         }
 
         private string CreatePasswordHash(User user,string password)

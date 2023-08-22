@@ -59,7 +59,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -85,7 +85,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllSales(string tableType)
         {
@@ -120,7 +120,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add(string tableType)
         {
@@ -155,7 +155,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(SaleAddViewModel saleAddViewModel, string tableType)
         {
@@ -200,7 +200,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             saleAddViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
             return View(saleAddViewModel);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
@@ -235,7 +235,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return NotFound();
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(SaleUpdateViewModel SaleUpdateViewModel, string tableType)
         {
@@ -285,7 +285,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return View(SaleUpdateViewModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int saleId, string tableType)
         {
@@ -337,7 +337,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Update");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int saleId, string tableType)
         {
@@ -402,7 +402,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleDelete}")]
 
         [HttpPost]
         public async Task<IActionResult> HardDelete(int id)
@@ -419,7 +419,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleDelete}")]
 
         [HttpGet]
         public async Task<IActionResult> DeletedSales()
@@ -434,7 +434,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedSales()
         {
@@ -450,7 +450,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(sales);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int saleId)
         {

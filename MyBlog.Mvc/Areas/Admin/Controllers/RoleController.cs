@@ -44,7 +44,7 @@ IProgramService programService, ISubProgramService subProgramService,
             _roleManager = roleManager;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.RoleRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.RoleRead}")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -54,7 +54,7 @@ IProgramService programService, ISubProgramService subProgramService,
                 Roles = roles
             });
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.RoleRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.RoleRead}")]
         [HttpGet]
         public async Task<IActionResult> GetAllRoles()
         {
@@ -66,7 +66,7 @@ IProgramService programService, ISubProgramService subProgramService,
             return Json(roleListDto);
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.RoleUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.RoleUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Assign(int userId)
         {
@@ -100,7 +100,7 @@ IProgramService programService, ISubProgramService subProgramService,
             return PartialView("_RoleAssignPartial", userRoleAssignDto);
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.RoleUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.RoleUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Assign(UserRoleAssignDto userRoleAssignDto)
         {

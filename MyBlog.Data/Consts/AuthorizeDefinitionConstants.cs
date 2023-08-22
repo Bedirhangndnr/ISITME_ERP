@@ -9,6 +9,7 @@ namespace MyBlog.Mvc.Consts
         public const string Customer = "Customer";
         public const string InstitutionalRead = "Institutional.Read";
         public const string SuperAdmin= "SuperAdmin";
+        public const string DefaultUser= "DefaultUser";
 
         // Employee
         public const string EmployeeCreate = "Employee.Create";

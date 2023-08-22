@@ -53,7 +53,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -75,7 +75,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllCustomers(string tableType)
         {
@@ -104,7 +104,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add(string tableType)
         {
@@ -128,7 +128,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
 
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(CustomerAddViewModel customerAddViewModel, string tableType)
         {
@@ -179,7 +179,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             customerAddViewModel.CustomerTypes = customerTypesList.Data.CustomerTypes;
             return View(customerAddViewModel);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
@@ -204,7 +204,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 return NotFound();
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(CustomerUpdateViewModel customerUpdateViewModel, string tableType)
         {
@@ -265,7 +265,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: L
 
 
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int appointmentId, string tableType)
         {
@@ -311,7 +311,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: L
                 return RedirectToAction("Update");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int customerId, string tableType)
         {
@@ -346,7 +346,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
             }
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerDelete}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int customerId)
         {

@@ -25,8 +25,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.IsActive).IsRequired();
             builder.Property(a => a.IsDeleted).IsRequired();
             builder.Property(a => a.Note).HasMaxLength(500);
+            builder.Property(a => a.Description).HasMaxLength(500).IsRequired(false);
             builder.Property(a => a.Title).HasMaxLength(50);
-            builder.ToTable("SaleStatuses");
+            builder.ToTable("SaleStatuses");    
 
             builder.HasData(
                 new SaleStatus

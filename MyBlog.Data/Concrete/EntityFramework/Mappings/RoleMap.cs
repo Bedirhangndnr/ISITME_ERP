@@ -50,6 +50,15 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                       ConcurrencyStamp = Guid.NewGuid().ToString(),
                       AccessLevel = 1
                   },
+                  new Role
+                  {
+                      Id = id = id + 1,
+                      Name = AuthorizeDefinitionConstants.DefaultUser,
+                      NormalizedName = AuthorizeDefinitionConstants.DefaultUser.ToUpperInvariant(),
+                      Definition = "Standart Kullanıcı Yetkisi",
+                      ConcurrencyStamp = Guid.NewGuid().ToString(),
+                      AccessLevel = 1
+                  },
                 new Role
                 {
                     Id = id = id + 1,

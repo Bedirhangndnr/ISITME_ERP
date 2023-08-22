@@ -48,7 +48,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductRead}")]
 
 
         [HttpGet]
@@ -72,7 +72,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllProducts(string tableType)
         {
@@ -101,7 +101,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add(string tableType)
         {
@@ -137,7 +137,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(ProductAddViewModel productAddViewModel, string tableType)
         {
@@ -193,7 +193,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductUpdate }")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductUpdate }")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
@@ -224,7 +224,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return NotFound();
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(ProductUpdateViewModel ProductUpdateViewModel, string tableType)
         {
@@ -273,7 +273,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int Id, string tableType)
         {
@@ -319,7 +319,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Update");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductDelete}")]
 
         [HttpPost]
         public async Task<JsonResult> Delete(int productId, string tableType)
@@ -354,7 +354,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
                 return Json("Hatalı silme türü parametresi!");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductDelete}")]
 
         [HttpPost]
         public async Task<JsonResult> HardDelete(int productId)
@@ -363,7 +363,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
             var hardDeletedProductResult = JsonSerializer.Serialize(result);
             return Json(hardDeletedProductResult);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductDelete}")]
 
         [HttpGet]
         public async Task<IActionResult> DeletedProducts()
@@ -373,7 +373,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedProducts()
         {
@@ -384,7 +384,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
             });
             return Json(products);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductUpdate}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int productId)
         {

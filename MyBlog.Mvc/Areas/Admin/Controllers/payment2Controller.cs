@@ -63,7 +63,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllPayments(string tableType)
         {
@@ -92,7 +92,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add(string tableType)
         {
@@ -114,7 +114,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(PaymentAddViewModel paymentAddViewModel, string tableType)
         {
@@ -204,7 +204,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return View(PaymentUpdateViewModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int paymentId, string tableType)
         {
@@ -250,7 +250,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Update");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int paymentId, string tableType)
         {
@@ -272,7 +272,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 return Json("Hatalı silme türü parametresi!");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentDelete}")]
         [HttpPost]
         public async Task<JsonResult> HardDelete(int paymentId)
         {
@@ -280,7 +280,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var hardDeletedPaymentResult = JsonSerializer.Serialize(result);
             return Json(hardDeletedPaymentResult);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentRead}")]
         [HttpGet]
         public async Task<IActionResult> DeletedPayments()
         {
@@ -289,7 +289,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedPayments()
         {
@@ -300,7 +300,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(payments);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentDelete}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int paymentId)
         {

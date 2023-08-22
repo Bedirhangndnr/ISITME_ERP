@@ -49,7 +49,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailRead}")]
         public async Task<IActionResult> Index(string tableType)
         {
             ViewBag.TableType = tableType;
@@ -70,7 +70,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return View();
         }
         [HttpGet]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailRead}")]
         public async Task<JsonResult> GetAllOutPaymentDetails(string tableType)
         {
             ViewBag.TableType = tableType;
@@ -99,7 +99,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(null);
         }
         [HttpGet]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailCreate}")]
         public async Task<IActionResult> Add(int outPaymentId)
         {
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
@@ -119,7 +119,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailCreate}")]
         [HttpPost]
             public async Task<IActionResult> Add(OutPaymentDetailAddDto outPaymentDetailAddDto)
             {
@@ -157,7 +157,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryAddAjaxErrorModel);
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
@@ -174,7 +174,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();  
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(OutPaymentDetailUpdateDto outPaymentDetailUpdateDto, string tableType)
         {
@@ -207,7 +207,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDetailDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDetailDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int outPaymentDetailId, string tableType)
         {
@@ -230,7 +230,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleStatusDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleStatusDelete}")]
         public async Task<JsonResult> UndoDelete(int outPaymentDetailId)
         {
             var result = await _outPaymentDetailService.UndoDeleteAsync(outPaymentDetailId, LoggedInUser.UserName);

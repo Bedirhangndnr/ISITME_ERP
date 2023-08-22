@@ -42,7 +42,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeRead}")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -50,7 +50,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllPaymentTypes()
         {
@@ -61,13 +61,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(paymentTypeResult);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeCreate}")]
         [HttpGet]
         public IActionResult Add()
         {
             return PartialView("_PaymentTypeAddPartial");
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(PaymentTypeAddDto paymentTypeAddDto)
         {
@@ -91,7 +91,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeUpdate }")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeUpdate }")]
         [HttpGet]
         public async Task<IActionResult> Update(int paymentTypeId)
         {
@@ -102,7 +102,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeUpdate }")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeUpdate }")]
         [HttpPost]
         public async Task<IActionResult> Update(PaymentTypeUpdateDto categoryUpdateDto)
         {
@@ -132,7 +132,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.PaymentTypeDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentTypeDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int paymentTypeId)
         {

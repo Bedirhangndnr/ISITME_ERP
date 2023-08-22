@@ -37,7 +37,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.NotificationRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType, string notificationType)
         {
@@ -53,7 +53,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.NotificationRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllNotifications(string notificationType)
         {
@@ -64,7 +64,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(notificationResult);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.NotificationUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int notificationId)
         {
@@ -75,13 +75,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.NotificationUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(NotificationUpdateDto categoryUpdateDto)
         {
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.NotificationDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.NotificationDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int notificationId, string tableType)
         {

@@ -19,7 +19,6 @@ namespace MyBlog.Entities.Dtos.AppointmentTypeDtos
         public string Title { get; set; }
         [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
-        [MinLength(3, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
         public string? Description { get; set; }
 
     }

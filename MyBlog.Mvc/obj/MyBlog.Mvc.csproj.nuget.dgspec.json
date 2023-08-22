@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj": {}
+    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj": {}
   },
   "projects": {
     "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Data\\MyBlog.Data.csproj": {
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -147,18 +147,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj": {
+    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj",
         "projectName": "MyBlog.Mvc",
-        "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
+        "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj",
         "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\obj\\",
+        "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -169,7 +169,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -246,7 +245,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -321,7 +320,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -390,7 +389,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

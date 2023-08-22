@@ -102,8 +102,8 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentTypeDto>(ResultStatus.Success, new AppointmentTypeDto
             {
                 AppointmentType = addedAppointmentType,
-                Message=Messages.General.GiveMessage(addedAppointmentType.CreatedByName, "Randevu Tipi", MessagesConstants.AddSuccess)
-            }, Messages.General.GiveMessage(addedAppointmentType.CreatedByName, "Randevu Tipi", MessagesConstants.AddSuccess));
+                Message=Messages.General.GiveMessage(addedAppointmentType.Title, "Randevu Tipi", MessagesConstants.AddSuccess)
+            }, Messages.General.GiveMessage(addedAppointmentType.Title, "Randevu Tipi", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<AppointmentTypeDto>> UpdateAsync(AppointmentTypeUpdateDto AppointmentTypeUpdateDto, string modifiedByName)

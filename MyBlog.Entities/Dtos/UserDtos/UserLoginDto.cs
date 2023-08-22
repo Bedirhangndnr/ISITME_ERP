@@ -19,7 +19,7 @@ namespace MyBlog.Entities.Dtos.UserDtos
         [DisplayName("Şifre")]
         [Required(ErrorMessage = "{0} Boş Olmamalıdır...")] //{0} -> display name de yazan değer
         [MaxLength(30, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
-        [MinLength(5, ErrorMessage = "{0} {1} Karakterden Küçük Olmamalıdır")]
+        [MinLength(0, ErrorMessage = "{0} {1} Karakterden Küçük Olmamalıdır")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [DisplayName("Beni Hatırla")]

@@ -53,7 +53,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -75,7 +75,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllOutPayments(string tableType)
         {
@@ -104,7 +104,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add(string tableType)
         {
@@ -119,7 +119,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(OutPaymentAddViewModel outPaymentAddViewModel, string tableType)
         {
@@ -151,7 +151,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             }
             return View(outPaymentAddViewModel);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int id, string tableType)
         {
@@ -177,7 +177,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             }
             else { return NotFound(); }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(OutPaymentUpdateViewModel outPaymentUpdateViewModel, string tableType)
         {
@@ -227,7 +227,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             // associatedInstitutions listesini PartialView olarak dön
             return PartialView("_AssociatedInstitutionsListPartial", associatedInstitutions.Data.AssociatedInstitutions);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int Id, string tableType)
         {
@@ -273,7 +273,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 return RedirectToAction("Update");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDelete}")]
 
         [HttpPost]
         public async Task<JsonResult> Delete(int outPaymentId, string tableType)
@@ -312,7 +312,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 return Json("Hatalı silme türü parametresi!");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDelete}")]
 
         [HttpPost]
         public async Task<JsonResult> HardDelete(int outPaymentId)
@@ -321,7 +321,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             var hardDeletedOutPaymentResult = JsonSerializer.Serialize(result);
             return Json(hardDeletedOutPaymentResult);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentDelete}")]
 
         [HttpGet]
         public async Task<IActionResult> DeletedOutPayments()
@@ -331,7 +331,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedOutPayments()
         {
@@ -342,7 +342,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             });
             return Json(outPayments);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.OutPaymentUpdate}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int outPaymentId)
         {

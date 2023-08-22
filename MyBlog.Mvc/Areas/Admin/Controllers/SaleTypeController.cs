@@ -43,7 +43,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeRead}")]
         public async Task<IActionResult> Index(string tableType)
         {
             ViewBag.TableType = tableType;
@@ -64,7 +64,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return View();
         }
         [HttpGet]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeRead}")]
         public async Task<JsonResult> GetAllSaleTypes(string tableType)
         {
             ViewBag.TableType = tableType;
@@ -93,13 +93,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(null);
         }
         [HttpGet]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeCreate}")]
 
         public IActionResult Add()
         {
             return PartialView("_SaleTypeAddPartial");
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(SaleTypeAddDto saleTypeAddDto)
         {
@@ -123,7 +123,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int saleTypeId, string tableType)
         {
@@ -135,7 +135,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(SaleTypeUpdateDto saleTypeUpdateDto, string tableType)
         {
@@ -166,7 +166,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleTypeDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleTypeDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int saleTypeId, string tableType)
         {
@@ -189,7 +189,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.SaleStatusDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleStatusDelete}")]
         public async Task<JsonResult> UndoDelete(int saleTypeId)
         {
             var result = await _saleTypeService.UndoDeleteAsync(saleTypeId, LoggedInUser.UserName);

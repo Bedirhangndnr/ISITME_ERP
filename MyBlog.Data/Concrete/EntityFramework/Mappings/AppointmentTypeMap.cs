@@ -24,6 +24,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.ModifiedDate).IsRequired();
             builder.Property(a => a.IsActive).IsRequired();
             builder.Property(a => a.IsDeleted).IsRequired();
+            builder.Property(a => a.Description).IsRequired(false);
             builder.Property(a => a.Note).HasMaxLength(1000).IsRequired(false);
             builder.ToTable("AppointmentTypes");
 

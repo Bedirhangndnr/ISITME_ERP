@@ -43,7 +43,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -64,7 +64,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return View();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllProductGroups(string tableType)
         {
@@ -93,13 +93,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupCreate}")]
         [HttpGet]
         public IActionResult Add()
         {
             return PartialView("_ProductGroupAddPartial");
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(ProductGroupAddDto productGroupAddDto)
         {
@@ -123,7 +123,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int productGroupId, string tableType)
         {
@@ -135,7 +135,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(ProductGroupUpdateDto productGroupUpdateDto, string tableType)
         {
@@ -166,7 +166,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int productGroupId, string tableType)
         {
@@ -189,7 +189,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ProductGroupDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductGroupDelete}")]
         public async Task<JsonResult> UndoDelete(int productGroupId)
         {
             var result = await _productGroupService.UndoDeleteAsync(productGroupId, LoggedInUser.UserName);

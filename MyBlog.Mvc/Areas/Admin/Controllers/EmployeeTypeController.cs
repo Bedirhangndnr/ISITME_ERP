@@ -40,7 +40,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -61,7 +61,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return View();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllEmployeeTypes(string tableType)
         {
@@ -90,13 +90,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(null);
   
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeCreate}")]
         [HttpGet]
         public IActionResult Add()
         {
             return PartialView("_EmployeeTypeAddPartial");
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(EmployeeTypeAddDto employeeTypeAddDto)
         {
@@ -121,7 +121,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(ermployeeTypeAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int employeeTypeId, string tableType)
         {   
@@ -134,7 +134,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(EmployeeTypeUpdateDto ermployeeTypeUpdateDto, string tableType)
         {
@@ -159,7 +159,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(ermployeeTypeUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeTypeDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeTypeDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int employeeTypeId, string tableType)
         {

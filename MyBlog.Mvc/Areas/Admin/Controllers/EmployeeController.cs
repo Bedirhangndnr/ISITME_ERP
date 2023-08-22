@@ -49,7 +49,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -73,7 +73,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllEmployees(string tableType)
         {
@@ -103,7 +103,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return Json(null);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add(string tableType)
         {
@@ -119,7 +119,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(EmployeeAddViewModel employeeAddViewModel, string tableType)
         {
@@ -163,7 +163,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             employeeAddViewModel.EmployeeTypes = employeeTypesList.Data.EmployeeTypes;
             return View(employeeAddViewModel);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
@@ -182,7 +182,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 return NotFound();
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(EmployeeUpdateViewModel EmployeeUpdateViewModel, string tableType)
         {
@@ -238,7 +238,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: L
 
 
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int employeeId, string tableType)
         {
@@ -284,7 +284,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: L
                 return RedirectToAction("Update");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
 
         [HttpPost]
         public async Task<JsonResult> Delete(int employeeId, string tableType)
@@ -319,7 +319,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
                 return Json("Hatalı silme türü parametresi!");
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
 
         [HttpPost]
         public async Task<JsonResult> HardDelete(int employeeId)
@@ -328,7 +328,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
             var hardDeletedEmployeeResult = JsonSerializer.Serialize(result);
             return Json(hardDeletedEmployeeResult);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeDelete}")]
 
         [HttpGet]
         public async Task<IActionResult> DeletedEmployees()
@@ -338,7 +338,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedEmployees()
         {
@@ -349,7 +349,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
             });
             return Json(employees);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int employeeId)
         {

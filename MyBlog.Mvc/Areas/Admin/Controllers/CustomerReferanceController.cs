@@ -49,7 +49,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -70,7 +70,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return View();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceRead}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllCustomerReferances(string tableType)
         {
@@ -99,7 +99,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -122,7 +122,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
 
         [Authorize(Roles =
-            $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
+            $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(CustomerReferanceAddDto customerReferanceAddDto)
         {
@@ -165,7 +165,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
@@ -185,7 +185,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(CustomerReferanceUpdateDto customerReferanceUpdateDto, string tableType)
         {
@@ -239,14 +239,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceDelete}")]
         public async Task<JsonResult> UndoDelete(int customerReferanceId)
         {
             var result = await _customerReferanceService.UndoDeleteAsync(customerReferanceId, LoggedInUser.UserName);
             var undoDeletedCustomerReferance = JsonSerializer.Serialize(result.Data);
             return Json(undoDeletedCustomerReferance);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.CustomerReferenceDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceDelete}")]
         [HttpGet]
         public async Task<IActionResult> HardDelete(int customerReferanceId)
         {

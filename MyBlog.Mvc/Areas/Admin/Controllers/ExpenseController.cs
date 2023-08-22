@@ -43,7 +43,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             _toastNotification = toastNotification;
         }
 
-        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseRead}")]
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseRead}")]
         [HttpGet]
         public async Task<IActionResult> Index(string tableType)
         {
@@ -150,13 +150,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return Json(null);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseCreate}")]
         [HttpGet]
         public IActionResult Add()
         {
             return PartialView("_ExpenseAddPartial");
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseCreate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(ExpenseAddDto expenseAddDto)
         {
@@ -187,7 +187,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             return Json(categoryAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int expenseId, string tableType)
         {
@@ -199,7 +199,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             }
             return NotFound();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(ExpenseUpdateDto expenseUpdateDto, string tableType)
         {
@@ -230,7 +230,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             return Json(categoryUpdateAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseDelete}")]
         [HttpPost]
         public async Task<JsonResult> Delete(int expenseId, string tableType)
         {
@@ -265,7 +265,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.HardDeleted), userI
             }
         }
         [HttpPost]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseDelete}")]
         public async Task<JsonResult> UndoDelete(int expenseId)
         {
             var result = await _expenseService.UndoDeleteAsync(expenseId, LoggedInUser.UserName);
@@ -278,7 +278,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userI
 );
             return Json(undoDeletedExpense);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.ExpenseDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ExpenseDelete}")]
         [HttpGet]
         public async Task<IActionResult> HardDelete(int expenseId)
         {

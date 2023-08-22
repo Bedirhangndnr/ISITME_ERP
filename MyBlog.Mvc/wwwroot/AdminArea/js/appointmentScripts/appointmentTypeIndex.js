@@ -220,10 +220,11 @@ $(document).ready(function () {
                     if (isValid) {
                         placeHolderDiv.find('.modal').modal('hide');
                         const appointmentType = AppointmentTypeAddAjaxModel.AppointmentTypeDto.AppointmentType;
+
                         const newTableRow = dataTable.row.add([
-                            AppointmentType.Id,
-                            AppointmentType.Title,
-                            AppointmentType.Description,
+                            appointmentType.Id,
+                            appointmentType.Title,
+                            appointmentType.Description,
                             `
                                 <div class="form-group row justify-content-center">
                                 ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + appointmentType.Id + '><span class="fas fa-edit"></span></button>' : ''}
