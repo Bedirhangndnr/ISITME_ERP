@@ -78,7 +78,7 @@
             },
             {
                 extend: 'excelHtml5',
-                text: 'Export to Excel',
+                text: 'İndir | Excel',
                 filename: 'Ödemeler',
                 className: 'btn btn-outline-secondary'
             }

@@ -123,7 +123,7 @@
             const productGroupTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${productGroupTitle} Başlıklı Marka ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${productGroupTitle} Başlıklı Geliştiriciye Mesaj ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -315,8 +315,8 @@
             const productGroupFirsName = tableRow.find('td:eq(1)').text();
             const productGroupLastName = tableRow.find('td:eq(2)').text();
             Swal.fire({
-                title: tableType === 'DeletedTables' ? 'Silinen Marka Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
-                text: `${productGroupFirsName} Adlı Marka Geri Getirilecektir!`,
+                title: tableType === 'DeletedTables' ? 'Silinen Geliştiriciye Mesaj Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${productGroupFirsName} Adlı Geliştiriciye Mesaj Geri Getirilecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

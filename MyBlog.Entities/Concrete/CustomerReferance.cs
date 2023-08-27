@@ -9,12 +9,16 @@ namespace MyBlog.Entities.Concrete
 {
     public class CustomerReferance : EntityBase, IEntity
     {
-        public string FirstName { get; set; } 
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone  { get; set; }
         public string Description  { get; set; }
         public CustomerReferanceTitle? CustomerReferanceTitle { get; set; }
         public int? CustomerReferanceTitleId { get; set; }
         public ICollection<Customer> Customers { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public string? TC { get; set; }
+        public string? FromWhere { get; set; }
+
     }
 }

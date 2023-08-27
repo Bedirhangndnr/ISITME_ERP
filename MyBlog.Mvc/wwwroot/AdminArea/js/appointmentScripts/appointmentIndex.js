@@ -153,7 +153,7 @@
             },
             {
                 extend: 'excelHtml5',
-                text: 'Export to Excel',
+                text: 'İndir | Excel',
                 filename: 'Randevular Tablosu',
                 className: 'btn btn-outline-secondary'
             }

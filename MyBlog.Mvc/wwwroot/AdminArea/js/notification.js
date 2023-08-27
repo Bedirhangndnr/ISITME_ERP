@@ -350,4 +350,47 @@
             });
         });
 
+    $(document).ready(function () {
+        $(function () {
+            const url = '/Admin/MessageToDeveloper/Add/';
+            const placeHolderDiv = $('#modalPlaceHolder');
+            $('#btnAdd').click(function () {
+                $.get(url).done(function (data) {
+                    placeHolderDiv.html(data);
+                    placeHolderDiv.find(".modal").modal('show');
+                });
+            });
+
+            /* Ajax GET / Getting the _MessageToDeveloperAddPartial as Modal Form ends here. */
+
+            /* Ajax POST / Posting the FormData as MessageToDeveloperAddDto starts from here. */
+
+            placeHolderDiv.on('click',
+                '#btnSave',
+                function (event) {
+                    event.preventDefault();
+                    const form = $('#form-messageToDeveloper-add');
+                    const actionUrl = form.attr('action');
+                    const dataToSend = form.serialize();
+                    $.post(actionUrl, dataToSend).done(function (data) {
+                        console.log(data);
+                        const MessageToDeveloperAddAjaxModel = jQuery.parseJSON(data);
+                        console.log(MessageToDeveloperAddAjaxModel);
+                        const newFormBody = $('.modal-body', MessageToDeveloperAddAjaxModel.MessageToDeveloperAddPartial);
+                        placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
+                        const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
+                        if (isValid) {
+                            placeHolderDiv.find('.modal').modal('hide');
+                            const messageToDeveloper = MessageToDeveloperAddAjaxModel.MessageToDeveloperDto.MessageToDeveloper;
+                            toastr.success(`${MessageToDeveloperAddAjaxModel.MessageToDeveloperDto.Message}`, 'Başarılı İşlem!');
+                        } else {
+                            toastr.warning(summaryText);
+                        }
+                    });
+                });
+        });
+
+
+    });
+
 });

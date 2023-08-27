@@ -1,5 +1,3 @@
+dotnet ef --startup-project ../MyBlog.mvc migrations add newColumns
 
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Data>dotnet ef --startup-project ../MyBlog.mvc migrations add updateRequir
-edvalues
-
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Data>dotnet ef --startup-project ../MyBlog.mvc database update
+dotnet ef --startup-project ../MyBlog.mvc database update

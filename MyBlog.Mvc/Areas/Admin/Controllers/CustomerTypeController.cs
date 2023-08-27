@@ -13,18 +13,17 @@ using System.Text.Json;
 using NToastNotify;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using MyBlog.Entities.Dtos.CustomerReferanceDtos;
 using MyBlog.Entities.Dtos.CustomerTypeDtos;
 using MyBlog.Shared.Utilities.Extensions;
-using MyBlog.Entities.Dtos.CustomerTypeDtos;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
-using MyBlog.Mvc.Areas.Admin.Models.CustomerModels;
 using MyBlog.Mvc.Consts;
 using MyBlog.Services.Utilities;
+using MyBlog.Mvc.Areas.Admin.Models.CustomerModels;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
 
     public class CustomerTypeController : BaseController
     {
@@ -33,15 +32,16 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         private readonly INotificationService _notificationService;
 
 
-        public CustomerTypeController(ICustomerTypeService customerTypeService,
+        public CustomerTypeController(
             INotificationService notificationService,
+            ICustomerTypeService customerTypeService,
             UserManager<User> userManager,
             IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _notificationService = notificationService;
             _customerTypeService = customerTypeService;
             _toastNotification = toastNotification;
-        } 
+        }
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeRead}")]
         [HttpGet]
@@ -64,7 +64,6 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             });
             return View();
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeRead}")]
         [HttpGet]
         public async Task<JsonResult> GetAllCustomerTypes(string tableType)
         {
@@ -108,22 +107,22 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _customerTypeService.AddAsync(customerTypeAddDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    var customerTypeAddAjaxModel = JsonSerializer.Serialize(new CustomerTypeAddAjaxViewModel
+                    var categoryAddAjaxModel = JsonSerializer.Serialize(new CustomerTypeAddAjaxViewModel
                     {
                         CustomerTypeDto = result.Data,
                         CustomerTypeAddPartial = await this.RenderViewToStringAsync("_CustomerTypeAddPartial", customerTypeAddDto)
                     });
-                    return Json(customerTypeAddAjaxModel);
+                    return Json(categoryAddAjaxModel);
                 }
             }
-            var customerTypeAddAjaxErrorModel = JsonSerializer.Serialize(new CustomerTypeAddAjaxViewModel
+            var categoryAddAjaxErrorModel = JsonSerializer.Serialize(new CustomerTypeAddAjaxViewModel
             {
                 CustomerTypeAddPartial = await this.RenderViewToStringAsync("_CustomerTypeAddPartial", customerTypeAddDto)
             });
-            return Json(customerTypeAddAjaxErrorModel);
+            return Json(categoryAddAjaxErrorModel);
 
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int customerTypeId, string tableType)
         {
@@ -135,8 +134,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
             return NotFound();
         }
-
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceUpdate}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeUpdate}")]
         [HttpPost]
         public async Task<IActionResult> Update(CustomerTypeUpdateDto customerTypeUpdateDto, string tableType)
         {
@@ -148,25 +146,27 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Updated,
-                        "Marka",
+                        "Brand",
                         result.Data.CustomerType.ModifiedByName),
                         NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
-                    var customerTypeUpdateAjaxModel = JsonSerializer.Serialize(new CustomerTypeUpdateAjaxViewModel
+                    var categoryUpdateAjaxModel = JsonSerializer.Serialize(new CustomerTypeUpdateAjaxViewModel
                     {
                         CustomerTypeDto = result.Data,
                         CustomerTypeUpdatePartial = await this.RenderViewToStringAsync("_CustomerTypeUpdatePartial", customerTypeUpdateDto)
                     });
-                    return Json(customerTypeUpdateAjaxModel);
+                    return Json(categoryUpdateAjaxModel);
                 }
             }
-            var customerTypeUpdateAjaxErrorModel = JsonSerializer.Serialize(new CustomerTypeUpdateAjaxViewModel
+            var categoryUpdateAjaxErrorModel = JsonSerializer.Serialize(new CustomerTypeUpdateAjaxViewModel
             {
                 CustomerTypeUpdatePartial = await this.RenderViewToStringAsync("_CustomerTypeUpdatePartial", customerTypeUpdateDto)
             });
-            return Json(customerTypeUpdateAjaxErrorModel);
+            return Json(categoryUpdateAjaxErrorModel);
 
         }
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeDelete}")]
+        [HttpPost]
         public async Task<JsonResult> Delete(int customerTypeId, string tableType)
         {
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
@@ -188,14 +188,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeDelete}")]
         public async Task<JsonResult> UndoDelete(int customerTypeId)
         {
             var result = await _customerTypeService.UndoDeleteAsync(customerTypeId, LoggedInUser.UserName);
             var undoDeletedCustomerType = JsonSerializer.Serialize(result.Data);
             return Json(undoDeletedCustomerType);
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerReferenceDelete}")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.CustomerTypeDelete}")]
         [HttpGet]
         public async Task<IActionResult> HardDelete(int customerTypeId)
         {

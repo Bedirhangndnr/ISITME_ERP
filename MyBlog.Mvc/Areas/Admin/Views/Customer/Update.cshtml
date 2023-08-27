@@ -2,7 +2,7 @@
 @model MyBlog.Mvc.Areas.Admin.Models.CustomerModels.CustomerUpdateViewModel
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Makale Ekle";
+    ViewBag.Title = "Hasta Güncelle";
 }
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -16,6 +16,13 @@
         ActionTR = "Güncelle",
         TableType = ViewBag.TableType
 })
+<style>
+    .centered-button {
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+</style>
 <form asp-controller="Customer" asp-action="Update" method="post" enctype="multipart/form-data">
     <div class="row mt-2">
         <div class="col-md-8">
@@ -159,6 +166,11 @@
                             Action="Update",
                             Controller="Customer"
                             })
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="@Url.Action("ViewAllActions", "Customer", new { id = Model.Id })" class="btn btn-secondary centered-button">
+                                <i class="fas fa-list"></i> İşlemlere Git
+                            </a>
                         </div>
                     </div>
                 </div>

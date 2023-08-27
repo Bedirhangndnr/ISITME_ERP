@@ -87,7 +87,7 @@
 
             {
                 extend: 'excelHtml5',
-                text: 'Export to Excel',
+                text: 'İndir | Excel',
                 filename: 'Hastalar Tablosu',
                 className: 'btn btn-outline-secondary'
             },

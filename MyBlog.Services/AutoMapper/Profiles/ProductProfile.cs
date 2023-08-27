@@ -19,7 +19,7 @@ namespace MyBlog.Services.AutoMapper.Profiles
                 .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
                 .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
                 .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName))
-                .ForMember(dest => dest.IsActive, opt => opt.MapFrom(x => false)); // dto dan Producte aktarılırken ısactive değeri default olarak false atandı.
+                .ForMember(dest => dest.IsActive, opt => opt.MapFrom(x => true)); // dto dan Producte aktarılırken ısactive değeri default olarak false atandı.
             CreateMap<ProductUpdateDto, Product>()
                 .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
             CreateMap<Product, ProductUpdateDto>();

@@ -43,6 +43,7 @@ namespace MyBlog.Data.Concrete
         private EfOutPaymentRepository _outPaymentRepository;
         private EfOutPaymentDetailRepository _outPaymentDetailRepository;
         private EfAssociatedInstitutionRepositoryRepository _associatedInstitutionRepository;
+        private EfMessageToDeveloperRepository _messageToDeveloperRepository;
         public UnitOfWork(MyBlogContext context)
         {
             _context = context;
@@ -78,6 +79,7 @@ namespace MyBlog.Data.Concrete
         public ISubProgramRepository SubPrograms => _subProgramRepository ?? new EfSubProgramRepository(_context);
         public IModuleRepository Modules => _moduleRepository ?? new EfModuleRepository(_context);
         public IAssociatedInstitutionRepository AssociatedInstitutions => _associatedInstitutionRepository ?? new EfAssociatedInstitutionRepositoryRepository (_context);
+        public IMessageToDeveloperRepository MessageToDevelopers => _messageToDeveloperRepository ?? new EfMessageToDeveloperRepository(_context);
 
         public async ValueTask DisposeAsync()
         {

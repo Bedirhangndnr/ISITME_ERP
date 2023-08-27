@@ -70,15 +70,12 @@ namespace MyBlog.Services.Concrete
                 endDate = DateTime.Today;
 
             var expenses = await UnitOfWork.Expenses.GetAllAsync(x => !x.IsDeleted && x.CreatedDate >= startDate && x.CreatedDate <= endDate);
-            if (expenses.Count > 0)
-            {
                 return new DataResult<ExpenseListDto>(ResultStatus.Success, new ExpenseListDto
                 {
                     Expenses = expenses,
                     ResultStatus = ResultStatus.Success
                 });
-            }
-            return new DataResult<ExpenseListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Tutar"));
+
         }
 
 

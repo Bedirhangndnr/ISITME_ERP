@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    
+
 
     const dataTable = $('#expensesTable').DataTable({
         dom:
@@ -107,29 +107,33 @@
             labels.push(label);
 
             var formattedDate = formatDate(date); // Tarihi uygun formata çevir
+            if (incomeDate_ != null) {
+                for (var j = 0; j < incomeDate_.length; j++) {
+                    var incomeDate = new Date(incomeDate_[j]); // Gelir tarihini al
+                    var formattedIncomeDate = formatDate(incomeDate);
 
-            for (var j = 0; j < incomeDate_.length; j++) {
-                var incomeDate = new Date(incomeDate_[j]); // Gelir tarihini al
-                var formattedIncomeDate = formatDate(incomeDate);
-
-                if (formattedDate === formattedIncomeDate) {
-                    incomeAmounts[k] = incomeData_[j];
-                    break; // Eşleşme bulunduğunda döngüyü sonlandır
+                    if (formattedDate === formattedIncomeDate) {
+                        incomeAmounts[k] = incomeData_[j];
+                        break; // Eşleşme bulunduğunda döngüyü sonlandır
+                    }
                 }
             }
-            for (var j = 0; j < outcomeDate_.length; j++) {
-                var outcomeDate = new Date(outcomeDate_[j]); // Gelir tarihini al
-                var formattedOutcomeDate = formatDate(outcomeDate);
+            if (outcomeDate_ != null) {
 
-                if (formattedDate === formattedOutcomeDate) {
-                    outcomeAmounts[k] = outcomeData_[j];
-                    break; // Eşleşme bulunduğunda döngüyü sonlandır
+                for (var j = 0; j < outcomeDate_.length; j++) {
+                    var outcomeDate = new Date(outcomeDate_[j]); // Gelir tarihini al
+                    var formattedOutcomeDate = formatDate(outcomeDate);
+
+                    if (formattedDate === formattedOutcomeDate) {
+                        outcomeAmounts[k] = outcomeData_[j];
+                        break; // Eşleşme bulunduğunda döngüyü sonlandır
+                    }
                 }
             }
             k++;
         }
 
-// Daha sonrasında buradaki 'incomeAmounts' dizisini kullanarak grafiği oluşturabilirsiniz
+        // Daha sonrasında buradaki 'incomeAmounts' dizisini kullanarak grafiği oluşturabilirsiniz
 
         var myLineChart = new Chart(ctx, {
             type: 'line',

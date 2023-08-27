@@ -1190,28 +1190,28 @@ namespace MyBlog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 39,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "5dc9a9bc-28d3-486b-b6d8-5a7ef16aabb3", "Marka Ekleme Yetkisi", "Brand.Create", "BRAND.CREATE" });
+                values: new object[] { "5dc9a9bc-28d3-486b-b6d8-5a7ef16aabb3", "Geliştiriciye Mesaj Ekleme Yetkisi", "Brand.Create", "BRAND.CREATE" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 40,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "84a15aed-e24e-4368-9de1-e48a2bda16d7", "Marka Görüntüleme Yetkisi", "Brand.Read", "BRAND.READ" });
+                values: new object[] { "84a15aed-e24e-4368-9de1-e48a2bda16d7", "Geliştiriciye Mesaj Görüntüleme Yetkisi", "Brand.Read", "BRAND.READ" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 41,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "26f29fed-2643-4642-b8a6-45e41692ef5b", "Marka Güncelleme Yetkisi", "Brand.Update", "BRAND.UPDATE" });
+                values: new object[] { "26f29fed-2643-4642-b8a6-45e41692ef5b", "Geliştiriciye Mesaj Güncelleme Yetkisi", "Brand.Update", "BRAND.UPDATE" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 42,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "b152a513-93fe-4b19-b416-cbcd184d50ad", "Marka Silme Yetkisi", "Brand.Delete", "BRAND.DELETE" });
+                values: new object[] { "b152a513-93fe-4b19-b416-cbcd184d50ad", "Geliştiriciye Mesaj Silme Yetkisi", "Brand.Delete", "BRAND.DELETE" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
@@ -1498,7 +1498,7 @@ namespace MyBlog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 83,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "018b6732-4bb6-48c5-873b-67b7efb0b556", "Markalar Programı Görüntüleme", "EmployeeProgram.Read", "EMPLOYEEPROGRAM.READ" });
+                values: new object[] { "018b6732-4bb6-48c5-873b-67b7efb0b556", "Geliştiriciye Mesajlar Programı Görüntüleme", "EmployeeProgram.Read", "EMPLOYEEPROGRAM.READ" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
@@ -1624,7 +1624,7 @@ namespace MyBlog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 101,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "19a0a60c-9be6-478e-97a4-27dbd3765b97", "Markalar Modülü Yetkisi", "BrandModule.Read", "BRANDMODULE.READ" });
+                values: new object[] { "19a0a60c-9be6-478e-97a4-27dbd3765b97", "Geliştiriciye Mesajlar Modülü Yetkisi", "BrandModule.Read", "BRANDMODULE.READ" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
@@ -3502,28 +3502,28 @@ namespace MyBlog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 38,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "c2e0165b-419d-49d6-8ba0-bb5395ef00a8", "Marka Ekleme Yetkisi", "Brand.Create", "BRAND.CREATE" });
+                values: new object[] { "c2e0165b-419d-49d6-8ba0-bb5395ef00a8", "Geliştiriciye Mesaj Ekleme Yetkisi", "Brand.Create", "BRAND.CREATE" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 39,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "5545a5fd-30fa-4f29-8c38-3625ff0e0c78", "Marka Görüntüleme Yetkisi", "Brand.Read", "BRAND.READ" });
+                values: new object[] { "5545a5fd-30fa-4f29-8c38-3625ff0e0c78", "Geliştiriciye Mesaj Görüntüleme Yetkisi", "Brand.Read", "BRAND.READ" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 40,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "efdda925-29ca-4582-9a64-498260b00fe0", "Marka Güncelleme Yetkisi", "Brand.Update", "BRAND.UPDATE" });
+                values: new object[] { "efdda925-29ca-4582-9a64-498260b00fe0", "Geliştiriciye Mesaj Güncelleme Yetkisi", "Brand.Update", "BRAND.UPDATE" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 41,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "3ecebe19-3460-4cf8-a4e1-9ea100f7ec78", "Marka Silme Yetkisi", "Brand.Delete", "BRAND.DELETE" });
+                values: new object[] { "3ecebe19-3460-4cf8-a4e1-9ea100f7ec78", "Geliştiriciye Mesaj Silme Yetkisi", "Brand.Delete", "BRAND.DELETE" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
@@ -3810,7 +3810,7 @@ namespace MyBlog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 82,
                 columns: new[] { "AccessLevel", "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { 2, "e51a1ce8-7b72-406c-b097-daf8d8868573", "Markalar Programı Görüntüleme", "EmployeeProgram.Read", "EMPLOYEEPROGRAM.READ" });
+                values: new object[] { 2, "e51a1ce8-7b72-406c-b097-daf8d8868573", "Geliştiriciye Mesajlar Programı Görüntüleme", "EmployeeProgram.Read", "EMPLOYEEPROGRAM.READ" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",
@@ -3936,7 +3936,7 @@ namespace MyBlog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 100,
                 columns: new[] { "ConcurrencyStamp", "Definition", "Name", "NormalizedName" },
-                values: new object[] { "f5bb19b2-5d85-4b07-b433-4142317997dc", "Markalar Modülü Yetkisi", "BrandModule.Read", "BRANDMODULE.READ" });
+                values: new object[] { "f5bb19b2-5d85-4b07-b433-4142317997dc", "Geliştiriciye Mesajlar Modülü Yetkisi", "BrandModule.Read", "BRANDMODULE.READ" });
 
             migrationBuilder.UpdateData(
                 table: "Roles",

@@ -61,16 +61,21 @@ namespace MyBlog.Services.Concrete
             }
         }
 
-        public async Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync(string notificaitonType = "All")
+        public async Task<IDataResult<NotificationListDto>> GetAllByNonDeletedAndActiveAsync(string notificaitonType = "All", int customerId=0)
         {
             IList<NotificationListWithRelatedTable> notificationListWithRelatedTable;
             if (notificaitonType == "All")
             {
                 notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
             }
-            else
+            else if(customerId==0)
             {
                 notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.NotificationType == notificaitonType);
+
+            }
+            else
+            {
+                notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.NotificationType == notificaitonType && c.CustomerId==customerId);
 
             }
             if (notificationListWithRelatedTable.Count > -1)
@@ -87,7 +92,7 @@ namespace MyBlog.Services.Concrete
 
 
 
-        public async Task<bool> AddAsync(string message, string title, int userId,  NotificationTypes notificationType= NotificationTypes.DatabaseTracking)
+        public async Task<bool> AddAsync(string message, string title, int userId,  NotificationTypes notificationType= NotificationTypes.DatabaseTracking, int customerId = 0)
         {
             NotificationAddDto notificationAddDto = new NotificationAddDto
             {
@@ -99,6 +104,10 @@ namespace MyBlog.Services.Concrete
                 CreatedByName="admin",
                 ModifiedByName="admin",
             };
+            if (customerId!=0)
+            {
+                notificationAddDto.CustomerId = customerId;
+            }
             var notification = Mapper.Map<Notification>(notificationAddDto);
             var addedNotification = await UnitOfWork.Notifications.AddAsync(notification);
             await UnitOfWork.SaveAsync();

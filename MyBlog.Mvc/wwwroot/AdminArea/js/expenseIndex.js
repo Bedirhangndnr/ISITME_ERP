@@ -148,7 +148,7 @@
             },
             {
                 extend: 'excelHtml5',
-                text: 'Export to Excel',
+                text: 'İndir | Excel',
                 filename: 'Gelir Gider Tablosu',
                 className: 'btn btn-outline-secondary'
             }
@@ -205,7 +205,7 @@
             const expenseTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${expenseTitle} Başlıklı Marka ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${expenseTitle} Başlıklı Geliştiriciye Mesaj ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3086d7',
@@ -411,8 +411,8 @@
             const expenseFirsName = tableRow.find('td:eq(1)').text();
             const expenseLastName = tableRow.find('td:eq(2)').text();
             Swal.fire({
-                title: tableType === 'DeletedTables' ? 'Silinen Marka Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
-                text: `${expenseFirsName} Adlı Marka Geri Getirilecektir!`,
+                title: tableType === 'DeletedTables' ? 'Silinen Geliştiriciye Mesaj Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${expenseFirsName} Adlı Geliştiriciye Mesaj Geri Getirilecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3086d7',

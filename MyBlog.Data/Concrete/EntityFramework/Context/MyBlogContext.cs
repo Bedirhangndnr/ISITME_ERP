@@ -62,6 +62,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new SubProgramMap());
             modelBuilder.ApplyConfiguration(new AssociatedInstitutionMap());
             modelBuilder.ApplyConfiguration(new ExpenseMap());
+            modelBuilder.ApplyConfiguration(new MessageToDeveloperMap());
         }
         public DbSet<Article> Articles{ get; set; }
         public DbSet<Category> Categories{ get; set; }
@@ -94,6 +95,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<OutPayment> OutPayments { get; set; }
         public DbSet<OutPaymentDetail> OutPaymentDetails { get; set; }
+        public DbSet<MessageToDeveloper> MessageToDevelopers{ get; set; }
 
     }
 }

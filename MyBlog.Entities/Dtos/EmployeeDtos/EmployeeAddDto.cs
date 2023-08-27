@@ -40,7 +40,6 @@ namespace MyBlog.Entities.Dtos.EmployeeDtos
         [MinLength(8, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string Phone { get; set; }
         [DisplayName("TC")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         [MinLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         public string TC { get; set; }
@@ -51,5 +50,15 @@ namespace MyBlog.Entities.Dtos.EmployeeDtos
         public string Address { get; set; }
         [DisplayName("Not")]
         public string? Note { get; set; } = "";
+
+
+        [DisplayName("Doğum Tarihi")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        public DateTime BirthDate { get; set; }
+
+
+        [DisplayName("Başlangıç Tarih")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        public DateTime StartDate { get; set; }
     }
 }

@@ -29,6 +29,15 @@ namespace MyBlog.Entities.Dtos.CustomerReferanceDtos
         [MinLength(11, ErrorMessage = "{0} {1} karakterden küçük olmamalıdır. (0 ile birlikte)")]
         [DataType(DataType.PhoneNumber)]
         public string? Phone { get; set; }
+        [DisplayName("Doğum Tarihi")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        public DateTime BirthDate { get; set; } //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        [DisplayName("TC")]
+        [MaxLength(50, ErrorMessage = "{0} {1} karakterden büyük olmamalıdır. (0 ile birlikte)")]
+        public string? TC { get; set; }
+        [DisplayName("Kurum")]
+        [MaxLength(50, ErrorMessage = "{0} {1} karakterden büyük olmamalıdır. (0 ile birlikte)")]
+        public string? FromWhere { get; set; }
         [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string? Description { get; set; }

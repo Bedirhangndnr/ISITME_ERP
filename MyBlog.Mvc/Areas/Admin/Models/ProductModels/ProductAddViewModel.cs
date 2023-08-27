@@ -39,7 +39,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? ProductSubGroupId { get; set; }
         public IList<ProductSubGroup>? ProductSubGroups { get; set; }
-        [DisplayName("Marka")]
+        [DisplayName("Geliştiriciye Mesaj")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int BrandId { get; set; }
         public IList<Brand> Brands { get; set; }

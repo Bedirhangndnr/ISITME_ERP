@@ -27,6 +27,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.Note).HasMaxLength(1000).IsRequired(false);
             builder.Property(a => a.SerialNumber).IsRequired().HasMaxLength(70);
             builder.Property(a => a.ProductName).IsRequired().HasMaxLength(70);
+            builder.Property(a => a.IsMultiple).IsRequired();
 
             builder.HasOne(e => e.ProductSubGroup)
                 .WithMany(et => et.Products)
@@ -56,7 +57,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     SerialNumber = "A12BO9930HT4",
-                    ProductName = "Siemens Signia Motion 1PX"
+                    ProductName = "Siemens Signia Motion 1PX",
+                    IsMultiple = false,
                 },
                 new Product
                 {
@@ -74,7 +76,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     SerialNumber = "A12BO9930HT3",
-                    ProductName = "Jabra Signia"
+                    ProductName = "Jabra Signia",
+                    IsMultiple = false
                 },
                 new Product
                 {
@@ -92,7 +95,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     SerialNumber = "A12BO9930HT2",
-                    ProductName = "Apple Signia Motion 1PX"
+                    ProductName = "Apple Signia Motion 1PX",
+                    IsMultiple = false
                 },
                 new Product
                 {
@@ -110,7 +114,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     SerialNumber = "A12BO9930HT1",
-                    ProductName = "Samsung Signia Motion 1PX"
+                    ProductName = "Samsung Signia Motion 1PX",
+                    IsMultiple = false
                 }
             );
         }

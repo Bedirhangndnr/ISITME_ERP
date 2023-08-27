@@ -26,5 +26,8 @@ namespace MyBlog.Entities.Concrete
         public string Phone { get; set; }
         public string Address { get; set; }
         public string TC { get; set; }
+        public virtual DateTime? BirthDate { get; set; }
+        public virtual DateTime? StartDate { get; set; }
+
     }
 }

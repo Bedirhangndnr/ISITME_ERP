@@ -17,6 +17,9 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         [MinLength(3, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string Title { get; set; }
+        [DisplayName("Açıklama")]
+        [MaxLength(100, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
+        public string? Description { get; set; }
         [DisplayName("Not")]
         public string? Note { get; set; } = "";
     }

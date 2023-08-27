@@ -211,7 +211,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Updated,
-                        "Marka",
+                        "Geliştiriciye Mesaj",
                         result.Data.Expense.ModifiedByName),
                         NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );

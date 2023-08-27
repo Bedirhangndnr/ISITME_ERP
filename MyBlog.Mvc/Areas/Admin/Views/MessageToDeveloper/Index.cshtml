@@ -1,0 +1,122 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.MessageToDeveloperDtos.MessageToDeveloperListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Geliştiriciye Mesajlar";
+}
+
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+       {
+           Depth = 2,
+           Controller = "MessageToDeveloper",
+           ControllerTr = "Markalar",
+           Action = "Yok",
+           ActionTR = "Yok",
+           TableType = ViewBag.TableType
+       })
+
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />
+    <div id="modalPlaceHolder" aria-hidden="true"></div>
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Geliştiriciye Mesajlar
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered datatable" id="messageToDevelopersTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Mesaj</th>
+                            <th>Geliştirme Durumu</th>
+                            <th class="dt-button-col">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Mesaj</th>
+                            <th>Geliştirme Durumu</th>
+                            <th class="dt-button-col">İşlemler</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @functions {
+                        string GetProgressBarColor(int progress)
+                        {
+                            if (progress <= 1)
+                                return "#8d0000";
+                            else if (progress == 2)
+                                return "#ff4a4a";
+                            else if (progress == 3)
+                                return "#ffd14d";
+                            else if (progress == 4)
+                                return "#c9e588";
+                            else
+                                return "42df00";
+                        }
+                    }
+                    @foreach (var messageToDeveloper in Model.MessageToDevelopers)
+                        {
+                            <tr name="@messageToDeveloper.Id">
+                                <td>@messageToDeveloper.Id</td>
+                                <td>@messageToDeveloper.Title</td>
+                                <td style="width=70px">@messageToDeveloper.Message</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: @(messageToDeveloper.Progress * 20)%; background-color: @GetProgressBarColor(messageToDeveloper.Progress);" aria-valuenow="@(messageToDeveloper.Progress * 20)" aria-valuemin="0" aria-valuemax="100">
+                                            @messageToDeveloper.Progress
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="dt-button-col">
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                            {
+                            Id=messageToDeveloper.Id,
+                            TableType=ViewBag.tableType,
+                            })
+
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="customerType" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+
+@section Scripts
+    {
+    <script>
+        function GetProgressBarColor(progress) {
+            if (progress <= 3) {
+                return "red";
+            } else if (progress <= 7) {
+                return "yellow";
+            } else {
+                return "green";
+            }
+        }
+                    }
+    </script>
+    <script src="~/AdminArea/js/messageToDeveloperIndex.js" type="application/ecmascript"></script>
+}
+

@@ -58,5 +58,14 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         public string Address { get; set; }
         [DisplayName("Not")]
         public string? Note { get; set; } = "";
+
+        [DisplayName("Doğum Tarihi")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        public DateTime BirthDate { get; set; }
+
+
+        [DisplayName("Başlangıç Tarih")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        public DateTime StartDate { get; set; }
     }
 }

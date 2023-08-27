@@ -13,6 +13,11 @@
         {
             <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="@Model.Controller" asp-action=@Model.Action asp-route-tableType=@Model.TableType>@Model.ActionTR</a></li>
         }
+
+        // if (Model.Depth > 3)
+        // {
+        //     <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="@Model.Controller" asp-action=@Model.Detail1 asp-route-tableType=@Model.TableType>@Model.Detail1TR</a></li>
+        // }
     }
     
 </ol>

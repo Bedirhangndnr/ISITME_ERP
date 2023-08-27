@@ -34,7 +34,7 @@
     });
     $('#brandsList').select2({
         theme: 'bootstrap4',
-        placeholder: "Bir Marka Seçiniz...",
+        placeholder: "Bir Geliştiriciye Mesaj Seçiniz...",
         allowClear: true
     });
     $('#productSubGroupsList').select2({

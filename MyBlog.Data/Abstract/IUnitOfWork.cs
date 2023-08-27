@@ -38,6 +38,7 @@ namespace MyBlog.Data.Abstract
         IAssociatedInstitutionRepository AssociatedInstitutions { get; }
         IOutPaymentRepository OutPayments { get; }
         IOutPaymentDetailRepository OutPaymentDetails { get; }
+        IMessageToDeveloperRepository MessageToDevelopers { get; }
         Task<int> SaveAsync();
     }
 }

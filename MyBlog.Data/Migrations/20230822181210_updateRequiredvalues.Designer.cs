@@ -3605,7 +3605,7 @@ namespace MyBlog.Data.Migrations
                             Id = 38,
                             AccessLevel = 3,
                             ConcurrencyStamp = "c2e0165b-419d-49d6-8ba0-bb5395ef00a8",
-                            Definition = "Marka Ekleme Yetkisi",
+                            Definition = "Geliştiriciye Mesaj Ekleme Yetkisi",
                             Name = "Brand.Create",
                             NormalizedName = "BRAND.CREATE"
                         },
@@ -3614,7 +3614,7 @@ namespace MyBlog.Data.Migrations
                             Id = 39,
                             AccessLevel = 3,
                             ConcurrencyStamp = "5545a5fd-30fa-4f29-8c38-3625ff0e0c78",
-                            Definition = "Marka Görüntüleme Yetkisi",
+                            Definition = "Geliştiriciye Mesaj Görüntüleme Yetkisi",
                             Name = "Brand.Read",
                             NormalizedName = "BRAND.READ"
                         },
@@ -3623,7 +3623,7 @@ namespace MyBlog.Data.Migrations
                             Id = 40,
                             AccessLevel = 3,
                             ConcurrencyStamp = "efdda925-29ca-4582-9a64-498260b00fe0",
-                            Definition = "Marka Güncelleme Yetkisi",
+                            Definition = "Geliştiriciye Mesaj Güncelleme Yetkisi",
                             Name = "Brand.Update",
                             NormalizedName = "BRAND.UPDATE"
                         },
@@ -3632,7 +3632,7 @@ namespace MyBlog.Data.Migrations
                             Id = 41,
                             AccessLevel = 3,
                             ConcurrencyStamp = "3ecebe19-3460-4cf8-a4e1-9ea100f7ec78",
-                            Definition = "Marka Silme Yetkisi",
+                            Definition = "Geliştiriciye Mesaj Silme Yetkisi",
                             Name = "Brand.Delete",
                             NormalizedName = "BRAND.DELETE"
                         },
@@ -4001,7 +4001,7 @@ namespace MyBlog.Data.Migrations
                             Id = 82,
                             AccessLevel = 2,
                             ConcurrencyStamp = "e51a1ce8-7b72-406c-b097-daf8d8868573",
-                            Definition = "Markalar Programı Görüntüleme",
+                            Definition = "Geliştiriciye Mesajlar Programı Görüntüleme",
                             Name = "EmployeeProgram.Read",
                             NormalizedName = "EMPLOYEEPROGRAM.READ"
                         },
@@ -4163,7 +4163,7 @@ namespace MyBlog.Data.Migrations
                             Id = 100,
                             AccessLevel = 1,
                             ConcurrencyStamp = "f5bb19b2-5d85-4b07-b433-4142317997dc",
-                            Definition = "Markalar Modülü Yetkisi",
+                            Definition = "Geliştiriciye Mesajlar Modülü Yetkisi",
                             Name = "BrandModule.Read",
                             NormalizedName = "BRANDMODULE.READ"
                         },

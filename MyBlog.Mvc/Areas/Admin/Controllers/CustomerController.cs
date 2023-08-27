@@ -240,7 +240,8 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
 NotificationMessageTypes.Updated,
 TableNamesConstants.Customers,
 LoggedInUser.UserName),
-NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id,
+customerId: customerUpdateDto.Id
 );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
@@ -359,6 +360,18 @@ LoggedInUser.UserName),
 NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
 );
             return Json(undoDeleteCustomerResult);
+        }
+
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}")]
+        [HttpGet]
+        public async Task<IActionResult> ViewAllActions(int id)
+        {
+            var result = await _notificationService.GetAllByNonDeletedAndActiveAsync("DatabaseTracking", id);
+            var customer = await _customerService.GetAsync(id);
+            string customerName=customer.Data.Customer.FirstName + " " + customer.Data.Customer.LastName;
+            ViewBag.customerNameVB = customerName;
+            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            return View();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.IsActive).IsRequired();
             builder.Property(a => a.IsDeleted).IsRequired();
             builder.Property(a => a.Note).HasMaxLength(500);
-            builder.Property(a => a.Description).HasMaxLength(500);
+            builder.Property(a => a.Description).HasMaxLength(500).IsRequired(false);
             builder.HasOne(e => e.ProductGroup)
                 .WithMany(et => et.ProductSubGroups)
                 .HasForeignKey(e => e.ProductGroupId)

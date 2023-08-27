@@ -44,7 +44,7 @@ namespace MyBlog.Entities.Dtos.ProductDtos
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? ProductSubGroupId { get; set; }
         public ProductSubGroup? ProductSubGroup { get; set; }
-        [DisplayName("Marka")]
+        [DisplayName("Geliştiriciye Mesaj")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int BrandId { get; set; }
         public Brand Brand { get; set; }

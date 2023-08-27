@@ -188,7 +188,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Updated,
-                        "Marka",
+                        "Brand",
                         result.Data.OutPaymentDetail.ModifiedByName),
                         NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );

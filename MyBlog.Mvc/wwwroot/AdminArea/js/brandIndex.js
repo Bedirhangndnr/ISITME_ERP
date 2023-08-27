@@ -122,7 +122,7 @@
             const brandTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${brandTitle} Başlıklı Marka ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${brandTitle} Başlıklı Brand ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -312,8 +312,8 @@
             const brandFirsName = tableRow.find('td:eq(1)').text();
             const brandLastName = tableRow.find('td:eq(2)').text();
             Swal.fire({
-                title: tableType === 'DeletedTables' ? 'Silinen Marka Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
-                text: `${brandFirsName} Adlı Marka Geri Getirilecektir!`,
+                title: tableType === 'DeletedTables' ? 'Silinen Brand Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${brandFirsName} Adlı Brand Geri Getirilecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -326,7 +326,7 @@
                         type: 'POST',
                         dataType: 'json',
                         data: { brandId: id },
-                        url: '/Admin/brand/UndoDelete/',
+                        url: '/Admin/Brand/UndoDelete/',
                         success: function (data) {
                             const brandResult = jQuery.parseJSON(data);
                             if (brandResult.ResultStatus === 0) {

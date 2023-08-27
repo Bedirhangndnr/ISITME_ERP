@@ -59,6 +59,15 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                       ConcurrencyStamp = Guid.NewGuid().ToString(),
                       AccessLevel = 1
                   },
+                  new Role
+                  {
+                      Id = id = id + 1,
+                      Name = AuthorizeDefinitionConstants.Developer,
+                      NormalizedName = AuthorizeDefinitionConstants.Developer.ToUpperInvariant(),
+                      Definition = "Developer Yetkisi",
+                      ConcurrencyStamp = Guid.NewGuid().ToString(),
+                      AccessLevel = 1
+                  },
                 new Role
                 {
                     Id = id = id + 1,
@@ -412,7 +421,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandCreate,
                  NormalizedName = AuthorizeDefinitionConstants.BrandCreate.ToUpperInvariant(),
-                 Definition = "Marka Ekleme Yetkisi",
+                 Definition = "Brand Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -421,7 +430,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandRead,
                  NormalizedName = AuthorizeDefinitionConstants.BrandRead.ToUpperInvariant(),
-                 Definition = "Marka Görüntüleme Yetkisi",
+                 Definition = "Brand Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -430,7 +439,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandUpdate,
                  NormalizedName = AuthorizeDefinitionConstants.BrandUpdate.ToUpperInvariant(),
-                 Definition = "Marka Güncelleme Yetkisi",
+                 Definition = "Brand Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -439,7 +448,44 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.BrandDelete,
                  NormalizedName = AuthorizeDefinitionConstants.BrandDelete.ToUpperInvariant(),
-                 Definition = "Marka Silme Yetkisi",
+                 Definition = "Brand Silme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             // MessageToDeveloper
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.MessageToDeveloperCreate,
+                 NormalizedName = AuthorizeDefinitionConstants.MessageToDeveloperCreate.ToUpperInvariant(),
+                 Definition = "Brand Ekleme Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.MessageToDeveloperRead,
+                 NormalizedName = AuthorizeDefinitionConstants.MessageToDeveloperRead.ToUpperInvariant(),
+                 Definition = "Brand  Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.MessageToDeveloperUpdate,
+                 NormalizedName = AuthorizeDefinitionConstants.MessageToDeveloperUpdate.ToUpperInvariant(),
+                 Definition = "Brand  Yetkisi",
+                 ConcurrencyStamp = Guid.NewGuid().ToString(),
+                 AccessLevel = 3
+             },
+             new Role
+             {
+                 Id = id = id + 1,
+                 Name = AuthorizeDefinitionConstants.MessageToDeveloperDelete,
+                 NormalizedName = AuthorizeDefinitionConstants.MessageToDeveloperDelete.ToUpperInvariant(),
+                 Definition = "Brand  Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },

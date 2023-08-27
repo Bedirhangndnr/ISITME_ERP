@@ -26,7 +26,7 @@
                     <input type="hidden" id="tableType" value="@ViewBag.tableType" />
 
                     <div class="form-group">
-                        <label asp-for="PictureFile"></label> 
+                        <label asp-for="PictureFile"></label>
                         <input type="file" accept="image/*" class="form-control-file" asp-for="PictureFile" />
                         <span class="text-danger" asp-validation-for="PictureFile"></span>
                     </div>
@@ -41,12 +41,12 @@
                             </div>
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-md-6" >
+                        <div class="form-group col-md-6">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Soyad</span>
                                 </div>
-                            <input type="text" id="customerSurname" class="form-control" placeholder="Soyad" asp-for="LastName" />
+                                <input type="text" id="customerSurname" class="form-control" placeholder="Soyad" asp-for="LastName" />
                             </div>
 
                             <span asp-validation-for="LastName" class="text-danger"></span>
@@ -62,29 +62,66 @@
                             </div>
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Doğum Tarihi</span>
+                                </div>
+                                @if (Model.BirthDate != null && Model.BirthDate.Year > 1)
+                                {
+                                    <input type="date" id="datetimepicker" class="form-control" value="@Model.BirthDate.ToString("yyyy-MM-dd")" asp-for="BirthDate" />
+                                }
+                                else
+                                {
+                                    <input type="date" id="datetimepicker" class="form-control" asp-for="BirthDate" />
+                                }
+                            </div>
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
 
                         <div class="form-group col-md-6">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                <span class="input-group-text"><i class=" fas fa-envelope"></i></span>
-                            </div>
-                            <input type="text" id="customerMail" class="form-control" placeholder="E-Posta" asp-for="Email" />
+                                    <span class="input-group-text"><i class=" fas fa-envelope"></i></span>
+                                </div>
+                                <input type="text" id="customerMail" class="form-control" placeholder="E-Posta" asp-for="Email" />
                             </div>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Başlangıç Tarihi</span>
+                                </div>
+                                @if (Model.StartDate != null && Model.StartDate.Year > 1)
+                                {
+                                    <input type="date" id="datetimepicker" class="form-control" value="@Model.StartDate.ToString("yyyy-MM-dd")" asp-for="StartDate" />
+                                }
+                                else
+                                {
+                                    <input type="date" id="datetimepicker" class="form-control" asp-for="StartDate" />
+                                }
+                            </div>
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
                     </div>
+
+
                     <div class="row">
                         <div class="form-group col-md-6">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Soyad</span>
+                                    <span class="input-group-text">TC</span>
                                 </div>
-                            <input type="text" id="customerTc" class="form-control" placeholder="TC Kimlik Numarası" asp-for="TC" />
+                                <input type="text" id="customerTc" class="form-control" placeholder="TC Kimlik Numarası" asp-for="TC" />
                             </div>
 
                             <span asp-validation-for="TC" class="text-danger"></span>
                         </div>
                     </div>
+
+
                     <div class="form-group">
                         <textarea id="text-editor" asp-for="About" placeholder="Hakkında.."></textarea>
                         <span asp-validation-for="About" class="text-danger"></span>
@@ -94,16 +131,16 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">   Not   </span>
                             </div>
-                        <input type="text" class="form-control" placeholder="Not" asp-for="Note" />
+                            <input type="text" class="form-control" placeholder="Not" asp-for="Note" />
+                        </div>
                     </div>
-                </div>
 
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Adres</span>
                             </div>
-                        <textarea class="form-control" style="min-height:100px" placeholder="Adres Giriniz" asp-for="Address"></textarea>
+                            <textarea class="form-control" style="min-height:100px" placeholder="Adres Giriniz" asp-for="Address"></textarea>
                             <span asp-validation-for="Address" class="text-danger"></span>
 
                         </div>
@@ -122,10 +159,10 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Personel Tipi</span>
                             </div>
-                        <select id="customerReferanceList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
-                            <option></option>
-                        </select>
-                        <span asp-validation-for="EmployeeTypeId" class="text-danger"></span>
+                            <select id="customerReferanceList" class="form-control" asp-for="EmployeeTypeId" asp-items="@(new SelectList(Model.EmployeeTypes,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="EmployeeTypeId" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -139,7 +176,7 @@
                 TableType=ViewBag.tableType,
                 Action="Update",
                 Controller="Employee"
-                })
+                })z
             </div>
         </div>
     </div>
@@ -154,7 +191,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontsize/trumbowyg.fontsize.min.js" integrity="sha512-DOJaq3OCe5hLSr73aQBMiJY4kc+L5UwessOl6g2oxyy7VDnZVWt+TgWVy2nh2ypf7bwoaxZmPnIMiRC5PNZecA==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/tr.js"></script>
     <script src="~/AdminArea/js/tools.js" type="application/ecmascript"></script>
+
+
+
 }
 @section Styles
     {

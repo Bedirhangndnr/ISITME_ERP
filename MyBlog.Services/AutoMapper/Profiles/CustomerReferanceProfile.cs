@@ -23,7 +23,7 @@ namespace MyBlog.Services.AutoMapper.Profiles
                 .ForMember(dest => dest.ModifiedDate, opt
                     => opt.MapFrom(x => DateTime.Now))
                 .ForMember(dest => dest.CustomerReferanceTitleId, opt
-                    => opt.MapFrom(x => 0));
+                    => opt.MapFrom(x => 1));
             CreateMap<CustomerReferanceUpdateDto, CustomerReferance>()
                 .ForMember(dest => dest.ModifiedDate, opt
                     => opt.MapFrom(x => DateTime.Now));

@@ -3530,7 +3530,7 @@ namespace MyBlog.Data.Migrations
                             Id = 38,
                             AccessLevel = 3,
                             ConcurrencyStamp = "86847b11-1541-4d33-a6d7-7b37a5a4ab3c",
-                            Definition = "Marka Ekleme Yetkisi",
+                            Definition = "Brand Ekleme Yetkisi",
                             Name = "Brand.Create",
                             NormalizedName = "BRAND.CREATE"
                         },
@@ -3539,7 +3539,7 @@ namespace MyBlog.Data.Migrations
                             Id = 39,
                             AccessLevel = 3,
                             ConcurrencyStamp = "4c6d6c31-c5a9-492b-92ef-638ca1e753c7",
-                            Definition = "Marka Görüntüleme Yetkisi",
+                            Definition = "Brand Görüntüleme Yetkisi",
                             Name = "Brand.Read",
                             NormalizedName = "BRAND.READ"
                         },
@@ -3548,7 +3548,7 @@ namespace MyBlog.Data.Migrations
                             Id = 40,
                             AccessLevel = 3,
                             ConcurrencyStamp = "bc676762-f301-4d34-9be7-21bd78971858",
-                            Definition = "Marka Güncelleme Yetkisi",
+                            Definition = "Brand Güncelleme Yetkisi",
                             Name = "Brand.Update",
                             NormalizedName = "BRAND.UPDATE"
                         },
@@ -3557,7 +3557,7 @@ namespace MyBlog.Data.Migrations
                             Id = 41,
                             AccessLevel = 3,
                             ConcurrencyStamp = "477cd233-e7f1-418f-a37f-0ef0e267fe92",
-                            Definition = "Marka Silme Yetkisi",
+                            Definition = "Brand Silme Yetkisi",
                             Name = "Brand.Delete",
                             NormalizedName = "BRAND.DELETE"
                         },

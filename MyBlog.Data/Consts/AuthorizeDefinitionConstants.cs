@@ -10,6 +10,7 @@ namespace MyBlog.Mvc.Consts
         public const string InstitutionalRead = "Institutional.Read";
         public const string SuperAdmin= "SuperAdmin";
         public const string DefaultUser= "DefaultUser";
+        public const string Developer= "Developer";
 
         // Employee
         public const string EmployeeCreate = "Employee.Create";
@@ -70,6 +71,12 @@ namespace MyBlog.Mvc.Consts
         public const string BrandRead = "Brand.Read";
         public const string BrandUpdate = "Brand.Update";
         public const string BrandDelete = "Brand.Delete";
+
+        // MessageToDeveloper
+        public const string MessageToDeveloperCreate = "MessageToDeveloper.Create";
+        public const string MessageToDeveloperRead = "MessageToDeveloper.Read";
+        public const string MessageToDeveloperUpdate = "MessageToDeveloper.Update";
+        public const string MessageToDeveloperDelete = "MessageToDeveloper.Delete";
 
         // SaleStatus
         public const string SaleStatusCreate = "SaleStatus.Create";

@@ -43,7 +43,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<BrandDto>(ResultStatus.Error, new BrandDto
             {
                 Brand = null,
-            }, Messages.General.NotFound(isPlural: false, "Hasta"));
+            }, Messages.General.NotFound(isPlural: false, "Marka"));
         }
         public async Task<IDataResult<BrandListDto>> GetAllByNonDeletedAndActiveAsync()
         {
@@ -56,7 +56,7 @@ namespace MyBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<BrandListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Hasta"));
+            return new DataResult<BrandListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Marka"));
 
         }
         public async Task<IDataResult<BrandUpdateDto>> GetBrandUpdateDtoAsync(int BrandId)
@@ -87,7 +87,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<BrandListDto>(ResultStatus.Error, new BrandListDto
             {
                 Brands = null,
-            }, Messages.General.NotFound(isPlural: true, "Hasta"));
+            }, Messages.General.NotFound(isPlural: true, "Marka"));
         }
         public async Task<IDataResult<BrandDto>> AddAsync(BrandAddDto BrandAddDto, string createdByName)
         {

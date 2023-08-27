@@ -49,6 +49,13 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     RoleId = 1
 
                 },
+                //dev
+                new UserRole
+                {
+                    UserId = 4,
+                    RoleId = 3
+
+                },
                 //berra
                 new UserRole
                 {

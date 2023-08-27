@@ -12,7 +12,7 @@ namespace MyBlog.Entities.Concrete
     {
         public string ProductName { get; set; }
         public int Price{ get; set; }
-        public int Quantity{ get; set; }
+        public int? Quantity{ get; set; }
         public string SerialNumber { get; set; }
         public bool IsSold { get; set; } = false;
         public int? ProductSubGroupId { get; set; }
@@ -21,6 +21,7 @@ namespace MyBlog.Entities.Concrete
         public Brand? Brand{ get; set; }
         public Stock Stock { get; set; }
         public Sale Sale { get; set; }
+        public bool IsMultiple{ get; set; }
 
     }
 }

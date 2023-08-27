@@ -1,5 +1,5 @@
 ﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
-    @using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
 @model MyBlog.Entities.Dtos.CustomerTypeDtos.CustomerTypeListDto
 @{
     Layout = "_Layout";
@@ -7,16 +7,18 @@
 }
 
 @await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
-       {
-           Depth = 2,
-           Controller = "CustomerType",
-           ControllerTr = "Hasta Tipleri",
-           Action = "Yok",
-           ActionTR = "Yok",
-           TableType = ViewBag.TableType
-       })
+   {
+       Depth = 2,
+       Controller = "CustomerType",
+       ControllerTr = "Hasta Tipleri",
+       Action = "Yok",
+       ActionTR = "Yok",
+       TableType = ViewBag.TableType
+   })
 @if (Model.ResultStatus == ResultStatus.Success)
 {
+    <input type="hidden" id="tableType" data-tableType="@ViewBag.TableType" value="@ViewBag.TableType" />
+
     <div id="modalPlaceHolder" aria-hidden="true"></div>
     <div class="card mb-4 mt-2">
         <div class="card-header">
@@ -32,17 +34,19 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
+                            <th>Başlık</th>
                             <th>Not</th>
-                            <th>İşlemler</th>
+                            <th class="dt-button-col">İşlemler</th>
+
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
+                            <th>Başlık</th>
                             <th>Not</th>
-                            <th>İşlemler</th>
+                            <th class="dt-button-col">İşlemler</th>
+
                         </tr>
                     </tfoot>
                     <tbody>

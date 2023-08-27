@@ -14,6 +14,10 @@ namespace MyBlog.Mvc.Areas.Admin.Models.SingleModels
         public string TableType { get; set; }
         public int Depth{ get; set; }
         public int Id { get; set; }
+        public string Detail1 { get; set; } = "Detay1";
+        public string Detail1TR { get; set; } = "Detay1TR";
+        public string Detail2 { get; set; } = "Detay2";
+        public string Detail2TR { get; set; } = "Detay2TR";
 
     }
 }
