@@ -57,32 +57,144 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             // Each User can have many entries in the UserRole join table
             builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
 
-            var bilal = new User
+            //var bilal = new User
+            //{
+            //    Id = 1,
+            //    UserName = "bilalAdmin",
+            //    NormalizedUserName = "BILALADMIN",
+            //    Email = "bilalAdmin@gmail.com",
+            //    NormalizedEmail = "BILALADMIN@GMAIL.COM",
+            //    PhoneNumber = "+905537314131",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Bilal",
+            //    LastName = "Meto",
+            //    About = "Admin | Bilal",
+            //    Link = "-",
+
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //bilal.PasswordHash = CreatePasswordHash(bilal, "bilPaswX_.");
+            //var nazli = new User
+            //{
+            //    Id = 2,
+            //    UserName = "nazliAdmin",
+            //    NormalizedUserName = "NAZLIADMIN",
+            //    Email = "nazliAdmin@gmail.com",
+            //    NormalizedEmail = "NAZLIADMIN@GMAIL.COM",
+            //    PhoneNumber = "+905398815246",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Nazlı",
+            //    LastName = "-",
+            //    About = "Admin | Nazlı",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //nazli.PasswordHash = CreatePasswordHash(nazli, "nazPaswX_n");
+            //var sema = new User
+            //{
+            //    Id = 3,
+            //    UserName = "sema",
+            //    NormalizedUserName = "SEMA",
+            //    Email = "sema@gmail.com",
+            //    NormalizedEmail = "SEMA@GMAIL.COM",
+            //    PhoneNumber = "+905071273567",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Sema",
+            //    LastName = "-",
+            //    About = "-",
+            //    Link = "https://twitter.com/adminuser",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //sema.PasswordHash = CreatePasswordHash(sema, "XSemaP");
+            //var dev = new User
+            //{
+            //    Id = 4,
+            //    UserName = "dev",
+            //    NormalizedUserName = "DEV",
+            //    Email = "x@gmail.com",
+            //    NormalizedEmail = "X@GMAIL.COM",
+            //    PhoneNumber = "+905050102249",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Bedirhan",
+            //    LastName = "Gündöner",
+            //    About = "Geliştirici",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //dev.PasswordHash = CreatePasswordHash(dev, "x");
+            //var berra = new User
+            //{
+            //    Id = 5,
+            //    UserName = "berra",
+            //    NormalizedUserName = "BERRA",
+            //    Email = "berra@gmail.com",
+            //    NormalizedEmail = "BERRA@GMAIL.COM",
+            //    PhoneNumber = "+905050102249",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Berra",
+            //    LastName = "-",
+            //    About = "-",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //berra.PasswordHash = CreatePasswordHash(berra, "XBerraP");
+            //var elif = new User
+            //{
+            //    Id = 6,
+            //    UserName = "Elif",
+            //    NormalizedUserName = "ELIF",
+            //    Email = "Elif@gmail.com",
+            //    NormalizedEmail = "ELIF@GMAIL.COM",
+            //    PhoneNumber = "+905050102249",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Elif",
+            //    LastName = "-",
+            //    About = "-",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //elif.PasswordHash = CreatePasswordHash(elif, "XElifP");
+
+            //builder.HasData(bilal, nazli, sema, dev, berra, elif);
+
+            var esma = new User
             {
                 Id = 1,
-                UserName = "bilalAdmin",
-                NormalizedUserName = "BILALADMIN",
-                Email = "bilalAdmin@gmail.com",
-                NormalizedEmail = "BILALADMIN@GMAIL.COM",
+                UserName = "esmaAdmin",
+                NormalizedUserName = "ESMAADMIN",
+                Email = "esmaAdmin@gmail.com",
+                NormalizedEmail = "ESMAADMIN@GMAIL.COM",
                 PhoneNumber = "+905537314131",
                 Picture = "/userImages/defaultUser.png",
                 FirstName = "Bilal",
                 LastName = "Meto",
                 About = "Admin | Bilal",
                 Link = "-",
-                
+
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            bilal.PasswordHash = CreatePasswordHash(bilal, "bilPaswX_.");
-            var nazli = new User
+            esma.PasswordHash = CreatePasswordHash(esma, "esmaPaswX_.");
+            var asiye = new User
             {
                 Id = 2,
-                UserName = "nazliAdmin",
-                NormalizedUserName = "NAZLIADMIN",
-                Email = "nazliAdmin@gmail.com",
-                NormalizedEmail = "NAZLIADMIN@GMAIL.COM",
+                UserName = "asiyeAdmin",
+                NormalizedUserName = "ASIYEADMIN",
+                Email = "asiyeAdmin@gmail.com",
+                NormalizedEmail = "ASIYEADMIN@GMAIL.COM",
                 PhoneNumber = "+905398815246",
                 Picture = "/userImages/defaultUser.png",
                 FirstName = "Nazlı",
@@ -93,14 +205,14 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 PhoneNumberConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            nazli.PasswordHash = CreatePasswordHash(nazli, "nazPaswX_n");
-            var sema = new User
+            asiye.PasswordHash = CreatePasswordHash(asiye, "asiyePaswX_n");
+            var gulistan = new User
             {
                 Id = 3,
-                UserName = "sema",
-                NormalizedUserName = "SEMA",
-                Email = "sema@gmail.com",
-                NormalizedEmail = "SEMA@GMAIL.COM",
+                UserName = "uülistan",
+                NormalizedUserName = "GULISTAN",
+                Email = "gulistan@gmail.com",
+                NormalizedEmail = "GULISTAN@GMAIL.COM",
                 PhoneNumber = "+905071273567",
                 Picture = "/userImages/defaultUser.png",
                 FirstName = "Sema",
@@ -111,63 +223,63 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 PhoneNumberConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            sema.PasswordHash = CreatePasswordHash(sema, "XSemaP");
-            var dev = new User
-            {
-                Id = 4,
-                UserName = "dev",
-                NormalizedUserName = "DEV",
-                Email = "x@gmail.com",
-                NormalizedEmail = "X@GMAIL.COM",
-                PhoneNumber = "+905050102249",
-                Picture = "/userImages/defaultUser.png",
-                FirstName = "Bedirhan",
-                LastName = "Gündöner",
-                About = "Geliştirici",
-                Link = "-",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-            dev.PasswordHash = CreatePasswordHash(dev, "x");
-            var berra = new User
-            {
-                Id = 5,
-                UserName = "berra",
-                NormalizedUserName = "BERRA",
-                Email = "berra@gmail.com",
-                NormalizedEmail = "BERRA@GMAIL.COM",
-                PhoneNumber = "+905050102249",
-                Picture = "/userImages/defaultUser.png",
-                FirstName = "Berra",
-                LastName = "-",
-                About = "-",
-                Link = "-",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-            berra.PasswordHash = CreatePasswordHash(berra, "XBerraP");
-            var elif = new User
-            {
-                Id = 6,
-                UserName = "Elif",
-                NormalizedUserName = "ELIF",
-                Email = "Elif@gmail.com",
-                NormalizedEmail = "ELIF@GMAIL.COM",
-                PhoneNumber = "+905050102249",
-                Picture = "/userImages/defaultUser.png",
-                FirstName = "Elif",
-                LastName = "-",
-                About = "-",
-                Link = "-",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-            elif.PasswordHash = CreatePasswordHash(elif, "XElifP");
+            gulistan.PasswordHash = CreatePasswordHash(gulistan, "XGulistanP");
+            //var user1 = new User
+            //{
+            //    Id = 4,
+            //    UserName = "dev",
+            //    NormalizedUserName = "DEV",
+            //    Email = "x@gmail.com",
+            //    NormalizedEmail = "X@GMAIL.COM",
+            //    PhoneNumber = "+905050102249",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Bedirhan",
+            //    LastName = "Gündöner",
+            //    About = "Geliştirici",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //dev.PasswordHash = CreatePasswordHash(dev, "x");
+            //var user2 = new User
+            //{
+            //    Id = 5,
+            //    UserName = "berra",
+            //    NormalizedUserName = "BERRA",
+            //    Email = "berra@gmail.com",
+            //    NormalizedEmail = "BERRA@GMAIL.COM",
+            //    PhoneNumber = "+905050102249",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Berra",
+            //    LastName = "-",
+            //    About = "-",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //berra.PasswordHash = CreatePasswordHash(berra, "XBerraP");
+            //var user3 = new User
+            //{
+            //    Id = 6,
+            //    UserName = "Elif",
+            //    NormalizedUserName = "ELIF",
+            //    Email = "Elif@gmail.com",
+            //    NormalizedEmail = "ELIF@GMAIL.COM",
+            //    PhoneNumber = "+905050102249",
+            //    Picture = "/userImages/defaultUser.png",
+            //    FirstName = "Elif",
+            //    LastName = "-",
+            //    About = "-",
+            //    Link = "-",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //elif.PasswordHash = CreatePasswordHash(elif, "XElifP");
 
-            builder.HasData(bilal, nazli, sema, dev, berra, elif);
+            builder.HasData(esma, asiye, gulistan);
         }
 
         private string CreatePasswordHash(User user,string password)
