@@ -35,9 +35,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 1,
                     IsActive = true,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                     Title = "Satış Aşamasında",
                     Description="açıklama deneme status sale 1"
@@ -47,9 +47,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 2,
                     IsActive = true,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                     Title = "Satıldı",
                     Description= "açıklama deneme status sale 1"

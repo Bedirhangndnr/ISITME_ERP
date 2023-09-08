@@ -41,9 +41,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
                     TC = "45677891170",
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 },
 
@@ -60,9 +60,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
                     TC = "45677891170",
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 },
 
@@ -79,9 +79,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
                     TC = "45677891170",
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 }
            );

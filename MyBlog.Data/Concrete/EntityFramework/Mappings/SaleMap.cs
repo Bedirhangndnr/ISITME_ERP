@@ -24,6 +24,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.ModifiedDate).IsRequired();
             builder.Property(a => a.IsActive).IsRequired();
             builder.Property(a => a.IsDeleted).IsRequired();
+
             builder.Property(a => a.Note).HasMaxLength(500);
             // SaleType ile ilişki
             builder.HasOne(s => s.SaleType)
@@ -40,14 +41,12 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             // Customer ile ilişki
             builder.HasOne(s => s.Customer)
                    .WithMany(c => c.Sales)
-                   .HasForeignKey(s => s.CustomerId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                   .HasForeignKey(s => s.CustomerId);
 
             // Product ile ilişki
             builder.HasOne(s => s.Product)
                .WithOne(p => p.Sale)
-               .HasForeignKey<Sale>(s => s.ProductId)
-               .OnDelete(DeleteBehavior.SetNull);
+               .HasForeignKey<Sale>(s => s.ProductId);
 
             // Employee ile ilişki
             builder.HasOne(s => s.Employee)
@@ -63,10 +62,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     IsActive = true,
                     IsDeleted = false,
                     AmountOfSgk = 10,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     IsInvoiceDue = false,
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                     Amount = 500,
                     SaleTypeId = 1,
@@ -81,10 +80,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     IsActive = true,
                     AmountOfSgk = 10,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     IsInvoiceDue = false,
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                     Amount = 200,
                     SaleTypeId = 1,
@@ -99,9 +98,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     IsInvoiceDue = false,
                     AmountOfSgk = 10,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                     Amount = 500,
                     SaleTypeId = 1,

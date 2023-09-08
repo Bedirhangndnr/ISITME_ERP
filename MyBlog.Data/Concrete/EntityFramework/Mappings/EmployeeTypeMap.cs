@@ -24,9 +24,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Note = "Not",
                     IsActive = true,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 },
                 new EmployeeType
@@ -37,9 +37,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Note = "Not",
                     IsActive = true,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 },
                 new
@@ -50,9 +50,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Note = "Not",
                     IsActive = true,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 },
                 new EmployeeType
@@ -63,9 +63,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Note = "Not",
                     IsActive = true,
                     IsDeleted = false,
-                    CreatedByName = "InitialCreate",
+                    CreatedByName = "Test Verisi",
                     CreatedDate = DateTime.Now,
-                    ModifiedByName = "InitialCreate",
+                    ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                 }
                   );

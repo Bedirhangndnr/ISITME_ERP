@@ -9,6 +9,8 @@ namespace MyBlog.Entities.Concrete
 {
     public class Sale : EntityBase, IEntity
     {
+        public Product Product { get; set; }
+        public int ProductId { get; set; }
         public int Amount { get; set; }
         public int AmountOfSgk { get; set; }
         public bool IsInvoiceDue { get; set; }
@@ -18,8 +20,7 @@ namespace MyBlog.Entities.Concrete
         public int? SaleTypeId { get; set; }
         public SaleStatus? SaleStatus { get; set; }
         public int? SaleStatusId { get; set; }
-        public Product Product { get; set; }
-        public int ProductId { get; set; }
+
         public Employee? Employee { get; set; }
         public int? EmployeeId { get; set; }
 

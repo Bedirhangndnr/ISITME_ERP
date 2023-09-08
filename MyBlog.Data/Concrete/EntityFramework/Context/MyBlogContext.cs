@@ -22,6 +22,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             // Sensitive Data Logging özelliğini etkinleştir
             builder.EnableSensitiveDataLogging();
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging(); // Hassas veri günlüğünü etkinleştirme
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ArticleMap());
