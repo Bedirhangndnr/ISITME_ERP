@@ -61,41 +61,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     Date = new DateTime(1998, 04, 30),
 
-                },
-                new Appointment
-                {
-                    Id = 2,
-                    CustomerId = 2,
-                    EmployeeId = 1,
-
-                    AppointmentTypeId = 1,
-                    IsActive = true,
-                    IsDeleted = false,
-                    Description = "Test Açıklama",
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    Date = new DateTime(1998, 04, 30),
-
-                },
-                new Appointment
-                {
-                    Id = 3,
-                    CustomerId = 3,
-                    AppointmentTypeId = 1,
-                    EmployeeId = 1,
-                    IsActive = true,
-                    Description = "Test Açıklama3",
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    Date = new DateTime(1998, 04, 30),
-
                 }
             );
         }

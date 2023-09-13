@@ -42,20 +42,21 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     Name = "Product Kategori 1",
                     Description = "Product Kategori 2 Açıkama",
-                },
-                new ProductCategory
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    Name = "Product Kategori 2",
-                    Description = "Product Kategori 2 Açıkama",
                 }
+                //,
+                //new ProductCategory
+                //{
+                //    Id = 2,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
+                //    Name = "Product Kategori 2",
+                //    Description = "Product Kategori 2 Açıkama",
+                //}
             );
         }
     }

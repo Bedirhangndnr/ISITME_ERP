@@ -40,30 +40,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     Title = "Type 1",
-                },
-                new CustomerType
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    Title= "Type 2",
-                },
-                new CustomerType
-                {
-                    Id = 3,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    Title = "Type 3",
                 }
             );
         }

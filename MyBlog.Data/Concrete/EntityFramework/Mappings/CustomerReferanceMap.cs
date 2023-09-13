@@ -49,23 +49,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     LastName = "Gündöner",
                     Phone = "+905050102249",
                     Description = "Description",
-                    CustomerReferanceTitleId = 2,
-                },
-                new CustomerReferance
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    FirstName = "Sema",
-                    LastName = "Gündöner",
-                    Phone = "+905050102249",
-                    Description = "Description",
-                    CustomerReferanceTitleId = 2,
+                    CustomerReferanceTitleId = 1,
                 }
             );
         }

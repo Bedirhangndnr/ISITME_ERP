@@ -40,43 +40,44 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Description = "TEST",
                     Title = "Nakit",
-                },
-                new SaleType
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    Title = "Kart",
-                },
-                new SaleType
-                {
-                    Id = 3,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    Title = "Çek",
-                },
-                new SaleType
-                {
-                    Id = 4,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    Title = "Senet",
                 }
+                //,
+                //new SaleType
+                //{
+                //    Id = 2,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    Title = "Kart",
+                //},
+                //new SaleType
+                //{
+                //    Id = 3,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    Title = "Çek",
+                //},
+                //new SaleType
+                //{
+                //    Id = 4,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    Title = "Senet",
+                //}
             );
         }
     }

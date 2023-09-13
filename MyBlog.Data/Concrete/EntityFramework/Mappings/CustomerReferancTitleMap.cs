@@ -39,19 +39,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                     Title = "Referans Unvan 1",
-                },
-                new CustomerReferanceTitle
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    Title = "Referans Unvan 2",
-
                 }
             );
         }

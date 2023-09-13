@@ -28,45 +28,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
-                },
-                new EmployeeType
-                {
-                    Id = 2,
-                    Title = "Title",
-                    Description = "Description",
-                    Note = "Not",
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                },
-                new
-                {
-                    Id = 3,
-                    Title = "Title",
-                    Description = "Description",
-                    Note = "Not",
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                },
-                new EmployeeType
-                {
-                    Id = 4,
-                    Title = "Title",
-                    Description = "Description",
-                    Note = "Not",
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
                 }
                   );
         }

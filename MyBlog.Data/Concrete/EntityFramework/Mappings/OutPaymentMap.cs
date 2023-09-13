@@ -43,23 +43,24 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     DueDate = DateTime.Now.AddDays(4),
                     IsPaid = true,
                     PaidPlace="Ödemenin Yapılacağı yer",
-                },
-                new OutPayment
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST desc 1 ",
-                    AmountPaid = 0,
-                    DebtAmount=10000,
-                    DueDate = DateTime.Now.AddDays(4),
-                    IsPaid = true,
-                    PaidPlace = "Ödemenin Yapılacağı yer",
                 }
+                //,
+                //new OutPayment
+                //{
+                //    Id = 2,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST desc 1 ",
+                //    AmountPaid = 0,
+                //    DebtAmount=10000,
+                //    DueDate = DateTime.Now.AddDays(4),
+                //    IsPaid = true,
+                //    PaidPlace = "Ödemenin Yapılacağı yer",
+                //}
                 //new OutPayment
                 //{
                 //    Id = 3,

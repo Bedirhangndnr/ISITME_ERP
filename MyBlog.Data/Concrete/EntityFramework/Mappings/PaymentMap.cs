@@ -63,103 +63,104 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CustomerId = 1,
                     AmountPaid = 1,
                     EmployeeId = 1,
-                },
-                new Payment
-                {
-                    Id = 2,
-                    PaymentTypeId = 1,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    AssociatedInstitutionsId = 1,
-                    EmployeeId = 1,
-                    CustomerId = 1,
-                    AmountPaid = 1,
-                },
-                new Payment
-                {
-                    Id = 3,
-                    IsActive = true,
-                    PaymentTypeId = 1,  
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    AssociatedInstitutionsId = 2,
-                    CustomerId = 1,
-                    AmountPaid = 1,
-                    EmployeeId = 1
-                },
-                new Payment
-                {
-                    Id = 4,
-                    IsActive = true,
-                    PaymentTypeId = 1,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    AssociatedInstitutionsId = 2,
-                    CustomerId = 1,
-                    AmountPaid = 1,
-                    EmployeeId=1
-                },
-                new Payment
-                {
-                    Id = 5,
-                    IsActive = true,
-                    IsDeleted = false,
-                    PaymentTypeId= 1,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    AssociatedInstitutionsId = 3,
-                    CustomerId = 1,
-                    AmountPaid = 1,
-                    EmployeeId = 1
-                },
-                new Payment
-                {
-                    Id = 6,
-                    IsActive = true,
-                    IsDeleted = false,
-                    PaymentTypeId= 1,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    AssociatedInstitutionsId = 3,
-                    CustomerId = 1,
-                    AmountPaid = 1,
-                    EmployeeId = 1
-                },
-                new Payment
-                {
-                    Id = 7, 
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    PaymentTypeId = 1,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    AssociatedInstitutionsId =3,
-                    CustomerId = 1,
-                    AmountPaid = 1,
-                    EmployeeId = 1
                 }
+                //,
+                //new Payment
+                //{
+                //    Id = 2,
+                //    PaymentTypeId = 1,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    AssociatedInstitutionsId = 1,
+                //    EmployeeId = 1,
+                //    CustomerId = 1,
+                //    AmountPaid = 1,
+                //},
+                //new Payment
+                //{
+                //    Id = 3,
+                //    IsActive = true,
+                //    PaymentTypeId = 1,  
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    AssociatedInstitutionsId = 2,
+                //    CustomerId = 1,
+                //    AmountPaid = 1,
+                //    EmployeeId = 1
+                //},
+                //new Payment
+                //{
+                //    Id = 4,
+                //    IsActive = true,
+                //    PaymentTypeId = 1,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    AssociatedInstitutionsId = 2,
+                //    CustomerId = 1,
+                //    AmountPaid = 1,
+                //    EmployeeId=1
+                //},
+                //new Payment
+                //{
+                //    Id = 5,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    PaymentTypeId= 1,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    AssociatedInstitutionsId = 3,
+                //    CustomerId = 1,
+                //    AmountPaid = 1,
+                //    EmployeeId = 1
+                //},
+                //new Payment
+                //{
+                //    Id = 6,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    PaymentTypeId= 1,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    AssociatedInstitutionsId = 3,
+                //    CustomerId = 1,
+                //    AmountPaid = 1,
+                //    EmployeeId = 1
+                //},
+                //new Payment
+                //{
+                //    Id = 7, 
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    PaymentTypeId = 1,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Description = "TEST",
+                //    AssociatedInstitutionsId =3,
+                //    CustomerId = 1,
+                //    AmountPaid = 1,
+                //    EmployeeId = 1
+                //}
             );
         }
     }

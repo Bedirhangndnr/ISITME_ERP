@@ -45,44 +45,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
-                },
-
-                new Employee
-                {
-                    Id = 2,
-                    EmployeeTypeId = 1,
-                    Picture = "/userImages/defaultUser.png",
-                    FirstName = "Ikinci Personel",
-                    LastName = "User",
-                    About = "Editor User of MyBlog",
-                    Phone = "+905555555555",
-                    IsActive = true,
-                    Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
-                    TC = "45677891170",
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                },
-
-                new Employee
-                {
-                    Id = 3,
-                    EmployeeTypeId = 1,
-                    Picture = "/userImages/defaultUser.png",
-                    FirstName = "Ucuncu perosnel",
-                    LastName = "User",
-                    About = "Editor User of MyBlog",
-                    Phone = "+905555555555",
-                    IsActive = true,
-                    Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
-                    TC = "45677891170",
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
                 }
            );
         }

@@ -18,7 +18,7 @@ namespace MyBlog.Entities.Concrete
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Link { get; set; }
-        public string Institution { get; set; }
+        public string? Institution { get; set; }
 
     }
 }

@@ -29,9 +29,6 @@ namespace MyBlog.Entities.Dtos.UserDtos
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [DisplayName("Telefon Numarası")]
-        [Required(ErrorMessage = "{0} boş geçilmemelidir.")]
-        [MaxLength(11, ErrorMessage = "{0} {1} karakterden büyük olmamalıdır. (0 ile birlikte)")] // +905555555555 // 13 characters
-        [MinLength(11, ErrorMessage = "{0} {1} karakterden küçük olmamalıdır. (0 ile birlikte)")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
         [DisplayName("Resim")]

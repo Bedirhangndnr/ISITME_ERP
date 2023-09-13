@@ -59,64 +59,65 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     SerialNumber = "A12BO9930HT4",
                     ProductName = "Siemens Signia Motion 1PX",
                     IsMultiple = false,
-                },
-                new Product
-                {
-                    Id = 2,
-                    Quantity = 10,
-                    IsActive = true,
-                    Price = 100,
-                    IsSold=false,
-                    BrandId = 1,
-                    ProductSubGroupId = 1,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    SerialNumber = "A12BO9930HT3",
-                    ProductName = "Jabra Signia",
-                    IsMultiple = false
-                },
-                new Product
-                {
-                    Id = 3,
-                    IsActive = true,
-                    Price = 100,
-                    IsSold=false,
-                    BrandId = 1,
-                    Quantity = 10,
-                    ProductSubGroupId = 1,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    SerialNumber = "A12BO9930HT2",
-                    ProductName = "Apple Signia Motion 1PX",
-                    IsMultiple = false
-                },
-                new Product
-                {
-                    Id = 4,
-                    IsActive = true,
-                    IsSold=false,
-                    BrandId = 1,
-                    Price = 100,
-                    Quantity = 10,
-                    ProductSubGroupId = 1,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                    SerialNumber = "A12BO9930HT1",
-                    ProductName = "Samsung Signia Motion 1PX",
-                    IsMultiple = false
                 }
+                //,
+                //new Product
+                //{
+                //    Id = 2,
+                //    Quantity = 10,
+                //    IsActive = true,
+                //    Price = 100,
+                //    IsSold=false,
+                //    BrandId = 1,
+                //    ProductSubGroupId = 1,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
+                //    SerialNumber = "A12BO9930HT3",
+                //    ProductName = "Jabra Signia",
+                //    IsMultiple = false
+                //},
+                //new Product
+                //{
+                //    Id = 3,
+                //    IsActive = true,
+                //    Price = 100,
+                //    IsSold=false,
+                //    BrandId = 1,
+                //    Quantity = 10,
+                //    ProductSubGroupId = 1,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
+                //    SerialNumber = "A12BO9930HT2",
+                //    ProductName = "Apple Signia Motion 1PX",
+                //    IsMultiple = false
+                //},
+                //new Product
+                //{
+                //    Id = 4,
+                //    IsActive = true,
+                //    IsSold=false,
+                //    BrandId = 1,
+                //    Price = 100,
+                //    Quantity = 10,
+                //    ProductSubGroupId = 1,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
+                //    SerialNumber = "A12BO9930HT1",
+                //    ProductName = "Samsung Signia Motion 1PX",
+                //    IsMultiple = false
+                //}
             );
         }
     }

@@ -41,19 +41,20 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedDate = DateTime.Now,
                     Title = "Satış Aşamasında",
                     Description="açıklama deneme status sale 1"
-                },
-                new SaleStatus
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Title = "Satıldı",
-                    Description= "açıklama deneme status sale 1"
                 }
+                //,
+                //new SaleStatus
+                //{
+                //    Id = 2,
+                //    IsActive = true,
+                //    IsDeleted = false,
+                //    CreatedByName = "Test Verisi",
+                //    CreatedDate = DateTime.Now,
+                //    ModifiedByName = "Test Verisi",
+                //    ModifiedDate = DateTime.Now,
+                //    Title = "Satıldı",
+                //    Description= "açıklama deneme status sale 1"
+                //}
             );
         }
     }

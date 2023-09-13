@@ -41,20 +41,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
                     Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-                },
-                new AppointmentType
-                {
-                    Id = 2,
-                    Title = "Test",
-                    Description = "Test",
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
-
                 }
             );
         }

@@ -9,477 +9,477 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyBlog.Mvc
 build_property.RootNamespace = MyBlog.Mvc
-build_property.ProjectDir = C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\
+build_property.ProjectDir = C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.mvc\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc
+build_property.MSBuildProjectDirectory = C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.mvc
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/AppointmentType/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/AppointmentType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBwb2ludG1lbnRUeXBlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/AppointmentType/_AppointmentTypeAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/AppointmentType/_AppointmentTypeAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBwb2ludG1lbnRUeXBlXF9BcHBvaW50bWVudFR5cGVBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/AppointmentType/_AppointmentTypeUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/AppointmentType/_AppointmentTypeUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBwb2ludG1lbnRUeXBlXF9BcHBvaW50bWVudFR5cGVVcGRhdGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Appointment/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Appointment/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBwb2ludG1lbnRcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Appointment/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Appointment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBwb2ludG1lbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Appointment/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Appointment/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBwb2ludG1lbnRcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Article/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Article/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aWNsZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Article/DeletedArticles.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Article/DeletedArticles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aWNsZVxEZWxldGVkQXJ0aWNsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Article/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Article/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aWNsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Article/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Article/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aWNsZVxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Brand/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Brand/_BrandAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Brand/_BrandAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcX0JyYW5kQWRkUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Brand/_BrandUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Brand/_BrandUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcX0JyYW5kVXBkYXRlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Category/DeletedCategories.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Category/DeletedCategories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGVsZXRlZENhdGVnb3JpZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Category/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Category/_CategoryAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Category/_CategoryAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcX0NhdGVnb3J5QWRkUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Category/_CategoryUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Category/_CategoryUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcX0NhdGVnb3J5VXBkYXRlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Comment/DeletedComments.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Comment/DeletedComments.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudFxEZWxldGVkQ29tbWVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Comment/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Comment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Comment/_CommentDetailPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Comment/_CommentDetailPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudFxfQ29tbWVudERldGFpbFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Comment/_CommentUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Comment/_CommentUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudFxfQ29tbWVudFVwZGF0ZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/CustomerReferance/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/CustomerReferance/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJSZWZlcmFuY2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/CustomerReferance/_CustomerReferanceAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/CustomerReferance/_CustomerReferanceAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJSZWZlcmFuY2VcX0N1c3RvbWVyUmVmZXJhbmNlQWRkUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/CustomerReferance/_CustomerReferanceUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/CustomerReferance/_CustomerReferanceUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJSZWZlcmFuY2VcX0N1c3RvbWVyUmVmZXJhbmNlVXBkYXRlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/CustomerType/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/CustomerType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJUeXBlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/CustomerType/_CustomerTypeAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/CustomerType/_CustomerTypeAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJUeXBlXF9DdXN0b21lclR5cGVBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/CustomerType/_CustomerTypeUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/CustomerType/_CustomerTypeUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJUeXBlXF9DdXN0b21lclR5cGVVcGRhdGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Customer/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Customer/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Customer/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Customer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Customer/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Customer/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Customer/ViewAllActions.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Customer/ViewAllActions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJcVmlld0FsbEFjdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/EmployeeType/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/EmployeeType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVUeXBlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/EmployeeType/_EmployeeTypeAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/EmployeeType/_EmployeeTypeAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVUeXBlXF9FbXBsb3llZVR5cGVBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/EmployeeType/_EmployeeTypeUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/EmployeeType/_EmployeeTypeUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVUeXBlXF9FbXBsb3llZVR5cGVVcGRhdGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Employee/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Employee/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Employee/DeletedEmployees.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Employee/DeletedEmployees.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVcRGVsZXRlZEVtcGxveWVlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Employee/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Employee/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Employee/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRW1wbG95ZWVcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Error/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Error/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXJyb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Expense/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Expense/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXhwZW5zZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Expense/_ExpenseAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Expense/_ExpenseAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXhwZW5zZVxfRXhwZW5zZUFkZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Expense/_ExpenseUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Expense/_ExpenseUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXhwZW5zZVxfRXhwZW5zZVVwZGF0ZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Home/Error.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Home/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/MessageToDeveloper/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/MessageToDeveloper/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVzc2FnZVRvRGV2ZWxvcGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/MessageToDeveloper/_MessageToDeveloperAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/MessageToDeveloper/_MessageToDeveloperAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVzc2FnZVRvRGV2ZWxvcGVyXF9NZXNzYWdlVG9EZXZlbG9wZXJBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/MessageToDeveloper/_MessageToDeveloperUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/MessageToDeveloper/_MessageToDeveloperUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVzc2FnZVRvRGV2ZWxvcGVyXF9NZXNzYWdlVG9EZXZlbG9wZXJVcGRhdGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Notification/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Notification/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPaymentDetail/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/OutPaymentDetail/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudERldGFpbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPaymentDetail/_OutPaymentDetailAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/OutPaymentDetail/_OutPaymentDetailAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudERldGFpbFxfT3V0UGF5bWVudERldGFpbEFkZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPaymentDetail/_OutPaymentDetailUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/OutPaymentDetail/_OutPaymentDetailUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudERldGFpbFxfT3V0UGF5bWVudERldGFpbFVwZGF0ZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPayment/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/OutPayment/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPayment/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/OutPayment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/OutPayment/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/OutPayment/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3V0UGF5bWVudFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/PaymentType/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/PaymentType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFR5cGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/PaymentType/_PaymentTypeAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/PaymentType/_PaymentTypeAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFR5cGVcX1BheW1lbnRUeXBlQWRkUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/PaymentType/_PaymentTypeUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/PaymentType/_PaymentTypeUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFR5cGVcX1BheW1lbnRUeXBlVXBkYXRlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Payment/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Payment/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Payment/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Payment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Payment/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Payment/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/ProductGroup/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/ProductGroup/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdEdyb3VwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/ProductGroup/_ProductGroupAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/ProductGroup/_ProductGroupAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdEdyb3VwXF9Qcm9kdWN0R3JvdXBBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/ProductGroup/_ProductGroupUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/ProductGroup/_ProductGroupUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdEdyb3VwXF9Qcm9kdWN0R3JvdXBVcGRhdGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/ProductSubGroup/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/ProductSubGroup/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFN1Ykdyb3VwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/ProductSubGroup/_ProductSubGroupAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/ProductSubGroup/_ProductSubGroupAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFN1Ykdyb3VwXF9Qcm9kdWN0U3ViR3JvdXBBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/ProductSubGroup/_ProductSubGroupUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/ProductSubGroup/_ProductSubGroupUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFN1Ykdyb3VwXF9Qcm9kdWN0U3ViR3JvdXBVcGRhdGVQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Product/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Product/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Product/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Product/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Product/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Role/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Role/_RoleAssignPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Role/_RoleAssignPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxfUm9sZUFzc2lnblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/SaleStatus/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/SaleStatus/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVN0YXR1c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/SaleStatus/_SaleStatusAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/SaleStatus/_SaleStatusAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVN0YXR1c1xfU2FsZVN0YXR1c0FkZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/SaleStatus/_SaleStatusUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/SaleStatus/_SaleStatusUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVN0YXR1c1xfU2FsZVN0YXR1c1VwZGF0ZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/SaleType/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/SaleType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVR5cGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/SaleType/_SaleTypeAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/SaleType/_SaleTypeAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVR5cGVcX1NhbGVUeXBlQWRkUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/SaleType/_SaleTypeUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/SaleType/_SaleTypeUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVR5cGVcX1NhbGVUeXBlVXBkYXRlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Sale/Add.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Sale/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Sale/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Sale/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Sale/Update.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Sale/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FsZVxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/AdminMenu/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/AdminMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWRtaW5NZW51XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/breadCrumbs/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/breadCrumbs/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcYnJlYWRDcnVtYnNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/MainPagesAddUpButtons/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/MainPagesAddUpButtons/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWFpblBhZ2VzQWRkVXBCdXR0b25zXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/ModifiedDetailsInfo/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/ModifiedDetailsInfo/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcTW9kaWZpZWREZXRhaWxzSW5mb1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/NotificationMenu/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/NotificationMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcTm90aWZpY2F0aW9uTWVudVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/PartialButtons/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/PartialButtons/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFydGlhbEJ1dHRvbnNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/RemainderMenu/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/RemainderMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmVtYWluZGVyTWVudVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/TableButtons/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/TableButtons/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcVGFibGVCdXR0b25zXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/UpdatePageButtons/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/UpdatePageButtons/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXBkYXRlUGFnZUJ1dHRvbnNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/Components/UserMenu/Default.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/Components/UserMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlck1lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/_AssociatedInstitutionsListPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/_AssociatedInstitutionsListPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Bc3NvY2lhdGVkSW5zdGl0dXRpb25zTGlzdFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/_LayoutCssPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/_LayoutCssPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRDc3NQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/_LayoutJsPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/_LayoutJsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRKc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/Shared/_UserLoginLayout.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/Shared/_UserLoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Vc2VyTG9naW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/AccessDenied.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/ChangeDetails.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/ChangeDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxDaGFuZ2VEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/Index - Copy.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/Index - Copy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleCAtIENvcHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/PasswordChange.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/PasswordChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxQYXNzd29yZENoYW5nZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/UserLogin.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/UserLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxVc2VyTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/_GetDetailPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/_GetDetailPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxfR2V0RGV0YWlsUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/_UserAddPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/_UserAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxfVXNlckFkZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/User/_UserUpdatePartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/User/_UserUpdatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxfVXNlclVwZGF0ZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Home/Error.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Home/Index.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/Error.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/_ComingSoonLayout.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/_ComingSoonLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db21pbmdTb29uTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/_ErrorLayout.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/_ErrorLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FcnJvckxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/_Layout.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/_LayoutCssPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/_LayoutCssPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDc3NQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/_LayoutJsPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/_LayoutJsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRKc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/Shared/_LayoutSideBarNavPartial.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/Shared/_LayoutSideBarNavPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRTaWRlQmFyTmF2UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/_ViewImports.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.Mvc/Views/_ViewStart.cshtml]
+[C:/Users/bedir/source/repos/ISITME_ERP/MyBlog.mvc/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

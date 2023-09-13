@@ -42,62 +42,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     EmployeeId = 1,
                     OutPaymentId= 1,
                     AmountPaid = 1000,
-                },
-                new OutPaymentDetail
-                {
-                    Id = 2,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST desc 1 ",
-                    EmployeeId = 1,
-                    OutPaymentId = 1,
-                    AmountPaid = 2000,
-                },
-                new OutPaymentDetail
-                {
-                    Id = 3,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST desc 1 ",
-                    EmployeeId = 1,
-                    OutPaymentId = 1,
-                    AmountPaid = 1500,
-                },
-                new OutPaymentDetail
-                {
-                    Id = 4,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST desc 1 ",
-                    EmployeeId = 2,
-                    OutPaymentId = 2,
-                    AmountPaid = 2300,
-                },
-                new OutPaymentDetail
-                {
-                    Id = 5,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST desc 1 ",
-                    EmployeeId = 2,
-                    OutPaymentId = 2,
-                    AmountPaid = 1450,
                 }
             );
         }
