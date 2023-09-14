@@ -3,14 +3,14 @@
 @model MyBlog.Entities.Dtos.MessageToDeveloperDtos.MessageToDeveloperListDto
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Geliştiriciye Mesajlar";
+    ViewBag.Title = "Geliştiriciye Mesajlar |";
 }
 
 @await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
        {
            Depth = 2,
            Controller = "MessageToDeveloper",
-           ControllerTr = "Markalar",
+           ControllerTr = "Geliştiriciye Mesajlar",
            Action = "Yok",
            ActionTR = "Yok",
            TableType = ViewBag.TableType
