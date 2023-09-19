@@ -19,6 +19,8 @@ using MyBlog.Mvc.Halpers.Abstract;
 using MyBlog.Mvc.Helpers.Concrete;
 using MyBlog.Services.Abstract;
 using MyBlog.Services.Concrete;
+using Microsoft.EntityFrameworkCore;
+using MyBlog.Data.Concrete.EntityFramework.Context;
 
 namespace MyBlog.Mvc
 {
@@ -61,7 +63,16 @@ namespace MyBlog.Mvc
             var Configuration = builder.Configuration;
             services.LoadMyServices(connectionString: Configuration.GetConnectionString("AsesErpDB"));
 
-
+            services.AddDbContext<MyBlogContext>(options =>
+            {
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("AsesErpDB"),
+                    options => options.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: System.TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null)
+                    );
+            });
 
 
             // sevis kaydedilmeli

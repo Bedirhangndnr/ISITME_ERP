@@ -34,11 +34,12 @@
                             <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
-                            <th>Fotoğraf</th>
+                            @* <th>Fotoğraf</th> *@
                             <th>Telefon Numarası</th>
-                            <th>E-Posta</th>
+                            @* <th>E-Posta</th> *@
                             <th>Not</th>
-                            <th>Tip</th>
+                            @* <th>Tip</th> *@
+                            <th>Satış</th>
                             <th>İşlem</th>
                         </tr>
                     </thead>
@@ -47,11 +48,12 @@
                             <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
-                            <th>Fotoğraf</th>
+                            @* <th>Fotoğraf</th> *@
                             <th>Telefon Numarası</th>
-                            <th>E-Posta</th>
+                            @* <th>E-Posta</th> *@
                             <th>Not</th>
-                            <th>Tip</th>
+                            @* <th>Tip</th> *@
+                            <th>Satış</th>
                             <th>İşlem</th>
                         </tr>
                     </tfoot>
@@ -62,12 +64,21 @@
                                 <td>@customer.Id</td>
                                 <td>@customer.FirstName</td>
                                 <td>@customer.LastName</td>
-                                <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td>
+                                @* <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td> *@
 
                                 <td>@customer.Phone</td>
-                                <td>@customer.Email</td>
+                                @* <td>@customer.Email</td> *@
                                 <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>  
-                                <td>"Tip: @customer.CustomerTypeTitle"</td>
+                                @* <td>"Tip: @customer.CustomerTypeTitle"</td> *@
+                                <td>
+                                    @foreach (var sale in customer.Sales)
+                                    {
+                                        <div>
+                                            ->@sale.Amount tutarında @sale.Product.ProductName isimli ürün satışı.
+                                        </div>
+                                        <br />
+                                    }
+                                </td>
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                             {
