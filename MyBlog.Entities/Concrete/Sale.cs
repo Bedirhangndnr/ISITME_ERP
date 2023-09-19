@@ -9,7 +9,6 @@ namespace MyBlog.Entities.Concrete
 {
     public class Sale : EntityBase, IEntity
     {
-        public string? ProductName { get; set; } = "default";
         public Product Product { get; set; }
         public int ProductId { get; set; }
         public int Amount { get; set; }

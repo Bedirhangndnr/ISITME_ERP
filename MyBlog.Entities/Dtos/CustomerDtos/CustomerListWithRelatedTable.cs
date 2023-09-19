@@ -20,10 +20,5 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         public string TC { get; set; }
         public int CustomerTypeId { get; set; }
         public string CustomerTypeTitle { get; set; }
-        public string? ProductName { get; set; }
-        public string? SaleTitle { get; set; }
-        public string? SaleAmount { get; set; }
-        public List<Sale> Sales{ get; set; }
-
     }
 }
