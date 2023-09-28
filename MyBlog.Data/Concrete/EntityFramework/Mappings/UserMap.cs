@@ -238,7 +238,26 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             gulistan.PasswordHash = CreatePasswordHash(gulistan, "GulistanPsw_");
-
+            var yeliz = new User
+            {
+                Id = 10,
+                UserName = "yeliz",
+                NormalizedUserName = "YELIZ",
+                Email = "yeliz@gmail.com",
+                NormalizedEmail = "YELIZ@GMAIL.COM",
+                PhoneNumber = "+905555555555",
+                Picture = "/userImages/defaultUser.png",
+                FirstName = "Yeliz",
+                LastName = "Kılıç",
+                About = "-",
+                Institution = InstitutionConstants.Ases,
+                Link = "https://twitter.com/adminuser",
+                EmailConfirmed = true,
+                PhoneNumberConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            yeliz.PasswordHash = CreatePasswordHash(yeliz, "Yeliz1Pw_");
+           
             //var user2 = new User
             //{
             //    Id = 5,
@@ -275,7 +294,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             //    SecurityStamp = Guid.NewGuid().ToString()
             //};
             //elif.PasswordHash = CreatePasswordHash(elif, "XElifP");
-            builder.HasData(bilal, nazli, sema, dev, berra, elif, esma, asiye, gulistan);
+            builder.HasData(bilal, nazli, sema, dev, berra, elif, esma, asiye, gulistan, yeliz);
         }
         #endregion
 

@@ -98,7 +98,7 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             AppointmentTypeId = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(8808),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 885, DateTimeKind.Local).AddTicks(4677),
                             CustomerId = 1,
                             Date = new DateTime(1998, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Test Açıklama2",
@@ -107,7 +107,7 @@ namespace MyBlog.Data.Migrations
                             IsDeleted = false,
                             IsMade = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(8808),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 885, DateTimeKind.Local).AddTicks(4678),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek"
                         });
                 });
@@ -162,12 +162,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(3865),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(5631),
                             Description = "Test",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(3866),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(5632),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                             Title = "Test"
                         });
@@ -267,12 +267,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6971),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6969),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2429),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2427),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6972),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2430),
                             Note = "C# 9.0 ve .NET 5 Yenilikleri",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "C# 9.0 ve .NET 5 Yenilikleri",
@@ -289,12 +289,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Yinelenen bir sayfa içeriğinin okuyucunun dikkatini dağıttığı bilinen bir gerçektir. Lorem Ipsum kullanmanın amacı, sürekli 'buraya metin gelecek, buraya metin gelecek' yazmaya kıyasla daha dengeli bir harf dağılımı sağlayarak okunurluğu artırmasıdır. Şu anda birçok masaüstü yayıncılık paketi ve web sayfa düzenleyicisi, varsayılan mıgır metinler olarak Lorem Ipsum kullanmaktadır. Ayrıca arama motorlarında 'lorem ipsum' anahtar sözcükleri ile arama yapıldığında henüz tasarım aşamasında olan çok sayıda site listelenir. Yıllar içinde, bazen kazara, bazen bilinçli olarak (örneğin mizah katılarak), çeşitli sürümleri geliştirilmiştir.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6977),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6976),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2434),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2433),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6978),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2435),
                             Note = "C++ 11 ve 19 Yenilikleri",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "C++ 11 ve 19 Yenilikleri",
@@ -311,12 +311,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Yaygın inancın tersine, Lorem Ipsum rastgele sözcüklerden oluşmaz. Kökleri M.Ö. 45 tarihinden bu yana klasik Latin edebiyatına kadar uzanan 2000 yıllık bir geçmişi vardır. Virginia'daki Hampden-Sydney College'dan Latince profesörü Richard McClintock, bir Lorem Ipsum pasajında geçen ve anlaşılması en güç sözcüklerden biri olan 'consectetur' sözcüğünün klasik edebiyattaki örneklerini incelediğinde kesin bir kaynağa ulaşmıştır. Lorm Ipsum, Çiçero tarafından M.Ö. 45 tarihinde kaleme alınan \"de Finibus Bonorum et Malorum\" (İyi ve Kötünün Uç Sınırları) eserinin 1.10.32 ve 1.10.33 sayılı bölümlerinden gelmektedir. Bu kitap, ahlak kuramı üzerine bir tezdir ve Rönesans döneminde çok popüler olmuştur. Lorem Ipsum pasajının ilk satırı olan \"Lorem ipsum dolor sit amet\" 1.10.32 sayılı bölümdeki bir satırdan gelmektedir. 1500'lerden beri kullanılmakta olan standard Lorem Ipsum metinleri ilgilenenler için yeniden üretilmiştir. Çiçero tarafından yazılan 1.10.32 ve 1.10.33 bölümleri de 1914 H. Rackham çevirisinden alınan İngilizce sürümleri eşliğinde özgün biçiminden yeniden üretilmiştir.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6981),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6980),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2438),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2437),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6981),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2439),
                             Note = "JavaScript ES2019 ve ES2020 Yenilikleri",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "JavaScript ES2019 ve ES2020 Yenilikleri",
@@ -333,12 +333,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de 'Conteúdo aqui,conteúdo aqui'', tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por 'lorem ipsum' irá encontrar muitos websites ainda na sua infância. Várias versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6984),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6983),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2441),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2441),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6984),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2442),
                             Note = "Typescript 4.1 Yenilikleri",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Typescript 4.1, Typescript, TYPESCRIPT 2021",
@@ -355,12 +355,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Yaygın inancın tersine, Lorem Ipsum rastgele sözcüklerden oluşmaz. Kökleri M.Ö. 45 tarihinden bu yana klasik Latin edebiyatına kadar uzanan 2000 yıllık bir geçmişi vardır. Virginia'daki Hampden-Sydney College'dan Latince profesörü Richard McClintock, bir Lorem Ipsum pasajında geçen ve anlaşılması en güç sözcüklerden biri olan 'consectetur' sözcüğünün klasik edebiyattaki örneklerini incelediğinde kesin bir kaynağa ulaşmıştır. Lorm Ipsum, Çiçero tarafından M.Ö. 45 tarihinde kaleme alınan \"de Finibus Bonorum et Malorum\" (İyi ve Kötünün Uç Sınırları) eserinin 1.10.32 ve 1.10.33 sayılı bölümlerinden gelmektedir. Bu kitap, ahlak kuramı üzerine bir tezdir ve Rönesans döneminde çok popüler olmuştur. Lorem Ipsum pasajının ilk satırı olan \"Lorem ipsum dolor sit amet\" 1.10.32 sayılı bölümdeki bir satırdan gelmektedir. 1500'lerden beri kullanılmakta olan standard Lorem Ipsum metinleri ilgilenenler için yeniden üretilmiştir. Çiçero tarafından yazılan 1.10.32 ve 1.10.33 bölümleri de 1914 H. Rackham çevirisinden alınan İngilizce sürümleri eşliğinde özgün biçiminden yeniden üretilmiştir.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6986),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6986),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2445),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2444),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6987),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2445),
                             Note = "JAVA",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Java, Android, Mobile, Kotlin, Uygulama Geliştirme",
@@ -377,12 +377,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6989),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6989),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2448),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2447),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6990),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2449),
                             Note = "Python",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Python ile Veri Madenciliği",
@@ -399,12 +399,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du 0De Finibus Bonorum et Malorum' (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, 'Lorem ipsum dolor sit amet...'', proviennent de la section 1.10.32",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6992),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6992),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2451),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2451),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6993),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2452),
                             Note = "PHP",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Php ile API Oluşturma Rehberi",
@@ -421,12 +421,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Plusieurs variations de Lorem Ipsum peuvent être trouvées ici ou là, mais la majeure partie d'entre elles a été altérée par l'addition d'humour ou de mots aléatoires qui ne ressemblent pas une seconde à du texte standard. Si vous voulez utiliser un passage du Lorem Ipsum, vous devez être sûr qu'il n'y a rien d'embarrassant caché dans le texte. Tous les générateurs de Lorem Ipsum sur Internet tendent à reproduire le même extrait sans fin, ce qui fait de lipsum.com le seul vrai générateur de Lorem Ipsum. Iil utilise un dictionnaire de plus de 200 mots latins, en combinaison de plusieurs structures de phrases, pour générer un Lorem Ipsum irréprochable. Le Lorem Ipsum ainsi obtenu ne contient aucune répétition, ni ne contient des mots farfelus, ou des touches d'humour.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6995),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6995),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2455),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2454),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6996),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2455),
                             Note = "Kotlin",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Kotlin ile Mobil Programlama Baştan Sona Adım Adım",
@@ -443,12 +443,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Al contrario di quanto si pensi, Lorem Ipsum non è semplicemente una sequenza casuale di caratteri. Risale ad un classico della letteratura latina del 45 AC, cosa che lo rende vecchio di 2000 anni. Richard McClintock, professore di latino al Hampden-Sydney College in Virginia, ha ricercato una delle più oscure parole latine, consectetur, da un passaggio del Lorem Ipsum e ha scoperto tra i vari testi in cui è citata, la fonte da cui è tratto il testo, le sezioni 1.10.32 and 1.10.33 del 'de Finibus Bonorum et Malorum' di Cicerone. Questo testo è un trattato su teorie di etica, molto popolare nel Rinascimento. La prima riga del Lorem Ipsum, 'Lorem ipsum dolor sit amet..'', è tratta da un passaggio della sezione 1.10.32.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6998),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6997),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2458),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2457),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(6999),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2459),
                             Note = "Swift",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Swift ile IOS Mobil Programlama Baştan Sona Adım Adım",
@@ -465,12 +465,12 @@ namespace MyBlog.Data.Migrations
                             CommentCount = 0,
                             Content = "Esistono innumerevoli variazioni dei passaggi del Lorem Ipsum, ma la maggior parte hanno subito delle variazioni del tempo, a causa dell’inserimento di passaggi ironici, o di sequenze casuali di caratteri palesemente poco verosimili. Se si decide di utilizzare un passaggio del Lorem Ipsum, è bene essere certi che non contenga nulla di imbarazzante. In genere, i generatori di testo segnaposto disponibili su internet tendono a ripetere paragrafi predefiniti, rendendo questo il primo vero generatore automatico su intenet. Infatti utilizza un dizionario di oltre 200 vocaboli latini, combinati con un insieme di modelli di strutture di periodi, per generare passaggi di testo verosimili. Il testo così generato è sempre privo di ripetizioni, parole imbarazzanti o fuori luogo ecc.",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7001),
-                            Date = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7000),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2461),
+                            Date = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2461),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7001),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(2462),
                             Note = "Ruby",
                             SeoAuthor = "Alper Tunga",
                             SeoDescription = "Ruby, Ruby on Rails Web Programlama, AirBnb Klon",
@@ -535,12 +535,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2807),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9955),
                             Description = "İş Bankası Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2807),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9956),
                             PaymentTypeId = 1,
                             Title = "İş Bankası"
                         },
@@ -548,12 +548,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2809),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9957),
                             Description = "Garanti Bankası Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2809),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9957),
                             PaymentTypeId = 1,
                             Title = "Garanti Bankası"
                         },
@@ -561,12 +561,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2810),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9958),
                             Description = "Yapı Kredi Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2810),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9959),
                             PaymentTypeId = 1,
                             Title = "Yapı Kredi"
                         },
@@ -574,12 +574,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 4,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2811),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9959),
                             Description = "Akbank Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2811),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9960),
                             PaymentTypeId = 1,
                             Title = "Akbank"
                         },
@@ -587,12 +587,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 5,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2812),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9960),
                             Description = "Avrupa Ses Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2812),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9961),
                             PaymentTypeId = 2,
                             Title = "Avrupa Ses"
                         },
@@ -600,12 +600,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 6,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2813),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9961),
                             Description = "Sivasot Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2813),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9962),
                             PaymentTypeId = 2,
                             Title = "Sivasot"
                         },
@@ -613,12 +613,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 7,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2814),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9963),
                             Description = "Timtoptan Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2814),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9963),
                             PaymentTypeId = 2,
                             Title = "Timtoptan"
                         });
@@ -675,12 +675,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(3423),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(5171),
                             Description = "TEST",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(3424),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(5172),
                             Title = "Brand Title Test"
                         });
                 });
@@ -774,11 +774,11 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             ArticleId = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8427),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4508),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8428),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4508),
                             Note = "C# Makale Yorumu",
                             Text = "Lorem Ipsum pasajlarının birçok çeşitlemesi vardır. Ancak bunların büyük bir çoğunluğu mizah katılarak veya rastgele sözcükler eklenerek değiştirilmişlerdir. Eğer bir Lorem Ipsum pasajı kullanacaksanız, metin aralarına utandırıcı sözcükler gizlenmediğinden emin olmanız gerekir. İnternet'teki tüm Lorem Ipsum üreteçleri önceden belirlenmiş metin bloklarını yineler. Bu da, bu üreteci İnternet üzerindeki gerçek Lorem Ipsum üreteci yapar. Bu üreteç, 200'den fazla Latince sözcük ve onlara ait cümle yapılarını içeren bir sözlük kullanır. Bu nedenle, üretilen Lorem Ipsum metinleri yinelemelerden, mizahtan ve karakteristik olmayan sözcüklerden uzaktır."
                         },
@@ -787,11 +787,11 @@ namespace MyBlog.Data.Migrations
                             Id = 2,
                             ArticleId = 2,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8430),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4511),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8431),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4511),
                             Note = "C++ Makale Yorumu",
                             Text = "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker"
                         },
@@ -800,11 +800,11 @@ namespace MyBlog.Data.Migrations
                             Id = 3,
                             ArticleId = 3,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8432),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4513),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8433),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4514),
                             Note = "JavaScript Makale Yorumu",
                             Text = "Ang Lorem Ipsum ay ginagamit na modelo ng industriya ng pagpriprint at pagtytypeset. Ang Lorem Ipsum ang naging regular na modelo simula pa noong 1500s, noong may isang di kilalang manlilimbag and kumuha ng galley ng type at ginulo ang pagkaka-ayos nito upang makagawa ng libro ng mga type specimen. Nalagpasan nito hindi lang limang siglo, kundi nalagpasan din nito ang paglaganap ng electronic typesetting at nanatiling parehas. Sumikat ito noong 1960s kasabay ng pag labas ng Letraset sheets na mayroong mga talata ng Lorem Ipsum, at kamakailan lang sa mga desktop publishing software tulad ng Aldus Pagemaker ginamit ang mga bersyon ng Lorem Ipsum."
                         },
@@ -813,11 +813,11 @@ namespace MyBlog.Data.Migrations
                             Id = 4,
                             ArticleId = 4,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8435),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4516),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8435),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4517),
                             Note = "Typescript Makale Yorumu",
                             Text = "Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst."
                         },
@@ -826,11 +826,11 @@ namespace MyBlog.Data.Migrations
                             Id = 5,
                             ArticleId = 5,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8437),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4518),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8437),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4519),
                             Note = "Java Makale Yorumu",
                             Text = "Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective. Nu doar că a supravieţuit timp de cinci secole, dar şi a facut saltul în tipografia electronică practic neschimbată. A fost popularizată în anii '60 odată cu ieşirea colilor Letraset care conţineau pasaje Lorem Ipsum, iar mai recent, prin programele de publicare pentru calculator, ca Aldus PageMaker care includeau versiuni de Lorem Ipsum."
                         },
@@ -839,11 +839,11 @@ namespace MyBlog.Data.Migrations
                             Id = 6,
                             ArticleId = 6,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8439),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4521),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8440),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4522),
                             Note = "Python Makale Yorumu",
                             Text = "Lorem Ipsum je jednostavno probni tekst koji se koristi u tiskarskoj i slovoslagarskoj industriji. Lorem Ipsum postoji kao industrijski standard još od 16-og stoljeća, kada je nepoznati tiskar uzeo tiskarsku galiju slova i posložio ih da bi napravio knjigu s uzorkom tiska. Taj je tekst ne samo preživio pet stoljeća, već se i vinuo u svijet elektronskog slovoslagarstva, ostajući u suštini nepromijenjen. Postao je popularan tijekom 1960-ih s pojavom Letraset listova s odlomcima Lorem Ipsum-a, a u skorije vrijeme sa software-om za stolno izdavaštvo kao što je Aldus PageMaker koji također sadrži varijante Lorem Ipsum-a."
                         },
@@ -852,11 +852,11 @@ namespace MyBlog.Data.Migrations
                             Id = 7,
                             ArticleId = 7,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8441),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4523),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8442),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4524),
                             Note = "Php Makale Yorumu",
                             Text = "Lorem Ipsum – tas ir teksta salikums, kuru izmanto poligrāfijā un maketēšanas darbos. Lorem Ipsum ir kļuvis par vispārpieņemtu teksta aizvietotāju kopš 16. gadsimta sākuma. Tajā laikā kāds nezināms iespiedējs izveidoja teksta fragmentu, lai nodrukātu grāmatu ar burtu paraugiem. Tas ir ne tikai pārdzīvojis piecus gadsimtus, bet bez ievērojamām izmaiņām saglabājies arī mūsdienās, pārejot uz datorizētu teksta apstrādi. Tā popularizēšanai 60-tajos gados kalpoja Letraset burtu paraugu publicēšana ar Lorem Ipsum teksta fragmentiem un, nesenā pagātnē, tādas maketēšanas programmas kā Aldus PageMaker, kuras šablonu paraugos ir izmantots Lorem Ipsum teksts."
                         },
@@ -865,11 +865,11 @@ namespace MyBlog.Data.Migrations
                             Id = 8,
                             ArticleId = 8,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8443),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4526),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8444),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4527),
                             Note = "Kotlin Makale Yorumu",
                             Text = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
                         },
@@ -878,11 +878,11 @@ namespace MyBlog.Data.Migrations
                             Id = 9,
                             ArticleId = 9,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8446),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4528),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8446),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4529),
                             Note = "Swift Makale Yorumu",
                             Text = "هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة في هذا النص. بينما تعمل جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا باستخدام كلمات من قاموس يحوي على أكثر من 200 كلمة لا تينية، مضاف إليها مجموعة من الجمل النموذجية، لتكوين نص لوريم إيبسوم ذو شكل منطقي قريب إلى النص الحقيقي. وبالتالي يكون النص الناتح خالي من التكرار، أو أي كلمات أو عبارات غير لائقة أو ما شابه. وهذا ما يجعله أول مولّد نص لوريم إيبسوم حقيقي على الإنترنت."
                         },
@@ -891,11 +891,11 @@ namespace MyBlog.Data.Migrations
                             Id = 10,
                             ArticleId = 10,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8448),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4531),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(8448),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(4531),
                             Note = "Ruby Makale Yorumu",
                             Text = "Lorem Ipsum，也称乱数假文或者哑元文本， 是印刷及排版领域所常用的虚拟文字。由于曾经一台匿名的打印机刻意打乱了一盒印刷字体从而造出一本字体样品书，Lorem Ipsum从西元15世纪起就被作为此领域的标准文本使用。它不仅延续了五个世纪，还通过了电子排版的挑战，其雏形却依然保存至今。在1960年代，”Leatraset”公司发布了印刷着Lorem Ipsum段落的纸张，从而广泛普及了它的使用。最近，计算机桌面出版软件”Aldus PageMaker”也通过同样的方式使Lorem Ipsum落入大众的视野。"
                         });
@@ -1001,9 +1001,9 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             About = "Yazılımcı, 20 yaşında",
                             Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
-                            BirthDate = new DateTime(2023, 9, 17, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(2929),
+                            BirthDate = new DateTime(2023, 9, 28, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(6714),
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(2926),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(6710),
                             CustomerReferanceId = 1,
                             CustomerTypeId = 1,
                             Email = "hasta1@gmail.com",
@@ -1014,7 +1014,7 @@ namespace MyBlog.Data.Migrations
                             IsDeleted = false,
                             LastName = "Gündöner",
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(2927),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(6711),
                             Note = "TEST",
                             Phone = "05050102249",
                             Picture = "/userImages/defaultUser.png",
@@ -1097,7 +1097,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(4356),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(8135),
                             CustomerReferanceTitleId = 1,
                             Description = "Description",
                             FirstName = "Sema",
@@ -1105,7 +1105,7 @@ namespace MyBlog.Data.Migrations
                             IsDeleted = false,
                             LastName = "Gündöner",
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(4356),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(8136),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                             Phone = "+905050102249"
                         });
@@ -1159,11 +1159,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(3468),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(7238),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(3469),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(7239),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                             Title = "Referans Unvan 1"
                         });
@@ -1217,11 +1217,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(4749),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(8606),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(4750),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(8606),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                             Title = "Type 1"
                         });
@@ -1314,7 +1314,7 @@ namespace MyBlog.Data.Migrations
                             About = "Editor User of MyBlog",
                             Address = "Kocaeli Avclar Cadde 1000 Kat 2034 Daire 2",
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2890),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(4604),
                             Email = "bedirhangn@gmail.com",
                             EmployeeTypeId = 1,
                             FirstName = "Personel 1",
@@ -1322,7 +1322,7 @@ namespace MyBlog.Data.Migrations
                             IsDeleted = false,
                             LastName = "User",
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2891),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(4605),
                             Phone = "+905555555555",
                             Picture = "/userImages/defaultUser.png",
                             TC = "45677891170"
@@ -1376,12 +1376,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2975),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(4695),
                             Description = "Description",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2976),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(4695),
                             Note = "Not",
                             Title = "Title"
                         });
@@ -1492,14 +1492,14 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3437),
-                            EstimatedCompletionDate = new DateTime(2023, 9, 18, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3439),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1086),
+                            EstimatedCompletionDate = new DateTime(2023, 9, 29, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1089),
                             IsActive = true,
                             IsDeleted = false,
                             IsRead = false,
                             Message = "TEST",
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3438),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1087),
                             Progress = 3,
                             Title = "MessageToDeveloper Title Test"
                         },
@@ -1507,14 +1507,14 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3442),
-                            EstimatedCompletionDate = new DateTime(2023, 9, 18, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3444),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1092),
+                            EstimatedCompletionDate = new DateTime(2023, 9, 29, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1094),
                             IsActive = true,
                             IsDeleted = false,
                             IsRead = false,
                             Message = "TEST 2222222222222222",
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3443),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1093),
                             Progress = 1,
                             Title = "MessageToDeveloper Title Test"
                         },
@@ -1522,14 +1522,14 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3446),
-                            EstimatedCompletionDate = new DateTime(2023, 9, 16, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3447),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1096),
+                            EstimatedCompletionDate = new DateTime(2023, 9, 27, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1097),
                             IsActive = true,
                             IsDeleted = false,
                             IsRead = false,
                             Message = "TEST 2222222222222222",
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(3447),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 902, DateTimeKind.Local).AddTicks(1097),
                             Progress = 4,
                             Title = "MessageToDeveloper Title Test"
                         });
@@ -1582,77 +1582,77 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1716),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7485),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1717),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7486),
                             Name = "AgendaProgram.Read"
                         },
                         new
                         {
                             Id = 2,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1719),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7489),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1720),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7489),
                             Name = "CustomerModule.Read"
                         },
                         new
                         {
                             Id = 3,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1721),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7491),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1722),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7492),
                             Name = "RoleModule.Read"
                         },
                         new
                         {
                             Id = 4,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1724),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7493),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1726),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7494),
                             Name = "RoleModule.Read"
                         },
                         new
                         {
                             Id = 5,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1727),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7496),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1728),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7496),
                             Name = "RoleModule.Read"
                         },
                         new
                         {
                             Id = 6,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1729),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7498),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1730),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7498),
                             Name = "RoleModule.Read"
                         },
                         new
                         {
                             Id = 7,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1731),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7500),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1732),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(7501),
                             Name = "StockModule.Read"
                         });
                 });
@@ -1737,16 +1737,16 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6097),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7818),
                             CustomerId = 1,
                             Description = "TEST",
                             IsActive = true,
                             IsDeleted = false,
                             IsRead = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6097),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7819),
                             NotificationType = "Reminder",
-                            TargetDate = new DateTime(2023, 9, 16, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6101),
+                            TargetDate = new DateTime(2023, 9, 27, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7824),
                             Title = "Title",
                             UserId = 1
                         },
@@ -1754,16 +1754,16 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6107),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7831),
                             CustomerId = 1,
                             Description = "Doğum günü yaklaşmakta.",
                             IsActive = true,
                             IsDeleted = false,
                             IsRead = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6107),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7831),
                             NotificationType = "Reminder",
-                            TargetDate = new DateTime(2023, 9, 15, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6109),
+                            TargetDate = new DateTime(2023, 9, 26, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7833),
                             Title = "Doğum Günü!",
                             UserId = 2
                         },
@@ -1771,16 +1771,16 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6110),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7834),
                             CustomerId = 1,
                             Description = "Aylık cihaz bakımı için konuşulacak",
                             IsActive = true,
                             IsDeleted = false,
                             IsRead = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6111),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7835),
                             NotificationType = "Reminder",
-                            TargetDate = new DateTime(2023, 9, 14, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6112),
+                            TargetDate = new DateTime(2023, 9, 25, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(7836),
                             Title = "Cihaz Bakımı!",
                             UserId = 2
                         });
@@ -1850,15 +1850,15 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             AmountPaid = 0m,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(1281),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3070),
                             DebtAmount = 15000m,
                             Description = "TEST desc 1 ",
-                            DueDate = new DateTime(2023, 9, 17, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(1289),
+                            DueDate = new DateTime(2023, 9, 28, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3074),
                             IsActive = true,
                             IsDeleted = false,
                             IsPaid = true,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(1283),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3071),
                             PaidPlace = "Ödemenin Yapılacağı yer"
                         });
                 });
@@ -1925,13 +1925,13 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             AmountPaid = 1000m,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(1810),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3598),
                             Description = "TEST desc 1 ",
                             EmployeeId = 1,
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(1811),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3599),
                             OutPaymentId = 1
                         });
                 });
@@ -2029,14 +2029,14 @@ namespace MyBlog.Data.Migrations
                             AmountPaid = 1m,
                             AssociatedInstitutionsId = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(482),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(2412),
                             CustomerId = 1,
                             Description = "TEST",
                             EmployeeId = 1,
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(483),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(2413),
                             PaymentTypeId = 1
                         });
                 });
@@ -2089,36 +2089,36 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2010),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3768),
                             Description = "Point of Sale",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2010),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3768),
                             Title = "KK | POS"
                         },
                         new
                         {
                             Id = 2,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2036),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3769),
                             Description = "Mail Order Payment",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2038),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3770),
                             Title = "Mail Order"
                         },
                         new
                         {
                             Id = 3,
                             CreatedByName = "Admin",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2038),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3771),
                             Description = "Point of Sale",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Admin",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(2039),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(3771),
                             Title = "Peşin"
                         });
                 });
@@ -2204,13 +2204,13 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             BrandId = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(6519),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 885, DateTimeKind.Local).AddTicks(474),
                             IsActive = true,
                             IsDeleted = false,
                             IsMultiple = false,
                             IsSold = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(6520),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 885, DateTimeKind.Local).AddTicks(475),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                             Price = 100,
                             ProductName = "Siemens Signia Motion 1PX",
@@ -2271,12 +2271,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6634),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(9039),
                             Description = "Ürün Grubu Açıklaması",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(6635),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 900, DateTimeKind.Local).AddTicks(9040),
                             Title = "Ürün Grubu 1"
                         });
                 });
@@ -2337,12 +2337,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(172),
                             Description = "Ürün Alt Grubu Açıklaması",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(173),
                             ProductGroupId = 1,
                             Title = "Ürün Alt Grubu Başlığı"
                         });
@@ -2400,11 +2400,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2134),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8548),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2134),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8549),
                             ModuleId = 5,
                             Name = "EmployeeProgram.Read"
                         },
@@ -2412,11 +2412,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2136),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8551),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2137),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8552),
                             ModuleId = 5,
                             Name = "UserModule.Read"
                         },
@@ -2424,11 +2424,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2139),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8554),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2139),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8554),
                             ModuleId = 7,
                             Name = "StockModule.Read"
                         },
@@ -2436,11 +2436,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 4,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2141),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8556),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2142),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8557),
                             ModuleId = 6,
                             Name = "CustomerReferanceModule.Read"
                         },
@@ -2448,11 +2448,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 5,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2143),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8558),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2144),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8559),
                             ModuleId = 1,
                             Name = "AppointmentModule.Read"
                         },
@@ -2460,11 +2460,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 6,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2145),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8561),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2146),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8561),
                             ModuleId = 1,
                             Name = "NotificationModule.Read"
                         },
@@ -2472,11 +2472,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 7,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2147),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8563),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2148),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8563),
                             ModuleId = 3,
                             Name = "PaymentProgram.Read"
                         },
@@ -2484,11 +2484,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 8,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2149),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8565),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2150),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8565),
                             ModuleId = 2,
                             Name = "CustomerProgram.Read"
                         },
@@ -2496,11 +2496,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 9,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2152),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8567),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2152),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8568),
                             ModuleId = 7,
                             Name = "BrandModule.Read"
                         },
@@ -2508,11 +2508,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 10,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2154),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8599),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2154),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8600),
                             ModuleId = 3,
                             Name = "SaleModule.Read"
                         },
@@ -2520,11 +2520,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 11,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2156),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8602),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2156),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8602),
                             ModuleId = 7,
                             Name = "ProductProgram.Read"
                         },
@@ -2532,11 +2532,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 12,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2158),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8604),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2158),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(8605),
                             ModuleId = 5,
                             Name = "RoleModule.Read"
                         });
@@ -2582,7 +2582,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "4c0cc356-d2ce-4594-b89a-92527f8cfa45",
+                            ConcurrencyStamp = "0072ba13-50f9-4807-ba38-6c512d278aa4",
                             Definition = "SüperAdmin Yetkisi",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
@@ -2591,7 +2591,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 2,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "e6b9f4cd-4ac1-480e-9441-e17d8d4cde54",
+                            ConcurrencyStamp = "8ca3cc86-8ee6-49c6-8b89-e4f36535e42c",
                             Definition = "Standart Kullanıcı Yetkisi",
                             Name = "DefaultUser",
                             NormalizedName = "DEFAULTUSER"
@@ -2600,7 +2600,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 3,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "2684bb33-fcf5-4a47-9d55-7579c5fd3c15",
+                            ConcurrencyStamp = "bd67067d-4c97-48f6-ae0f-44bc3a18fe40",
                             Definition = "Developer Yetkisi",
                             Name = "Developer",
                             NormalizedName = "DEVELOPER"
@@ -2609,7 +2609,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 4,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "85fee10c-789e-4cae-8663-a3eeead74f99",
+                            ConcurrencyStamp = "47cc3b38-6f14-4c80-bf3f-6b3ab6cf3d78",
                             Definition = "Kullanıcı Ekleme Yetkisi",
                             Name = "User.Create",
                             NormalizedName = "USER.CREATE"
@@ -2618,7 +2618,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 5,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "c862bbad-a111-40c3-a6c5-cf951f17baa9",
+                            ConcurrencyStamp = "011d6f90-62d3-4c70-bfe1-81266b4ae3ca",
                             Definition = "Kullanıcı Görüntüleme Yetkisi",
                             Name = "User.Read",
                             NormalizedName = "USER.READ"
@@ -2627,7 +2627,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 6,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "6ed0137b-e180-4202-bdf0-23e39376a97a",
+                            ConcurrencyStamp = "5faf6eac-610b-4515-96d9-6d090bae7de5",
                             Definition = "Kullanıcı Güncelleme Yetkisi",
                             Name = "User.Update",
                             NormalizedName = "USER.UPDATE"
@@ -2636,7 +2636,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 7,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "69277b33-025d-44bb-b53b-7d753b2f4862",
+                            ConcurrencyStamp = "b20b32bb-8b3d-4b1c-9074-3c6418fad1ce",
                             Definition = "Kullanıcı Silme Yetkisi",
                             Name = "User.Delete",
                             NormalizedName = "USER.DELETE"
@@ -2645,7 +2645,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 8,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "04d95ea1-7ccd-4f00-a977-fdd61ad24255",
+                            ConcurrencyStamp = "f2165f23-f5bd-4e92-a2bd-b3aa51799eef",
                             Definition = "Rol Görüntüleme Yetkisi",
                             Name = "Role.Read",
                             NormalizedName = "ROLE.READ"
@@ -2654,7 +2654,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 9,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "f97acb37-9daa-4504-ae7d-0dda8da710f8",
+                            ConcurrencyStamp = "2213af0a-ab49-4b9d-8d91-cad955774eff",
                             Definition = "Rol Güncelleme Yetkisi",
                             Name = "Role.Update",
                             NormalizedName = "ROLE.UPDATE"
@@ -2663,7 +2663,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 10,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ee6918ff-0cc4-42cb-9819-be657b3f45df",
+                            ConcurrencyStamp = "f4d2b513-9908-4906-b5c2-f5a3a6ae4fd8",
                             Definition = "Rol Silme Yetkisi",
                             Name = "Role.Delete",
                             NormalizedName = "ROLE.DELETE"
@@ -2672,7 +2672,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 11,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ddae4197-9eb7-4e63-b06f-f9064810f370",
+                            ConcurrencyStamp = "96ab101c-5c3b-4b72-bd94-a0354718f955",
                             Definition = "Rol Ekleme Yetkisi",
                             Name = "Role.Create",
                             NormalizedName = "ROLE.CREATE"
@@ -2681,7 +2681,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 12,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "7ecc4188-cd17-43f3-b238-74735084d295",
+                            ConcurrencyStamp = "8a9045d7-fe5e-469b-82bd-9995d068ed33",
                             Definition = "Ödeme Ekleme Yetkisi",
                             Name = "Payment.Create",
                             NormalizedName = "PAYMENT.CREATE"
@@ -2690,7 +2690,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 13,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "01a25b3d-4335-4a82-b699-95706bace929",
+                            ConcurrencyStamp = "b64d08bb-a7e5-4a00-b888-8f1f92d2d2d6",
                             Definition = "Ödeme Görüntüleme Yetkisi",
                             Name = "Payment.Read",
                             NormalizedName = "PAYMENT.READ"
@@ -2699,7 +2699,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 14,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "7c07de4c-8b2a-4beb-b40d-e2feaefede5e",
+                            ConcurrencyStamp = "1ac3d87a-5713-44d5-9a16-939a58a4198b",
                             Definition = "Ödeme Güncelleme Yetkisi",
                             Name = "Payment.Update",
                             NormalizedName = "PAYMENT.UPDATE"
@@ -2708,7 +2708,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 15,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "6caa5f5c-12ec-4748-8c8b-2b38a4564b3d",
+                            ConcurrencyStamp = "4ff94e27-1503-493b-9cb1-376270556831",
                             Definition = "Ödeme Silme Yetkisi",
                             Name = "Payment.Delete",
                             NormalizedName = "PAYMENT.DELETE"
@@ -2717,7 +2717,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 16,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "fda91c05-a67f-4e2d-9600-00ef6401b6af",
+                            ConcurrencyStamp = "b560fc81-d851-444c-a944-80c560493271",
                             Definition = "Ödeme Türü Ekleme Yetkisi",
                             Name = "PaymentType.Create",
                             NormalizedName = "PAYMENTTYPE.CREATE"
@@ -2726,7 +2726,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 17,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "9b077261-e3b3-4ca5-acc9-cd3a839439dc",
+                            ConcurrencyStamp = "378be281-4d3d-4e0f-867c-a28de55192cc",
                             Definition = "Ödeme Türü Görüntüleme Yetkisi",
                             Name = "PaymentType.Read",
                             NormalizedName = "PAYMENTTYPE.READ"
@@ -2735,7 +2735,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 18,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "4bd9cd4a-b7e6-4338-b9f3-127b1963c402",
+                            ConcurrencyStamp = "db236423-58f0-433e-af87-269b27f70a7b",
                             Definition = "Ödeme Türü Güncelleme Yetkisi",
                             Name = "PaymentType.Update",
                             NormalizedName = "PAYMENTTYPE.UPDATE"
@@ -2744,7 +2744,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 19,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "6fa80d2b-df8a-404b-9f1c-5b6c3336b534",
+                            ConcurrencyStamp = "3ae6fb0a-716b-44ed-86ca-777f14e29abf",
                             Definition = "Ödeme Türü Silme Yetkisi",
                             Name = "PaymentType.Delete",
                             NormalizedName = "PAYMENTTYPE.DELETE"
@@ -2753,7 +2753,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 20,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "92016fd1-a0a4-4024-8f49-bc9cd43c90e8",
+                            ConcurrencyStamp = "2bea8665-f7bb-46a5-a296-b5792fc7d3cf",
                             Definition = "Personel Ekleme Yetkisi",
                             Name = "Employee.Create",
                             NormalizedName = "EMPLOYEE.CREATE"
@@ -2762,7 +2762,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 21,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ad0d574d-20e4-4125-9c9e-e79e339ddbc7",
+                            ConcurrencyStamp = "57070b47-1dc3-4380-a950-2496a679a340",
                             Definition = "Personel Görüntüleme Yetkisi",
                             Name = "Employee.Read",
                             NormalizedName = "EMPLOYEE.READ"
@@ -2771,7 +2771,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 22,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "1d90eae8-e6e5-4427-aa92-7af8ba09bb30",
+                            ConcurrencyStamp = "ef5dc1a2-9f5e-4868-a248-594a79151b14",
                             Definition = "Personel Güncelleme Yetkisi",
                             Name = "Employee.Update",
                             NormalizedName = "EMPLOYEE.UPDATE"
@@ -2780,7 +2780,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 23,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "4acecffb-0b22-4e8e-a9c4-f8ffe84837b9",
+                            ConcurrencyStamp = "93fb4345-546f-4e15-95fa-66bf9e990536",
                             Definition = "Personel Silme Yetkisi",
                             Name = "Employee.Delete",
                             NormalizedName = "EMPLOYEE.DELETE"
@@ -2789,7 +2789,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 24,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "204aeb86-2927-44cf-8a87-d28e03c5dd21",
+                            ConcurrencyStamp = "1c1f49b6-c80c-4e6c-aaa9-2036ef036098",
                             Definition = "Personel Türü Ekleme Yetkisi",
                             Name = "EmployeeType.Create",
                             NormalizedName = "EMPLOYEETYPE.CREATE"
@@ -2798,7 +2798,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 25,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "8046780b-8404-4923-b36e-48f6da0c8594",
+                            ConcurrencyStamp = "b26142f6-21bc-4442-bb1a-71e11ef797af",
                             Definition = "Personel Türü Görüntüleme Yetkisi",
                             Name = "EmployeeType.Read",
                             NormalizedName = "EMPLOYEETYPE.READ"
@@ -2807,7 +2807,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 26,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "4527024a-fc58-4753-ac0a-4074b5695403",
+                            ConcurrencyStamp = "c71c912d-70f3-448b-8b07-ced6935f1d52",
                             Definition = "Personel Türü Güncelleme Yetkisi",
                             Name = "EmployeeType.Update",
                             NormalizedName = "EMPLOYEETYPE.UPDATE"
@@ -2816,7 +2816,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 27,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "faeb4136-6fcb-465c-9fae-1c6fc5d5bb08",
+                            ConcurrencyStamp = "94102b86-92b8-48a1-9534-3f47f4011bdb",
                             Definition = "Personel Türü Silme Yetkisi",
                             Name = "EmployeeType.Delete",
                             NormalizedName = "EMPLOYEETYPE.DELETE"
@@ -2825,7 +2825,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 28,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "36b41be0-0e52-455e-b967-8f48cd51ed08",
+                            ConcurrencyStamp = "73f549b6-dce4-4993-945d-40cc314df625",
                             Definition = "Müşteri Ekleme Yetkisi",
                             Name = "Customer.Create",
                             NormalizedName = "CUSTOMER.CREATE"
@@ -2834,7 +2834,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 29,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "82735f6d-dea3-408b-86ff-eda409b3404c",
+                            ConcurrencyStamp = "cff4e327-2ef4-4f6c-81f1-6015cfd375b0",
                             Definition = "Müşteri Görüntüleme Yetkisi",
                             Name = "Customer.Read",
                             NormalizedName = "CUSTOMER.READ"
@@ -2843,7 +2843,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 30,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ad684c65-cfee-4141-9891-591ec60af6a4",
+                            ConcurrencyStamp = "3c3fb41e-bf25-43c6-938a-4074aea48638",
                             Definition = "Müşteri Güncelleme Yetkisi",
                             Name = "Customer.Update",
                             NormalizedName = "CUSTOMER.UPDATE"
@@ -2852,7 +2852,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 31,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "a2411c58-ee62-4cbb-8b12-f8850d3c2c5b",
+                            ConcurrencyStamp = "2b3f7eb7-2412-40e6-bf07-8a5b62fcbf75",
                             Definition = "Müşteri Silme Yetkisi",
                             Name = "Customer.Delete",
                             NormalizedName = "CUSTOMER.DELETE"
@@ -2861,7 +2861,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 32,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "1f76d578-500a-4457-894f-8b89f81f825f",
+                            ConcurrencyStamp = "14749da9-fe1a-4411-8f37-a4861105bf00",
                             Definition = "Müşteri Tipi Ekleme Yetkisi",
                             Name = "CustomerType.Create",
                             NormalizedName = "CUSTOMERTYPE.CREATE"
@@ -2870,7 +2870,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 33,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "bb2ed5aa-67b4-4c9e-81aa-d00e59408e79",
+                            ConcurrencyStamp = "9c8598c7-19be-4f6d-960d-dea5a637da0f",
                             Definition = "Müşteri Tipi Görüntüleme Yetkisi",
                             Name = "CustomerType.Read",
                             NormalizedName = "CUSTOMERTYPE.READ"
@@ -2879,7 +2879,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 34,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "d9997e5a-b386-4a0f-a42c-9a983cec3740",
+                            ConcurrencyStamp = "6301df8d-051a-4152-8105-05f198994cda",
                             Definition = "Müşteri Tipi Güncelleme Yetkisi",
                             Name = "CustomerType.Update",
                             NormalizedName = "CUSTOMERTYPE.UPDATE"
@@ -2888,7 +2888,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 35,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "c82d5013-050c-49d5-b611-b2f0535b5d93",
+                            ConcurrencyStamp = "c03d4682-284b-4abe-a8e6-50cf56f3840c",
                             Definition = "Müşteri Tipi Silme Yetkisi",
                             Name = "CustomerType.Delete",
                             NormalizedName = "CUSTOMERTYPE.DELETE"
@@ -2897,7 +2897,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 36,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "d3b2751a-8739-4ab6-948e-697abd098565",
+                            ConcurrencyStamp = "cdc0c93a-6b09-45d6-82be-beb11dce337b",
                             Definition = "Bildirim Ekleme Yetkisi",
                             Name = "Notification.Create",
                             NormalizedName = "NOTIFICATION.CREATE"
@@ -2906,7 +2906,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 37,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "44aeab08-6e32-4a47-8c7f-bbac57717467",
+                            ConcurrencyStamp = "1c1e823e-6d46-4b53-9300-58d0b675138f",
                             Definition = "Bildirim Görüntüleme Yetkisi",
                             Name = "Notification.Read",
                             NormalizedName = "NOTIFICATION.READ"
@@ -2915,7 +2915,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 38,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "13fbeb33-3bc0-4fa9-b0a4-93eb37a0d02a",
+                            ConcurrencyStamp = "5c5dc4ac-dd8e-4f53-a8aa-fa8fccec0aab",
                             Definition = "Bildirim Güncelleme Yetkisi",
                             Name = "Notification.Update",
                             NormalizedName = "NOTIFICATION.UPDATE"
@@ -2924,7 +2924,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 39,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "19c81273-46c3-4ee3-878a-59741b89be5e",
+                            ConcurrencyStamp = "d918aacb-577c-4e48-887f-e4bcdecd6e14",
                             Definition = "Bildirim Silme Yetkisi",
                             Name = "Notification.Delete",
                             NormalizedName = "NOTIFICATION.DELETE"
@@ -2933,7 +2933,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 40,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "fc2551df-3986-4fec-aac6-71eae62d4a7f",
+                            ConcurrencyStamp = "768e20b2-bff4-48e6-93d9-3184bfd7eff9",
                             Definition = "Brand Ekleme Yetkisi",
                             Name = "Brand.Create",
                             NormalizedName = "BRAND.CREATE"
@@ -2942,7 +2942,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 41,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ee318f05-8c6e-4ddb-b922-97c477fbcb19",
+                            ConcurrencyStamp = "acd9973f-196b-4b81-8f79-9e43a8764842",
                             Definition = "Brand Görüntüleme Yetkisi",
                             Name = "Brand.Read",
                             NormalizedName = "BRAND.READ"
@@ -2951,7 +2951,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 42,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "306661c2-f050-410d-901a-11db30f15e49",
+                            ConcurrencyStamp = "ab16056d-1bd1-478c-b62c-984c3ae0e6e6",
                             Definition = "Brand Güncelleme Yetkisi",
                             Name = "Brand.Update",
                             NormalizedName = "BRAND.UPDATE"
@@ -2960,7 +2960,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 43,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "f2d3d859-3998-4756-b7d6-d5e8a0a341cc",
+                            ConcurrencyStamp = "b4b65d2c-850f-4164-b4f3-9dfe7417934b",
                             Definition = "Brand Silme Yetkisi",
                             Name = "Brand.Delete",
                             NormalizedName = "BRAND.DELETE"
@@ -2969,7 +2969,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 44,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "47ddd5bc-c19c-4b3f-b4ed-dc8b1435cd1c",
+                            ConcurrencyStamp = "39c2edc1-52ce-435a-a661-ec0565b0668b",
                             Definition = "Brand Ekleme Yetkisi",
                             Name = "MessageToDeveloper.Create",
                             NormalizedName = "MESSAGETODEVELOPER.CREATE"
@@ -2978,7 +2978,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 45,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "5fdd1ef2-772d-417e-97b2-064e6ecd5b64",
+                            ConcurrencyStamp = "5d9bc625-befc-4c11-8fa7-9f72193ee991",
                             Definition = "Brand  Yetkisi",
                             Name = "MessageToDeveloper.Read",
                             NormalizedName = "MESSAGETODEVELOPER.READ"
@@ -2987,7 +2987,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 46,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "457d2111-cbf5-4e9d-9a27-9c57300aa0c1",
+                            ConcurrencyStamp = "fb335805-6f14-4729-983e-fb8e4f19e815",
                             Definition = "Brand  Yetkisi",
                             Name = "MessageToDeveloper.Update",
                             NormalizedName = "MESSAGETODEVELOPER.UPDATE"
@@ -2996,7 +2996,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 47,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "20de9908-229d-4001-9444-071a139a735d",
+                            ConcurrencyStamp = "9463e74e-6b85-4a9b-a2da-330b9a1816ad",
                             Definition = "Brand  Yetkisi",
                             Name = "MessageToDeveloper.Delete",
                             NormalizedName = "MESSAGETODEVELOPER.DELETE"
@@ -3005,7 +3005,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 48,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "b7c457ca-5bd5-45f2-901c-144ec09007c4",
+                            ConcurrencyStamp = "271ae6b4-8550-4e88-849b-c9af09aa1886",
                             Definition = "Satış Durumu Ekleme Yetkisi",
                             Name = "SaleStatus.Create",
                             NormalizedName = "SALESTATUS.CREATE"
@@ -3014,7 +3014,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 49,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "963b095a-ac3b-4fa6-8b08-202c24402a19",
+                            ConcurrencyStamp = "01ac32ab-40ea-4f95-9951-0afdd72464d7",
                             Definition = "Satış Durumu Görüntüleme Yetkisi",
                             Name = "SaleStatus.Read",
                             NormalizedName = "SALESTATUS.READ"
@@ -3023,7 +3023,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 50,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ffe41c7c-1a0f-4d02-8db4-226196e201ae",
+                            ConcurrencyStamp = "2fce4f6e-5348-449e-a347-38c1616e52cc",
                             Definition = "Satış Durumu Güncelleme Yetkisi",
                             Name = "SaleStatus.Update",
                             NormalizedName = "SALESTATUS.UPDATE"
@@ -3032,7 +3032,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 51,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "ea6b76f7-80c6-4a08-a938-a22a3dd75e69",
+                            ConcurrencyStamp = "1f1f1522-e335-417b-bda6-a26e26bc172f",
                             Definition = "Satış Durumu Silme Yetkisi",
                             Name = "SaleStatus.Delete",
                             NormalizedName = "SALESTATUS.DELETE"
@@ -3041,7 +3041,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 52,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "39e631e9-6bcc-4249-b278-970f1cd87d87",
+                            ConcurrencyStamp = "468f1486-e23b-4492-b881-5c942a21aaac",
                             Definition = "Satış Türü Ekleme Yetkisi",
                             Name = "SaleType.Create",
                             NormalizedName = "SALETYPE.CREATE"
@@ -3050,7 +3050,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 53,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "c59cad4c-0ae6-407a-b995-9fe3379737af",
+                            ConcurrencyStamp = "fe6c79f2-7fc5-4f92-8fc7-d43781c2618b",
                             Definition = "Satış Türü Görüntüleme Yetkisi",
                             Name = "SaleType.Read",
                             NormalizedName = "SALETYPE.READ"
@@ -3059,7 +3059,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 54,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "fcfb54f8-bf64-41cb-a796-a36004c4cc9e",
+                            ConcurrencyStamp = "976b6be9-c515-4e03-9d05-60b6fe091168",
                             Definition = "Satış Türü Güncelleme Yetkisi",
                             Name = "SaleType.Update",
                             NormalizedName = "SALETYPE.UPDATE"
@@ -3068,7 +3068,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 55,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "f1ecc5fb-efe7-4cf4-a33b-2f31b0209fcc",
+                            ConcurrencyStamp = "e6358c2c-f8e0-4fa7-86e7-310d448157dd",
                             Definition = "Satış Türü Silme Yetkisi",
                             Name = "SaleType.Delete",
                             NormalizedName = "SALETYPE.DELETE"
@@ -3077,7 +3077,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 56,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "2403b43b-faf9-43d2-9aba-65967be13e90",
+                            ConcurrencyStamp = "b4da9fa0-13ac-4561-bb47-66e0419f8078",
                             Definition = "Ürün Grubu Ekleme Yetkisi",
                             Name = "ProductGroup.Create",
                             NormalizedName = "PRODUCTGROUP.CREATE"
@@ -3086,7 +3086,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 57,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "d26543c5-074d-42b1-b72d-4f80bcce7a51",
+                            ConcurrencyStamp = "9e344b34-1100-4bbf-be66-6e417de1ff63",
                             Definition = "Ürün Grubu Görüntüleme Yetkisi",
                             Name = "ProductGroup.Read",
                             NormalizedName = "PRODUCTGROUP.READ"
@@ -3095,7 +3095,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 58,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "e859553b-47f0-4e3e-8da2-5c18cb447b35",
+                            ConcurrencyStamp = "6e0b8141-77ca-4bde-aafd-dcc7fcb5cbb8",
                             Definition = "Ürün Grubu Güncelleme Yetkisi",
                             Name = "ProductGroup.Update",
                             NormalizedName = "PRODUCTGROUP.UPDATE"
@@ -3104,7 +3104,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 59,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "b9ad2142-3445-4792-9210-7cebdcdc2d18",
+                            ConcurrencyStamp = "a7c2b9ff-fdca-4d86-954b-0d396d6112c7",
                             Definition = "Ürün Grubu Silme Yetkisi",
                             Name = "ProductGroup.Delete",
                             NormalizedName = "PRODUCTGROUP.DELETE"
@@ -3113,7 +3113,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 60,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "05075dcb-16e6-4e88-96df-a1d9088f8cc4",
+                            ConcurrencyStamp = "1174d2cf-49dc-45b1-87d9-baed4aa9b1b4",
                             Definition = "Ürün Alt Grubu Ekleme Yetkisi",
                             Name = "ProductSubGroup.Create",
                             NormalizedName = "PRODUCTSUBGROUP.CREATE"
@@ -3122,7 +3122,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 61,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "d2c9db1d-3320-4e6c-9f4c-eaf843ccd276",
+                            ConcurrencyStamp = "68c6f997-91fe-4895-a1ed-1c845aaaff48",
                             Definition = "Ürün Alt Grubu Görüntüleme Yetkisi",
                             Name = "ProductSubGroup.Read",
                             NormalizedName = "PRODUCTSUBGROUP.READ"
@@ -3131,7 +3131,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 62,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "6f1d0070-5525-4a77-a390-17e9d4effd5a",
+                            ConcurrencyStamp = "971cee25-488f-4385-85e2-5a9bb889e079",
                             Definition = "Ürün Alt Grubu Güncelleme Yetkisi",
                             Name = "ProductSubGroup.Update",
                             NormalizedName = "PRODUCTSUBGROUP.UPDATE"
@@ -3140,7 +3140,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 63,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "cd2a0e78-fd7a-4d37-97bd-ad41056cb36e",
+                            ConcurrencyStamp = "cc7f2ba0-83c1-4cf9-a4b5-39ae4d0eb656",
                             Definition = "Ürün Silme Yetkisi",
                             Name = "ProductSubGroup.Delete",
                             NormalizedName = "PRODUCTSUBGROUP.DELETE"
@@ -3149,7 +3149,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 64,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "4d4d6c5f-a7d3-47df-a3fe-ee7dd35c5f27",
+                            ConcurrencyStamp = "8cb253b4-de55-4ab8-886d-8d8d8b744f51",
                             Definition = "Randevu Türü Ekleme Yetkisi",
                             Name = "AppointmentType.Create",
                             NormalizedName = "APPOINTMENTTYPE.CREATE"
@@ -3158,7 +3158,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 65,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "f0463484-7411-4ea6-8234-c357bb6d4aa0",
+                            ConcurrencyStamp = "9c0270df-d513-4770-adbd-5d545aca23c3",
                             Definition = "Randevu Türü Görüntüleme Yetkisi",
                             Name = "AppointmentType.Read",
                             NormalizedName = "APPOINTMENTTYPE.READ"
@@ -3167,7 +3167,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 66,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "1c8ee2ce-2368-48d4-a76b-8e9cea03327f",
+                            ConcurrencyStamp = "4fe1ef3b-1acb-4619-b92e-14c28abeaedf",
                             Definition = "Randevu Türü Güncelleme Yetkisi",
                             Name = "AppointmentType.Update",
                             NormalizedName = "APPOINTMENTTYPE.UPDATE"
@@ -3176,7 +3176,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 67,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "5e12c3b3-0dbc-49b6-800c-65b082b8b845",
+                            ConcurrencyStamp = "0f00e5ef-e9e5-4658-930c-7e6af0538322",
                             Definition = "Randevu Türü Silme Yetkisi",
                             Name = "AppointmentType.Delete",
                             NormalizedName = "APPOINTMENTTYPE.DELETE"
@@ -3185,7 +3185,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 68,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "a73bd739-d084-4a54-8679-9e15d2db4a9e",
+                            ConcurrencyStamp = "ee74d746-3e6e-4763-bb1a-d316f8b16697",
                             Definition = "Satış Oluşturma Yetkisi",
                             Name = "Sale.Create",
                             NormalizedName = "SALE.CREATE"
@@ -3194,7 +3194,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 69,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "e7d02511-7646-4f96-b72e-6645d1cbd347",
+                            ConcurrencyStamp = "7c10513b-be46-4fd2-82e0-0e86e2a17c4e",
                             Definition = "Satış Görüntüleme Yetkisi",
                             Name = "Sale.Read",
                             NormalizedName = "SALE.READ"
@@ -3203,7 +3203,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 70,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "8d1a6c1c-a9c9-43b0-9446-c149c8ec5fc7",
+                            ConcurrencyStamp = "739fb734-e5b4-4d74-966c-0b644f5c3b7c",
                             Definition = "Satış Güncelleme Yetkisi",
                             Name = "Sale.Update",
                             NormalizedName = "SALE.UPDATE"
@@ -3212,7 +3212,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 71,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "60879033-95c8-4af6-a4db-44f5773827f8",
+                            ConcurrencyStamp = "a04c1bda-5656-41f7-a37e-fc7cb7908a9b",
                             Definition = "Satış Silme Yetkisi",
                             Name = "Sale.Delete",
                             NormalizedName = "SALE.DELETE"
@@ -3221,7 +3221,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 72,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "73ea8329-e809-4b27-a586-63b0f62a3f07",
+                            ConcurrencyStamp = "6d354320-a036-4181-aa41-175ac854174b",
                             Definition = "Ürün Ekleme Yetkisi",
                             Name = "Product.Create",
                             NormalizedName = "PRODUCT.CREATE"
@@ -3230,7 +3230,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 73,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "e2e7084e-d207-4617-b7ae-beb35e1e16ec",
+                            ConcurrencyStamp = "26f3f4bd-ea42-42c4-8674-eb3afe0e55cd",
                             Definition = "Ürün Görüntüleme Yetkisi",
                             Name = "Product.Read",
                             NormalizedName = "PRODUCT.READ"
@@ -3239,7 +3239,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 74,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "1cc247e8-a847-46d0-bc99-f14aadc13b12",
+                            ConcurrencyStamp = "5dad7f91-89fc-459e-abc0-fdc527e97620",
                             Definition = "Ürün Güncelleme Yetkisi",
                             Name = "Product.Update",
                             NormalizedName = "PRODUCT.UPDATE"
@@ -3248,7 +3248,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 75,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "fa55a979-7491-41b5-8d0a-6cd457962315",
+                            ConcurrencyStamp = "cefff91f-1102-4843-82fc-07a141e63072",
                             Definition = "Ürün Silme Yetkisi",
                             Name = "Product.Delete",
                             NormalizedName = "PRODUCT.DELETE"
@@ -3257,7 +3257,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 76,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "f0b00f66-37d6-4c68-bc0a-50b446683ee1",
+                            ConcurrencyStamp = "ac8f17c3-41e9-41d0-8d8a-0a4574daab55",
                             Definition = "Randevu Oluşturma Yetkisi",
                             Name = "Appointment.Create",
                             NormalizedName = "APPOINTMENT.CREATE"
@@ -3266,7 +3266,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 77,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "97929e9e-c695-4b50-919d-cc7317d1b43d",
+                            ConcurrencyStamp = "c6a98954-db5f-49b5-8f47-26195364b4de",
                             Definition = "Randevu Görüntüleme Yetkisi",
                             Name = "Appointment.Read",
                             NormalizedName = "APPOINTMENT.READ"
@@ -3275,7 +3275,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 78,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "2b90aee3-0a78-4544-88bf-2ea4ad9b5120",
+                            ConcurrencyStamp = "0a7ce585-0d9b-4ef8-86f7-06668b5db317",
                             Definition = "Randevu Güncelleme Yetkisi",
                             Name = "Appointment.Update",
                             NormalizedName = "APPOINTMENT.UPDATE"
@@ -3284,7 +3284,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 79,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "b44aa47f-be44-4389-8a1e-454f66c87011",
+                            ConcurrencyStamp = "22c8bea2-f000-4077-bf1d-3e0e6cec72bb",
                             Definition = "Randevu Silme Yetkisi",
                             Name = "Appointment.Delete",
                             NormalizedName = "APPOINTMENT.DELETE"
@@ -3293,7 +3293,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 80,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "da908a55-5e3d-4494-a335-5c811414b662",
+                            ConcurrencyStamp = "7353bc34-cd1c-4fe9-8534-8fc7ed0a7e4b",
                             Definition = "Randevu Oluşturma Yetkisi",
                             Name = "OutPayment.Create",
                             NormalizedName = "OUTPAYMENT.CREATE"
@@ -3302,7 +3302,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 81,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "6138491a-30b6-43d1-bbef-fccf9b524b80",
+                            ConcurrencyStamp = "82352fc3-2c66-464c-b209-fe31921ba187",
                             Definition = "Randevu Görüntüleme Yetkisi",
                             Name = "OutPayment.Read",
                             NormalizedName = "OUTPAYMENT.READ"
@@ -3311,7 +3311,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 82,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "0903bcf3-bcaa-4687-9d30-9223e27f6949",
+                            ConcurrencyStamp = "59483271-ce7a-474b-be6e-7082ada2523e",
                             Definition = "Randevu Güncelleme Yetkisi",
                             Name = "OutPayment.Update",
                             NormalizedName = "OUTPAYMENT.UPDATE"
@@ -3320,7 +3320,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 83,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "f52377ef-2cd6-43f4-919b-84ee82911d95",
+                            ConcurrencyStamp = "bc93c130-7737-4cd9-ae16-a84483c693d6",
                             Definition = "Randevu Silme Yetkisi",
                             Name = "OutPayment.Delete",
                             NormalizedName = "OUTPAYMENT.DELETE"
@@ -3329,7 +3329,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 84,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "38a8ac49-80d1-49ca-949b-eb8fa742c2aa",
+                            ConcurrencyStamp = "74c01a9f-d4fc-47cd-984e-90459654ff47",
                             Definition = "Dış Ödeme Detayı Oluşturma Yetkisi",
                             Name = "OutPaymentDetail.Create",
                             NormalizedName = "OUTPAYMENTDETAIL.CREATE"
@@ -3338,7 +3338,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 85,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "1b7b53ea-117a-4a5e-9669-199b4364fa4f",
+                            ConcurrencyStamp = "08bb5205-b18f-4b57-b3df-36f3c8bd069c",
                             Definition = "Dış Ödeme Detayı Görüntüleme Yetkisi",
                             Name = "OutPaymentDetail.Read",
                             NormalizedName = "OUTPAYMENTDETAIL.READ"
@@ -3347,7 +3347,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 86,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "2b9bc09a-c538-4a95-a8d0-4c5326316089",
+                            ConcurrencyStamp = "30792031-682f-4f48-bdf0-e5297b2494aa",
                             Definition = "Dış Ödeme Detayı Güncelleme Yetkisi",
                             Name = "OutPaymentDetail.Update",
                             NormalizedName = "OUTPAYMENTDETAIL.UPDATE"
@@ -3356,7 +3356,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 87,
                             AccessLevel = 3,
-                            ConcurrencyStamp = "76b0fc78-5c35-4c14-8374-2ae7b6036229",
+                            ConcurrencyStamp = "28fee376-a3eb-414e-bcbb-86b1697c86da",
                             Definition = "Dış Ödeme Detayı Silme Yetkisi",
                             Name = "OutPaymentDetail.Delete",
                             NormalizedName = "OUTPAYMENTDETAIL.DELETE"
@@ -3365,7 +3365,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 88,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "22b7cc23-dc7f-473a-b8ca-78a62d705f25",
+                            ConcurrencyStamp = "6b8910ac-baa8-4ba4-a76c-6cdaafb8d11d",
                             Definition = "Markalar Programı Görüntüleme",
                             Name = "EmployeeProgram.Read",
                             NormalizedName = "EMPLOYEEPROGRAM.READ"
@@ -3374,7 +3374,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 89,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "af6df96f-37d8-4659-8074-bef112e1f90c",
+                            ConcurrencyStamp = "9719ef35-71d9-452a-95c5-a83082d84cdf",
                             Definition = "Randevular Programı Görüntüleme",
                             Name = "InstitutionalProgram.Read",
                             NormalizedName = "INSTITUTIONALPROGRAM.READ"
@@ -3383,7 +3383,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 90,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "1b2cf84e-e9ad-4979-8075-5ce3068e6f69",
+                            ConcurrencyStamp = "7d7fe9a4-02be-43b0-9599-58d584f1e49d",
                             Definition = "Hastalar Programı Görüntüleme",
                             Name = "CustomerProgram.Read",
                             NormalizedName = "CUSTOMERPROGRAM.READ"
@@ -3392,7 +3392,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 91,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "520c8991-c9b5-44ce-babd-7854918ad15d",
+                            ConcurrencyStamp = "9cad92f6-4ba9-40f9-9523-8ff9920f2bbc",
                             Definition = "Referanslar Programı Görüntüleme",
                             Name = "PaymentProgram.Read",
                             NormalizedName = "PAYMENTPROGRAM.READ"
@@ -3401,7 +3401,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 92,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "19e529cc-2f8e-44f7-b869-6862a72fbd35",
+                            ConcurrencyStamp = "eb6606cb-9c64-4275-8afc-58c4ab3f0fce",
                             Definition = "Ürünler Programı Görüntüleme",
                             Name = "ProductProgram.Read",
                             NormalizedName = "PRODUCTPROGRAM.READ"
@@ -3410,7 +3410,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 93,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "34394582-5e8f-4f5d-bc38-4d2fb4089abb",
+                            ConcurrencyStamp = "fa2faede-3868-4077-b656-3c13e59167ab",
                             Definition = "Roller Programı Görüntüleme",
                             Name = "MarketingProgram.Read",
                             NormalizedName = "MARKETINGPROGRAM.READ"
@@ -3419,7 +3419,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 94,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "1a0f3c32-ecce-4d8a-9180-ddb51a781d4c",
+                            ConcurrencyStamp = "ee228ce5-b56e-49c8-a1d4-70299d7b9707",
                             Definition = "Satışlar Programı Görüntüleme",
                             Name = "AgendaProgram.Read",
                             NormalizedName = "AGENDAPROGRAM.READ"
@@ -3428,7 +3428,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 95,
                             AccessLevel = 2,
-                            ConcurrencyStamp = "2747a75b-405e-435d-a27b-8952da278624",
+                            ConcurrencyStamp = "bd5f7651-56ea-451a-a8d1-cc9453544f9e",
                             Definition = "Stok Programı Görüntüleme",
                             Name = "FinanceProgram.Read",
                             NormalizedName = "FINANCEPROGRAM.READ"
@@ -3437,7 +3437,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 96,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "b01633c4-f6ef-43b0-b613-31004c41f0f8",
+                            ConcurrencyStamp = "c145cbd3-996e-4a6d-a7db-957905d38293",
                             Definition = "Anasayfa Görüntüleme Yetkisi",
                             Name = "HomeProgram.Read",
                             NormalizedName = "HOMEPROGRAM.READ"
@@ -3446,7 +3446,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 97,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "83c33329-de36-4913-ae90-35638a8d33b4",
+                            ConcurrencyStamp = "ed82e63e-498b-4bb1-b0cd-496677418f73",
                             Definition = "Stok Modülü Görüntüleme",
                             Name = "StockModule.Read",
                             NormalizedName = "StockModule.Read"
@@ -3455,7 +3455,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 98,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "f30c813f-d868-478b-9c41-78d29cc7cd33",
+                            ConcurrencyStamp = "0aba80d2-6f3e-4863-ac35-ace3ca35487a",
                             Definition = "Personel Tipleri Modülü Görüntüleme",
                             Name = "EmployeeTypeModule.Read",
                             NormalizedName = "EMPLOYEETYPEMODULE.READ"
@@ -3464,7 +3464,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 99,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "84c19ef4-bec5-4e86-84ff-ba16ef893a3b",
+                            ConcurrencyStamp = "2f28e95a-d413-43e3-83df-4de08ed7f68c",
                             Definition = "Personeller Modülü Görüntüleme",
                             Name = "EmployeeModule.Read",
                             NormalizedName = "EMPLOYEEMODULE.READ"
@@ -3473,7 +3473,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 100,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "66cbcac4-6504-44c3-bc6b-1648739c755c",
+                            ConcurrencyStamp = "f6cbc74d-9efc-44c0-b41f-c262511a657f",
                             Definition = "Kullanıcılar Modülü Görüntüleme",
                             Name = "UserModule.Read",
                             NormalizedName = "USERMODULE.READ"
@@ -3482,7 +3482,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 101,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "46bdaa39-916e-47b9-a25c-31ecc844fb57",
+                            ConcurrencyStamp = "4d91cc52-be3d-41da-8aba-8747660f17e9",
                             Definition = "Hastalar Modülü Görüntüleme",
                             Name = "CustomerModule.Read",
                             NormalizedName = "CUSTOMERMODULE.READ"
@@ -3491,7 +3491,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 102,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "1f9ee8cc-ceab-42a7-855c-10a0050aff5c",
+                            ConcurrencyStamp = "a995327a-f06c-4d88-b686-4a0022191955",
                             Definition = "HAsta Tipleri Modülü Görüntüleme",
                             Name = "CustomerTypeModule.Read",
                             NormalizedName = "CUSTOMERTYPEMODULE.READ"
@@ -3500,7 +3500,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 103,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "2e48a101-5cb7-4644-b569-53fa26ab59a7",
+                            ConcurrencyStamp = "2efa8f9f-8105-470f-bb25-00629dd72e61",
                             Definition = "Ürünler Modülü Yetkisi",
                             Name = "ProductModule.Read",
                             NormalizedName = "PRODUCTMODULE.READ"
@@ -3509,7 +3509,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 104,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "445336f9-64ea-4ae2-8074-a24ad5487a4c",
+                            ConcurrencyStamp = "e970692e-75a5-436b-93b5-db09a335ae28",
                             Definition = "Ürün Grupları Modülü Yetkisi",
                             Name = "ProductGroupModule.Read",
                             NormalizedName = "PRODUCTGROUPMODULE.READ"
@@ -3518,7 +3518,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 105,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "ce602d6c-975d-4aae-a03f-e9acf62158f3",
+                            ConcurrencyStamp = "0eb93f28-99eb-44a9-bcfb-4baf3dea2f4f",
                             Definition = "Ürün Alt Grupları Modülü Yetkisi",
                             Name = "ProductSubGroupModule.Read",
                             NormalizedName = "PRODUCTSUBGROUPMODULE.READ"
@@ -3527,7 +3527,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 106,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "a5d2bb24-3547-49a3-9605-256afee3d3ca",
+                            ConcurrencyStamp = "5b636d05-9f97-42ff-806e-95d2e45a3cd8",
                             Definition = "Markalar Modülü Yetkisi",
                             Name = "BrandModule.Read",
                             NormalizedName = "BRANDMODULE.READ"
@@ -3536,7 +3536,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 107,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "378d6ae3-1d68-4b0c-8771-07791d0d122f",
+                            ConcurrencyStamp = "52b80670-f827-4da8-ab37-07ea8fa273fd",
                             Definition = "Hasta Referanları Modülü Yetkisi",
                             Name = "CustomerReferanceModule.Read",
                             NormalizedName = "CUSTOMERREFERANCEMODULE.READ"
@@ -3545,7 +3545,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 108,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "5460008e-c207-42d6-84a5-2e8d05cc468f",
+                            ConcurrencyStamp = "92c214cd-d36d-4f34-8607-07ff404f3e1a",
                             Definition = "Randevular Modülü Yetkisi",
                             Name = "AppointmentModule.Read",
                             NormalizedName = "APPOINTMENTMODULE.READ"
@@ -3554,7 +3554,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 109,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "bb93bcbc-8fa7-40e9-8053-cc550fb86d17",
+                            ConcurrencyStamp = "7fa338d5-2e16-46f9-be08-3555352a6f7e",
                             Definition = "Bildirimler Modülü Yetkisi",
                             Name = "NotificationModule.Read",
                             NormalizedName = "NOTIFICATIONMODULE.READ"
@@ -3563,7 +3563,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 110,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "84688070-43b7-4b82-a2c1-f29e27992bab",
+                            ConcurrencyStamp = "92c0c140-252e-4181-ae31-1d03c3632871",
                             Definition = "Dış Ödemeler Modülü Yetkisi",
                             Name = "OutPaymentModule.Read",
                             NormalizedName = "OUTPAYMENTMODULE.READ"
@@ -3572,7 +3572,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 111,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "2d487ce3-3b3e-4157-9b96-742a31e5bf7a",
+                            ConcurrencyStamp = "8d9adf28-b15e-442c-a771-061c0f8f408c",
                             Definition = "Satışlar Modülü Yetkisi",
                             Name = "SaleModule.Read",
                             NormalizedName = "SALEMODULE.READ"
@@ -3581,7 +3581,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 112,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "7c6dbc0d-a03c-4983-a0a3-fd82db54e58f",
+                            ConcurrencyStamp = "d68f1d3d-6a0f-4ea5-b1c2-60f9a016c3f9",
                             Definition = "Gelen Ödemeler Modülü Yetkisi",
                             Name = "PaymentModule.Read",
                             NormalizedName = "PAYMENTMODULE.READ"
@@ -3590,7 +3590,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 113,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "be3502bc-69d1-455c-a7b6-a55985b81ee8",
+                            ConcurrencyStamp = "b9d6f97b-9131-4f18-9c66-ceb6c84ebb03",
                             Definition = "Gelir Giderler Modülü Yetkisi",
                             Name = "ExpenseModule.Read",
                             NormalizedName = "EXPENSEMODULE.READ"
@@ -3599,7 +3599,7 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 114,
                             AccessLevel = 1,
-                            ConcurrencyStamp = "f8b73592-a085-474b-b21b-9d5a23b686b1",
+                            ConcurrencyStamp = "4eeab563-7bfb-4e6a-a1cf-394c837b7242",
                             Definition = "Roller Modülü Yetkisi",
                             Name = "RoleModule.Read",
                             NormalizedName = "ROLEMODULE.READ"
@@ -3710,14 +3710,14 @@ namespace MyBlog.Data.Migrations
                             Amount = 500,
                             AmountOfSgk = 10,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(607),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(5033),
                             CustomerId = 1,
                             EmployeeId = 1,
                             IsActive = true,
                             IsDeleted = false,
                             IsInvoiceDue = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(608),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(5033),
                             ProductId = 1,
                             SaleStatusId = 1,
                             SaleTypeId = 1
@@ -3776,12 +3776,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7912),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(668),
                             Description = "açıklama deneme status sale 1",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7913),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(668),
                             Title = "Satış Aşamasında"
                         });
                 });
@@ -3837,12 +3837,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1152),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(6197),
                             Description = "TEST",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(1152),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(6198),
                             Title = "Nakit"
                         });
                 });
@@ -3903,12 +3903,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(7250),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 885, DateTimeKind.Local).AddTicks(1292),
                             Description = 0,
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(7251),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 885, DateTimeKind.Local).AddTicks(1293),
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek",
                             ProductId = 1,
                             Quantity = 20
@@ -3973,11 +3973,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 10,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2549),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9539),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2549),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9540),
                             Name = "User.Create",
                             ProgramId = 2
                         },
@@ -3985,11 +3985,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 11,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2551),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9542),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2552),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9542),
                             Name = "User.Read",
                             ProgramId = 2
                         },
@@ -3997,11 +3997,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 12,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2553),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9544),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2554),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9545),
                             Name = "User.Update",
                             ProgramId = 2
                         },
@@ -4009,11 +4009,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 13,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2556),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9547),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2556),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9547),
                             Name = "User.Delete",
                             ProgramId = 2
                         },
@@ -4021,11 +4021,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 14,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2558),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9557),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2558),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9558),
                             Name = "Role.Read",
                             ProgramId = 2
                         },
@@ -4033,11 +4033,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 15,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2560),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9560),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2560),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9560),
                             Name = "Role.Update",
                             ProgramId = 2
                         },
@@ -4045,11 +4045,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 16,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2562),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9562),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2562),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9562),
                             Name = "Role.Delete",
                             ProgramId = 2
                         },
@@ -4057,11 +4057,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 17,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2564),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9564),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2564),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9565),
                             Name = "Role.Create",
                             ProgramId = 2
                         },
@@ -4069,11 +4069,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 37,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2566),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9566),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2566),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9567),
                             Name = "Payment.Create",
                             ProgramId = 7
                         },
@@ -4081,11 +4081,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 38,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2568),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9568),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2568),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9569),
                             Name = "Payment.Read",
                             ProgramId = 7
                         },
@@ -4093,11 +4093,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 39,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2570),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9571),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2570),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9571),
                             Name = "Payment.Update",
                             ProgramId = 7
                         },
@@ -4105,11 +4105,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 40,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2572),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9573),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2572),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9573),
                             Name = "Payment.Delete",
                             ProgramId = 7
                         },
@@ -4117,11 +4117,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 41,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2574),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9575),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2574),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9576),
                             Name = "PaymentType.Create",
                             ProgramId = 7
                         },
@@ -4129,11 +4129,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 42,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2576),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9577),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2576),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9578),
                             Name = "PaymentType.Read",
                             ProgramId = 7
                         },
@@ -4141,11 +4141,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 43,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2578),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9579),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2578),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9580),
                             Name = "PaymentType.Update",
                             ProgramId = 7
                         },
@@ -4153,11 +4153,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 44,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2580),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9582),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2580),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9582),
                             Name = "PaymentType.Delete",
                             ProgramId = 7
                         },
@@ -4165,11 +4165,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 45,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2582),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9584),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2582),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9584),
                             Name = "Employee.Create",
                             ProgramId = 1
                         },
@@ -4177,11 +4177,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 46,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2584),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9586),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2584),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9587),
                             Name = "Employee.Read",
                             ProgramId = 1
                         },
@@ -4189,11 +4189,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 47,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2586),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9588),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2586),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9589),
                             Name = "Employee.Update",
                             ProgramId = 1
                         },
@@ -4201,11 +4201,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 48,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2588),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9630),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2588),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9631),
                             Name = "Employee.Delete",
                             ProgramId = 1
                         },
@@ -4213,11 +4213,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 49,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2590),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9633),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2590),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9633),
                             Name = "EmployeeType.Create",
                             ProgramId = 1
                         },
@@ -4225,11 +4225,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 50,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2592),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9635),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2592),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9635),
                             Name = "EmployeeType.Read",
                             ProgramId = 1
                         },
@@ -4237,11 +4237,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 51,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2594),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9637),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2594),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9638),
                             Name = "EmployeeType.Update",
                             ProgramId = 1
                         },
@@ -4249,11 +4249,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 52,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2596),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9639),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2596),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9640),
                             Name = "EmployeeType.Delete",
                             ProgramId = 1
                         },
@@ -4261,11 +4261,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 53,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2598),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9641),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2598),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9642),
                             Name = "Customer.Create",
                             ProgramId = 8
                         },
@@ -4273,11 +4273,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 54,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2600),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9644),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2600),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9644),
                             Name = "Customer.Read",
                             ProgramId = 8
                         },
@@ -4285,11 +4285,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 55,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2602),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9646),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2602),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9646),
                             Name = "Customer.Update",
                             ProgramId = 8
                         },
@@ -4297,11 +4297,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 56,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2604),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9648),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2604),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9648),
                             Name = "Customer.Delete",
                             ProgramId = 8
                         },
@@ -4309,11 +4309,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 57,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2606),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9650),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2606),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9651),
                             Name = "CustomerType.Create",
                             ProgramId = 8
                         },
@@ -4321,11 +4321,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 58,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2608),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9652),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2608),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9653),
                             Name = "CustomerType.Read",
                             ProgramId = 8
                         },
@@ -4333,11 +4333,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 59,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2610),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9654),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2610),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9655),
                             Name = "CustomerType.Update",
                             ProgramId = 8
                         },
@@ -4345,11 +4345,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 60,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2612),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9657),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2612),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9657),
                             Name = "CustomerType.Delete",
                             ProgramId = 8
                         },
@@ -4357,11 +4357,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 61,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2614),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9659),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2614),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9659),
                             Name = "Notification.Create",
                             ProgramId = 6
                         },
@@ -4369,11 +4369,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 62,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2616),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9661),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2616),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9661),
                             Name = "Notification.Read",
                             ProgramId = 6
                         },
@@ -4381,11 +4381,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 63,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2618),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9663),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2618),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9664),
                             Name = "Notification.Update",
                             ProgramId = 6
                         },
@@ -4393,11 +4393,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 64,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2620),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9665),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2621),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9666),
                             Name = "Notification.Delete",
                             ProgramId = 6
                         },
@@ -4405,11 +4405,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 65,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2622),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9667),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2623),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9668),
                             Name = "Brand.Create",
                             ProgramId = 9
                         },
@@ -4417,11 +4417,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 66,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2624),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9670),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2624),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9670),
                             Name = "Brand.Update",
                             ProgramId = 9
                         },
@@ -4429,11 +4429,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 67,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2626),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9672),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2627),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9672),
                             Name = "Brand.Delete",
                             ProgramId = 9
                         },
@@ -4441,11 +4441,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 85,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2628),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9674),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2628),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9675),
                             Name = "Brand.Read",
                             ProgramId = 9
                         },
@@ -4453,11 +4453,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 68,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2630),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9676),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2630),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9677),
                             Name = "Brand.Delete",
                             ProgramId = 9
                         },
@@ -4465,11 +4465,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 69,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2632),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9679),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2632),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9679),
                             Name = "SaleStatus.Create",
                             ProgramId = 10
                         },
@@ -4477,11 +4477,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 70,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2665),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9681),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2665),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9681),
                             Name = "SaleStatus.Read",
                             ProgramId = 10
                         },
@@ -4489,11 +4489,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 71,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2667),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9683),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2667),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9683),
                             Name = "SaleStatus.Update",
                             ProgramId = 10
                         },
@@ -4501,11 +4501,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 72,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2669),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9685),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2669),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9686),
                             Name = "SaleStatus.Delete",
                             ProgramId = 10
                         },
@@ -4513,11 +4513,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 73,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2671),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9687),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2671),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9688),
                             Name = "SaleType.Create",
                             ProgramId = 10
                         },
@@ -4525,11 +4525,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 74,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2673),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9689),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2673),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9690),
                             Name = "SaleType.Read",
                             ProgramId = 10
                         },
@@ -4537,11 +4537,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 75,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2675),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9692),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2675),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9692),
                             Name = "SaleType.Update",
                             ProgramId = 10
                         },
@@ -4549,11 +4549,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 76,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2677),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9694),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2677),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9694),
                             Name = "SaleType.Delete",
                             ProgramId = 10
                         },
@@ -4561,11 +4561,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 77,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2679),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9696),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2679),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9696),
                             Name = "ProductGroup.Create",
                             ProgramId = 7
                         },
@@ -4573,11 +4573,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 78,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2681),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9698),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2681),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9699),
                             Name = "ProductGroup.Read",
                             ProgramId = 11
                         },
@@ -4585,11 +4585,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 79,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2683),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9700),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2683),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9701),
                             Name = "ProductGroup.Update",
                             ProgramId = 11
                         },
@@ -4597,11 +4597,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 80,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2685),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9702),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2686),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9703),
                             Name = "ProductGroup.Delete",
                             ProgramId = 11
                         },
@@ -4609,11 +4609,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 81,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2687),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9704),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2688),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9705),
                             Name = "ProductSubGroup.Create",
                             ProgramId = 11
                         },
@@ -4621,11 +4621,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 82,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2689),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9707),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2690),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9707),
                             Name = "ProductSubGroup.Read",
                             ProgramId = 11
                         },
@@ -4633,11 +4633,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 83,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2691),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9709),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2692),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9709),
                             Name = "ProductSubGroup.Update",
                             ProgramId = 11
                         },
@@ -4645,11 +4645,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 84,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2693),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9711),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2694),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9712),
                             Name = "ProductSubGroup.Delete",
                             ProgramId = 11
                         },
@@ -4657,11 +4657,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 89,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2695),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9713),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2695),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9714),
                             Name = "AppointmentType.Create",
                             ProgramId = 5
                         },
@@ -4669,11 +4669,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 90,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2697),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9715),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2697),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9716),
                             Name = "AppointmentType.Read",
                             ProgramId = 5
                         },
@@ -4681,11 +4681,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 91,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2699),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9718),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2699),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9718),
                             Name = "AppointmentType.Update",
                             ProgramId = 5
                         },
@@ -4693,11 +4693,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 92,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2701),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9720),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2701),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9720),
                             Name = "AppointmentType.Delete",
                             ProgramId = 5
                         },
@@ -4705,11 +4705,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 93,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2703),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9722),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2703),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9723),
                             Name = "Sale.Create",
                             ProgramId = 10
                         },
@@ -4717,11 +4717,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 94,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2705),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9724),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2705),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9725),
                             Name = "Sale.Read",
                             ProgramId = 10
                         },
@@ -4729,11 +4729,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 95,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2707),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9726),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2707),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9727),
                             Name = "Sale.Update",
                             ProgramId = 10
                         },
@@ -4741,11 +4741,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 96,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2710),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9729),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2710),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9729),
                             Name = "Sale.Delete",
                             ProgramId = 10
                         },
@@ -4753,11 +4753,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 97,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2712),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9732),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2712),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9732),
                             Name = "Product.Create",
                             ProgramId = 11
                         },
@@ -4765,11 +4765,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 98,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2714),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9747),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2714),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9748),
                             Name = "Product.Read",
                             ProgramId = 1
                         },
@@ -4777,11 +4777,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 99,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2716),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9750),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2716),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9750),
                             Name = "Product.Update",
                             ProgramId = 11
                         },
@@ -4789,11 +4789,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 100,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2718),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9752),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2718),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9752),
                             Name = "Product.Delete",
                             ProgramId = 11
                         },
@@ -4801,11 +4801,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 101,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2720),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9754),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2720),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9754),
                             Name = "Appointment.Create",
                             ProgramId = 5
                         },
@@ -4813,11 +4813,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 102,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2722),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9756),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2722),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9757),
                             Name = "Appointment.Read",
                             ProgramId = 5
                         },
@@ -4825,11 +4825,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 103,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2724),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9758),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2724),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9759),
                             Name = "Appointment.Update",
                             ProgramId = 5
                         },
@@ -4837,11 +4837,11 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 104,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2726),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9760),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 92, DateTimeKind.Local).AddTicks(2726),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 901, DateTimeKind.Local).AddTicks(9761),
                             Name = "Appointment.Delete",
                             ProgramId = 5
                         });
@@ -4947,7 +4947,7 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             About = "Admin | Bilal",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cb5800e1-a661-42b7-a166-573a7984984f",
+                            ConcurrencyStamp = "0c84f0e3-f3e2-45a9-bbde-18470c86c0d5",
                             Email = "bilalAdmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Bilal",
@@ -4957,11 +4957,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "BILALADMIN@GMAIL.COM",
                             NormalizedUserName = "BILALADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELsxnXpMjg6JQZSFXqFE68a9/WoVjGzpGpH7S77ES9/0P9FH9g0QoHAGkUE58+gaQg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJshtMLUf9iiWK4e6mjL+dYHUMmJjY0akbOHOm8MBFrXUkuLPSpsWTKMD96P2d+VAQ==",
                             PhoneNumber = "+905537314131",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "16543143-17ec-430b-ac2a-aae193b5ffd3",
+                            SecurityStamp = "9e868ce9-310d-4d17-841b-6dda417342b2",
                             TwoFactorEnabled = false,
                             UserName = "bilalAdmin"
                         },
@@ -4970,7 +4970,7 @@ namespace MyBlog.Data.Migrations
                             Id = 2,
                             About = "Admin | Nazlı",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b2ed5776-3370-4ad9-adbf-eb88b4a187fd",
+                            ConcurrencyStamp = "1ad67d20-af59-4573-9d60-68c499d38d6c",
                             Email = "nazliAdmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nazlı",
@@ -4980,11 +4980,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NAZLIADMIN@GMAIL.COM",
                             NormalizedUserName = "NAZLIADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP4aRl+uRnIUEGFX6BD5BdSkT1bvtXKRew+hnlgH+GlnpNPkbko5IA9LBhD5FEnX/A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF2ccvATy2xEdnZV/kEGBcBbO4/ZMrqLN147xQTwW1YIC208dB6PeH71Toec6ANWdw==",
                             PhoneNumber = "+905398815246",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "9496c0c1-af0e-406d-8ab2-cc4d63cd661b",
+                            SecurityStamp = "610af386-c50b-4d12-afe1-ccabe64fa476",
                             TwoFactorEnabled = false,
                             UserName = "nazliAdmin"
                         },
@@ -4993,7 +4993,7 @@ namespace MyBlog.Data.Migrations
                             Id = 3,
                             About = "-",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "038ff2de-1499-4ba3-8b1f-d237a653ab1f",
+                            ConcurrencyStamp = "7624a6b1-f96a-4991-97d6-f6355894cb5d",
                             Email = "sema@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Sema",
@@ -5003,11 +5003,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SEMA@GMAIL.COM",
                             NormalizedUserName = "SEMA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDWbr1/bQpuN4UFJoHcnQVlnPLsyUdcj3Ta7ratU7DXMw2EOrftNdSPF1MkpA/ie2Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL41/uN8gBbemLi/c6biM+FgJJlvXWawnq9UP0X1gg3OfJvNEwtGjRyIG0DoBUsk5w==",
                             PhoneNumber = "+905071273567",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "3e90b4d1-319d-4c5a-b1f7-cd4c0d575fb4",
+                            SecurityStamp = "bcf295cc-2af0-4476-b855-0a89849858d0",
                             TwoFactorEnabled = false,
                             UserName = "sema"
                         },
@@ -5016,7 +5016,7 @@ namespace MyBlog.Data.Migrations
                             Id = 4,
                             About = "Geliştirici",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "14fe0941-e08d-4a00-888d-18f26e0863a7",
+                            ConcurrencyStamp = "c2722fb1-8bde-4af2-9a44-cff55909433b",
                             Email = "x@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Bedirhan",
@@ -5026,11 +5026,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "X@GMAIL.COM",
                             NormalizedUserName = "DEV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJj6/sWEPpMl3WJzsX0ORrFsauw9cjFG/hyJkkMC1hTRtl8jYQuCC2xIYWDrn/AnUQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGoNJeXq9KHgPfnMs5WMwbXLgd29PGU0Mj4YtCXt92n9w8eetKRWCJbDg3TVZ7kazg==",
                             PhoneNumber = "+905050102249",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "61c08861-7a5c-460d-82ca-a3c6d2d27dad",
+                            SecurityStamp = "e83af705-b3af-403a-a993-538c72403c67",
                             TwoFactorEnabled = false,
                             UserName = "dev"
                         },
@@ -5039,7 +5039,7 @@ namespace MyBlog.Data.Migrations
                             Id = 5,
                             About = "-",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07cd6abc-c186-4e05-9dd9-dbe0bb2688a6",
+                            ConcurrencyStamp = "205d476e-2889-4fa2-9b51-7ac2b31c7b37",
                             Email = "berra@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Berra",
@@ -5049,11 +5049,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "BERRA@GMAIL.COM",
                             NormalizedUserName = "BERRA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEORqgz5c8p0mt175v112eEwsEiHQLuVXfdq5RbZIKeDvA80u/0YkJUTH0lTmh+ZF5w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDc1eo1SSB9/iUjt/ptyHjejsfROA4yyb+cBzmd+YZTvPUNjbxr1fh3vDYVZi9gkMQ==",
                             PhoneNumber = "+905050102249",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "26ac30b0-2621-443d-ad86-941869328358",
+                            SecurityStamp = "608936eb-43d0-4f41-99f7-cc53cf0c5a9e",
                             TwoFactorEnabled = false,
                             UserName = "berra"
                         },
@@ -5062,7 +5062,7 @@ namespace MyBlog.Data.Migrations
                             Id = 6,
                             About = "-",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "164a8c69-89a9-420c-a651-4ea678d83b62",
+                            ConcurrencyStamp = "d3c1ec58-0cae-48a8-aa57-7526ac237e66",
                             Email = "Elif@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Elif",
@@ -5072,11 +5072,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ELIF@GMAIL.COM",
                             NormalizedUserName = "ELIF",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDfoMODyYK3id9JdOdQTK3B40BTkbJ+TJeVGrIqBlAnq0Y6vSEkBT61BaBF9Q/NW4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDspVNi8BKquUY2qsLG0vdzPiZGc/oAG9IAwaMKaeoyPM0Ust29YOuAhFU6gCA+fQw==",
                             PhoneNumber = "+905050102249",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "2c325ca7-b737-4184-815c-d422871b72b1",
+                            SecurityStamp = "636e1e5a-e981-4a63-8628-eca79e06de45",
                             TwoFactorEnabled = false,
                             UserName = "Elif"
                         },
@@ -5085,7 +5085,7 @@ namespace MyBlog.Data.Migrations
                             Id = 7,
                             About = "Admin | Bilal",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "517c5c58-f358-4b43-a70a-548f7d5c707f",
+                            ConcurrencyStamp = "58a0942b-df8f-4503-aad9-d4dfc8dbc1d0",
                             Email = "esmaAdmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Bilal",
@@ -5095,11 +5095,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ESMAADMIN@GMAIL.COM",
                             NormalizedUserName = "ESMAADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMYLYINIbkvIEA5GyeWtOPJHRdw7WKLMWMqDrqFiRMuNT6nLFk4qc8oCye9xuC4G6Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKTOaoBKHDmh8iHE2tu4NvPJBUBWSHVoyXqotN3PTs2ZnIaW3rLCiQRFtC0zF5ju8g==",
                             PhoneNumber = "+905537314131",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "bc84e6e4-582a-42c3-ad25-f5ab7274156d",
+                            SecurityStamp = "952523e7-e1ff-4556-8291-8749ecda8c7e",
                             TwoFactorEnabled = false,
                             UserName = "esmaAdmin"
                         },
@@ -5108,7 +5108,7 @@ namespace MyBlog.Data.Migrations
                             Id = 8,
                             About = "Admin | Nazlı",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "37500217-d1d7-4d87-af9f-d9440b525342",
+                            ConcurrencyStamp = "a29d66b3-997a-4488-97fb-ad73c0604480",
                             Email = "asiyeAdmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nazlı",
@@ -5118,11 +5118,11 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASIYEADMIN@GMAIL.COM",
                             NormalizedUserName = "ASIYEADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMXHRoTHInAQbfb1mVlxUxCLhjFmvKLwy0tglNoVIjk3FHt6JDAE3NvUPgAo3jcm0Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ4EUhse3XltTbEqGgkAy+XP3f85oYJVEYPncnLB69rbiFtghffUAEvV9KehWqo+pA==",
                             PhoneNumber = "+905398815246",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "f813c96a-be9f-4181-b460-e3811cf7f774",
+                            SecurityStamp = "4408475d-2489-481f-b7b3-c11f7ebe9c88",
                             TwoFactorEnabled = false,
                             UserName = "asiyeAdmin"
                         },
@@ -5131,7 +5131,7 @@ namespace MyBlog.Data.Migrations
                             Id = 9,
                             About = "-",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47394032-c198-4123-bc56-f13e54f92b41",
+                            ConcurrencyStamp = "712694aa-fda2-4458-bbfa-1b16ad7b8b4f",
                             Email = "gulistan@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Sema",
@@ -5141,13 +5141,36 @@ namespace MyBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GULISTAN@GMAIL.COM",
                             NormalizedUserName = "GULISTAN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEElXWZGzp7TVazI56s0A431Vun/ivg3venVKxd2P3ThmGfmAPtYIJWoGdy+7nhfzfQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMKuFaUi3bo/ZMSEEW5kXvh00D6o8D5tmSR5/w/mSGY64/N02dc44X3dPb1rIQKiHg==",
                             PhoneNumber = "+905071273567",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "9137f5fd-13e8-4e01-bcb2-5ca8b8b5f56b",
+                            SecurityStamp = "fed4e158-a9f2-4423-b3bf-34d218a1ff2d",
                             TwoFactorEnabled = false,
                             UserName = "gulistan"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            About = "-",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6b26c1e2-7b41-4ec6-801e-b461afe9b890",
+                            Email = "yeliz@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Sema",
+                            Institution = "Ases",
+                            LastName = "-",
+                            Link = "https://twitter.com/adminuser",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "YELIZ@GMAIL.COM",
+                            NormalizedUserName = "YELIZ",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE19I7MaE0V704Mhnq/N2m/cJLmjK611W4tmRoTAT9bBD3D2FOJYDTyLwk+0lWnCYg==",
+                            PhoneNumber = "+905555555555",
+                            PhoneNumberConfirmed = true,
+                            Picture = "/userImages/defaultUser.png",
+                            SecurityStamp = "6fe5111f-5f8f-4319-bb56-44c96b7e2754",
+                            TwoFactorEnabled = false,
+                            UserName = "yeliz"
                         });
                 });
 
@@ -5299,12 +5322,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7640),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3179),
                             Description = "C# Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7641),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3180),
                             Name = "C#",
                             Note = "C# Blog Kategorisi"
                         },
@@ -5312,12 +5335,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7643),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3182),
                             Description = "C++ Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7644),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3183),
                             Name = "C++",
                             Note = "C++ Blog Kategorisi"
                         },
@@ -5325,12 +5348,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7645),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3185),
                             Description = "JavaScript Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7646),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3185),
                             Name = "JavaScript",
                             Note = "JavaScript Blog Kategorisi"
                         },
@@ -5338,12 +5361,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 4,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7648),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3187),
                             Description = "Typescript Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7648),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3188),
                             Name = "Typescript",
                             Note = "Typescript Blog Kategorisi"
                         },
@@ -5351,12 +5374,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 5,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7650),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3190),
                             Description = "Java Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7650),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3190),
                             Name = "Java",
                             Note = "Java Blog Kategorisi"
                         },
@@ -5364,12 +5387,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 6,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7652),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3193),
                             Description = "Python Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7653),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3193),
                             Name = "Python",
                             Note = "Python Blog Kategorisi"
                         },
@@ -5377,12 +5400,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 7,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7654),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3195),
                             Description = "Php Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7655),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3196),
                             Name = "Php",
                             Note = "Php Blog Kategorisi"
                         },
@@ -5390,12 +5413,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 8,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7656),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3198),
                             Description = "Kotlin Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7657),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3198),
                             Name = "Kotlin",
                             Note = "Kotlin Blog Kategorisi"
                         },
@@ -5403,12 +5426,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 9,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7658),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3200),
                             Description = "Swift Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7659),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3201),
                             Name = "Swift",
                             Note = "Swift Blog Kategorisi"
                         },
@@ -5416,12 +5439,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 10,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7661),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3203),
                             Description = "Ruby Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 76, DateTimeKind.Local).AddTicks(7661),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(3203),
                             Name = "Ruby",
                             Note = "Ruby Blog Kategorisi"
                         });
@@ -5479,12 +5502,12 @@ namespace MyBlog.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Test Verisi",
-                            CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(5208),
+                            CreatedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(9122),
                             Description = "Product Kategori 2 Açıkama",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
-                            ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 77, DateTimeKind.Local).AddTicks(5208),
+                            ModifiedDate = new DateTime(2023, 9, 24, 20, 33, 48, 884, DateTimeKind.Local).AddTicks(9123),
                             Name = "Product Kategori 1",
                             Note = "Hastanın ihtiyaçları tespit edildi. Cihaz denenecek"
                         });

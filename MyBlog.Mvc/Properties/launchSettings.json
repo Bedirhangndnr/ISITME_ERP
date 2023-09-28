@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "AsesErpDB": "Server=tcp:isitmesqlserver.database.windows.net,1433;Initial Catalog=FokusErpDB;Persist Security Info=False;User ID=IsitmeErpDB;Password=isitmedbX_I;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    "AsesErpDB": "Server=tcp:isitmesqlserver.database.windows.net,1433;Initial Catalog=FocusErpDB;Persist Security Info=False;User ID=IsitmeErpDB;Password=isitmedbX_I;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   },
   "DetailedErrors": true,
   "Logging": {

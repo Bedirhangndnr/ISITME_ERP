@@ -50,6 +50,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
             }
             List<CustomerListWithRelatedTable> Customers = await query
                 .Include(s => s.CustomerType)
+                .Include(s => s.Sales)
                 .Select(s => new CustomerListWithRelatedTable
                 {
                     Picture = s.Picture,
@@ -63,6 +64,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     TC = s.TC,
                     Id = s.Id,
                     Note = s.Note != null ? s.Note : "Not bulunamadı.",
+                    Sales= s.Sales
                 }).ToListAsync();
 
             return Customers;

@@ -1,4 +1,5 @@
 ﻿using MyBlog.Entities.Concrete;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,8 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         public string TC { get; set; }
         public int CustomerTypeId { get; set; }
         public string CustomerTypeTitle { get; set; }
+        [JsonProperty("Sales")]
+        public ICollection<Sale> Sales { get; set; }
+
     }
 }

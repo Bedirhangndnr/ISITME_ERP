@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach (var customerReferance in Model.CustomerReferances)
                         {
-                            <tr name="@customerReferance.Id">
+                          <tr name="@customerReferance.Id">
                                 <td>@customerReferance.Id</td>
                                 <td>@customerReferance.FirstName</td>
                                 <td>@customerReferance.LastName</td>
@@ -91,6 +91,7 @@
         Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="CustomerReferance" asp-action="Index">tıklayınız.</a>
     </div>
 }
+<link href="~/AdminArea/css/dtPaginationCss.css" rel="stylesheet" />
 
 @section Scripts
     {

@@ -84,7 +84,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var customers = await _customerService.GetAllByNonDeletedAndActiveAsync();
                 var customerResult = JsonSerializer.Serialize(customers, new JsonSerializerOptions
                 {
-                    ReferenceHandler = ReferenceHandler.Preserve
+                    ReferenceHandler = ReferenceHandler.IgnoreCycles
                 });
                 return Json(customerResult);
 

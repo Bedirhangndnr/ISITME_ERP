@@ -34,11 +34,9 @@
                             <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
-                            <th>Fotoğraf</th>
                             <th>Telefon Numarası</th>
-                            <th>E-Posta</th>
                             <th>Not</th>
-                            <th>Tip</th>
+                            <th>Satışlar</th>
                             <th>İşlem</th>
                         </tr>
                     </thead>
@@ -47,11 +45,9 @@
                             <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
-                            <th>Fotoğraf</th>
                             <th>Telefon Numarası</th>
-                            <th>E-Posta</th>
                             <th>Not</th>
-                            <th>Tip</th>
+                            <th>Satışlar</th>
                             <th>İşlem</th>
                         </tr>
                     </tfoot>
@@ -62,12 +58,19 @@
                                 <td>@customer.Id</td>
                                 <td>@customer.FirstName</td>
                                 <td>@customer.LastName</td>
-                                <td><img src="~/img/@customer.Picture" alt="@customer.FirstName" class="my-image-table" /></td>
-
                                 <td>@customer.Phone</td>
-                                <td>@customer.Email</td>
-                                <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>  
-                                <td>"Tip: @customer.CustomerTypeTitle"</td>
+                                <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>
+                                <td>
+                                    @foreach (var sale in customer.Sales)
+                                    {
+
+                                        <p>
+                                            <span class="fas fa-arrow-right"></span>
+                                             @sale.Amount TL Tutarında Satış
+                                        </p>
+                                    }
+                                </td>
+
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                             {
@@ -100,6 +103,8 @@
         Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
     </div>
 }
+<link href="~/AdminArea/css/dtPaginationCss.css" rel="stylesheet" />
+
 @section Scripts
     {
 
