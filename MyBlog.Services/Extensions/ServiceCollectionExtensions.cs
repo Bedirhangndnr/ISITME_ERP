@@ -19,7 +19,7 @@ namespace MyBlog.Services.Extensions
                                                     // sağlama kısıtı getirir. -> Class.Write("something"); gibi
     {
         public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection, string connectionString) {
-            serviceCollection.AddDbContext<MyBlogContext>(options=>options.UseSqlServer(connectionString));
+            serviceCollection.AddDbContext<MyBlogContext>(options=>options.UseSqlServer(connectionString, b => b.EnableRetryOnFailure()));
             serviceCollection.AddIdentity<User, Role>(options =>
             {
                 // email adresi kullanılırak 2. bir kayıt oluşturulabilir mi* şifrede rakam bulunmalı mı gibi kurallar/ ayarlar buradan kontrol edilir 

@@ -19,6 +19,8 @@ using MyBlog.Mvc.Halpers.Abstract;
 using MyBlog.Mvc.Helpers.Concrete;
 using MyBlog.Services.Abstract;
 using MyBlog.Services.Concrete;
+using Microsoft.EntityFrameworkCore;
+using MyBlog.Data.Concrete.EntityFramework.Context;
 
 namespace MyBlog.Mvc
 {
@@ -59,7 +61,11 @@ namespace MyBlog.Mvc
 
             // Eklendi // mvc katmanı ile diğer katmanlar arasında köprü görevi görür
             var Configuration = builder.Configuration;
+
+     
             services.LoadMyServices(connectionString: Configuration.GetConnectionString("AsesErpDB"));
+        
+
 
 
 
