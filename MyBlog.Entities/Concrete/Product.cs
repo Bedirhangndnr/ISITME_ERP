@@ -17,8 +17,8 @@ namespace MyBlog.Entities.Concrete
         public bool IsSold { get; set; } = false;
         public int? ProductSubGroupId { get; set; }
         public ProductSubGroup? ProductSubGroup { get; set; }
-        public int? BrandId { get; set; }
-        public Brand? Brand{ get; set; }
+        public int? ModelId { get; set; }
+        public Model? Model{ get; set; }
         public Stock Stock { get; set; }
         public Sale Sale { get; set; }
         public bool IsMultiple{ get; set; }

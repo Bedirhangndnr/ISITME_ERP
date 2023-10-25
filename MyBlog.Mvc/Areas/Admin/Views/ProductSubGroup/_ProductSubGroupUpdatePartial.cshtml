@@ -6,7 +6,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Ürün Alt Grubu Güncelle</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Model Güncelle</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -18,6 +18,16 @@
                     <input type="hidden" asp-for="Id" />
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Personel</span>
+                            </div><select id="employeesList" class="form-control" asp-for="ProductGroups" asp-items="@(new SelectList(Model.ProductGroups,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="ProductGroupId" class="text-danger"></span>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">

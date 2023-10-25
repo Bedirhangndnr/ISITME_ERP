@@ -42,8 +42,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     CreatedDate = DateTime.Now,
                     ModifiedByName = "Test Verisi",
                     ModifiedDate = DateTime.Now,
-                    Description = "Ürün Alt Grubu Açıklaması",
-                    Title = "Ürün Alt Grubu Başlığı",
+                    Description = "Model Açıklaması",
+                    Title = "Model Başlığı",
                     ProductGroupId = 1,
                 }
             );

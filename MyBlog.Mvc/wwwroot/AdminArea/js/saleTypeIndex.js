@@ -123,7 +123,7 @@
             const saleTypeTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${saleTypeTitle} Başlıklı Ürün Alt Grubu ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${saleTypeTitle} Başlıklı Model ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -315,8 +315,8 @@
             const saleTypeFirsName = tableRow.find('td:eq(1)').text();
             const saleTypeLastName = tableRow.find('td:eq(2)').text();
             Swal.fire({
-                title: tableType === 'DeletedTables' ? 'Silinen Ürün Alt Grubu Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
-                text: `${saleTypeFirsName} Adlı Ürün Alt Grubu Geri Getirilecektir!`,
+                title: tableType === 'DeletedTables' ? 'Silinen Model Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${saleTypeFirsName} Adlı Model Geri Getirilecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

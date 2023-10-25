@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body">
                     <input type="hidden" asp-for="ProductSubGroups" value="@Model.ProductSubGroups" />
-                    <input type="hidden" asp-for="Brands" value="@Model.Brands" />
+                    <input type="hidden" asp-for="Models" value="@Model.Models" />
                     <div class="form-group col-md-12">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -90,11 +90,11 @@
                         <span asp-validation-for="ProductSubGroupId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="brandsList">Brand</label>
-                        <select id="brandsList1" class="form-control" asp-for="BrandId" asp-items="@(new SelectList(Model.Brands,"Id","Title"))">
+                        <label for="modelsList">Model</label>
+                        <select id="modelsList1" class="form-control" asp-for="ModelId" asp-items="@(new SelectList(Model.Models,"Id","Title"))">
                             <option></option>
                         </select>
-                        <span asp-validation-for="BrandId" class="text-danger"></span>
+                        <span asp-validation-for="ModelId" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">

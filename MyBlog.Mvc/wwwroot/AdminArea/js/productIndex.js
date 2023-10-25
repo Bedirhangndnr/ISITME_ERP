@@ -43,7 +43,7 @@
                                             product.Id,
                                             product.ProductName,
                                             product.SerialNumber,
-                                            product.BrandTitle,
+                                            product.ModelTitle,
                                             product.ProductSubGroupTitle == null ? "Alt Kategori Bulunmuyor" : product.ProductSubGroupTitle,
                                             product.Note == null ? "Not Eklenmemiş" : (product.Note.length > 75 ? product.Note.substring(0, 75) : product.Note),
                                             product.Price != 0 ? product.Price : '<span style="color: red;">Fiyat Girilmemiş</span>',

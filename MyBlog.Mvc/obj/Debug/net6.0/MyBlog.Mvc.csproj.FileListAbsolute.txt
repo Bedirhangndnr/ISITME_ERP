@@ -1747,9 +1747,13 @@ C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.Ge
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.AssemblyInfoInputs.cache
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.AssemblyInfo.cs
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.csproj.CoreCompileInputs.cache
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.RazorAssemblyInfo.cache
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.RazorAssemblyInfo.cs
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.dll
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\refint\MyBlog.Mvc.dll
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.pdb
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\appsettings.json
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\libman.json
@@ -2313,7 +2317,6 @@ C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\MyBlog.Servic
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\MyBlog.Data.pdb
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\MyBlog.Entities.pdb
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\bin\Debug\net6.0\MyBlog.Shared.pdb
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\staticwebassets\msbuild.MyBlog.Mvc.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\staticwebassets\msbuild.build.MyBlog.Mvc.props
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MyBlog.Mvc.props
@@ -2323,8 +2326,5 @@ C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\staticwebasse
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\scopedcss\bundle\MyBlog.Mvc.styles.css
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.csproj.CopyComplete
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.dll
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\refint\MyBlog.Mvc.dll
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.pdb
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\MyBlog.Mvc.genruntimeconfig.cache
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Mvc\obj\Debug\net6.0\ref\MyBlog.Mvc.dll

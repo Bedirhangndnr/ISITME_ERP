@@ -27,7 +27,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
     {
         private readonly IProductService _productService;
         private readonly IProductSubGroupService _productSubGroupService;
-        private readonly IBrandService _brandService;
+        private readonly IModelService _modelService;
         private readonly IToastNotification _toastNotification;
         private readonly INotificationService _notificationService;
 
@@ -36,13 +36,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             IProductSubGroupService productSubGroupService,
                         INotificationService notificationService,
 
-        IBrandService brandService,
+        IModelService modelService,
         IProductSubGroupService ProductSubGroupService,
         UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _productSubGroupService = ProductSubGroupService;
             _productService = productService;
-            _brandService = brandService;
+            _modelService = modelService;
             _toastNotification = toastNotification;
             _notificationService = notificationService;
 
@@ -107,11 +107,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             ViewBag.tableType = tableType;
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
-            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
 
             if (productSubGroupList.ResultStatus == ResultStatus.Success &&
-                brandList.ResultStatus == ResultStatus.Success &&
+                modelList.ResultStatus == ResultStatus.Success &&
                 productList.ResultStatus == ResultStatus.Success)
             {
                 var user = await UserManager.GetUserAsync(HttpContext.User);
@@ -121,7 +121,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 {
                     var viewModel = new ProductAddViewModel
                     {
-                        Brands = brandList.Data.Brands,
+                        Models = modelList.Data.Models,
                         ProductSubGroups = productSubGroupList.Data.ProductSubGroups,
                         UserWithRolesModel = new UserWithRolesViewModel
                         {
@@ -171,10 +171,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
 
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
-            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
 
-            productAddViewModel.Brands = brandList.Data.Brands;
+            productAddViewModel.Models = modelList.Data.Models;
             productAddViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
             var user = await UserManager.GetUserAsync(HttpContext.User);
             var roles = await UserManager.GetRolesAsync(user);
@@ -202,15 +202,15 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             ViewBag.tableType = tableType;
             var productList = await _productService.GetProductUpdateDtoAsync(Id);
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
-            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
 
             var productSubGroupResult = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
             if (productSubGroupList.ResultStatus == ResultStatus.Success &&
                productList.ResultStatus == ResultStatus.Success &&
-               brandList.ResultStatus == ResultStatus.Success)
+               modelList.ResultStatus == ResultStatus.Success)
             {
                 var ProductUpdateViewModel = Mapper.Map<ProductUpdateViewModel>(productList.Data);
-                ProductUpdateViewModel.Brands = brandList.Data.Brands;
+                ProductUpdateViewModel.Models = modelList.Data.Models;
                 ProductUpdateViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
                 ProductUpdateViewModel.UserWithRolesModel= new UserWithRolesViewModel
                 {
@@ -258,9 +258,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 }
             }
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
-            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
-            ProductUpdateViewModel.Brands = brandList.Data.Brands;
+            ProductUpdateViewModel.Models = modelList.Data.Models;
             ProductUpdateViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
             var user = await UserManager.GetUserAsync(HttpContext.User);
             var roles = await UserManager.GetRolesAsync(user);

@@ -34,25 +34,24 @@
                         <tr>
                             <th>ID</th>
                             <th>Başlık</th>
-                            <th>Açıklama</th>
+                            <th>Grup Adı</th>
                             <th class="dt-button-col">İşlemler</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Başlık</th>
-                            <th>Açıklama</th>
+                            <th>Grup Adı</th>
                             <th class="dt-button-col">İşlemler</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var subGroup in Model.ProductSubGroups)
+                        @foreach (var subGroup in Model.ProductSubGroupListWithRelatedTables)
                         {
                             <tr name="@subGroup.Id">
                                 <td>@subGroup.Id</td>
                                 <td>@subGroup.Title</td>
-                                <td>@subGroup.Description</td>
+                                <td>@subGroup.GroupTitle</td>
                                 <td class="dt-button-col">
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                             {
@@ -76,6 +75,7 @@
         Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="customerType" asp-action="Index">tıklayınız.</a>
     </div>
 }
+<script src="~/AdminArea/js/toolsScripts/select2.js" type="application/ecmascript"></script>
 <link href="~/AdminArea/css/dtPaginationCss.css" rel="stylesheet" />
 
 @section Scripts

@@ -16,20 +16,21 @@ using System.Data;
 using MyBlog.Entities.Dtos.CustomerReferanceDtos;
 using MyBlog.Entities.Dtos.ProductSubGroupDtos;
 using MyBlog.Shared.Utilities.Extensions;
-using MyBlog.Entities.Dtos.ProductSubGroupDtos;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Mvc.Consts;
 using MyBlog.Services.Utilities;
 using MyBlog.Entities.Dtos.ProductSubGroupDtos;
+using MyBlog.Entities.Dtos.OutPaymentDetailDtos;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+
 
     public class ProductSubGroupController : BaseController
     {
         private readonly IProductSubGroupService _productSubGroupService;
+        private readonly IProductGroupService _productGroupService;
         private readonly IToastNotification _toastNotification;
         private readonly INotificationService _notificationService;
 
@@ -37,11 +38,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public ProductSubGroupController(
             INotificationService notificationService,
             IProductSubGroupService productSubGroupService,
+            IProductGroupService productGroupService,
             UserManager<User> userManager,
             IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _notificationService = notificationService;
             _productSubGroupService = productSubGroupService;
+            _productGroupService = productGroupService;
             _toastNotification = toastNotification;
         }
 
@@ -97,24 +100,49 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductSubGroupCreate}")]
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            return PartialView("_ProductSubGroupAddPartial");
+            var productGroupList = await _productGroupService.GetAllByNonDeletedAndActiveAsync();
+            if (productGroupList.ResultStatus == ResultStatus.Success)
+            {
+                var model = new ProductSubGroupAddDto
+                {
+                    ProductGroups = productGroupList.Data.ProductGroups,
+                };
+
+                return PartialView("_ProductSubGroupAddPartial", model);
+            }
+            return null;
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductSubGroupCreate}")]
         [HttpPost]
         public async Task<IActionResult> Add(ProductSubGroupAddDto productSubGroupAddDto)
         {
+            var productGroupList = await _productGroupService.GetAllByNonDeletedAndActiveAsync();
+            if (productGroupList.ResultStatus == ResultStatus.Success)
+            {
+                productSubGroupAddDto.ProductGroups = productGroupList.Data.ProductGroups;
+            }
+            ModelState.Remove("ProductGroups");
             if (ModelState.IsValid)
             {
+                int? groupId = productSubGroupAddDto.ProductGroupId != null ? productSubGroupAddDto.ProductGroupId : 0;
+                var group = _productGroupService.GetAsync(groupId.Value);
+                string? groupTitle=group.Result.Data.ProductGroup.Title != null ? group.Result.Data.ProductGroup.Title : string.Empty;
+                groupTitle = groupTitle != null ? groupTitle : "Grup Adı Yok";
+
                 var result = await _productSubGroupService.AddAsync(productSubGroupAddDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    var options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve
+                    };
                     var categoryAddAjaxModel = JsonSerializer.Serialize(new ProductSubGroupAddAjaxViewModel
                     {
                         ProductSubGroupDto = result.Data,
-                        ProductSubGroupAddPartial = await this.RenderViewToStringAsync("_ProductSubGroupAddPartial", productSubGroupAddDto)
-                    });
+                        ProductSubGroupAddPartial = await this.RenderViewToStringAsync("_ProductSubGroupAddPartial", productSubGroupAddDto),
+                    }, options);
                     return Json(categoryAddAjaxModel);
                 }
             }
@@ -147,17 +175,22 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _productSubGroupService.UpdateAsync(productSubGroupUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
+                    int? groupId = productSubGroupUpdateDto.ProductGroupId != null ? productSubGroupUpdateDto.ProductGroupId : 0;
+                    var groupTitle = _productGroupService.GetAsync(groupId.Value).Result.Data.ProductGroup.Title;
+                    groupTitle = groupTitle != null ? groupTitle : "Grup Adı Yok";
+
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                         NotificationMessageTypes.Updated,
-                        "Geliştiriciye Mesaj",
+                        "Ürün Alt Grubu",
                         result.Data.ProductSubGroup.ModifiedByName),
                         NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
                         );
                     var categoryUpdateAjaxModel = JsonSerializer.Serialize(new ProductSubGroupUpdateAjaxViewModel
                     {
                         ProductSubGroupDto = result.Data,
-                        ProductSubGroupUpdatePartial = await this.RenderViewToStringAsync("_ProductSubGroupUpdatePartial", productSubGroupUpdateDto)
-                    });
+                        ProductSubGroupUpdatePartial = await this.RenderViewToStringAsync("_ProductSubGroupUpdatePartial", productSubGroupUpdateDto),
+                        GroupTitle = groupTitle
+                    }); ;
                     return Json(categoryUpdateAjaxModel);
                 }
             }

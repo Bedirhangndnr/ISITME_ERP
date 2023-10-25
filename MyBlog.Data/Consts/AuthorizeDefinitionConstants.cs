@@ -72,6 +72,12 @@ namespace MyBlog.Mvc.Consts
         public const string BrandUpdate = "Brand.Update";
         public const string BrandDelete = "Brand.Delete";
 
+        // Model
+        public const string ModelCreate = "Model.Create";
+        public const string ModelRead = "Model.Read";
+        public const string ModelUpdate = "Model.Update";
+        public const string ModelDelete = "Model.Delete";
+
         // MessageToDeveloper
         public const string MessageToDeveloperCreate = "MessageToDeveloper.Create";
         public const string MessageToDeveloperRead = "MessageToDeveloper.Read";

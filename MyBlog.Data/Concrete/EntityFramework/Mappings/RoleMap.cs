@@ -609,7 +609,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupCreate,
                  NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupCreate.ToUpperInvariant(),
-                 Definition = "Ürün Alt Grubu Ekleme Yetkisi",
+                 Definition = "Model Ekleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -618,7 +618,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupRead,
                  NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupRead.ToUpperInvariant(),
-                 Definition = "Ürün Alt Grubu Görüntüleme Yetkisi",
+                 Definition = "Model Görüntüleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },
@@ -627,7 +627,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                  Id = id = id + 1,
                  Name = AuthorizeDefinitionConstants.ProductSubGroupUpdate,
                  NormalizedName = AuthorizeDefinitionConstants.ProductSubGroupUpdate.ToUpperInvariant(),
-                 Definition = "Ürün Alt Grubu Güncelleme Yetkisi",
+                 Definition = "Model Güncelleme Yetkisi",
                  ConcurrencyStamp = Guid.NewGuid().ToString(),
                  AccessLevel = 3
              },

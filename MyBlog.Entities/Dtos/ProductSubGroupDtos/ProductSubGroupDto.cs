@@ -11,5 +11,7 @@ namespace MyBlog.Entities.Dtos.ProductSubGroupDtos
     public class ProductSubGroupDto : DtoGetBase
     {
         public ProductSubGroup ProductSubGroup { get; set; }
+
+
     }
 }

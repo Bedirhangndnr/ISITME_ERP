@@ -35,14 +35,14 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MaxLength(35, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(2, ErrorMessage = "{0} {1} Karakterden Küçük Olmamalıdır")]
         public string SerialNumber { get; set; }
-        [DisplayName("Ürün Alt Grubu")]
+        [DisplayName("Model")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? ProductSubGroupId { get; set; }
         public IList<ProductSubGroup>? ProductSubGroups { get; set; }
         [DisplayName("Geliştiriciye Mesaj")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
-        public int BrandId { get; set; }
-        public IList<Brand> Brands { get; set; }
+        public int ModelId { get; set; }
+        public IList<Model> Models { get; set; }
         public UserWithRolesViewModel UserWithRolesModel { get; set; }
 
     }

@@ -1306,9 +1306,9 @@ namespace MyBlog.Data.Migrations
                     { 57, 3, "d26543c5-074d-42b1-b72d-4f80bcce7a51", "Ürün Grubu Görüntüleme Yetkisi", "ProductGroup.Read", "PRODUCTGROUP.READ" },
                     { 58, 3, "e859553b-47f0-4e3e-8da2-5c18cb447b35", "Ürün Grubu Güncelleme Yetkisi", "ProductGroup.Update", "PRODUCTGROUP.UPDATE" },
                     { 59, 3, "b9ad2142-3445-4792-9210-7cebdcdc2d18", "Ürün Grubu Silme Yetkisi", "ProductGroup.Delete", "PRODUCTGROUP.DELETE" },
-                    { 60, 3, "05075dcb-16e6-4e88-96df-a1d9088f8cc4", "Ürün Alt Grubu Ekleme Yetkisi", "ProductSubGroup.Create", "PRODUCTSUBGROUP.CREATE" },
-                    { 61, 3, "d2c9db1d-3320-4e6c-9f4c-eaf843ccd276", "Ürün Alt Grubu Görüntüleme Yetkisi", "ProductSubGroup.Read", "PRODUCTSUBGROUP.READ" },
-                    { 62, 3, "6f1d0070-5525-4a77-a390-17e9d4effd5a", "Ürün Alt Grubu Güncelleme Yetkisi", "ProductSubGroup.Update", "PRODUCTSUBGROUP.UPDATE" },
+                    { 60, 3, "05075dcb-16e6-4e88-96df-a1d9088f8cc4", "Model Ekleme Yetkisi", "ProductSubGroup.Create", "PRODUCTSUBGROUP.CREATE" },
+                    { 61, 3, "d2c9db1d-3320-4e6c-9f4c-eaf843ccd276", "Model Görüntüleme Yetkisi", "ProductSubGroup.Read", "PRODUCTSUBGROUP.READ" },
+                    { 62, 3, "6f1d0070-5525-4a77-a390-17e9d4effd5a", "Model Güncelleme Yetkisi", "ProductSubGroup.Update", "PRODUCTSUBGROUP.UPDATE" },
                     { 63, 3, "cd2a0e78-fd7a-4d37-97bd-ad41056cb36e", "Ürün Silme Yetkisi", "ProductSubGroup.Delete", "PRODUCTSUBGROUP.DELETE" },
                     { 64, 3, "4d4d6c5f-a7d3-47df-a3fe-ee7dd35c5f27", "Randevu Türü Ekleme Yetkisi", "AppointmentType.Create", "APPOINTMENTTYPE.CREATE" },
                     { 65, 3, "f0463484-7411-4ea6-8234-c357bb6d4aa0", "Randevu Türü Görüntüleme Yetkisi", "AppointmentType.Read", "APPOINTMENTTYPE.READ" },
@@ -1440,7 +1440,7 @@ namespace MyBlog.Data.Migrations
             migrationBuilder.InsertData(
                 table: "ProductSubGroups",
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "Description", "IsActive", "IsDeleted", "ModifiedByName", "ModifiedDate", "Note", "ProductGroupId", "Title" },
-                values: new object[] { 1, "Test Verisi", new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451), "Ürün Alt Grubu Açıklaması", true, false, "Test Verisi", new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451), null, 1, "Ürün Alt Grubu Başlığı" });
+                values: new object[] { 1, "Test Verisi", new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451), "Model Açıklaması", true, false, "Test Verisi", new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451), null, 1, "Model Başlığı" });
 
             migrationBuilder.InsertData(
                 table: "Programs",

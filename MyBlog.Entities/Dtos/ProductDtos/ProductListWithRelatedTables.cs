@@ -20,8 +20,8 @@ namespace MyBlog.Entities.Dtos.ProductDtos
         public string ProductCategoryTitle { get; set; }
         public string ProductName { get; set; }
         public string SerialNumber { get; set; }
-        public int BrandId { get; set; }
-        public string BrandTitle { get; set; }
+        public int ModelId { get; set; }
+        public string ModelTitle { get; set; }
         public string Note { get; set; }
         public bool IsActive { get; set; }
     }

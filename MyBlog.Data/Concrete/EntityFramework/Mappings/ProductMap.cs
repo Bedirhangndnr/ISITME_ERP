@@ -34,9 +34,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 .HasForeignKey(e => e.ProductSubGroupId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            builder.HasOne(e => e.Brand)
+            builder.HasOne(e => e.Model)
                 .WithMany(et => et.Products)
-                .HasForeignKey(e => e.BrandId)
+                .HasForeignKey(e => e.ModelId)
                 .OnDelete(DeleteBehavior.SetNull);
             builder.ToTable("Product");
 
@@ -46,7 +46,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                     Id = 1,
                     Price = 100,
                     Quantity = 10,
-                    BrandId= 1,
+                    ModelId= 1,
                     IsSold=false,
                     ProductSubGroupId= 1,
                     IsActive = true,
@@ -68,7 +68,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 //    IsActive = true,
                 //    Price = 100,
                 //    IsSold=false,
-                //    BrandId = 1,
+                //    ModelId = 1,
                 //    ProductSubGroupId = 1,
                 //    IsDeleted = false,
                 //    CreatedByName = "Test Verisi",
@@ -86,7 +86,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 //    IsActive = true,
                 //    Price = 100,
                 //    IsSold=false,
-                //    BrandId = 1,
+                //    ModelId = 1,
                 //    Quantity = 10,
                 //    ProductSubGroupId = 1,
                 //    IsDeleted = false,
@@ -104,7 +104,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 //    Id = 4,
                 //    IsActive = true,
                 //    IsSold=false,
-                //    BrandId = 1,
+                //    ModelId = 1,
                 //    Price = 100,
                 //    Quantity = 10,
                 //    ProductSubGroupId = 1,

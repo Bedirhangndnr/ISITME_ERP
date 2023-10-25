@@ -18,5 +18,6 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         //ajax ile post işlemi yaptığımızda dönecek model.
         public string ProductSubGroupUpdatePartial { get; set; }
         public ProductSubGroupDto ProductSubGroupDto { get; set; }
+        public string GroupTitle { get; set; }
     }
 }

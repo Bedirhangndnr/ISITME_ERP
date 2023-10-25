@@ -5,7 +5,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Ürün Alt Grubu Ekleme</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><span class="fas fa-plus"></span>Model Ekleme</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,6 +13,16 @@
             <div class="modal-body">
                 <form asp-action="Add" id="form-productSubGroup-add">
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ürün Grubu</span>
+                            </div><select id="prodGroupList" class="form-control" asp-for="ProductGroupId" asp-items="@(new SelectList(Model.ProductGroups,"Id","Title"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="ProductGroupId" class="text-danger"></span>
+                        </div>
+                    </div>
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
                     <div class="form-group">
                         <div class="input-group">
@@ -24,11 +34,11 @@
                         <span class="text-danger" asp-validation-for="Title"></span>
                     </div>
                     <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Açıklama</span>
-                                </div><input class="form-control" asp-for="Description" placeholder="Açıklama" />
-                            </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Açıklama</span>
+                            </div><input class="form-control" asp-for="Description" placeholder="Açıklama" />
+                        </div>
 
                         <span class="text-danger" asp-validation-for="Description"></span>
                     </div>

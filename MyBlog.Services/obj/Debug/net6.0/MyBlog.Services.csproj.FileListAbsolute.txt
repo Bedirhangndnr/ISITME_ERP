@@ -61,11 +61,6 @@ C:\Users\bedir\Downloads\ISITME_ERP-main\ISITME_ERP-main\MyBlog.Services\obj\Deb
 C:\Users\bedir\Downloads\ISITME_ERP-main\ISITME_ERP-main\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.xml
 C:\Users\bedir\Downloads\ISITME_ERP-main\ISITME_ERP-main\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.pdb
 C:\Users\bedir\Downloads\ISITME_ERP-main\ISITME_ERP-main\MyBlog.Services\obj\Debug\net6.0\ref\MyBlog.Services.dll
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.csproj.AssemblyReference.cache
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.AssemblyInfoInputs.cache
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.AssemblyInfo.cs
-C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.csproj.CoreCompileInputs.cache
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.Services.deps.json
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.Services.dll
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.Services.pdb
@@ -76,6 +71,11 @@ C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.S
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.Data.pdb
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.Entities.pdb
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\bin\Debug\net6.0\MyBlog.Shared.pdb
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.csproj.AssemblyReference.cache
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.AssemblyInfoInputs.cache
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.AssemblyInfo.cs
+C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.csproj.CoreCompileInputs.cache
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.csproj.CopyComplete
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\MyBlog.Services.dll
 C:\Users\bedir\source\repos\ISITME_ERP\MyBlog.Services\obj\Debug\net6.0\refint\MyBlog.Services.dll

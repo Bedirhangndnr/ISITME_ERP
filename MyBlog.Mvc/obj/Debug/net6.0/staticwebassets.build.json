@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yIEvz9HnGYZa3LHXJURbPXrhxlllO6J2Om686mRvEb0=",
+  "Hash": "pvA5FJaJ0aJcsjbKlJiRNV+ovkNsrZwQWakbZCfG2hs=",
   "Source": "MyBlog.Mvc",
   "BasePath": "_content/MyBlog.Mvc",
   "Mode": "Default",
@@ -678,6 +678,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\AdminArea\\js\\messageToDeveloperIndex.js"
+    },
+    {
+      "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\modelIndex.js",
+      "SourceId": "MyBlog.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\",
+      "BasePath": "_content/MyBlog.Mvc",
+      "RelativePath": "AdminArea/js/modelIndex.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AdminArea\\js\\modelIndex.js"
     },
     {
       "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\notification.js",

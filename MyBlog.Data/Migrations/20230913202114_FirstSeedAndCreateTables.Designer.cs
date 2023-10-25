@@ -2340,13 +2340,13 @@ namespace MyBlog.Data.Migrations
                             Id = 1,
                             CreatedByName = "Test Verisi",
                             CreatedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451),
-                            Description = "Ürün Alt Grubu Açıklaması",
+                            Description = "Model Açıklaması",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "Test Verisi",
                             ModifiedDate = new DateTime(2023, 9, 13, 23, 21, 14, 91, DateTimeKind.Local).AddTicks(7451),
                             ProductGroupId = 1,
-                            Title = "Ürün Alt Grubu Başlığı"
+                            Title = "Model Başlığı"
                         });
                 });
 
@@ -3116,7 +3116,7 @@ namespace MyBlog.Data.Migrations
                             Id = 60,
                             AccessLevel = 3,
                             ConcurrencyStamp = "05075dcb-16e6-4e88-96df-a1d9088f8cc4",
-                            Definition = "Ürün Alt Grubu Ekleme Yetkisi",
+                            Definition = "Model Ekleme Yetkisi",
                             Name = "ProductSubGroup.Create",
                             NormalizedName = "PRODUCTSUBGROUP.CREATE"
                         },
@@ -3125,7 +3125,7 @@ namespace MyBlog.Data.Migrations
                             Id = 61,
                             AccessLevel = 3,
                             ConcurrencyStamp = "d2c9db1d-3320-4e6c-9f4c-eaf843ccd276",
-                            Definition = "Ürün Alt Grubu Görüntüleme Yetkisi",
+                            Definition = "Model Görüntüleme Yetkisi",
                             Name = "ProductSubGroup.Read",
                             NormalizedName = "PRODUCTSUBGROUP.READ"
                         },
@@ -3134,7 +3134,7 @@ namespace MyBlog.Data.Migrations
                             Id = 62,
                             AccessLevel = 3,
                             ConcurrencyStamp = "6f1d0070-5525-4a77-a390-17e9d4effd5a",
-                            Definition = "Ürün Alt Grubu Güncelleme Yetkisi",
+                            Definition = "Model Güncelleme Yetkisi",
                             Name = "ProductSubGroup.Update",
                             NormalizedName = "PRODUCTSUBGROUP.UPDATE"
                         },

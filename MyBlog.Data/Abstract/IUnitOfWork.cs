@@ -25,6 +25,7 @@ namespace MyBlog.Data.Abstract
         IEmployeeTypeRepository EmployeeTypes { get; }
         INotificationRepository Notifications { get; }
         IBrandRepository Brands{ get; }
+        IModelRepository Models { get; }
         IProductSubGroupRepository ProductSubGroups{ get; }
         IProductGroupRepository ProductGroups{ get; }
         ISaleTypeRepository SaleTypes{ get; }

@@ -19,8 +19,10 @@ namespace MyBlog.Entities.Dtos.ProductSubGroupDtos
         [DisplayName("Açıklama")]
         [MaxLength(100, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         public string? Description { get; set; }
+        public ICollection<ProductGroup> ProductGroups { get; set; }
         public ProductGroup? ProductGroup { get; set; }
         public int? ProductGroupId { get; set; }
+        public int? ProductGroupTitle { get; set; }
 
     }
 }

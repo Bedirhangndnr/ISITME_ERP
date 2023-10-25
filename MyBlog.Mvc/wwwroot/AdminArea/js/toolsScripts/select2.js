@@ -6,6 +6,11 @@
         placeholder: "Lütfen bir kategori seçiniz...",
         allowClear: true
     });
+    $('#brandList').select2({
+        theme: 'bootstrap4',
+        placeholder: "Lütfen bir kategori seçiniz...",
+        allowClear: true
+    });
     $('#customerTypeList').select2({
         theme: 'bootstrap4',
         placeholder: "Hasta Kategorisi Seçiniz...",
@@ -55,6 +60,10 @@
     $('#employeeTypeList').select2({
         theme: 'bootstrap4',
         placeholder: "Bir Personel Tipi Seçiniz...",
+        allowClear: true
+    }); $('#prodGroupList').select2({
+        theme: 'bootstrap4',
+        placeholder: "Ürün Grubu Seçiniz...",
         allowClear: true
     });
     // Select2

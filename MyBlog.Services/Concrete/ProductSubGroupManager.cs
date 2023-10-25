@@ -43,20 +43,22 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductSubGroupDto>(ResultStatus.Error, new ProductSubGroupDto
             {
                 ProductSubGroup = null,
-            }, Messages.General.NotFound(isPlural: false, "Hasta"));
+            }, Messages.General.NotFound(isPlural: false, "Model"));
         }
         public async Task<IDataResult<ProductSubGroupListDto>> GetAllByNonDeletedAndActiveAsync()
         {
-            var customers = await UnitOfWork.ProductSubGroups.GetAllAsync(x => !x.IsDeleted);
-            if (customers.Count > -1)
+            var productSubGroups = await UnitOfWork.ProductSubGroups.GetAllAsync(x => !x.IsDeleted);
+            var productSubGroupsWRelated = await UnitOfWork.ProductSubGroups.GetAllWithNamesAsync(x => !x.IsDeleted);
+            if (productSubGroups.Count > -1)
             {
                 return new DataResult<ProductSubGroupListDto>(ResultStatus.Success, new ProductSubGroupListDto
                 {
-                    ProductSubGroups = customers,
+                    ProductSubGroupListWithRelatedTables= productSubGroupsWRelated,
+                    ProductSubGroups = productSubGroups,
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<ProductSubGroupListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Hasta"));
+            return new DataResult<ProductSubGroupListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Model"));
 
         }
         public async Task<IDataResult<ProductSubGroupUpdateDto>> GetProductSubGroupUpdateDtoAsync(int ProductSubGroupId)
@@ -70,7 +72,7 @@ namespace MyBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<ProductSubGroupUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Ürün Alt Grubu"));
+                return new DataResult<ProductSubGroupUpdateDto>(ResultStatus.Error, null, Messages.General.NotFound(isPlural: false, "Model"));
             }
         }
 
@@ -87,7 +89,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductSubGroupListDto>(ResultStatus.Error, new ProductSubGroupListDto
             {
                 ProductSubGroups = null,
-            }, Messages.General.NotFound(isPlural: true, "Hasta"));
+            }, Messages.General.NotFound(isPlural: true, "Model"));
         }
         public async Task<IDataResult<ProductSubGroupDto>> AddAsync(ProductSubGroupAddDto ProductSubGroupAddDto, string createdByName)
         {
@@ -101,9 +103,9 @@ namespace MyBlog.Services.Concrete
             //Console.WriteLine($"entity State: {enrty}");
             return new DataResult<ProductSubGroupDto>(ResultStatus.Success, new ProductSubGroupDto
             {
-                Message=Messages.General.GiveMessage(addedProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.AddSuccess),
+                Message=Messages.General.GiveMessage(addedProductSubGroup.Title, "Model", MessagesConstants.AddSuccess),
                 ProductSubGroup = addedProductSubGroup,
-            }, Messages.General.GiveMessage(addedProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.AddSuccess));
+            }, Messages.General.GiveMessage(addedProductSubGroup.Title, "Model", MessagesConstants.AddSuccess));
         }
 
         public async Task<IDataResult<ProductSubGroupDto>> UpdateAsync(ProductSubGroupUpdateDto ProductSubGroupUpdateDto, string modifiedByName)
@@ -116,10 +118,10 @@ namespace MyBlog.Services.Concrete
             await UnitOfWork.SaveAsync();
             return new DataResult<ProductSubGroupDto>(ResultStatus.Success, new ProductSubGroupDto
             {
-                Message= Messages.General.GiveMessage(productSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UpdateSuccess),
+                Message= Messages.General.GiveMessage(productSubGroup.Title, "Model", MessagesConstants.UpdateSuccess),
                 ProductSubGroup = updatedProductSubGroup,
                 ResultStatus = ResultStatus.Success,
-            }, Messages.General.GiveMessage(productSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UpdateSuccess));
+            }, Messages.General.GiveMessage(productSubGroup.Title, "Model", MessagesConstants.UpdateSuccess));
         }
         public async Task<IDataResult<ProductSubGroupDto>> DeleteAsync(int ProductSubGroupId, string modifiedByName)
         {
@@ -134,15 +136,15 @@ namespace MyBlog.Services.Concrete
                 await UnitOfWork.SaveAsync();
                 return new DataResult<ProductSubGroupDto>(ResultStatus.Success, new ProductSubGroupDto
                 {
-                Message=Messages.General.GiveMessage(productSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.AddSuccess),
+                Message=Messages.General.GiveMessage(productSubGroup.Title, "Model", MessagesConstants.AddSuccess),
                     ProductSubGroup = deletedEmployeeType
 
-                }, Messages.General.GiveMessage(productSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UpdateSuccess));
+                }, Messages.General.GiveMessage(productSubGroup.Title, "Model", MessagesConstants.UpdateSuccess));
             }
             return new DataResult<ProductSubGroupDto>(ResultStatus.Error, new ProductSubGroupDto
             {
                 ProductSubGroup = null,
-            }, Messages.General.GiveMessage(productSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UpdateError));
+            }, Messages.General.GiveMessage(productSubGroup.Title, "Model", MessagesConstants.UpdateError));
         }
         public async Task<IDataResult<ProductSubGroupListDto>> GetAllByDeletedAsync()
         {
@@ -166,9 +168,9 @@ namespace MyBlog.Services.Concrete
             {
                 await UnitOfWork.ProductSubGroups.DeleteAsync(ProductSubGroup);
                 await UnitOfWork.SaveAsync();
-                return new Result(ResultStatus.Success, Messages.General.GiveMessage(ProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.HardDeletedSuccess));
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(ProductSubGroup.Title, "Model", MessagesConstants.HardDeletedSuccess));
             }
-            return new Result(ResultStatus.Error, Messages.General.GiveMessage(ProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.HardDeletedSuccess));
+            return new Result(ResultStatus.Error, Messages.General.GiveMessage(ProductSubGroup.Title, "Model", MessagesConstants.HardDeletedSuccess));
         }
 
 
@@ -185,14 +187,14 @@ namespace MyBlog.Services.Concrete
                 await UnitOfWork.SaveAsync();
                 return new DataResult<ProductSubGroupDto>(ResultStatus.Success, new ProductSubGroupDto
                 {
-                    Message = Messages.General.GiveMessage(ProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UndoDeletedSuccess),
+                    Message = Messages.General.GiveMessage(ProductSubGroup.Title, "Model", MessagesConstants.UndoDeletedSuccess),
                     ProductSubGroup = deletedProductSubGroup,
-                }, Messages.General.GiveMessage(ProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UndoDeletedSuccess));
+                }, Messages.General.GiveMessage(ProductSubGroup.Title, "Model", MessagesConstants.UndoDeletedSuccess));
             }
             return new DataResult<ProductSubGroupDto>(ResultStatus.Error, new ProductSubGroupDto
             {
                 ProductSubGroup = null,
-            }, Messages.General.GiveMessage(ProductSubGroup.Title, "Ürün Alt Grubu", MessagesConstants.UndoDeletedError));
+            }, Messages.General.GiveMessage(ProductSubGroup.Title, "Model", MessagesConstants.UndoDeletedError));
         }
         public async Task<IDataResult<int>> CountAsync()
         {

@@ -30,6 +30,7 @@ namespace MyBlog.Data.Concrete
         private EfEmployeeTypeRepository _employeeTypeRepository;
         private EfNotificationRepository _notificationRepository;
         private EfBrandRepository _brandRepository;
+        private EfModelRepository _modelRepository;
         private EfProductGroupRepository _productGroupRepository;
         private EfProductSubGroupRepository _productSubGroupRepository;
         private EfSaleTypeRepository _saleTypeRepository;
@@ -70,6 +71,7 @@ namespace MyBlog.Data.Concrete
         public INotificationRepository Notifications => _notificationRepository ?? new EfNotificationRepository(_context);
         public IProductGroupRepository ProductGroups=> _productGroupRepository ?? new EfProductGroupRepository(_context);
         public IBrandRepository Brands=> _brandRepository ?? new EfBrandRepository(_context);
+        public IModelRepository Models => _modelRepository ?? new EfModelRepository(_context);
         public IProductSubGroupRepository ProductSubGroups=> _productSubGroupRepository ?? new EfProductSubGroupRepository(_context);
         public ISaleStatusRepository SaleStatuses=> _saleStatusRepository ?? new EfSaleStatusRepository(_context);
         public ISaleTypeRepository SaleTypes=> _saleTypeRepository ?? new EfSaleTypeRepository(_context);

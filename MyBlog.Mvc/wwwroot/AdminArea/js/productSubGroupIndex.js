@@ -37,12 +37,12 @@
                             dataTable.clear();
                             console.log(productSubGroupListDto);
                             if (productSubGroupListDto.Data.ResultStatus === 0) {
-                                $.each(productSubGroupListDto.Data.ProductSubGroups.$values,
+                                $.each(productSubGroupListDto.Data.ProductSubGroupListWithRelatedTable.$values,
                                     function (index, productSubGroup) {
                                         const newTableRow = dataTable.row.add([
                                             productSubGroup.Id,
                                             productSubGroup.Title,
-                                            productSubGroup.Description,
+                                            productSubGroup.GroupTitle,
                                             `
                                                 <div class="form-group row justify-content-center">
                                                 ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + productSubGroup.Id + '><span class="fas fa-edit"></span></button>' : ''}
@@ -123,7 +123,7 @@
             const productSubGroupTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: tableType === 'DeletedTables' ? 'Kalıcı olarak silmek istediğinize emin misiniz?' : 'Silmek istediğinize emin misiniz?',
-                text: `${productSubGroupTitle} Başlıklı Ürün Alt Grubu ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
+                text: `${productSubGroupTitle} Başlıklı Model ${tableType === 'DeletedTables' ? 'kalıcı olarak ' : ''} Silinecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -208,7 +208,7 @@
                         const newTableRow = dataTable.row.add([
                             productSubGroup.Id,
                             productSubGroup.Title,
-                            productSubGroup.Description,
+                            productSubGroupTypeUpdateAjaxViewModel.GroupTitle,
                             `
                                 <div class="form-group row justify-content-center">
                                 ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + productSubGroup.Id + '><span class="fas fa-edit"></span></button>' : ''}
@@ -280,7 +280,7 @@
                         dataTable.row(tableRow).data([
                             productSubGroup.Id,
                             productSubGroup.Title,
-                            productSubGroup.Description,
+                            productSubGroupTypeUpdateAjaxViewModel.GroupTitle,
                             `
                             <div class="form-group row justify-content-center">
                                   ${document.getElementById("tableType").value === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + productSubGroup.Id + '><span class="fas fa-edit"></span></button>' : ''}
@@ -315,8 +315,8 @@
             const productSubGroupFirsName = tableRow.find('td:eq(1)').text();
             const productSubGroupLastName = tableRow.find('td:eq(2)').text();
             Swal.fire({
-                title: tableType === 'DeletedTables' ? 'Silinen Ürün Alt Grubu Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
-                text: `${productSubGroupFirsName} Adlı Ürün Alt Grubu Geri Getirilecektir!`,
+                title: tableType === 'DeletedTables' ? 'Silinen Model Geri Getirilsin Mi??' : 'Silmek istediğinize emin misiniz?',
+                text: `${productSubGroupFirsName} Adlı Model Geri Getirilecektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

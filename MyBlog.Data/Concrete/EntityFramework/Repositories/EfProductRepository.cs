@@ -29,14 +29,14 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
             }
             List<ProductListWithRelatedTables> Products = await query
                 .Include(s => s.ProductSubGroup)
-                .Include(s => s.Brand)
+                .Include(s => s.Model)
                 .Select(s => new ProductListWithRelatedTables
                 {
                     Id = s.Id,
                     ProductSubGroupId = s.ProductSubGroup != null ? s.ProductSubGroup.Id : 0, // Örnek bir değer atama
                     ProductSubGroupTitle = s.ProductSubGroup != null ? s.ProductSubGroup.Title : string.Empty, // Örnek bir değer atama
-                    BrandId = s.Brand != null ? s.Brand.Id : 0, // Örnek bir değer atama
-                    BrandTitle = s.Brand != null ? s.Brand.Title : string.Empty, // Örnek bir değer atama
+                    ModelId = s.Model != null ? s.Model.Id : 0, // Örnek bir değer atama
+                    ModelTitle = s.Model != null ? s.Model.Title : string.Empty, // Örnek bir değer atama
                     SerialNumber = s.SerialNumber,
                     IsActive = s.IsActive,
                     Note = s.Note,
