@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "49OvPepd8VmL712l4I2cjLF/plUkRlQ4V1VawdqDsod/wx2YIVHwf3gtJPagsZHLIFK6w5rkZV79J/LpyKyV3A==",
+  "dgSpecHash": "Lsf0mUUswUsy9NphynZ174Kvn4puZebotXK0wHas6/1S2TZqNhiODG5hSNdaIBZLBPpZbfhcstTi8YTx138Blg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj",
+  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\bedir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

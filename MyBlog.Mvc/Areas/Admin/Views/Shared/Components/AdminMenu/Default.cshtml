@@ -110,11 +110,11 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductDelete)))
+                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Ekle</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.ProductRead)))
+                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
                                         }
@@ -133,18 +133,18 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductAccessory" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Listele</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin)))
+                                       @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductAccessory" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Ekle</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) ))
+                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductAccessory" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
                                         }
                                     </nav>
                                 </div>
                             }
-                            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
+                         @*    @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser) || r.Equals(AuthorizeDefinitionConstants.CustomerReferanceModuleRead)))
                             {
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrand" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                     Markalar
@@ -219,7 +219,7 @@
                                         }
                                     </nav>
                                 </div>
-                            }
+                            } *@
                         </nav>
                     </div>
 
