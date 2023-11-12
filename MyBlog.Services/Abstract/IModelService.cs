@@ -20,6 +20,7 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<ModelListDto>> GetAllAsync();
         Task<IDataResult<ModelDto>> DeleteAsync(int ModelId, string modifiedByName);
         Task<IDataResult<ModelListDto>> GetAllByNonDeletedAndActiveAsync();
+        Task<IDataResult<ModelListDto>> GetAllByBrand(int brandId);
         Task<IDataResult<ModelDto>> AddAsync(ModelAddDto ModelAddDto, string createdByName);
         Task<IDataResult<ModelDto>> UpdateAsync(ModelUpdateDto ModelUpdateDto, string modifiedByName);
 

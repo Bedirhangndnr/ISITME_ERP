@@ -29,21 +29,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
 
             builder.ToTable("Models");
 
-            builder.HasData(
-                new Model
-                {
-                    Id = 1,
-                    BrandId = 1,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    Title = "Model Title Test",
-                }
-            );
+          
         }
     }
 }

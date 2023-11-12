@@ -1,0 +1,124 @@
+﻿@using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
+@using MyBlog.Services.Utilities;
+@using MyBlog.Shared.Utilities.Results.ComplexTypes;
+@model MyBlog.Entities.Dtos.ProductDtos.ProductListDto;
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Aksesuarlar";
+}
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+@await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
+{
+        Depth = 2,
+        Controller = "ProductAccessory",
+        ControllerTr = "Aksesuarlar",
+        Action = "Yok",
+        ActionTR = "Yok",
+        TableType = ViewBag.TableType
+})
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <input type="hidden" id="tableType" value="@ViewBag.TableType" />
+    <div id="modalPlaceHolder" aria-hidden="true"></div> @*id verme sebebimiz, divi seçip divin içine partial view verecek olmamısz*@
+    <div class="card mb-4 mt-2">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Satışlar
+        </div>
+        <div class="card-body">
+            <div class="spinner-border" role="status" style="display: none;">
+                <span class="sr-only">Yükleniyor...</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="productAccessorysTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                            <th>Grup</th>
+                            <th>Model</th>
+                            <th>Stok</th>
+                            <th>Fiyat</th>
+                            <th>İşlem</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                            <th>Grup</th>
+                            <th>Model</th>
+                            <th>Stok</th>
+                            <th>Fiyat</th>
+                            <th>İşlem</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    @foreach (var product in Model.ProductListWithRelatedTables)
+                    {
+                        <tr name="@product.Id">
+                            <td>@product.BrandTitle </td>
+                            <td>@product.ModelTitle</td>
+                            <td>@product.Quantity </td>
+                            <td>
+                                <span id="priceSpan">@{
+                                                         if (product.Price != 0)
+                                                         {
+                                                             @product.Price
+                                                             ;
+                                                         }
+                                                         else
+                                                         {
+                                                             <span style="color: red;">Fiyat Girilmemiş</span>
+                                                         }
+                                                     }</span>
+                            </td>
+
+                           
+
+
+                            <td>
+                                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                                       {
+                                           Id=product.Id,
+                                           InMainPage=0,
+                                           TableType=ViewBag.tableType,
+                                           Action="Update",
+                                           Controller="ProductAccessory"
+                                       })
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    
+}
+
+@if (Model.ResultStatus == ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3">
+        @Model.Message <br />
+        Dashboard sayfasına geri dönmek için lütfen <a class="alert-link" asp-area="Admin" asp-controller="Customer" asp-action="Index">tıklayınız.</a>
+    </div>
+}
+<link href="~/AdminArea/css/dtPaginationCss.css" rel="stylesheet" />
+
+@section Scripts
+    {
+    <script src="~/AdminArea/js/productAccessoryIndex.js" type="application/ecmascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $('#btnAdd').click(function () {
+                // ViewBag.TableType değişkeninin değerini burada alıyoruz
+                var tableType = '@ViewBag.TableType';
+                // Add action'ına tableType parametresini yollamak için, Url.Action fonksiyonunun
+                // ikinci parametresine ekleyebilirsiniz
+                window.location.href = '@Url.Action("Add", "ProductAccessory")' + '?tableType=' + encodeURIComponent(tableType);
+            });
+        });
+
+    </script>
+}

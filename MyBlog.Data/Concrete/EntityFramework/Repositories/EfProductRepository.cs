@@ -28,20 +28,23 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 query = query.Where(predicate);
             }
             List<ProductListWithRelatedTables> Products = await query
-                .Include(s => s.ProductSubGroup)
+                .Include(s => s.SubModel)
                 .Include(s => s.Model)
+                .Include(s => s.Model.Brand)
                 .Select(s => new ProductListWithRelatedTables
                 {
                     Id = s.Id,
-                    ProductSubGroupId = s.ProductSubGroup != null ? s.ProductSubGroup.Id : 0, // Örnek bir değer atama
-                    ProductSubGroupTitle = s.ProductSubGroup != null ? s.ProductSubGroup.Title : string.Empty, // Örnek bir değer atama
+                    SubModelId = s.SubModel != null ? s.SubModel.Id : 0, // Örnek bir değer atama
+                    SubModelTitle = s.SubModel != null ? s.SubModel.Title : string.Empty, // Örnek bir değer atama
                     ModelId = s.Model != null ? s.Model.Id : 0, // Örnek bir değer atama
                     ModelTitle = s.Model != null ? s.Model.Title : string.Empty, // Örnek bir değer atama
                     SerialNumber = s.SerialNumber,
+                    Quantity = s.Quantity.Value,
                     IsActive = s.IsActive,
                     Note = s.Note,
                     Price = s.Price,
                     ProductName = s.ProductName,
+                    BrandTitle=s.Model.Brand.Title,
                 }).ToListAsync();
 
 

@@ -21,31 +21,30 @@ using MyBlog.Mvc.Areas.Admin.Models.UserModels;
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+
 
     public class ProductController : BaseController
     {
         private readonly IProductService _productService;
-        private readonly IProductSubGroupService _productSubGroupService;
+        private readonly ISubModelService _subModelService;
         private readonly IModelService _modelService;
+        private readonly IBrandService _brandService;
         private readonly IToastNotification _toastNotification;
         private readonly INotificationService _notificationService;
-
-
         public ProductController(IProductService productService,
-            IProductSubGroupService productSubGroupService,
-                        INotificationService notificationService,
-
-        IModelService modelService,
-        IProductSubGroupService ProductSubGroupService,
+            ISubModelService subModelService,
+            INotificationService notificationService,
+            IModelService modelService,
+            IBrandService brandService,
+            ISubModelService SubModelService,
         UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
-            _productSubGroupService = ProductSubGroupService;
+            _subModelService = SubModelService;
             _productService = productService;
             _modelService = modelService;
+            _brandService = brandService;
             _toastNotification = toastNotification;
             _notificationService = notificationService;
-
         }
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductRead}")]
@@ -106,12 +105,16 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Add(string tableType)
         {
             ViewBag.tableType = tableType;
-            var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
+            var subModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
+            var SubModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
+            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
 
-            if (productSubGroupList.ResultStatus == ResultStatus.Success &&
+            if (subModelList.ResultStatus == ResultStatus.Success &&
                 modelList.ResultStatus == ResultStatus.Success &&
+                SubModelList.ResultStatus == ResultStatus.Success &&
+                brandList.ResultStatus == ResultStatus.Success &&
                 productList.ResultStatus == ResultStatus.Success)
             {
                 var user = await UserManager.GetUserAsync(HttpContext.User);
@@ -122,7 +125,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     var viewModel = new ProductAddViewModel
                     {
                         Models = modelList.Data.Models,
-                        ProductSubGroups = productSubGroupList.Data.ProductSubGroups,
+                        SubModels = SubModelList.Data.SubModels,
+                        Brands = brandList.Data.Brands,
                         UserWithRolesModel = new UserWithRolesViewModel
                         {
                             User = user,
@@ -141,13 +145,26 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ProductAddViewModel productAddViewModel, string tableType)
         {
+            var subModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
+            var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
+            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            ViewBag.tableType = tableType;
+            ViewBag.isAdd= "True";
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
             ModelState.Remove("tableType");
             ModelState.Remove("UserWithRolesModel");
+            ModelState.Remove("Brands");
+            ModelState.Remove("SubGroups"); 
+            ModelState.Remove("SubModelId");
+            ModelState.Remove("Product");
+            ModelState.Remove("ProductName");
 
             if (ModelState.IsValid)
             {
-                var productSubGroupAddDto = Mapper.Map<ProductAddDto>(productAddViewModel);
-                var result = await _productService.AddAsync(productSubGroupAddDto, LoggedInUser.UserName, LoggedInUser.Id);
+
+                var subModelAddDto = Mapper.Map<ProductAddDto>(productAddViewModel);
+                var result = await _productService.AddAsync(subModelAddDto, LoggedInUser.UserName, LoggedInUser.Id);
 
                 if (result.ResultStatus == ResultStatus.Success)
                 {
@@ -161,8 +178,16 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     {
                         Title = "Başarılı İşlem!"
                     });
-
-                    return RedirectToAction("Index", "Product", new { tableType = tableType });
+                    productAddViewModel.UserWithRolesModel = new UserWithRolesViewModel
+                    {
+                        User = user,
+                        Roles = roles
+                    };
+                    productAddViewModel.Models = modelList.Data.Models;
+                    productAddViewModel.SubModels = subModelList.Data.SubModels;
+                    productAddViewModel.Brands = brandList.Data.Brands;
+                    productAddViewModel.SerialNumber = "";
+                    return View(productAddViewModel);
                 }
                 else
                 {
@@ -170,14 +195,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 }
             }
 
-            var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
-            var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
-            var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
+            
 
             productAddViewModel.Models = modelList.Data.Models;
-            productAddViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
-            var user = await UserManager.GetUserAsync(HttpContext.User);
-            var roles = await UserManager.GetRolesAsync(user);
+            productAddViewModel.SubModels = subModelList.Data.SubModels;
 
             if (user != null && roles != null)
             {
@@ -193,26 +214,31 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         }
 
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductUpdate }")]
+        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.ProductUpdate}")]
         [HttpGet]
         public async Task<IActionResult> Update(int Id, string tableType)
         {
             var user = await UserManager.GetUserAsync(HttpContext.User);
             var roles = await UserManager.GetRolesAsync(user);
             ViewBag.tableType = tableType;
+            ViewBag.isAdd= "false";
             var productList = await _productService.GetProductUpdateDtoAsync(Id);
-            var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
+            var subModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
-
-            var productSubGroupResult = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
-            if (productSubGroupList.ResultStatus == ResultStatus.Success &&
+            var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            var model = await _modelService.GetAsync(productList.Data.ModelId);
+            var subModel = await _subModelService.GetAsync(productList.Data.SubModelId.Value);
+            if (subModelList.ResultStatus == ResultStatus.Success &&
                productList.ResultStatus == ResultStatus.Success &&
+               brandList.ResultStatus == ResultStatus.Success &&
                modelList.ResultStatus == ResultStatus.Success)
             {
                 var ProductUpdateViewModel = Mapper.Map<ProductUpdateViewModel>(productList.Data);
+                ProductUpdateViewModel.BrandId = model.Data.Model.BrandId;
                 ProductUpdateViewModel.Models = modelList.Data.Models;
-                ProductUpdateViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
-                ProductUpdateViewModel.UserWithRolesModel= new UserWithRolesViewModel
+                ProductUpdateViewModel.SubModels = subModelList.Data.SubModels;
+                ProductUpdateViewModel.Brands = brandList.Data.Brands;
+                ProductUpdateViewModel.UserWithRolesModel = new UserWithRolesViewModel
                 {
                     User = user,
                     Roles = roles
@@ -230,6 +256,9 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             ModelState.Remove("UserWithRolesModel");
             ModelState.Remove("tableType");
+            ModelState.Remove("Brands");
+            ModelState.Remove("Product");
+            ModelState.Remove("ProductName");
             if (ModelState.IsValid)
             {
                 var ProductUpdateDto = Mapper.Map<ProductUpdateDto>(ProductUpdateViewModel);
@@ -257,14 +286,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     ModelState.AddModelError("", result.Message);
                 }
             }
-            var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
+            var subModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
             ProductUpdateViewModel.Models = modelList.Data.Models;
-            ProductUpdateViewModel.ProductSubGroups = productSubGroupList.Data.ProductSubGroups;
+            ProductUpdateViewModel.SubModels = subModelList.Data.SubModels;
             var user = await UserManager.GetUserAsync(HttpContext.User);
             var roles = await UserManager.GetRolesAsync(user);
-            ProductUpdateViewModel.UserWithRolesModel= new UserWithRolesViewModel
+            ProductUpdateViewModel.UserWithRolesModel = new UserWithRolesViewModel
             {
                 User = user,
                 Roles = roles
@@ -329,10 +358,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 var result = await _productService.DeleteAsync(productId, LoggedInUser.UserName);
                 var productResult = JsonSerializer.Serialize(result.Data);
                 await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-NotificationMessageTypes.Deleted ,
+NotificationMessageTypes.Deleted,
 TableNamesConstants.Sales,
 LoggedInUser.UserName),
-NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted ), userId: LoggedInUser.Id
+NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
 );
                 return Json(productResult);
             }
@@ -397,6 +426,25 @@ LoggedInUser.UserName),
 NotificationMessageService.GetTitle(NotificationMessageTypes.UndoDeleted), userId: LoggedInUser.Id
 );
             return Json(undoDeleteProductResult);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LoadModels(int brandId)
+        {
+            // paymentTypeId'ye göre ilgili AssociatedInstitutions'ları asenkron olarak getir
+            var models = await _modelService.GetAllByBrand(brandId);
+
+            // associatedInstitutions listesini PartialView olarak dön
+            return PartialView("_ModelListPartial", models.Data.Models);
+        }
+        [HttpGet]
+        public async Task<IActionResult> LoadSubModels(int selectedModelId)
+        {
+            // paymentTypeId'ye göre ilgili AssociatedInstitutions'ları asenkron olarak getir
+            var models = await _subModelService.GetAllByModel(selectedModelId);
+
+            // associatedInstitutions listesini PartialView olarak dön
+            return PartialView("_SubModelListPartial", models.Data.SubModels);
         }
 
     }

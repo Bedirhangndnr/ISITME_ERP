@@ -55,61 +55,61 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                    .OnDelete(DeleteBehavior.SetNull);
             builder.ToTable("Sales");
 
-            builder.HasData(
-                new Sale
-                {
-                    Id = 1,
-                    IsActive = true,
-                    IsDeleted = false,
-                    AmountOfSgk = 10,
-                    CreatedByName = "Test Verisi",
-                    IsInvoiceDue = false,
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Amount = 500,
-                    SaleTypeId = 1,
-                    SaleStatusId = 1,
-                    CustomerId = 1,
-                    ProductId = 1,
-                    EmployeeId = 1,
-                }
-                //, new Sale
-                //{
-                //    Id = 2,
-                //    ProductId = 2,
-                //    IsActive = true,
-                //    AmountOfSgk = 10,
-                //    IsDeleted = false,
-                //    CreatedByName = "Test Verisi",
-                //    IsInvoiceDue = false,
-                //    CreatedDate = DateTime.Now,
-                //    ModifiedByName = "Test Verisi",
-                //    ModifiedDate = DateTime.Now,
-                //    Amount = 200,
-                //    SaleTypeId = 1,
-                //    SaleStatusId = 1,
-                //    CustomerId = 1,
-                //    EmployeeId = 2,
-                //}, new Sale
-                //{
-                //    Id = 3,
-                //    ProductId = 3,
-                //    IsActive = true,
-                //    IsInvoiceDue = false,
-                //    AmountOfSgk = 10,
-                //    IsDeleted = false,
-                //    CreatedByName = "Test Verisi",
-                //    CreatedDate = DateTime.Now,
-                //    ModifiedByName = "Test Verisi",
-                //    ModifiedDate = DateTime.Now,
-                //    Amount = 500,
-                //    SaleTypeId = 1,
-                //    SaleStatusId = 1,
-                //    CustomerId = 1,
-                //    EmployeeId = 2,
-                //}
-            );
+            //builder.HasData(
+            //    new Sale
+            //    {
+            //        Id = 1,
+            //        IsActive = true,
+            //        IsDeleted = false,
+            //        AmountOfSgk = 10,
+            //        CreatedByName = "Test Verisi",
+            //        IsInvoiceDue = false,
+            //        CreatedDate = DateTime.Now,
+            //        ModifiedByName = "Test Verisi",
+            //        ModifiedDate = DateTime.Now,
+            //        Amount = 500,
+            //        SaleTypeId = 1,
+            //        SaleStatusId = 1,
+            //        CustomerId = 1,
+            //        ProductId = 1,
+            //        EmployeeId = 1,
+            //    }
+            //    //, new Sale
+            //    //{
+            //    //    Id = 2,
+            //    //    ProductId = 2,
+            //    //    IsActive = true,
+            //    //    AmountOfSgk = 10,
+            //    //    IsDeleted = false,
+            //    //    CreatedByName = "Test Verisi",
+            //    //    IsInvoiceDue = false,
+            //    //    CreatedDate = DateTime.Now,
+            //    //    ModifiedByName = "Test Verisi",
+            //    //    ModifiedDate = DateTime.Now,
+            //    //    Amount = 200,
+            //    //    SaleTypeId = 1,
+            //    //    SaleStatusId = 1,
+            //    //    CustomerId = 1,
+            //    //    EmployeeId = 2,
+            //    //}, new Sale
+            //    //{
+            //    //    Id = 3,
+            //    //    ProductId = 3,
+            //    //    IsActive = true,
+            //    //    IsInvoiceDue = false,
+            //    //    AmountOfSgk = 10,
+            //    //    IsDeleted = false,
+            //    //    CreatedByName = "Test Verisi",
+            //    //    CreatedDate = DateTime.Now,
+            //    //    ModifiedByName = "Test Verisi",
+            //    //    ModifiedDate = DateTime.Now,
+            //    //    Amount = 500,
+            //    //    SaleTypeId = 1,
+            //    //    SaleStatusId = 1,
+            //    //    CustomerId = 1,
+            //    //    EmployeeId = 2,
+            //    //}
+            //);
         }
     }
 }

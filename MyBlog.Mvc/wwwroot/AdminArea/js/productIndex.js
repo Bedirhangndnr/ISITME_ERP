@@ -40,12 +40,9 @@
                                 $.each(productListWithNamesDto.Data.ProductListWithRelatedTables.$values,
                                     function (index, product) {
                                         const newTableRow = dataTable.row.add([
-                                            product.Id,
-                                            product.ProductName,
                                             product.SerialNumber,
                                             product.ModelTitle,
-                                            product.ProductSubGroupTitle == null ? "Alt Kategori Bulunmuyor" : product.ProductSubGroupTitle,
-                                            product.Note == null ? "Not Eklenmemiş" : (product.Note.length > 75 ? product.Note.substring(0, 75) : product.Note),
+                                            product.BrandTitle,
                                             product.Price != 0 ? product.Price : '<span style="color: red;">Fiyat Girilmemiş</span>',
 
                                             //`<img src="/img/${product.Picture}" alt="${product.UserName}" class="my-image-table" />`,

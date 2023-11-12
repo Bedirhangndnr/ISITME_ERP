@@ -1,6 +1,55 @@
 ﻿$(document).ready(function () {
 
 
+    var paymentTypesList = document.getElementById("paymentTypesList");
+    // İkinci select elementini seçiyoruz
+    var associatedInstitutionsList = document.getElementById("associatedInstitutionsList");
+    var subModelsList = document.getElementById("subModelsList");
+    var serialNumber = document.getElementById("serialNumber");
+    const isAdd = document.getElementById("isAdd").value;
+    if (isAdd == "true") {
+        serialNumber.value = "";
+    }
+    // İlk select elementinin değeri değiştiğinde tetiklenecek olan fonksiyonu tanımlıyoruz
+    paymentTypesList.addEventListener("change", function () {
+        var selectedPaymentTypeId = parseInt(paymentTypesList.value);
+        var selectedPaymentTypeText = paymentTypesList.options[paymentTypesList.selectedIndex].text;
+
+        associatedInstitutionsList.innerHTML = ""; // associatedInstitutionsList'i temizle
+
+        if (selectedPaymentTypeText === "Peşin") {
+            var option = document.createElement("option");
+            option.value = "yok";
+            option.text = "Yok";
+            option.selected = true; // Seçili olarak işaretle
+            associatedInstitutionsList.appendChild(option);
+        } else {
+            $.ajax({
+                url: '/Admin/Product/LoadModels',
+                type: "GET",
+                data: { brandId: selectedPaymentTypeId },
+                success: function (result) {
+                    associatedInstitutionsList.innerHTML = result; // associatedInstitutionsList'i güncelle
+                }
+            });
+        }
+    });
+    associatedInstitutionsList.addEventListener("change", function () {
+        var selectedAssociatedInstitutionId = parseInt(associatedInstitutionsList.value);
+        var selectedAssociatedInstitutionText = associatedInstitutionsList.options[associatedInstitutionsList.selectedIndex].text;
+
+        subModelsList.innerHTML = ""; // associatedInstitutionsList'i temizle
+
+        $.ajax({
+            url: '/Admin/Product/LoadSubModels',
+            type: "GET",
+            data: { selectedModelId: selectedAssociatedInstitutionId },
+            success: function (result) {
+                subModelsList.innerHTML = result; // associatedInstitutionsList'i güncelle
+            }
+        });
+    });
+
     $(document).on('click',
         '.btn-delete',
         function (event) {

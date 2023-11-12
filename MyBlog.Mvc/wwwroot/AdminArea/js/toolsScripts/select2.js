@@ -65,6 +65,10 @@
         theme: 'bootstrap4',
         placeholder: "Ürün Grubu Seçiniz...",
         allowClear: true
+    }); $('#subModelsList').select2({
+        theme: 'bootstrap4',
+        placeholder: "Alt Model Seçiniz...",
+        allowClear: true
     });
     // Select2
 });

@@ -63,6 +63,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new SaleTypeMap());
             modelBuilder.ApplyConfiguration(new ChangeLogMap());
             modelBuilder.ApplyConfiguration(new ModuleMap());
+            modelBuilder.ApplyConfiguration(new SubModelMap());
             modelBuilder.ApplyConfiguration(new ProgramMap());
             modelBuilder.ApplyConfiguration(new SubProgramMap());
             modelBuilder.ApplyConfiguration(new AssociatedInstitutionMap());
@@ -86,6 +87,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Context
         public DbSet<EmployeeType> EmployeeTypes{ get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Model> Models { get; set; }
+        public DbSet<SubModel> SubModels { get; set; }
         public DbSet<AppointmentType> AppointmentTypes { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<ProductGroup> ProductGroups { get; set; }

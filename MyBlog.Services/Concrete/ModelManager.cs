@@ -61,6 +61,23 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ModelListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Model"));
 
         }
+        public async Task<IDataResult<ModelListDto>> GetAllByBrand(int brandId)
+        {
+            var models = await UnitOfWork.Models.GetAllAsync(c => !c.IsDeleted && c.IsActive && c.BrandId == brandId);
+            var modelsWRelated = await UnitOfWork.Models.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.BrandId == brandId);
+            if (models.Count > -1)
+            {
+                return new DataResult<ModelListDto>(ResultStatus.Success, new ModelListDto
+                {
+                    ModelListWithRelatedTables = modelsWRelated,
+                    Models = models,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<ModelListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Model"));
+
+        }
+     
         public async Task<IDataResult<ModelUpdateDto>> GetModelUpdateDtoAsync(int ModelId)
         {
             var result = await UnitOfWork.Models.AnyAsync(c => c.Id == ModelId);
@@ -221,5 +238,7 @@ namespace MyBlog.Services.Concrete
                 return new DataResult<int>(ResultStatus.Error, -1, $"Beklenmeyen bir hata ile karşılaşıldı.");
             }
         }
+
+       
     }
 }

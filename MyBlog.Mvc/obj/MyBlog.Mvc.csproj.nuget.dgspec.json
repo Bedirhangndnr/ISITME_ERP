@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj": {}
+    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj": {}
   },
   "projects": {
     "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Data\\MyBlog.Data.csproj": {
@@ -151,14 +151,14 @@
         }
       }
     },
-    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj": {
+    "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj",
         "projectName": "MyBlog.Mvc",
-        "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
+        "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\MyBlog.Mvc.csproj",
         "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\obj\\",
+        "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.mvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",

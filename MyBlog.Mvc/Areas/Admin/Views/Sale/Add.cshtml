@@ -83,7 +83,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Ürün</span>
-                                </div><select id="productsList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
+                                </div><select id="productsList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","SerialNumber"))">
                                     <option></option>
                                 </select>
                                 <span asp-validation-for="ProductId" class="text-danger"></span>

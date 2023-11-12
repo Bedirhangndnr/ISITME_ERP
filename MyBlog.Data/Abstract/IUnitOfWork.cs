@@ -26,6 +26,7 @@ namespace MyBlog.Data.Abstract
         INotificationRepository Notifications { get; }
         IBrandRepository Brands{ get; }
         IModelRepository Models { get; }
+        ISubModelRepository SubModels { get; }
         IProductSubGroupRepository ProductSubGroups{ get; }
         IProductGroupRepository ProductGroups{ get; }
         ISaleTypeRepository SaleTypes{ get; }

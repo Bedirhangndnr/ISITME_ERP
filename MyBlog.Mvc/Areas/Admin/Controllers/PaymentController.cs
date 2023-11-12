@@ -257,7 +257,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var associatedInstitutions = await _associatedInstitutionService.GetAllByNonDeletedAndActiveAsync(0, paymentTypeId);
 
             // associatedInstitutions listesini PartialView olarak dön
-            return PartialView("_AssociatedInstitutionsListPartial", associatedInstitutions.Data.AssociatedInstitutions);
+            return PartialView("_AssociatedInstitutionsListPartialXXXXXX", associatedInstitutions.Data.AssociatedInstitutions);
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.PaymentUpdate}")]
         [HttpDelete]

@@ -12,7 +12,7 @@
 @await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
 {
         Depth = 2,
-        Controller = "Product",
+        Controller = "ProductAccessory",
         ControllerTr = "Ürünler",
         Action = "Yok",
         ActionTR = "Yok",
@@ -35,69 +35,55 @@
                 <table class="table table-bordered" id="productsTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Adı</th>
-                        <th>Seri Numarası</th>
-                        <th>Geliştiriciye Mesaj</th>
-                        <th>Alt Grup Adı</th>
-                        <th>Not</th>
-                        <th>Fiyat</th>
-                        <th>Stok</th>
-                        <th>İşlem</th>
+                            <th>Seri No</th>
+                            <th>Marka</th>
+                            <th>Model</th>
+                            <th>Fiyat</th>
+                            <th>İşlem</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>ID</th>
-                        <th>Adı</th>
-                        <th>Seri Numarası</th>
-                        <th>Geliştiriciye Mesaj</th>
-                        <th>Alt Grup Adı</th>
-                        <th>Not</th>
-                        <th>Fiyat</th>
-                        <th>Stok</th>
-                        <th>İşlem</th>
+                            <th>Seri no</th>
+                            <th>Marka</th>
+                            <th>Model</th>
+                            <th>Fiyat</th>
+                            <th>İşlem</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     @foreach (var product in Model.ProductListWithRelatedTables)
                     {
-                        <tr name="@product.Id">
-                            <td>@product.Id</td>
-                            <td>@product.ProductName </td>
-                            <td>@product.SerialNumber </td>
-                            <td>@product.ModelTitle</td>
-                            <td>@product.ProductSubGroupTitle</td>
-                            <td>@product.Note</td>
-                            <td>
-                                <span id="priceSpan">@{
-                                                         if (product.Price != 0)
-                                                         {
-                                                             @product.Price
-                                                             ;
-                                                         }
-                                                         else
-                                                         {
-                                                             <span style="color: red;">Fiyat Girilmemiş</span>
-                                                         }
-                                                     }</span>
-                            </td>
-
-                            <td>1 | konuşulacak</td>
-
-
-
-                            <td>
-                                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                                       {
-                                           Id=product.Id,
-                                           InMainPage=0,
-                                           TableType=ViewBag.tableType,
-                                           Action="Update",
-                                           Controller="Product"
-                                       })
-                            </td>
-                        </tr>
+                            <tr name="@product.Id">
+                                <td>@product.SerialNumber</td>
+                                <td>@product.BrandTitle </td>
+                                <td>@product.ModelTitle</td>
+                                <td>
+                                    <span id="priceSpan">
+                                        @{
+                                            if (product.Price != 0)
+                                            {
+                                                @product.Price
+                                                ;
+                                            }
+                                            else
+                                            {
+                                                <span style="color: red;">Fiyat Girilmemiş</span>
+                                            }
+                                        }
+                                    </span>
+                                </td>
+                                <td>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                                        {
+                                        Id=product.Id,
+                                        InMainPage=0,
+                                        TableType=ViewBag.tableType,
+                                        Action="Update",
+                                        Controller="Product"
+                                        })
+                                </td>
+                            </tr>
                     }
                     </tbody>
                 </table>

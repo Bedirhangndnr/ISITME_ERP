@@ -53,19 +53,46 @@ namespace MyBlog.Services.Concrete
             }
         }
 
+        public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAccessoryAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id=0)
+        {
+            IList<ProductListWithRelatedTables> productsWithRelated;
+            IList<Product> products;
+            if (getSolds == true)
+            {
+                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.IsProduct==false);
+                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && c.IsProduct == false);
+            }
+            else
+            {
+                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.IsProduct == false);
+                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && c.IsProduct == false && (!c.IsSold || c.Id == Id));
+            }
+
+            if (products.Count > -1)
+            {
+                return new DataResult<ProductListDto>(ResultStatus.Success, new ProductListDto
+                {
+                    Products = products,
+                    ProductListWithRelatedTables = productsWithRelated,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
+            
+        }
         public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id=0)
         {
             IList<ProductListWithRelatedTables> productsWithRelated;
             IList<Product> products;
             if (getSolds == true)
             {
-                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
+                productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.IsProduct == true);
                 products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive);
             }
             else
             {
                 productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive );
-                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && (!c.IsSold || c.Id == Id));
+                products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive && (!c.IsSold || c.Id == Id) && c.IsProduct == true);
             }
 
             if (products.Count > -1)
@@ -99,6 +126,7 @@ namespace MyBlog.Services.Concrete
             var product = Mapper.Map<Product>(ProductAddDto);
             product.CreatedByName = createdByName;
             product.ModifiedByName = createdByName;
+            product.ProductName = "";
             var addedProduct = await UnitOfWork.Products.AddAsync(product);
             await UnitOfWork.SaveAsync();
             return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
@@ -111,6 +139,7 @@ namespace MyBlog.Services.Concrete
             var oldProduct = await UnitOfWork.Products.GetAsync(c => c.Id == ProductUpdateDto.Id);
             var product = Mapper.Map<ProductUpdateDto, Product>(ProductUpdateDto, oldProduct);
             product.ModifiedByName = modifiedByName;
+            product.ProductName = "";
             var updatedProduct = await UnitOfWork.Products.UpdateAsync(product);
             await UnitOfWork.SaveAsync();
             return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto

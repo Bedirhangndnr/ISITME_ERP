@@ -29,20 +29,6 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
 
             builder.ToTable("Brands");
 
-            builder.HasData(
-                new Brand
-                {
-                    Id = 1,
-                    IsActive = true,
-                    IsDeleted = false,
-                    CreatedByName = "Test Verisi",
-                    CreatedDate = DateTime.Now,
-                    ModifiedByName = "Test Verisi",
-                    ModifiedDate = DateTime.Now,
-                    Description = "TEST",
-                    Title = "Brand Title Test",
-                }
-            );
         }
     }
 }

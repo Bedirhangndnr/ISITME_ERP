@@ -28,6 +28,7 @@ namespace MyBlog.Entities.Dtos.ProductDtos
         [DisplayName("Aktif Mi?")]
         [Required(ErrorMessage = "{0} Boş Olmamalıdır...")]
         public bool IsActive { get; set; } = true;
+        public bool? IsProduct { get; set; } = true;
         [DisplayName("Satıldı Mı")]
         public bool IsSold { get; set; } = false;
         [DisplayName("Ürün Adı")]
@@ -42,8 +43,8 @@ namespace MyBlog.Entities.Dtos.ProductDtos
         public string SerialNumber { get; set; }
         [DisplayName("Model")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
-        public int? ProductSubGroupId { get; set; }
-        public ProductSubGroup? ProductSubGroup { get; set; }
+        public int? SubModelId { get; set; }
+        public SubModel? SubModel { get; set; }
         [DisplayName("Geliştiriciye Mesaj")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int ModelId { get; set; }

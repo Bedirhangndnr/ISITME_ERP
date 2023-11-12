@@ -12,16 +12,18 @@ namespace MyBlog.Entities.Dtos.ProductDtos
     {
         public int Id { get; set; }
         public int Price { get; set; }
-        public int ProductSubGroupId { get; set; }
+        public int SubModelId { get; set; }
         public bool IsSold { get; set; }
+        public int Quantity { get; set; }
 
-        public string ProductSubGroupTitle { get; set; }
+        public string SubModelTitle { get; set; }
         public int ProductCategoryId { get; set; }
         public string ProductCategoryTitle { get; set; }
         public string ProductName { get; set; }
         public string SerialNumber { get; set; }
         public int ModelId { get; set; }
         public string ModelTitle { get; set; }
+        public string BrandTitle { get; set; }
         public string Note { get; set; }
         public bool IsActive { get; set; }
     }

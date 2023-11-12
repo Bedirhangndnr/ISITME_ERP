@@ -55,7 +55,7 @@ namespace MyBlog.Mvc
                 typeof(ProductGroupProfile), typeof(ProductSubGroupProfile), typeof(ProductProfile),
                 typeof(SaleProfile), typeof(ProgramsProfile), typeof(AssociatedInstitutionsProfile),
                 typeof(AppointmentProfile), typeof(ExpenseProfile), typeof(OutPaymentProfile),
-                typeof(OutPaymentDetailProfile), typeof(ModelProfile)); // Eklendi
+                typeof(OutPaymentDetailProfile), typeof(ModelProfile), typeof(SubModelProfile)); // Eklendi
 
             var builder = WebApplication.CreateBuilder();
 

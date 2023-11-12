@@ -54,6 +54,7 @@ namespace MyBlog.Services.Extensions
             serviceCollection.AddScoped<INotificationService, NotificationManager>();
             serviceCollection.AddScoped<IBrandService, BrandManager>();
             serviceCollection.AddScoped<IModelService, ModelManager>();
+            serviceCollection.AddScoped<ISubModelService, SubModelManager>();
             serviceCollection.AddScoped<ISaleStatusService, SaleStatusManager>();
             serviceCollection.AddScoped<ISaleTypeService, SaleTypeManager>();
             serviceCollection.AddScoped<IProductGroupService, ProductGroupManager>();

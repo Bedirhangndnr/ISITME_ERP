@@ -47,7 +47,21 @@ namespace MyBlog.Services.Concrete
         }
         public async Task<IDataResult<BrandListDto>> GetAllByNonDeletedAndActiveAsync()
         {
-            var customers = await UnitOfWork.Brands.GetAllAsync(x => !x.IsDeleted);
+            var customers = await UnitOfWork.Brands.GetAllAsync(x => !x.IsDeleted && x.Note != "Accessory");
+            if (customers.Count > -1)
+            {
+                return new DataResult<BrandListDto>(ResultStatus.Success, new BrandListDto
+                {
+                    Brands = customers,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<BrandListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Marka"));
+
+        }
+        public async Task<IDataResult<BrandListDto>> GetAllByNonDeletedAndActiveAccessoryAsync()
+        {
+            var customers = await UnitOfWork.Brands.GetAllAsync(x => !x.IsDeleted && x.Note=="Accessory");
             if (customers.Count > -1)
             {
                 return new DataResult<BrandListDto>(ResultStatus.Success, new BrandListDto

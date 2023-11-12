@@ -1,0 +1,8 @@
+﻿@using MyBlog.Entities.Concrete;
+@model IList<SubModel>
+
+<option value="">Seçiniz</option>
+@foreach (var subModel_ in Model)
+{
+    <option value="@subModel_.Id">@subModel_.Title</option>
+}
