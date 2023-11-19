@@ -37,7 +37,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     LastName = x.LastName,
                     BirthDate = x.BirthDate,
                     CreatedDate = x.CreatedDate
-                });
+                }).OrderBy(x=> x.CreatedDate);
 
             return await query.ToListAsync();
         }

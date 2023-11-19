@@ -7,7 +7,6 @@ using AutoMapper;
 using MyBlog.Data.Abstract;
 using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos.SaleDtos;
-using MyBlog.Entities.Dtos.SaleDtos;
 using MyBlog.Services.Abstract;
 using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Results;
@@ -82,6 +81,36 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
 
         }
+        public async Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveByCustomerIdAsync(bool isSuperAdmin, int customerId)
+        {
+            IList<SaleListWithRelatedTables> saleListWithRelatedTables;
+            if (isSuperAdmin)
+            {
+                saleListWithRelatedTables = await UnitOfWork.Sales.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.CustomerId == customerId);
+            }
+            else
+            {
+                var today = DateTime.Today;
+                var lastMonth = today.AddMonths(-1);
+
+                saleListWithRelatedTables = await UnitOfWork.Sales.GetAllWithNamesAsync(c =>
+                    !c.IsDeleted &&
+                    c.IsActive &&
+                    c.CreatedDate >= lastMonth &&
+                    c.CustomerId == customerId);
+            }
+            if (saleListWithRelatedTables.Count > -1)
+            {
+                return new DataResult<SaleListDto>(ResultStatus.Success, new SaleListDto
+                {
+                    SaleListWithRelatedTables = saleListWithRelatedTables,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
+
+        }
+
 
         public async Task<IDataResult<SaleListDto>> GetAllAsync()
         {
@@ -101,6 +130,7 @@ namespace MyBlog.Services.Concrete
             var Sale = Mapper.Map<Sale>(SaleAddDto);
             Sale.CreatedByName = createdByName;
             Sale.ModifiedByName = createdByName;
+            Sale.IsActive = true;
             var addedSale = await UnitOfWork.Sales.AddAsync(Sale);
             await UnitOfWork.SaveAsync();
             return new DataResult<SaleDto>(ResultStatus.Success, new SaleDto
@@ -195,7 +225,7 @@ namespace MyBlog.Services.Concrete
                 if (isRestOfTheMonth)
                 {
                     var lastMonth = DateTime.Now.AddMonths(-1);
-                    salesCount = await UnitOfWork.Sales.CountAsync(s=>s.CreatedDate >= lastMonth);
+                    salesCount = await UnitOfWork.Sales.CountAsync(s => s.CreatedDate >= lastMonth);
                 }
                 else
                 {

@@ -150,3 +150,7 @@ color:black;
     margin: 0 auto;
 }
 
+.form-row {
+    display: flex;
+    justify-content: space-between; /* İki div arasında eşit boşluk bırakır */
+}

@@ -92,7 +92,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
             {
                 Appointment = addedAppointment,
-            }, Messages.General.GiveMessage("xxKx", "Randevu", "eklendi."));
+            }, Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", "eklendi."));
         }
         public async Task<IResult> UpdateAsync(AppointmentUpdateDto AppointmentUpdateDto, string modifiedByName)
         {
@@ -104,7 +104,7 @@ namespace MyBlog.Services.Concrete
             return new DataResult<AppointmentDto>(ResultStatus.Success, new AppointmentDto
             {
                 Appointment = updatedAppointment,
-            }, Messages.General.GiveMessage("xxKx", "Randevu", "Güncellendi."));
+            }, Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", "Güncellendi."));
         }
         public async Task<IDataResult<AppointmentListDto>> GetAllByDeletedAsync()
         {
@@ -148,14 +148,14 @@ namespace MyBlog.Services.Concrete
                 {
                     Appointment = deletedAppointment,
                     ResultStatus = ResultStatus.Success,
-                    Message = Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.DeletedSuccess)
+                    Message = Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", MessagesConstants.DeletedSuccess)
 
-                }, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.DeletedSuccess));
+                }, Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", MessagesConstants.DeletedSuccess));
             }
             return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
             {
                 Appointment = null,
-            }, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.DeletedError));
+            }, Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", MessagesConstants.DeletedError));
         }
 
         public async Task<IResult> HardDeleteAsync(int AppointmentId)
@@ -165,7 +165,7 @@ namespace MyBlog.Services.Concrete
             {
                 await UnitOfWork.Appointments.DeleteAsync(appointment);
                 await UnitOfWork.SaveAsync();
-                return new Result(ResultStatus.Success, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.HardDeletedSuccess));
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", MessagesConstants.HardDeletedSuccess));
             }
             return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Randevu"));
         }
@@ -233,8 +233,8 @@ namespace MyBlog.Services.Concrete
                 {
                     Appointment = deletedAppointment,
                     ResultStatus = ResultStatus.Success,
-                    Message = Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.UpdateSuccess)
-                }, Messages.General.GiveMessage(appointment.Title, "Randevu", MessagesConstants.UpdateError));
+                    Message = Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", MessagesConstants.UpdateSuccess)
+                }, Messages.General.GiveMessage(appointment.Date.ToShortDateString().ToString(), "Tarihli Randevu", MessagesConstants.UpdateError));
             }
             return new DataResult<AppointmentDto>(ResultStatus.Error, new AppointmentDto
             {

@@ -18,79 +18,79 @@
 
                 }
             },
-            {
-                text: 'Yenile',
-                className: 'btn btn-warning',
-                action: function (e, dt, node, config) {
-                    $.ajax({
-                        type: 'GET',
-                        data: { tableType: tableType },
-                        url: '/Admin/Customer/GetAllCustomers/',
-                        contentType: "application/json",
-                        beforeSend: function () {
-                            $('#customersTable').hide();
-                            $('.spinner-border').show();
-                        },
-                        success: function (data) {
+            //{
+            //    text: 'Yenile',
+            //    className: 'btn btn-warning',
+            //    action: function (e, dt, node, config) {
+            //        $.ajax({
+            //            type: 'GET',
+            //            data: { tableType: tableType },
+            //            url: '/Admin/Customer/GetAllCustomers/',
+            //            contentType: "application/json",
+            //            beforeSend: function () {
+            //                $('#customersTable').hide();
+            //                $('.spinner-border').show();
+            //            },
+            //            success: function (data) {
 
-                            if (data === null) {
-                                $('.spinner-border').hide();
-                                $('#customersTable').fadeIn(1400);
-                            }
-                            else {
-                                const customerListDto = jQuery.parseJSON(data);
-                                dataTable.clear();
-                                console.log(customerListDto);
-                                if (customerListDto.Data.ResultStatus === 0) {
-                                    $.each(customerListDto.Data.CustomersListWithRelatedTables , function (index, customer) {
-                                        const sales = [];
-                                        for (let i = 0; i < customer.Sales.length; i++) {
-                                            const sale = customer.Sales[i];
+            //                if (data === null) {
+            //                    $('.spinner-border').hide();
+            //                    $('#customersTable').fadeIn(1400);
+            //                }
+            //                else {
+            //                    const customerListDto = jQuery.parseJSON(data);
+            //                    dataTable.clear();
+            //                    console.log(customerListDto);
+            //                    if (customerListDto.Data.ResultStatus === 0) {
+            //                        $.each(customerListDto.Data.CustomersListWithRelatedTables , function (index, customer) {
+            //                            const sales = [];
+            //                            for (let i = 0; i < customer.Sales.length; i++) {
+            //                                const sale = customer.Sales[i];
                                             
-                                            sales.push(`<span class="fas fa-arrow-right"></span> ${sale.Amount} TL Tutarında Satış</p>`);
-                                        }
-                                        const salesHtml = sales.join('');
+            //                                sales.push(`<span class="fas fa-arrow-right"></span> ${sale.Amount} TL Tutarında Satış</p>`);
+            //                            }
+            //                            const salesHtml = sales.join('');
 
-                                        const newTableRow = dataTable.row.add([
-                                            customer.Id,
-                                            customer.FirstName,
-                                            customer.LastName,
-                                            customer.Phone,
-                                            customer.Note == null ? "Hakkında Kısmı Eklenmemiş" : (customer.Note.length > 100 ? customer.Note.substring(0, 100) : customer.Note),
-                                            salesHtml, // Satışları burada ekleyin
-                                            `
-                                                <div class="form-group row justify-content-center">
-                                                <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" href="/Admin/Customer/Update?customerId=${customer.Id}&tableType=${tableType}"><span class="fas fa-edit"></span></a>
-                                                <button class="btn btn-danger btn-sm btn-delete" data-id="${customer.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customer.Id + '"><span class="fas fa-undo"></span></a>' : ''}
-                                                </div>
-                                            `
-                                        ]).node();
-                                        const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${customer.Id}`);
-                                    });
+            //                            const newTableRow = dataTable.row.add([
+            //                                customer.Id,
+            //                                customer.FirstName,
+            //                                customer.LastName,
+            //                                customer.Phone,
+            //                                customer.Note == null ? "Hakkında Kısmı Eklenmemiş" : (customer.Note.length > 100 ? customer.Note.substring(0, 100) : customer.Note),
+            //                                salesHtml, // Satışları burada ekleyin
+            //                                `
+            //                                    <div class="form-group row justify-content-center">
+            //                                    <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" href="/Admin/Customer/Update?customerId=${customer.Id}&tableType=${tableType}"><span class="fas fa-edit"></span></a>
+            //                                    <button class="btn btn-danger btn-sm btn-delete" data-id="${customer.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+            //                                    ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customer.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+            //                                    </div>
+            //                                `
+            //                            ]).node();
+            //                            const jqueryTableRow = $(newTableRow);
+            //                            jqueryTableRow.attr('name', `${customer.Id}`);
+            //                        });
 
-                                    dataTable.draw();
-                                    $('.spinner-border').hide();
-                                    $('#customersTable').fadeIn(1400);
+            //                        dataTable.draw();
+            //                        $('.spinner-border').hide();
+            //                        $('#customersTable').fadeIn(1400);
 
 
-                                } else {
-                                    toastr.error(`${customerListDto.Data.Message}`, 'İşlem Başarısız!');
-                                    $('.spinner-border').hide();
-                                    $('#customersTable').fadeIn(1400);
-                                }
-                            }
-                        },
-                        error: function (err) {
-                            console.log(err);
-                            $('.spinner-border').hide();
-                            $('#customersTable').fadeIn(1000);
-                            toastr.error(`${err.responseText}`, 'Hata!');
-                        }
-                    });
-                }
-            },
+            //                    } else {
+            //                        toastr.error(`${customerListDto.Data.Message}`, 'İşlem Başarısız!');
+            //                        $('.spinner-border').hide();
+            //                        $('#customersTable').fadeIn(1400);
+            //                    }
+            //                }
+            //            },
+            //            error: function (err) {
+            //                console.log(err);
+            //                $('.spinner-border').hide();
+            //                $('#customersTable').fadeIn(1000);
+            //                toastr.error(`${err.responseText}`, 'Hata!');
+            //            }
+            //        });
+            //    }
+            //},
 
             {
                 extend: 'excelHtml5',

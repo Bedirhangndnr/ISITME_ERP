@@ -17,11 +17,11 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [DisplayName("Ad")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(100, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(5, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        [MinLength(1, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string FirstName { get; set; }
         [DisplayName("Soyad")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MinLength(20, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        [MinLength(1, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string LastName { get; set; }
         [DisplayName("Address")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
@@ -30,14 +30,11 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         public string Address { get; set; }
 
         [DisplayName("E-Posta")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Email { get; set; }
         [DisplayName("Raporun Çıktığı Hastane")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(3, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
-        public string HospitalOfReport { get; set; }
+        public string? HospitalOfReport { get; set; }
         [DisplayName("TC")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]

@@ -125,6 +125,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Add(AppointmentAddViewModel appointmentAddViewModel, string tableType)
         {
             ModelState.Remove("tableType");
+            ModelState.Remove("Title");
             if (ModelState.IsValid)
             {
                 var appointmentAddDto = Mapper.Map<AppointmentAddDto>(appointmentAddViewModel);
@@ -132,10 +133,10 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-NotificationMessageTypes.Added,
-TableNamesConstants.Appointments,
-LoggedInUser.UserName),
-NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+                        NotificationMessageTypes.Added,
+                        TableNamesConstants.Appointments,
+                        LoggedInUser.UserName),
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
 );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
@@ -184,22 +185,23 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.AppointmentCreate}")]
         [HttpPost]
-        public async Task<IActionResult> Update(AppointmentUpdateViewModel AppointmentUpdateViewModel, string tableType)
+        public async Task<IActionResult> Update(AppointmentUpdateViewModel appointmentUpdateViewModel, string tableType)
         {
             ModelState.Remove("tableType");
+            ModelState.Remove("Title");
             if (ModelState.IsValid)
             {
-                var AppointmentUpdateDto = Mapper.Map<AppointmentUpdateDto>(AppointmentUpdateViewModel);
+                var appointmentUpdateDto = Mapper.Map<AppointmentUpdateDto>(appointmentUpdateViewModel);
 
-                var result = await _appointmentService.UpdateAsync(AppointmentUpdateDto, LoggedInUser.UserName);
+                var result = await _appointmentService.UpdateAsync(appointmentUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-NotificationMessageTypes.Updated,
-TableNamesConstants.Appointments,
-LoggedInUser.UserName),
-NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
-);
+                        NotificationMessageTypes.Updated,
+                        TableNamesConstants.Appointments,
+                        LoggedInUser.UserName),
+                        NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: LoggedInUser.Id
+                        );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"
@@ -208,7 +210,7 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: L
                 } 
                 else
                 {
-                    _toastNotification.AddErrorToastMessage(AppointmentUpdateDto.Message, new ToastrOptions
+                    _toastNotification.AddErrorToastMessage(appointmentUpdateDto.Message, new ToastrOptions
                     {
                         Title = "Başarısız İşlem!"
                     });
@@ -218,15 +220,40 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Updated), userId: L
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
             var appointmentTypeList = await _appointmentTypeService.GetAllByNonDeletedAndActiveAsync();
-            AppointmentUpdateViewModel.Customers = customerList.Data.Customers;
-            AppointmentUpdateViewModel.Employees = employeeList.Data.Employees;
-            AppointmentUpdateViewModel.AppointmentTypes = appointmentTypeList.Data.AppointmentTypes;
-            return View(AppointmentUpdateViewModel);
+            appointmentUpdateViewModel.Customers = customerList.Data.Customers;
+            appointmentUpdateViewModel.Employees = employeeList.Data.Employees;
+            appointmentUpdateViewModel.AppointmentTypes = appointmentTypeList.Data.AppointmentTypes;
+            return View(appointmentUpdateViewModel);
 
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.EmployeeUpdate}")]
         [HttpDelete]
-        public async Task<IActionResult> DeleteFromUpdatePage(int appointmentId, string tableType)
+        [HttpPost]
+         public async Task<IActionResult> UpdateAppointmentStatus(int appointmentId, bool isMade)
+        {
+            var appointment = _appointmentService.GetAsync(appointmentId);
+            var appointmentUpdateDto = Mapper.Map<AppointmentUpdateDto>(appointment.Result.Data.Appointment);
+
+            if (appointment != null)
+            {
+                appointmentUpdateDto.IsMade= isMade;
+
+                var updateResult = await _appointmentService.UpdateAsync(appointmentUpdateDto, LoggedInUser.UserName);
+                if (updateResult.ResultStatus == ResultStatus.Success)
+                {
+                    return Json(new { success = true, message = "Randevu durumu başarıyla güncellendi." });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Güncelleme işlemi başarısız." });
+                }
+            }
+            else
+            {
+                return Json(new { success = false, message = "Randevu bulunamadı." });
+            }
+        }
+            public async Task<IActionResult> DeleteFromUpdatePage(int appointmentId, string tableType)
         {
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
             {

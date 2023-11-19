@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -15,9 +16,9 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         [DisplayName("Ad")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(100, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(5, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        [MinLength(1, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string FirstName { get; set; }
-        [DisplayName("SoyAd")]
+        [DisplayName("Soyad")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(25, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string LastName { get; set; }
@@ -33,19 +34,16 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         [MinLength(0, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string Phone { get; set; }
         [DisplayName("Raporun Çıktığı Hastane")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(3, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
-        public string HospitalOfReport { get; set; }
+        public string? HospitalOfReport { get; set; }
         [DisplayName("TC")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         [MinLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         public string TC { get; set; }
         [DisplayName("E-Posta")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [DisplayName("Address")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MinLength(10, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
@@ -59,7 +57,6 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         public int? CustomerReferanceId { get; set; }
         public IList<CustomerReferance>? CustomerReferances { get; set; }
         [DisplayName("İlgilenen Kişi")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int EmployeeId { get; set; }
         public IList<Employee>? Employees { get; set; }
         //[DisplayName("Ödeme")]

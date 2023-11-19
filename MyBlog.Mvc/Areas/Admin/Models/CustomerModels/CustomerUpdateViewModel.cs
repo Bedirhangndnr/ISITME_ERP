@@ -34,15 +34,12 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         [MinLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         public string Phone { get; set; }
         [DisplayName("E-Posta")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Email { get; set; }
 
         [DisplayName("Raporun Çıktığı Hastane")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(3, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
-        public string HospitalOfReport { get; set; }
+        public string? HospitalOfReport { get; set; }
         [DisplayName("TC")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]

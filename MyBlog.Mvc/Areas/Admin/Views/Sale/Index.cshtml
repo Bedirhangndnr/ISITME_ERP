@@ -5,7 +5,7 @@
 @model MyBlog.Entities.Dtos.SaleDtos.SaleListDto;
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Satışlar";
+    ViewBag.Title = ViewBag.customerName + " Satışlar";
     decimal totalSaleAmount = 0;
     decimal totalSaleCount = 0;
     var user = ViewBag.User;
@@ -82,6 +82,7 @@
                             <td>
                                 @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                                        {
+
                                            Id=sale.Id,
                                            InMainPage=0,
                                            TableType=ViewBag.tableType,

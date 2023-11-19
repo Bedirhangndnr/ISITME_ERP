@@ -90,67 +90,67 @@
                 }
             },
 
-            {
-                text: 'Yenile',
-                className: 'btn btn-warning',
-                action: function (e, dt, node, config) {
-                    $.ajax({
-                        type: 'GET',
-                        data: { tableType: tableType },
-                        url: '/Admin/Appointment/GetAllAppointments/',
-                        contentType: "application/json",
-                        beforeSend: function () {
-                            $('#appointmentsTable').hide();
-                            $('.spinner-border').show();
-                        },
-                        success: function (data) {
-                            const appointmentListWithNamesDto = jQuery.parseJSON(data);
-                            dataTable.clear();
-                            console.log(appointmentListWithNamesDto);
-                            if (appointmentListWithNamesDto.Data.ResultStatus === 0) {
-                                $.each(appointmentListWithNamesDto.Data.AppointmentListWithRelatedTables.$values,
-                                    function (index, appointment) {
-                                        const appointmentDate = new Date(appointment.Date);
-                                        const formattedDate = appointmentDate.toLocaleDateString();
-                                        const formattedTime = appointmentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            //{
+            //    text: 'Yenile',
+            //    className: 'btn btn-warning',
+            //    action: function (e, dt, node, config) {
+            //        $.ajax({
+            //            type: 'GET',
+            //            data: { tableType: tableType },
+            //            url: '/Admin/Appointment/GetAllAppointments/',
+            //            contentType: "application/json",
+            //            beforeSend: function () {
+            //                $('#appointmentsTable').hide();
+            //                $('.spinner-border').show();
+            //            },
+            //            success: function (data) {
+            //                const appointmentListWithNamesDto = jQuery.parseJSON(data);
+            //                dataTable.clear();
+            //                console.log(appointmentListWithNamesDto);
+            //                if (appointmentListWithNamesDto.Data.ResultStatus === 0) {
+            //                    $.each(appointmentListWithNamesDto.Data.AppointmentListWithRelatedTables.$values,
+            //                        function (index, appointment) {
+            //                            const appointmentDate = new Date(appointment.Date);
+            //                            const formattedDate = appointmentDate.toLocaleDateString();
+            //                            const formattedTime = appointmentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-                                        const newTableRow = dataTable.row.add([
-                                            appointment.Id,
-                                            formattedDate,
-                                            formattedTime,
-                                            appointment.CustomerName,
-                                            appointment.EmployeeName,
-                                            appointment.AppointmentTypeTitle,
-                                            appointment.Description,
-                                            appointment.IsMade ? "Evet" : "Hayır",
-                                            `
-                                                <div class="form-group row justify-content-center">
-                                                <button class="btn btn-danger btn-sm btn-delete" data-id="${appointment.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointment.Id + '"><span class="fas fa-undo"></span></a>' : ''}
-                                                 <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="${appointment.Id}" href="/Admin/Appointment/Update/${appointment.Id}?tableType=${tableType}"><span class="fas fa-edit"></span></a>
-                                                </div>
-                                            `
-                                        ]).node();
-                                        const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${appointment.Id}`);
-                                    });
-                                dataTable.draw();
-                                $('.spinner-border').hide();
-                                $('#appointmentsTable').fadeIn(1400);
-                                setRowColors();
-                            } else {
-                                toastr.error(`${appointmentListWithNamesDto.Data.Message}`, 'İşlem Başarısız!');
-                            }
-                        },
-                        error: function (err) {
-                            console.log(err);
-                            $('.spinner-border').hide();
-                            $('#appointmentsTable').fadeIn(1000);
-                            toastr.error(`${err.responseText}`, 'Hata!');
-                        }
-                    });
-                }
-            },
+            //                            const newTableRow = dataTable.row.add([
+            //                                appointment.Id,
+            //                                formattedDate,
+            //                                formattedTime,
+            //                                appointment.CustomerName,
+            //                                appointment.EmployeeName,
+            //                                appointment.AppointmentTypeTitle,
+            //                                appointment.Description,
+            //                                appointment.IsMade ? "Evet" : "Hayır",
+            //                                `
+            //                                    <div class="form-group row justify-content-center">
+            //                                    <button class="btn btn-danger btn-sm btn-delete" data-id="${appointment.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+            //                                    ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + appointment.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+            //                                     <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="${appointment.Id}" href="/Admin/Appointment/Update/${appointment.Id}?tableType=${tableType}"><span class="fas fa-edit"></span></a>
+            //                                    </div>
+            //                                `
+            //                            ]).node();
+            //                            const jqueryTableRow = $(newTableRow);
+            //                            jqueryTableRow.attr('name', `${appointment.Id}`);
+            //                        });
+            //                    dataTable.draw();
+            //                    $('.spinner-border').hide();
+            //                    $('#appointmentsTable').fadeIn(1400);
+            //                    setRowColors();
+            //                } else {
+            //                    toastr.error(`${appointmentListWithNamesDto.Data.Message}`, 'İşlem Başarısız!');
+            //                }
+            //            },
+            //            error: function (err) {
+            //                console.log(err);
+            //                $('.spinner-border').hide();
+            //                $('#appointmentsTable').fadeIn(1000);
+            //                toastr.error(`${err.responseText}`, 'Hata!');
+            //            }
+            //        });
+            //    }
+            //},
             {
                 extend: 'excelHtml5',
                 text: 'İndir | Excel',
@@ -232,21 +232,33 @@
             const todayAppointment = new Date(todayYear, todayMonth - 1, todayDay); // today ve appointment tarihlerini birleştir
 
             const appointmentDateTime = new Date(appointmentYear, appointmentMonth - 1, appointmentDay); // Appointment tarihini oluştur
+            // Tarihleri uygun formata dönüştürme fonksiyonu
+            function convertToDateObject(dateStr) {
+                var parts = dateStr.split(" ")[0].split(".");
+                return new Date(parts[2], parts[1] - 1, parts[0]);
+            }
 
+            // Tarihleri dönüştür
+            var formattedDate = convertToDateObject(date); // "18.11.2023 00:00:00"
+            var todayDate = convertToDateObject(formattedToday + " 00:00:00"); // "19.11.2023"
             if (appointmentDateTime.getTime() === todayAppointment.getTime()) {
                 if (time <= currentTime) { // bugün ama randevu saati geçmiş
                     $(rowNode).find('td:eq(1)').addClass('text-warning'); // Tarih sütununun rengini koyu turuncu yapmak için 'text-dark' sınıfını ekle
                     $(rowNode).find('td:eq(2)').addClass('text-warning'); // Saat sütununun rengini koyu turuncu yapmak için 'text-dark' sınıfını ekle
+                    $(rowNode).find('td:eq(0)').addClass('text-warning'); // Saat sütununun rengini koyu turuncu yapmak için 'text-dark' sınıfını ekle
                 } else { //bugün ve randevu saati geçmemiş
                     $(rowNode).find('td:eq(1)').addClass('text-success'); // Tarih sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
                     $(rowNode).find('td:eq(2)').addClass('text-success'); // Saat sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
+                    $(rowNode).find('td:eq(0)').addClass('text-success'); // Saat sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
                 }
-            } else if (compareDates(date, formattedToday) < 0) { //geçmiş günler
+            } else if (formattedDate > todayDate) { //geçmiş günler
                 $(rowNode).find('td:eq(1)').addClass('text-danger'); // Tarih sütununun rengini kırmızı yapmak için 'text-danger' sınıfını ekle
                 $(rowNode).find('td:eq(2)').addClass('text-danger'); // Saat sütununun rengini kırmızı yapmak için 'text-danger' sınıfını ekle
+                $(rowNode).find('td:eq(0)').addClass('text-danger'); // Saat sütununun rengini kırmızı yapmak için 'text-danger' sınıfını ekle
             } else { //gelecek günler 
                 $(rowNode).find('td:eq(1)').addClass('text-primary'); // Tarih sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
                 $(rowNode).find('td:eq(2)').addClass('text-primary'); // Saat sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
+                $(rowNode).find('td:eq(0)').addClass('text-primary'); // Saat sütununun rengini mavi yapmak için 'text-primary' sınıfını ekle
             }
         });
     }

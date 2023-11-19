@@ -31,10 +31,9 @@
                 <table class="table table-bordered" id="customersTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Ad</th>
-                            <th>Soyad</th>
+                            <th>Ad Soyad</th>
                             <th>Telefon Numarası</th>
+                            <th>Hasta Tipi</th>
                             <th>Not</th>
                             <th>Satışlar</th>
                             <th>İşlem</th>
@@ -42,36 +41,54 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
                             <th>Ad</th>
-                            <th>Soyad</th>
                             <th>Telefon Numarası</th>
+                            <th>Hasta Tipi</th>
                             <th>Not</th>
                             <th>Satışlar</th>
                             <th>İşlem</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach (var customer in Model.CustomersListWithRelatedTables)  
+                        @foreach (var customer in Model.CustomersListWithRelatedTables)
                         {
                             <tr name="@customer.Id">
-                                <td>@customer.Id</td>
-                                <td>@customer.FirstName</td>
-                                <td>@customer.LastName</td>
+                                <td>@customer.FirstName @customer.LastName</td>
                                 <td>@customer.Phone</td>
-                                <td>@(customer.Note == null ? "Not Eklenmemiş" :(customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>
-                                <td>
+                                <td>@customer.CustomerTypeTitle</td>
+                                <td>@(customer.Note == null ? "Not Eklenmemiş" : (customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>
+                                @*                  <td>
                                     @foreach (var sale in customer.Sales)
                                     {
 
-                                        <p>
-                                            <span class="fas fa-arrow-right"></span>
-                                             @sale.Amount TL Tutarında Satış
-                                        </p>
+                                    <p>
+                                    <span class="fas fa-arrow-right"></span>
+                                    @sale.Amount TL Tutarında Satış
+                                    </p>
+                                    }
+                                    </td> *@
+                                <td>
+                                    @if (@customer.Sales.Count() > 0)
+                                    {
+                                       @*  <a class="btn btn-primary btn-sm btn-update"
+                                           asp-area="Admin" asp-controller="Sale" asp-action="GetAllSalesByCustomerId" asp-route-tableType="@ViewBag.tableType"
+                                        asp-route-customerId="@customer.Id">Satışlar</a> *@
+
+
+
+                                        <a class="btn btn-primary btn-sm btn-update" asp-area="Admin" asp-controller="Sale" asp-action="Index" 
+                                        asp-route-tableType=@ViewBag.tableType asp-route-customerId="@customer.Id"
+                                           asp-route-customerName="@customer.FirstName @customer.LastName">Satışlar</a>
+
+                                    } 
+                                    else
+                                    {
+                                        <p>Satış Yok</p>
                                     }
                                 </td>
 
                                 <td>
+
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                             {
                             Id=customer.Id,
@@ -109,7 +126,7 @@
     {
 
     <script src="~/AdminArea/js/customerScripts/customerIndex.js" type="application/ecmascript"></script>
-  
+
 
     <script>
         $(document).ready(function () {

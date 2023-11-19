@@ -24,7 +24,6 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [MinLength(20, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string LastName { get; set; }
         [DisplayName("E-Posta")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Email { get; set; }
         [DisplayName("Not")]
@@ -45,7 +44,6 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Address { get; set; }
         [DisplayName("Personel")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
 
@@ -69,10 +67,9 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         public IFormFile? PictureFile { get; set; }
         public string? Picture { get; set; }
         [DisplayName("Raporun Çıktığı Hastane")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(3, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
-        public string HospitalOfReport { get; set; }
+
+        public string? HospitalOfReport { get; set; }
         [DisplayName("TC")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]

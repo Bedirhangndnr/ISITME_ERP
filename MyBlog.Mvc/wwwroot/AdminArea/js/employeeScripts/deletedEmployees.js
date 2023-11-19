@@ -114,7 +114,7 @@
             const employeeTitle = tableRow.find('td:eq(2)').text();
             Swal.fire({
                 title: 'Kalıcı olarak silmek istediğinize emin misiniz?',
-                text: `${employeeTitle} başlıklı makale kalıcı olarak silinicektir!`,
+                text: `${employeeTitle} başlıklı personel kalıcı olarak silinicektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -168,7 +168,7 @@
             let employeeTitle = tableRow.find('td:eq(2)').text();
             Swal.fire({
                 title: 'Arşivden geri getirmek istediğinize emin misiniz?',
-                text: `${employeeTitle} başlıklı makale arşivden geri getirilecektir!`,
+                text: `${employeeTitle} başlıklı personel arşivden geri getirilecektir!`,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

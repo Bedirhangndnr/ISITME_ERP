@@ -18,6 +18,7 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<SaleUpdateDto>> GetSaleUpdateDtoAsync(int SaleId);
         Task<IDataResult<SaleListDto>> GetAllAsync();
         Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveAsync(bool isSuperAdmin);
+        Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveByCustomerIdAsync(bool isSuperAdmin, int customerId);
         Task<IDataResult<SaleListDto>> GetAllByDeletedAsync(bool isSuperAdmin);
         Task<IDataResult<SaleListDto>> GetAllByNonDeletedAsync();
         Task<IResult> AddAsync(SaleAddDto SaleAddDto, string createdByName, int userId);

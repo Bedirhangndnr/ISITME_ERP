@@ -13,16 +13,14 @@ namespace MyBlog.Services.AutoMapper.Profiles
     {
         public EmployeeProfile()
         {
-            CreateMap<EmployeeAddDto, Employee>();
-            CreateMap<EmployeeUpdateDto, Employee>().ReverseMap();
-            //CreateMap<EmployeeAddDto, Employee>()
-            //    .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
-            //    .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
-            //    .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName))
-            //    .ForMember(dest=>dest.IsActive,opt=>opt.MapFrom(x=>false)); // dto dan Employeee aktarılırken ısactive değeri default olarak false atandı.
-            //CreateMap<EmployeeUpdateDto, Employee>()
-            //    .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
-            //CreateMap<Employee, EmployeeUpdateDto>();
+            CreateMap<Employee, EmployeeAddDto>();
+            CreateMap<EmployeeAddDto, Employee>()
+                .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName));
+            CreateMap<EmployeeUpdateDto, Employee>()
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            CreateMap<Employee, EmployeeUpdateDto>();
 
         }
     }

@@ -35,8 +35,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public EmployeeController(IEmployeeService employeeService,
             IPaymentService paymentService,
             IPaymentTypeService paymentTypeService,
-                        INotificationService notificationService,
-
+            INotificationService notificationService,
             IEmployeeTypeService EmployeeTypeService, UserManager<User> userManager,
             IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {

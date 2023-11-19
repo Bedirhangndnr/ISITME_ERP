@@ -140,16 +140,16 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var customerAddDto = Mapper.Map<CustomerAddDto>(customerAddViewModel);
-                if (customerAddViewModel.PictureFile != null)
-                {
-                    var imageResult = await ImageHelper.Upload(customerAddViewModel.FirstName,
-    customerAddViewModel.PictureFile, PictureType.Post);
-                    customerAddDto.Picture = imageResult.Data.FullName;
-                }
-                else
-                {
-                    customerAddDto.Picture = "/userImages/defaultUser.png";
-                }
+    //            if (customerAddViewModel.PictureFile != null)
+    //            {
+    //                var imageResult = await ImageHelper.Upload(customerAddViewModel.FirstName,
+    //customerAddViewModel.PictureFile, PictureType.Post);
+    //                customerAddDto.Picture = imageResult.Data.FullName;
+    //            }
+    //            else
+    //            {
+    //                customerAddDto.Picture = "/userImages/defaultUser.png";
+    //            }
                 var result = await _customerService.AddAsync(customerAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
@@ -211,31 +211,31 @@ NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: Log
             ModelState.Remove("tableType");
             if (ModelState.IsValid)
             {
-                bool isPictureUploaded = false;
-                var oldPicture = customerUpdateViewModel.Picture;
+                //bool isPictureUploaded = false;
+                //var oldPicture = customerUpdateViewModel.Picture;
                 var customerUpdateDto = Mapper.Map<CustomerUpdateDto>(customerUpdateViewModel);
 
-                if (customerUpdateViewModel.PictureFile != null)
-                {
-                    var uploadedImageResult = await ImageHelper.Upload(customerUpdateViewModel.FirstName,
-                        customerUpdateViewModel.PictureFile, PictureType.Post);
-                    customerUpdateViewModel.Picture = uploadedImageResult.ResultStatus == ResultStatus.Success
-                        ? uploadedImageResult.Data.FullName
-                        : "postImages/defaultThumbnail.jpg";
-                    if (oldPicture != "postImages/defaultThumbnail.jpg")
-                    {
-                        customerUpdateDto.Picture = customerUpdateViewModel.Picture;
-                        isPictureUploaded = true;
-                    }
-                }
+                //if (customerUpdateViewModel.PictureFile != null)
+                //{
+                //    var uploadedImageResult = await ImageHelper.Upload(customerUpdateViewModel.FirstName,
+                //        customerUpdateViewModel.PictureFile, PictureType.Post);
+                //    customerUpdateViewModel.Picture = uploadedImageResult.ResultStatus == ResultStatus.Success
+                //        ? uploadedImageResult.Data.FullName
+                //        : "postImages/defaultThumbnail.jpg";
+                //    if (oldPicture != "postImages/defaultThumbnail.jpg")
+                //    {
+                //        customerUpdateDto.Picture = customerUpdateViewModel.Picture;
+                //        isPictureUploaded = true;
+                //    }
+                //}
 
                 var result = await _customerService.UpdateAsync(customerUpdateDto, LoggedInUser.UserName);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    if (isPictureUploaded)
-                    {
-                        ImageHelper.Delete(oldPicture);
-                    }
+                    //if (isPictureUploaded)
+                    //{
+                    //    ImageHelper.Delete(oldPicture);
+                    //}
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
 NotificationMessageTypes.Updated,
 TableNamesConstants.Customers,

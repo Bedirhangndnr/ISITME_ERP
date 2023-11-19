@@ -40,6 +40,10 @@ namespace MyBlog.Services.Utilities
             {
                 return $"{name} adlı {entityName} başarıyla {process}.";
             }
+            public static string GiveGeneralMessage(string name, string entityName, string process)
+            {
+                return $"{name} {entityName} başarıyla {process}.";
+            }
             public static string TableNotFound(string entityName)
             {
                 return $"{entityName} Adlı Tablo Getirilemedi.";

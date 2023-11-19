@@ -199,8 +199,17 @@
                 }
             });
         });
+    // appointmentTypeList'teki mevcut değeri kontrol et ve customerReferancesList'i göster/gizle
+    checkAndToggleCustomerReferancesList();
+
+    // appointmentTypeList'teki değişiklikleri dinle
     $("#appointmentTypeList").change(function () {
-        var selectedType = $(this).find(":selected").text();
+        checkAndToggleCustomerReferancesList();
+    });
+
+    // customerReferancesList'i gösterme veya gizleme fonksiyonu
+    function checkAndToggleCustomerReferancesList() {
+        var selectedType = $("#appointmentTypeList").find(":selected").text();
         var customerReferanceList = $("#customerReferancesList");
 
         if (selectedType === "Yönlendirme" || selectedType === "Tavsiye") {
@@ -208,6 +217,6 @@
         } else {
             customerReferanceList.parent().hide();
         }
-    });
+    }
 
 });

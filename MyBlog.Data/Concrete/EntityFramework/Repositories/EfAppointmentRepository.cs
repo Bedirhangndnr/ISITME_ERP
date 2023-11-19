@@ -24,6 +24,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
             {
                 query = query.Where(predicate);
             }
+            DateTime today = DateTime.Now;
             List<AppointmentListWithRelatedTable> Appointments = await query
                 .Include(s => s.Customer)
                 .Include(s => s.Employee)
@@ -31,16 +32,16 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 {
                     Id = s.Id,
                     CustomerId = s.Customer.Id,
-                    EmployeeId = s.Employee.Id,
+                    EmployeeId = s.Employee.Id != null ? s.Employee.Id: 0 ,
                     AppointmentTypeId = s.AppointmentTypeId,
-                    CustomerName = s.Customer != null ? (s.Customer.FirstName + " " + s.Customer.LastName) : "Belirtilmemiş Ya Da Silinmiş.",
-                    EmployeeName = s.Employee != null ? (s.Employee.FirstName + " " + s.Employee.LastName) : "Belirtilmemiş Ya Da Silinmiş.",
-                    AppointmentTypeTitle = s.AppointmentType != null ? s.AppointmentType.Title : "Belirtilmemiş Ya Da Silinmiş.",
-                    Description = s.Description != null ? s.Description : "Belirtilmemiş Ya Da Silinmiş.",
+                    CustomerName = s.Customer != null ? (s.Customer.FirstName + " " + s.Customer.LastName) : "Belirtilmemiş.",
+                    EmployeeName = s.Employee != null ? (s.Employee.FirstName + " " + s.Employee.LastName) : "Genel",
+                    AppointmentTypeTitle = s.AppointmentType != null ? s.AppointmentType.Title : "Belirtilmemiş.",
+                    Description = s.Description != null ? s.Description : "Belirtilmemiş.",
                     Date=s.Date,
-                    Title = s.Title,
+                    Title = s.Title != null ? s.Title : "Belirtilmemiş.",
                     IsMade = s.IsMade
-                }).ToListAsync();
+                }).Where(x=> x.Date > today.AddDays(-7)).ToListAsync();
 
             return Appointments;
         }

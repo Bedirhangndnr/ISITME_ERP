@@ -21,6 +21,8 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         public string TC { get; set; }
         public int CustomerTypeId { get; set; }
         public string CustomerTypeTitle { get; set; }
+        public int? CustomerReferanceId { get; set; }
+        public string? CustomerReferanceTitle { get; set; }
         [JsonProperty("Sales")]
         public ICollection<Sale> Sales { get; set; }
 

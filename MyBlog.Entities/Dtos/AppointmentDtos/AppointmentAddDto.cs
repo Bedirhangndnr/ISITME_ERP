@@ -17,9 +17,8 @@ namespace MyBlog.Entities.Dtos.AppointmentDtos
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         [DisplayName("Personel")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public int EmployeeId { get; set; }
-        public Employee Employee { get; set; }
+        public int? EmployeeId { get; set; }
+        public Employee? Employee { get; set; }
         [DisplayName("Tarih")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]

@@ -31,9 +31,8 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         public int? CustomerID { get; set; }
         public IList<Customer>? Customers { get; set; }
         [Display(Name = "Personellar")]
-        [Required(ErrorMessage = "{0} Boş Geçilemez...")]
-        public int EmployeeId { get; set; }
-        public IList<Employee> Employees { get; set; }    
+        public int? EmployeeId { get; set; }
+        public IList<Employee>? Employees { get; set; }    
         [DisplayName("Randevu Tipi")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int AppointmentTypeId { get; set; }

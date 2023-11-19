@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
 
     const tableType = document.getElementById("tableType").value;
+    //const customerName = document.getElementById("customerName").value;
+ 
     /* DataTables start here. */
 
     const dataTable = $('#salesTable').DataTable({
@@ -42,8 +44,7 @@
                     $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
                     $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
                 }
-            }
-,
+            },
             {
                 text: '1 Hafta',
                 className: 'btn btn-outline-primary',
@@ -85,9 +86,7 @@
                     $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
                     $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
                 }
-            }
-
-            ,
+            },
             {
                 text: 'Son 1 Ay',
                 className: 'btn btn-outline-primary',
@@ -137,73 +136,73 @@
                     dt.columns(1).search('').draw();
                 }
             },
-            {
-                text: 'Yenile',
-                className: 'btn btn-warning',
-                action: function (e, dt, node, config) {
-                    $.ajax({
-                        type: 'GET',
-                        data: { tableType: tableType },
-                        url: '/Admin/Sale/GetAllSales/',
-                        contentType: "application/json",
-                        beforeSend: function () {
-                            $('#salesTable').hide();
-                            $('.spinner-border').show();
-                        },
-                        success: function (data) {
-                            const saleListWithNamesDto = jQuery.parseJSON(data);
-                            dataTable.clear();
-                            console.log(saleListWithNamesDto);
-                            if (saleListWithNamesDto.Data.ResultStatus === 0) {
-                                let totalSaleAmount = 0;
-                                let totalSaleCount = 0;
-                                $.each(saleListWithNamesDto.Data.SaleListWithRelatedTables.$values,
-                                    function (index, sale) {
-                                        const saleDate = new Date(sale.CreatedDate);
-                                        const formattedDate = saleDate.toLocaleDateString();
-                                        totalSaleAmount += sale.Amount;
-                                        totalSaleCount++;
-                                        const newTableRow = dataTable.row.add([
-                                            sale.Id,
-                                            formattedDate,
-                                            sale.EmployeeFirstName,
-                                            sale.CustomerFirstName,
-                                            sale.SaleTypeName,
-                                            sale.SaleStatusName,
-                                            sale.ProductName,
-                                            sale.Amount,
-                                            //sale.Note == null ? "Not Eklenmemiş" : (sale.Note.length > 75 ? sale.Note.substring(0, 75) : sale.Note),
-                                            `
-                                                <div class="form-group row justify-content-center">
-                                                <button class="btn btn-danger btn-sm btn-delete" data-id="${sale.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + sale.Id + '"><span class="fas fa-undo"></span></a>' : ''}
-                                                 <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="${sale.Id}" href="/Admin/Sale/Update/${sale.Id}?tableType=${tableType}"><span class="fas fa-edit"></span></a>
-                                                </div>
-                                            `
-                                        ]).node();
-                                        const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${sale.Id}`);
-                                    });
-                                dataTable.draw();
-                                // Update total values
-                                $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
-                                $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
+            //{
+            //    text: 'Yenile',
+            //    className: 'btn btn-warning',
+            //    action: function (e, dt, node, config) {
+            //        $.ajax({
+            //            type: 'GET',
+            //            data: { tableType: tableType },
+            //            url: '/Admin/Sale/GetAllSales/',
+            //            contentType: "application/json",
+            //            beforeSend: function () {
+            //                $('#salesTable').hide();
+            //                $('.spinner-border').show();
+            //            },
+            //            success: function (data) {
+            //                const saleListWithNamesDto = jQuery.parseJSON(data);
+            //                dataTable.clear();
+            //                console.log(saleListWithNamesDto);
+            //                if (saleListWithNamesDto.Data.ResultStatus === 0) {
+            //                    let totalSaleAmount = 0;
+            //                    let totalSaleCount = 0;
+            //                    $.each(saleListWithNamesDto.Data.SaleListWithRelatedTables.$values,
+            //                        function (index, sale) {
+            //                            const saleDate = new Date(sale.CreatedDate);
+            //                            const formattedDate = saleDate.toLocaleDateString();
+            //                            totalSaleAmount += sale.Amount;
+            //                            totalSaleCount++;
+            //                            const newTableRow = dataTable.row.add([
+            //                                sale.Id,
+            //                                formattedDate,
+            //                                sale.EmployeeFirstName,
+            //                                sale.CustomerFirstName,
+            //                                sale.SaleTypeName,
+            //                                sale.SaleStatusName,
+            //                                sale.ProductName,
+            //                                sale.Amount,
+            //                                //sale.Note == null ? "Not Eklenmemiş" : (sale.Note.length > 75 ? sale.Note.substring(0, 75) : sale.Note),
+            //                                `
+            //                                    <div class="form-group row justify-content-center">
+            //                                    <button class="btn btn-danger btn-sm btn-delete" data-id="${sale.Id}" data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
+            //                                    ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + sale.Id + '"><span class="fas fa-undo"></span></a>' : ''}
+            //                                     <a title="Tricks Site" class="btn btn-primary btn-sm btn-update" data-id="${sale.Id}" href="/Admin/Sale/Update/${sale.Id}?tableType=${tableType}"><span class="fas fa-edit"></span></a>
+            //                                    </div>
+            //                                `
+            //                            ]).node();
+            //                            const jqueryTableRow = $(newTableRow);
+            //                            jqueryTableRow.attr('name', `${sale.Id}`);
+            //                        });
+            //                    dataTable.draw();
+            //                    // Update total values
+            //                    $("#totalIncome").text((totalSaleAmount || 0).toLocaleString("tr-TR") + " TL");
+            //                    $("#totalsale").text((totalSaleCount || 0).toLocaleString("tr-TR") + " TL");
 
-                                $('.spinner-border').hide();
-                                $('#salesTable').fadeIn(1400);
-                            } else {
-                                toastr.error(`${saleListWithNamesDto.Data.Message}`, 'İşlem Başarısız!');
-                            }
-                        },
-                        error: function (err) {
-                            console.log(err);
-                            $('.spinner-border').hide();
-                            $('#salesTable').fadeIn(1000);
-                            toastr.error(`${err.responseText}`, 'Hata!');
-                        }
-                    });
-                }
-            },
+            //                    $('.spinner-border').hide();
+            //                    $('#salesTable').fadeIn(1400);
+            //                } else {
+            //                    toastr.error(`${saleListWithNamesDto.Data.Message}`, 'İşlem Başarısız!');
+            //                }
+            //            },
+            //            error: function (err) {
+            //                console.log(err);
+            //                $('.spinner-border').hide();
+            //                $('#salesTable').fadeIn(1000);
+            //                toastr.error(`${err.responseText}`, 'Hata!');
+            //            }
+            //        });
+            //    }
+            //},
             {
                 extend: 'excelHtml5',
                 text: 'İndir | Excel',

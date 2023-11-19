@@ -14,20 +14,22 @@ namespace MyBlog.Services.AutoMapper.Profiles
     {
         public AppointmentProfile()
         {
-            CreateMap<AppointmentAddDto, Appointment>();
-            CreateMap<AppointmentUpdateDto, Appointment>().ReverseMap();
+            CreateMap<Appointment, AppointmentAddDto>().ReverseMap();
+            CreateMap<Appointment, AppointmentUpdateDto >().ReverseMap();
+
 
             CreateMap<PaymentAddDto, Payment>();
             CreateMap<PaymentUpdateDto, Payment>();
             CreateMap<Payment, PaymentUpdateDto>();
-            //CreateMap<AppointmentAddDto, Appointment>()
-            //    .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
-            //    .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
-            //    .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName))
-            //    .ForMember(dest=>dest.IsActive,opt=>opt.MapFrom(x=>false)); // dto dan Appointmente aktarılırken ısactive değeri default olarak false atandı.
-            //CreateMap<AppointmentUpdateDto, Appointment>()
-            //    .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
-            //CreateMap<Appointment, AppointmentUpdateDto>();
+
+
+            CreateMap<AppointmentAddDto, Appointment>()
+                .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now))
+                .ForMember(dest => dest.ModifiedByName, opt => opt.MapFrom(x => x.CreatedByName));
+            CreateMap<AppointmentUpdateDto, Appointment>()
+                .ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            CreateMap<Appointment, AppointmentUpdateDto>();
 
         }
     }

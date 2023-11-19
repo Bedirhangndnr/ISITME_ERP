@@ -111,7 +111,7 @@
             const paymentTypeTitle = tableRow.find('td:eq(2)').text(); // table datadan 2. indexdeki değeri aldık.
             Swal.fire({
                 title: 'Silmek istediğinize emin misiniz?',
-                text: `${paymentTypeTitle} başlıklı makale silinicektir!`,
+                text: `${paymentTypeTitle} başlıklı ödeme tipi silinicektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

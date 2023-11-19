@@ -61,7 +61,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index(string tableType)
+        public async Task<IActionResult> Index(string tableType, int customerId=0, string customerName="")
         {
             ViewBag.tableType = tableType;
             var user = await UserManager.GetUserAsync(HttpContext.User);
@@ -71,7 +71,17 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                var result = await _saleService.GetAllByNonDeletedAndActiveAsync(isSuperAdmin);
+                IDataResult< SaleListDto > result;
+                if (customerId==0)
+                {
+                    result = await _saleService.GetAllByNonDeletedAndActiveAsync(isSuperAdmin);
+                }
+                else
+                {
+                    ViewBag.customerName = customerName + " Hastasına Ait"; 
+                    result = await _saleService.GetAllByNonDeletedAndActiveByCustomerIdAsync(isSuperAdmin, customerId);
+                }
+
                 if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             }
             else if (tableType == TableReturnTypesConstants.DeletedTables)
@@ -119,6 +129,52 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 Title = "Başarısız İşlem!"
             });
             return Json(null);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllSalesByCustomerId(string tableType, int customerId)
+        {
+            ViewBag.tableType = tableType;
+            var user = await UserManager.GetUserAsync(HttpContext.User);
+            var roles = await UserManager.GetRolesAsync(user);
+            ViewBag.User = user;
+            ViewBag.Roles = roles;
+            bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
+            if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            {
+                var result = await _saleService.GetAllByNonDeletedAndActiveAsync(isSuperAdmin);
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            else if (tableType == TableReturnTypesConstants.DeletedTables)
+            {
+                var result = await _saleService.GetAllByDeletedAsync(isSuperAdmin);
+                if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            }
+            _toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
+            return NotFound();
+            //ViewBag.tableType = tableType;
+            //var user = await UserManager.GetUserAsync(HttpContext.User);
+            //var roles = await UserManager.GetRolesAsync(user);
+            //ViewBag.User = user;
+            //ViewBag.Roles = roles;
+            //bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
+            //if (tableType == TableReturnTypesConstants.NonDeletedTables)
+            //{
+            //    var result = await _saleService.GetAllByNonDeletedAndActiveByCustomerIdAsync(isSuperAdmin, customerId);
+            //    if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            //}
+            //else if (tableType == TableReturnTypesConstants.DeletedTables)
+            //{
+            //    var result = await _saleService.GetAllByDeletedAsync(isSuperAdmin);
+            //    if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            //}
+            //_toastNotification.AddErrorToastMessage("Bir Hata ile KArşılaşıldı", new ToastrOptions
+            //{
+            //    Title = "Başarısız İşlem!"
+            //});
+            //return NotFound();
         }
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleCreate}")]
         [HttpGet]
