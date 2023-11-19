@@ -190,7 +190,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 NormalizedEmail = "ESMAADMIN@GMAIL.COM",
                 PhoneNumber = "+905537314131",
                 Picture = "/userImages/defaultUser.png",
-                FirstName = "Bilal",
+                FirstName = "Esma",
                 LastName = "Meto",
                 About = "Admin | Bilal",
                 Link = "-",
@@ -209,7 +209,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 NormalizedEmail = "ASIYEADMIN@GMAIL.COM",
                 PhoneNumber = "+905398815246",
                 Picture = "/userImages/defaultUser.png",
-                FirstName = "Nazlı",
+                FirstName = "Asiye",
                 LastName = "-",
                 About = "Admin | Nazlı",
                 Link = "-",
@@ -219,25 +219,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             asiye.PasswordHash = CreatePasswordHash(asiye, "asiyePWX_");
-            var gulistan = new User
-            {
-                Id = 9,
-                UserName = "gulistan",
-                NormalizedUserName = "GULISTAN",
-                Email = "gulistan@gmail.com",
-                NormalizedEmail = "GULISTAN@GMAIL.COM",
-                PhoneNumber = "+905071273567",
-                Picture = "/userImages/defaultUser.png",
-                FirstName = "Sema",
-                LastName = "-",
-                About = "-",
-                Institution = InstitutionConstants.Ases,
-                Link = "https://twitter.com/adminuser",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-            gulistan.PasswordHash = CreatePasswordHash(gulistan, "GulistanPsw_");
+           
             var yeliz = new User
             {
                 Id = 10,
@@ -294,7 +276,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             //    SecurityStamp = Guid.NewGuid().ToString()
             //};
             //elif.PasswordHash = CreatePasswordHash(elif, "XElifP");
-            builder.HasData(bilal, nazli, sema, dev, berra, elif, esma, asiye, gulistan, yeliz);
+            builder.HasData(bilal, nazli, sema, dev, berra, elif, esma, asiye, yeliz);
         }
         #endregion
 

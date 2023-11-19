@@ -38,7 +38,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.UserRead}")]
         public async Task<IActionResult> Index()
         {
-            var users = await UserManager.Users.ToListAsync();
+            var users = await UserManager.Users.Where(x=>x.Institution== LoggedInUser.Institution).ToListAsync();
             return View(new UserListDto
             {
                 Users = users,

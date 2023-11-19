@@ -17,59 +17,59 @@
                 action: function (e, dt, node, config) {
                 }
             },
-            {
-                text: 'Yenile',
-                className: 'btn btn-warning',
-                action: function (e, dt, node, config) {
-                    $.ajax({
-                        type: 'GET',
-                        url: '/Admin/User/GetAllUsers/',
-                        contentType: "application/json",
-                        beforeSend: function () {
-                            $('#usersTable').hide();
-                            $('.spinner-border').show();
-                        },
-                        success: function (data) {
-                            const userListDto = jQuery.parseJSON(data);
-                            dataTable.clear();
-                            console.log(userListDto);
-                            if (userListDto.ResultStatus === 0) {
-                                $.each(userListDto.Users.$values,
-                                    function (index, user) {
-                                        const newTableRow = dataTable.row.add([
-                                            user.Id,
-                                            user.UserName,
-                                            user.FirstName,
-                                            user.LastName,
-                                            user.Email,
-                                            user.PhoneNumber,
-                                            user.About.length > 75 ? user.About.substring(0, 75) : user.About,
-                                            `<img src="/img/${user.Picture}" alt="${user.UserName}" class="my-image-table" />`,
-                                            `
-                                <button class="btn btn-warning btn-sm btn-assign" data-id="${user.Id}"><span class="fas fa-user-shield"></span></button>
-                                <button class="btn btn-primary btn-sm btn-update" data-id="${user.Id}"><span class="fas fa-edit"></span></button>
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="${user.Id}"><span class="fas fa-minus-circle"></span></button>
-                                            `
-                                        ]).node();
-                                        const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${user.Id}`);
-                                    });
-                                dataTable.draw();
-                                $('.spinner-border').hide();
-                                $('#usersTable').fadeIn(1400);
-                            } else {
-                                toastr.error(`${userListDto.Message}`, 'İşlem Başarısız!');
-                            }
-                        },
-                        error: function (err) {
-                            console.log(err);
-                            $('.spinner-border').hide();
-                            $('#usersTable').fadeIn(1000);
-                            toastr.error(`${err.responseText}`, 'Hata!');
-                        }
-                    });
-                }
-            }
+            //{
+            //    text: 'Yenile',
+            //    className: 'btn btn-warning',
+            //    action: function (e, dt, node, config) {
+            //        $.ajax({
+            //            type: 'GET',
+            //            url: '/Admin/User/GetAllUsers/',
+            //            contentType: "application/json",
+            //            beforeSend: function () {
+            //                $('#usersTable').hide();
+            //                $('.spinner-border').show();
+            //            },
+            //            success: function (data) {
+            //                const userListDto = jQuery.parseJSON(data);
+            //                dataTable.clear();
+            //                console.log(userListDto);
+            //                if (userListDto.ResultStatus === 0) {
+            //                    $.each(userListDto.Users.$values,
+            //                        function (index, user) {
+            //                            const newTableRow = dataTable.row.add([
+            //                                user.Id,
+            //                                user.UserName,
+            //                                user.FirstName,
+            //                                user.LastName,
+            //                                user.Email,
+            //                                user.PhoneNumber,
+            //                                user.About.length > 75 ? user.About.substring(0, 75) : user.About,
+            //                                `<img src="/img/${user.Picture}" alt="${user.UserName}" class="my-image-table" />`,
+            //                                `
+            //                    <button class="btn btn-warning btn-sm btn-assign" data-id="${user.Id}"><span class="fas fa-user-shield"></span></button>
+            //                    <button class="btn btn-primary btn-sm btn-update" data-id="${user.Id}"><span class="fas fa-edit"></span></button>
+            //                    <button class="btn btn-danger btn-sm btn-delete" data-id="${user.Id}"><span class="fas fa-minus-circle"></span></button>
+            //                                `
+            //                            ]).node();
+            //                            const jqueryTableRow = $(newTableRow);
+            //                            jqueryTableRow.attr('name', `${user.Id}`);
+            //                        });
+            //                    dataTable.draw();
+            //                    $('.spinner-border').hide();
+            //                    $('#usersTable').fadeIn(1400);
+            //                } else {
+            //                    toastr.error(`${userListDto.Message}`, 'İşlem Başarısız!');
+            //                }
+            //            },
+            //            error: function (err) {
+            //                console.log(err);
+            //                $('.spinner-border').hide();
+            //                $('#usersTable').fadeIn(1000);
+            //                toastr.error(`${err.responseText}`, 'Hata!');
+            //            }
+            //        });
+            //    }
+            ////}
         ],
         language: {
             "sDecimal": ",",
