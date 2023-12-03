@@ -123,16 +123,29 @@ namespace MyBlog.Services.Concrete
         }
         public async Task<IResult> AddAsync(ProductAddDto ProductAddDto, string createdByName, int userId)
         {
+            var isSerialNumberExists = await UnitOfWork.Products.AnyAsync(p => p.SerialNumber == ProductAddDto.SerialNumber);
+            if (isSerialNumberExists)
+            {
+                return new Result(ResultStatus.Error, "Bu seri numarasıyla bir ürün zaten mevcut.");
+            }
             var product = Mapper.Map<Product>(ProductAddDto);
             product.CreatedByName = createdByName;
             product.ModifiedByName = createdByName;
             product.ProductName = "";
             var addedProduct = await UnitOfWork.Products.AddAsync(product);
-            await UnitOfWork.SaveAsync();
-            return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
+            try
             {
-                Product = addedProduct,
-            }, Messages.General.GiveMessage(addedProduct.ProductName, "Ürün", "eklendi."));
+                await UnitOfWork.SaveAsync();
+                return new DataResult<ProductDto>(ResultStatus.Success, new ProductDto
+                {
+                    Product = addedProduct,
+                }, Messages.General.GiveMessage(addedProduct.ProductName, "Ürün", "eklendi."));
+            }
+            catch (Exception)
+            {
+                return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Ürün"));
+            }
+          
         }
         public async Task<IResult> UpdateAsync(ProductUpdateDto ProductUpdateDto, string modifiedByName)
         {

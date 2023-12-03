@@ -64,6 +64,15 @@
                                 <span asp-validation-for="CustomerID" class="text-danger"></span>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div id="newCustomerNameDiv" class="form-group">
+                                <label asp-for="NewCustomerName" id="newCustomerNameLabel" ></label>
+                                <div class="input-group">
+                                    <input type="text" id="newCustomerName" class="form-control" asp-for="NewCustomerName" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row">
                         <!-- İlk Div -->
@@ -79,7 +88,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="datepicker" asp-for="Date"></label>
-                                <input type="text" id="datetimepicker" class="form-control" value="@DateTime.Now.ToShortDateString()" asp-for="Date" />
+                                <input type="text" id="datetimepicker" class="form-control" value="@DateTime.Now" asp-for="Date" />
                                 <span asp-validation-for="Date" class="text-danger"></span>
                             </div>
                         </div>

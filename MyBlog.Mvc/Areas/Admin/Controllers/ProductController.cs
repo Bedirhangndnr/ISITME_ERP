@@ -149,13 +149,13 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
             var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
             ViewBag.tableType = tableType;
-            ViewBag.isAdd= "True";
+            ViewBag.isAdd = "True";
             var user = await UserManager.GetUserAsync(HttpContext.User);
             var roles = await UserManager.GetRolesAsync(user);
             ModelState.Remove("tableType");
             ModelState.Remove("UserWithRolesModel");
             ModelState.Remove("Brands");
-            ModelState.Remove("SubGroups"); 
+            ModelState.Remove("SubGroups");
             ModelState.Remove("SubModelId");
             ModelState.Remove("Product");
             ModelState.Remove("ProductName");
@@ -191,11 +191,25 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", result.Message);
+
+                    _toastNotification.AddErrorToastMessage(result.Message, new ToastrOptions
+                    {
+                        Title = "Başarısız İşlem!"
+                    });
+                    productAddViewModel.UserWithRolesModel = new UserWithRolesViewModel
+                    {
+                        User = user,
+                        Roles = roles
+                    };
+                    productAddViewModel.Models = modelList.Data.Models;
+                    productAddViewModel.SubModels = subModelList.Data.SubModels;
+                    productAddViewModel.Brands = brandList.Data.Brands;
+                    productAddViewModel.SerialNumber = "";
+                    return View(productAddViewModel);
                 }
             }
 
-            
+
 
             productAddViewModel.Models = modelList.Data.Models;
             productAddViewModel.SubModels = subModelList.Data.SubModels;
@@ -221,7 +235,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var user = await UserManager.GetUserAsync(HttpContext.User);
             var roles = await UserManager.GetRolesAsync(user);
             ViewBag.tableType = tableType;
-            ViewBag.isAdd= "false";
+            ViewBag.isAdd = "false";
             var productList = await _productService.GetProductUpdateDtoAsync(Id);
             var subModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();

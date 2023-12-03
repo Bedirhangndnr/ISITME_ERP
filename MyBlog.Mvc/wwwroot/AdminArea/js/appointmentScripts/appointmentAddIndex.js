@@ -1,6 +1,4 @@
 ﻿$(document).ready(function () {
-
-    // Trumbowyg
     flatpickr("#datetimepicker", {
         locale: "tr",
         enableTime: true,
@@ -56,6 +54,28 @@
             }
         }
     });
+
+
+
+    var customerList = document.getElementById("customersList");
+    var newCustomerName = document.getElementById("newCustomerName");
+    var newCustomerNameLabel = document.getElementById("newCustomerNameLabel");
+    newCustomerName.style.display = "none";
+    newCustomerNameLabel.style.display = "none";
+
+   
+    // İlk select elementinin değeri değiştiğinde tetiklenecek olan fonksiyonu tanımlıyoruz
+    customerList.addEventListener("change", function () {
+        var selectedCustomerName = customerList.options[customerList.selectedIndex].text;
+
+        if (selectedCustomerName == "Kayıtsız Hasta") {
+            newCustomerNameLabel.style.display = "block";
+            newCustomerName.style.display = "block";
+        }
+    });
+    // Trumbowyg
+   
+   
 
     // Trumbowyg
 

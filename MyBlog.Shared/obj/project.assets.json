@@ -8220,11 +8220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
       "projectName": "MyBlog.Shared",
-      "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
+      "projectPath": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
       "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\obj\\",
+      "outputPath": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8282,7 +8282,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

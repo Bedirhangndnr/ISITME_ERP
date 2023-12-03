@@ -26,6 +26,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(a => a.IsDeleted).IsRequired();
             builder.Property(a => a.Note).HasMaxLength(1000).IsRequired(false);
             builder.Property(a => a.SerialNumber).IsRequired().HasMaxLength(70);
+            builder.HasIndex(a => a.SerialNumber)
+    .IsUnique();
             builder.Property(a => a.ProductName).IsRequired().HasMaxLength(70);
             builder.Property(a => a.IsMultiple).IsRequired();
 

@@ -114,10 +114,10 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Ekle</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
+                             @*            @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
-                                        }
+                                        } *@
                                     </nav>
                                 </div>
                             }
@@ -137,10 +137,10 @@
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductAccessory" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Ekle</a>
                                         }
-                                        @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
+                                     @*    @if (Model.Roles.Any(r => r.Equals(AuthorizeDefinitionConstants.SuperAdmin) || r.Equals(AuthorizeDefinitionConstants.DefaultUser)))
                                         {
                                             <a class="nav-link" asp-area="Admin" asp-controller="ProductAccessory" asp-action="Index" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Arşiv</a>
-                                        }
+                                        } *@
                                     </nav>
                                 </div>
                             }

@@ -16,6 +16,12 @@ namespace MyBlog.Entities.Dtos.AppointmentDtos
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+
+        [DisplayName("Kayıtsız Hasta Adı")]
+        [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
+        [MinLength(2, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
+        public string? NewCustomerName { get; set; }
         [DisplayName("Personel")]
         public int? EmployeeId { get; set; }
         public Employee? Employee { get; set; }

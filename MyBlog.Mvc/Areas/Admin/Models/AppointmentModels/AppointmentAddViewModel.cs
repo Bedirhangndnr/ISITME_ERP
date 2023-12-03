@@ -22,6 +22,11 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MaxLength(35, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(2, ErrorMessage = "{0} {1} Karakterden Küçük Olmamalıdır")]
         public string? Title { get; set; }
+
+        [DisplayName("Kayıtsız Hasta Adı")]
+        [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
+        [MinLength(2, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
+        public string? NewCustomerName { get; set; }
         [DisplayName("Tarih")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]

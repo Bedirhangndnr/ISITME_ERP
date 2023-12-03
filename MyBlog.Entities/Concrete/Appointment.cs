@@ -12,6 +12,7 @@ namespace MyBlog.Entities.Concrete
 
         public Customer? Customer { get; set; }
         public int? CustomerId { get; set; }
+        public string? NewCustomerName { get; set; }
         public Employee? Employee { get; set; }
         public int? EmployeeId { get; set; }
         public DateTime Date { get; set; }

@@ -38,16 +38,18 @@
                             <th>Seri No</th>
                             <th>Marka</th>
                             <th>Model</th>
-                            <th>Fiyat</th>
+                            <th>Segment</th>
+                            <th>Not</th>
                             <th>İşlem</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                            <th>Seri no</th>
+                            <th>Seri No</th>
                             <th>Marka</th>
                             <th>Model</th>
-                            <th>Fiyat</th>
+                            <th>Segment</th>
+                            <th>Not</th>
                             <th>İşlem</th>
                     </tr>
                     </tfoot>
@@ -58,7 +60,9 @@
                                 <td>@product.SerialNumber</td>
                                 <td>@product.BrandTitle </td>
                                 <td>@product.ModelTitle</td>
-                                <td>
+                                <td>@product.SubModelTitle</td>
+                                <td>@product.Note</td>
+                               @*  <td>
                                     <span id="priceSpan">
                                         @{
                                             if (product.Price != 0)
@@ -72,7 +76,7 @@
                                             }
                                         }
                                     </span>
-                                </td>
+                                </td> *@
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
                                         {

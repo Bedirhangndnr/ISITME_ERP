@@ -19,59 +19,6 @@
 
                 }
             },
-            {
-                text: 'Yenile',
-                className: 'btn btn-warning',
-                action: function (e, dt, node, config) {
-                    $.ajax({
-                        type: 'GET',
-                        data: { tableType: tableType },
-                        url: '/Admin/CustomerType/GetAllCustomerTypes/',
-                        contentType: "application/json",
-                        beforeSend: function () {
-                            $('#customerTypesTable').hide();
-                            $('.spinner-border').show();
-                        },
-                        success: function (data) {
-                            const customerTypeListDto = jQuery.parseJSON(data);
-                            dataTable.clear();
-                            console.log(customerTypeListDto);
-                            if (customerTypeListDto.Data.ResultStatus === 0) {
-                                $.each(customerTypeListDto.Data.CustomerTypes.$values,
-                                    function (index, customerType) {
-                                        const newTableRow = dataTable.row.add([
-                                            customerType.Id,
-                                            customerType.Title,
-                                            customerType.Title,
-                                            `
-                                                <div class="form-group row justify-content-center">
-                                                ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerType.Id + '><span class="fas fa-edit"></span></button>' : ''}
-                                                <button title="Sil" class="btn btn-danger btn-sm btn-delete" data-id=${customerType.Id} data-tableType=${tableType}><span class="fas fa-minus-circle"></span></button>
-                                                ${tableType === 'DeletedTables' ? '<a class="btn btn-warning btn-sm btn-undo" data-id="' + customerType.Id + '"><span class="fas fa-undo"></span></a>' : ''}
-                                                </div>
-                                                    `
-                                        ]).node();
-                                        const jqueryTableRow = $(newTableRow);
-                                        jqueryTableRow.attr('name', `${customerType.Id}`);
-                                    });
-                                dataTable.draw();
-                                $('.spinner-border').hide();
-                                $('#customerTypesTable').fadeIn(1400);
-                            } else {
-                                $('.spinner-border').hide();
-                                $('#customerTypesTable').fadeIn(1000);
-                                toastr.error(`${customerTypeListDto.Data.Message}`, 'İşlem Başarısız!');
-                            }
-                        },
-                        error: function (err) {
-                            console.log(err);
-                            $('.spinner-border').hide();
-                            $('#customerTypesTable').fadeIn(1000);
-                            toastr.error(`${err.responseText}`, 'Hata !');
-                        }
-                    });
-                }
-            }
         ],
         language: {
             "sDecimal": ",",
