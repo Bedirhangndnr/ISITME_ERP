@@ -25,11 +25,11 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
             var today = DateTime.Today;
             var query = _context.Set<Customer>()
                 .Where(x =>
-                    (x.BirthDate != null && (x.BirthDate.DayOfYear - today.DayOfYear < 3)) ||
+                    (x.BirthDate.HasValue && (x.BirthDate.Value.DayOfYear - today.DayOfYear < 3)) || // BirthDate null kontrolü eklendi
                     (x.CreatedDate.AddDays(25) <= today && x.CreatedDate.AddDays(30) >= today) ||
-                    (x.CreatedDate.AddDays(360) <= today && x.CreatedDate.AddDays(365) > today)||
+                    (x.CreatedDate.AddDays(360) <= today && x.CreatedDate.AddDays(365) > today) ||
                     (x.CreatedDate.AddDays(175) <= today && x.CreatedDate.AddDays(180) > today)
-                    )
+                )
                 .Select(x => new Customer
                 {
                     Id = x.Id,
@@ -37,7 +37,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     LastName = x.LastName,
                     BirthDate = x.BirthDate,
                     CreatedDate = x.CreatedDate
-                }).OrderBy(x=> x.CreatedDate);
+                }).OrderBy(x => x.CreatedDate);
 
             return await query.ToListAsync();
         }

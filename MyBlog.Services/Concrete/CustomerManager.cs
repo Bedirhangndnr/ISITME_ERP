@@ -106,6 +106,7 @@ namespace MyBlog.Services.Concrete
         public async Task<IResult> AddAsync(CustomerAddDto CustomerAddDto, string createdByName, int userId)
         {
             var customer = Mapper.Map<Customer>(CustomerAddDto);
+            customer.BirthDate = DateTime.Now;
             customer.CreatedByName = createdByName;
             customer.ModifiedByName = createdByName;
             var addedCustomer = await UnitOfWork.Customers.AddAsync(customer);

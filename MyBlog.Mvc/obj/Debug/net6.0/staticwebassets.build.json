@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "n1kkrJYrbLXYFXoENty1FKc+88a+5cYhjR4YSvCGzZA=",
+  "Hash": "7bfrGeDENDq8070FF82xJMJuO8WC/rPM4QO8L9ml7PI=",
   "Source": "MyBlog.Mvc",
   "BasePath": "_content/MyBlog.Mvc",
   "Mode": "Default",
@@ -3304,25 +3304,6 @@
       "OriginalItemSpec": "wwwroot\\img\\noise-transparent.png"
     },
     {
-      "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\defaultThumbnail.png",
-      "SourceId": "MyBlog.Mvc",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\",
-      "BasePath": "_content/MyBlog.Mvc",
-      "RelativePath": "img/postImages/defaultThumbnail.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\postImages\\defaultThumbnail.png"
-    },
-    {
       "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png",
       "SourceId": "MyBlog.Mvc",
       "SourceType": "Discovered",
@@ -3359,25 +3340,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\TestUser_459_19_21_1_6_3_2023.png"
-    },
-    {
-      "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\defaultUser.png",
-      "SourceId": "MyBlog.Mvc",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\",
-      "BasePath": "_content/MyBlog.Mvc",
-      "RelativePath": "img/userImages/defaultUser.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\userImages\\defaultUser.png"
     },
     {
       "Identity": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\denemekullanici_8_26_55_21_22_11_2020.png",

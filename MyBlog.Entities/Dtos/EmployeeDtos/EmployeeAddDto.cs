@@ -35,19 +35,17 @@ namespace MyBlog.Entities.Dtos.EmployeeDtos
         [MinLength(10, ErrorMessage = "{0} alanı {1}'den küçük olamaz.")]
         public string? Email { get; set; }
         [DisplayName("Telefon Numarası")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MaxLength(15, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        [MinLength(8, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        //[Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
+        //[MaxLength(15, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
+        //[MinLength(8, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string Phone { get; set; }
         [DisplayName("TC")]
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         [MinLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         public string TC { get; set; }
         [DisplayName("Address")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MinLength(10, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
         [DisplayName("Not")]
         public string? Note { get; set; } = "";
 

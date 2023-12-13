@@ -1,3 +1,4 @@
-dotnet ef --startup-project ../MyBlog.mvc migrations add FirstSeedAndCreateTables
+dotnet ef --startup-project ../MyBlog.mvc migrations add X
 
 dotnet ef --startup-project ../MyBlog.mvc database update	
+ 

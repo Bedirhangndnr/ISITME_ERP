@@ -31,6 +31,7 @@ namespace MyBlog.Services.Concrete
             var addedCustomerReferance = Mapper.Map<CustomerReferance>(customerReferanceAddDto);
             addedCustomerReferance.CreatedByName = createdByName;
             addedCustomerReferance.ModifiedByName = createdByName;
+            addedCustomerReferance.Description = "";
             await UnitOfWork.CustomerReferances.AddAsync(addedCustomerReferance);
             await UnitOfWork.SaveAsync();
             return new DataResult<CustomerReferanceDto>(ResultStatus.Success,

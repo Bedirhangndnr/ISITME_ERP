@@ -68,9 +68,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Doğum Tarihi</span>
                             </div>
-                            @if (Model.BirthDate != null && Model.BirthDate.Year > 1)
+                            @if (Model.BirthDate != null && Model.BirthDate.Value.Year > 1)
                             {
-                                <input type="date" id="datepicker" class="form-control" value="@Model.BirthDate.ToString("yyyy-MM-dd")" asp-for="BirthDate" />
+                                <input type="date" id="datepicker" class="form-control" value="@Model.BirthDate.Value.ToString("yyyy-MM-dd")" asp-for="BirthDate" />
                             }
                             else
                             {

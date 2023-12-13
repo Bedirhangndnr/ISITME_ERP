@@ -4,7 +4,7 @@
 @model MyBlog.Entities.Dtos.EmployeeDtos.EmployeeListDto
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Hastalar";
+    ViewBag.Title = "Personeller";
 }
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -31,26 +31,22 @@
                 <table class="table table-bordered" id="employeesTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
                             <th>Telefon Numarası</th>
                             <th>E-Posta</th>
                             <th>Not</th>
-                            <th>Resim</th>
                             <th>Tip</th>
                             <th>İşlem</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
                             <th>Ad</th>
                             <th>Soyad</th>
                             <th>Telefon Numarası</th>
                             <th>E-Posta</th>
                             <th>Hakkında</th>
-                            <th>Resim</th>
                             <th>Tip</th>
                             <th>İşlem</th>
                         </tr>
@@ -59,13 +55,11 @@
                         @foreach (var employee in Model.EmployeeListWithRelatedTables)
                         {
                             <tr name="@employee.Id">
-                                <td>@employee.Id</td>
                                 <td>@employee.FirstName</td>
                                 <td>@employee.LastName</td>
                                 <td>@employee.Phone</td>
                                 <td>@employee.Email</td>
                                 <td>@(employee.About == null ? "Hakkında Eklenmemiş" : (employee.About.Length > 100 ? employee.About.Substring(0, 100) : employee.About))</td>
-                                <td><img src="~/img/@employee.Picture" alt="@employee.FirstName" class="my-image-table" /></td>
                                 <td>@employee.EmployeeTypeId | @employee.EmployeeTypeTitle</td>
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel

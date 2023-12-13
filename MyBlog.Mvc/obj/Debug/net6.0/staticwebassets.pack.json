@@ -693,14 +693,6 @@
       "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\defaultThumbnail.png",
-      "PackagePath": "staticwebassets\\img\\postImages\\defaultThumbnail.png"
-    },
-    {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\defaultUser.png",
-      "PackagePath": "staticwebassets\\img\\userImages\\defaultUser.png"
-    },
-    {
       "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\denemekullanici_8_26_55_21_22_11_2020.png",
       "PackagePath": "staticwebassets\\img\\userImages\\denemekullanici_8_26_55_21_22_11_2020.png"
     },
