@@ -12555,11 +12555,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
+      "projectUniqueName": "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
       "projectName": "MyBlog.Mvc",
-      "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
+      "projectPath": "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Mvc\\MyBlog.Mvc.csproj",
       "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\obj\\",
+      "outputPath": "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Mvc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12576,8 +12576,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Services\\MyBlog.Services.csproj": {
-              "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Services\\MyBlog.Services.csproj"
+            "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Services\\MyBlog.Services.csproj": {
+              "projectPath": "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Services\\MyBlog.Services.csproj"
             }
           }
         }

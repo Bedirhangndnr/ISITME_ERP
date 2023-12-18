@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bKZClIWTVXr5gQIcPksIGTkmZOIjBIQ3PTdPVJGkXXGHxB+QQ2Q6IMR8cmfa/rHsoj6d8agfq9LXlbfXROZ/bg==",
+  "dgSpecHash": "Lp71viDde1tLC1w5GDTzCYndTXZIkQrGbdbHRA30XmPquWVweHXeJy3PS/wfiS9FL0IrKgtS/Q9SGABpL2vKEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Entities\\MyBlog.Entities.csproj",
+  "projectFilePath": "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Entities\\MyBlog.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedir\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\bedir\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

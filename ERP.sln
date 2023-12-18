@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequiredCodes", "RequiredCo
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2ACCA45B-E3E9-4397-957C-0745395B4A30}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\main_aseserp.yml = .github\workflows\main_aseserp.yml
+		.github\workflows\main_fokuserp.yml = .github\workflows\main_fokuserp.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hB4Cinn3jM0e4XKuk5KMIYn6WT0OQsWkKhj8IK3Haiq7abv2Frgq3xJXHkBmUQqgm6Slc/ZrfX/XqAj4KvZPcQ==",
+  "dgSpecHash": "rJFI8jk6DJCFKM/agx9mqMK6M99CyRrK1slyZGmMMg2LBm2XFA+loVtk+g1gdkQSkqp1o4W1wFvxZwM52JzLaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Data\\MyBlog.Data.csproj",
+  "projectFilePath": "C:\\Users\\bedir\\Documents\\GitHub\\ISITME_ERP\\MyBlog.Data\\MyBlog.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bedir\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
