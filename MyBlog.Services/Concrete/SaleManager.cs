@@ -81,6 +81,21 @@ namespace MyBlog.Services.Concrete
             return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
 
         }
+        public async Task<IDataResult<SaleListDto>> GetAllForProductCareAsync()
+        {
+            IList<SaleListWithRelatedTables> saleListWithRelatedTables;
+                saleListWithRelatedTables = await UnitOfWork.Sales.GetAllForProductCareAsync(c => !c.IsDeleted && c.IsActive);
+            if (saleListWithRelatedTables.Count > -1)
+            {
+                return new DataResult<SaleListDto>(ResultStatus.Success, new SaleListDto
+                {
+                    SaleListWithRelatedTables = saleListWithRelatedTables,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<SaleListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Personel"));
+
+        }
         public async Task<IDataResult<SaleListDto>> GetAllByNonDeletedAndActiveByCustomerIdAsync(bool isSuperAdmin, int customerId)
         {
             IList<SaleListWithRelatedTables> saleListWithRelatedTables;

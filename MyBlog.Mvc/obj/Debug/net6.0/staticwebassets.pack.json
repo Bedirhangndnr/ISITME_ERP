@@ -9,1439 +9,1439 @@
       "PackagePath": "staticwebassets\\toastr.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\chart-area-demo.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\chart-area-demo.js",
       "PackagePath": "staticwebassets\\AdminArea\\assets\\demo\\chart-area-demo.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\chart-bar-demo.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\chart-bar-demo.js",
       "PackagePath": "staticwebassets\\AdminArea\\assets\\demo\\chart-bar-demo.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\chart-pie-demo.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\chart-pie-demo.js",
       "PackagePath": "staticwebassets\\AdminArea\\assets\\demo\\chart-pie-demo.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\datatables-demo.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\demo\\datatables-demo.js",
       "PackagePath": "staticwebassets\\AdminArea\\assets\\demo\\datatables-demo.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\img\\error-404-monochrome.svg",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\assets\\img\\error-404-monochrome.svg",
       "PackagePath": "staticwebassets\\AdminArea\\assets\\img\\error-404-monochrome.svg"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\AsesBG.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\AsesBG.png",
       "PackagePath": "staticwebassets\\AdminArea\\css\\AsesBG.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\dtPaginationCss.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\dtPaginationCss.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\dtPaginationCss.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\httpErrorBgAnimation.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\httpErrorBgAnimation.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\httpErrorBgAnimation.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\select2-bootstrap4.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\select2-bootstrap4.min.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\select2-bootstrap4.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\site.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\site.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\styles.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\styles.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\styles.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\userLogin.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\css\\userLogin.css",
       "PackagePath": "staticwebassets\\AdminArea\\css\\userLogin.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\appointmentAddIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\appointmentAddIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\appointmentScripts\\appointmentAddIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\appointmentIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\appointmentIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\appointmentScripts\\appointmentIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\appointmentTypeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\appointmentTypeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\appointmentScripts\\appointmentTypeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\trumbowyg.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\appointmentScripts\\trumbowyg.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\appointmentScripts\\trumbowyg.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\articleAdd.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\articleAdd.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\articleAdd.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\articleIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\articleIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\articleIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\brandIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\brandIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\brandIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\categoryIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\categoryIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\categoryIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\commentIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\commentIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\commentIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerReferanceIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerReferanceIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\customerReferanceIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerScripts\\customerIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerScripts\\customerIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\customerScripts\\customerIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerScripts\\customerUpdate.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerScripts\\customerUpdate.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\customerScripts\\customerUpdate.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerTypeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\customerTypeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\customerTypeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\deletedArticles.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\deletedArticles.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\deletedArticles.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\deletedCategories.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\deletedCategories.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\deletedCategories.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\deletedComments.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\deletedComments.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\deletedComments.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\deletedEmployees.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\deletedEmployees.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\employeeScripts\\deletedEmployees.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\employeeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\employeeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\employeeScripts\\employeeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\employeeTypeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\employeeTypeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\employeeScripts\\employeeTypeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\employeeUpdate.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\employeeScripts\\employeeUpdate.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\employeeScripts\\employeeUpdate.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\expenseIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\expenseIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\expenseIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\homeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\homeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\homeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\messageToDeveloperIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\messageToDeveloperIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\messageToDeveloperIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\modelIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\modelIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\modelIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\notification.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\notification.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\notification.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\notificationDevMessage.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\notificationDevMessage.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\notificationDevMessage.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentAddIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentAddIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\outPaymentScripts\\outPaymentAddIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentDetailIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentDetailIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\outPaymentScripts\\outPaymentDetailIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\outPaymentScripts\\outPaymentIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\outPaymentScripts\\outPaymentIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\paymentScripts\\paymentAddIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentScripts\\paymentIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\paymentScripts\\paymentIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentTypeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\paymentTypeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\paymentTypeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAccessoryAdd.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAccessoryAdd.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\productAccessoryAdd.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAccessoryIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAccessoryIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\productAccessoryIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAdd.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productAdd.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\productAdd.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productGroupIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productGroupIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\productGroupIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\productIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productSubGroupIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\productSubGroupIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\productSubGroupIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\roleIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\roleIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\roleIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleAdd.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleAdd.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\saleAdd.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\saleIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleStatusIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleStatusIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\saleStatusIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleTypeIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\saleTypeIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\saleTypeIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\scripts.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\scripts.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\scripts.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\site.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\site.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\tools.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\tools.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\tools.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\toolsScripts\\dataPicker.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\toolsScripts\\dataPicker.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\toolsScripts\\dataPicker.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\toolsScripts\\select2.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\toolsScripts\\select2.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\toolsScripts\\select2.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\toolsScripts\\trumbowyg.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\toolsScripts\\trumbowyg.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\toolsScripts\\trumbowyg.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\userIndex.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\AdminArea\\js\\userIndex.js",
       "PackagePath": "staticwebassets\\AdminArea\\js\\userIndex.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\css\\main.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\css\\main.css",
       "PackagePath": "staticwebassets\\ComingSoon\\css\\main.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\css\\util.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\css\\util.css",
       "PackagePath": "staticwebassets\\ComingSoon\\css\\util.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Black.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Black.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-Black.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-BlackItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-BlackItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-BlackItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Bold.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Bold.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-Bold.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-BoldItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-BoldItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-BoldItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Hairline.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Hairline.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-Hairline.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-HairlineItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-HairlineItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-HairlineItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Italic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Italic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-Italic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Light.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Light.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-Light.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-LightItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-LightItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-LightItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Regular.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\Lato-Regular.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\Lato-Regular.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\OFL.txt",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Lato\\OFL.txt",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Lato\\OFL.txt"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Black.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Black.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Black.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-BlackItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-BlackItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-BlackItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Bold.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Bold.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Bold.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-BoldItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-BoldItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-BoldItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraBold.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraBold.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraBold.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraLight.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraLight.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraLight.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Italic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Italic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Italic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Light.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Light.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Light.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-LightItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-LightItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-LightItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Medium.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Medium.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Medium.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-MediumItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-MediumItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-MediumItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Regular.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Regular.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Regular.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-SemiBold.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-SemiBold.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-SemiBold.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Thin.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-Thin.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-Thin.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ThinItalic.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\Poppins\\Poppins-ThinItalic.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\Poppins\\Poppins-ThinItalic.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\HELP-US-OUT.txt",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\HELP-US-OUT.txt",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\HELP-US-OUT.txt"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\css\\font-awesome.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\css\\font-awesome.css",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\css\\font-awesome.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\css\\font-awesome.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\css\\font-awesome.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\FontAwesome.otf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\FontAwesome.otf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\FontAwesome.otf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.eot",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.eot",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.svg",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.svg",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.ttf",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff2",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff2",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\animated.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\animated.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\animated.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\bordered-pulled.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\bordered-pulled.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\bordered-pulled.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\core.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\core.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\core.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\fixed-width.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\fixed-width.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\fixed-width.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\font-awesome.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\font-awesome.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\font-awesome.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\icons.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\icons.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\icons.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\larger.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\larger.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\larger.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\list.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\list.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\list.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\mixins.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\mixins.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\mixins.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\path.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\path.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\path.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\rotated-flipped.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\rotated-flipped.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\rotated-flipped.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\screen-reader.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\screen-reader.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\screen-reader.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\stacked.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\stacked.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\stacked.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\variables.less",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\variables.less",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\less\\variables.less"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_animated.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_animated.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_animated.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_bordered-pulled.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_bordered-pulled.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_bordered-pulled.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_core.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_core.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_core.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_fixed-width.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_fixed-width.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_fixed-width.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_icons.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_icons.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_icons.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_larger.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_larger.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_larger.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_list.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_list.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_list.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_mixins.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_mixins.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_mixins.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_path.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_path.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_path.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_rotated-flipped.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_rotated-flipped.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_rotated-flipped.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_screen-reader.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_screen-reader.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_screen-reader.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_stacked.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_stacked.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_stacked.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_variables.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_variables.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\_variables.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\font-awesome.scss",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\font-awesome.scss",
       "PackagePath": "staticwebassets\\ComingSoon\\fonts\\font-awesome-4.7.0\\scss\\font-awesome.scss"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\bg01.jpg",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\bg01.jpg",
       "PackagePath": "staticwebassets\\ComingSoon\\images\\bg01.jpg"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\bg02.jpg",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\bg02.jpg",
       "PackagePath": "staticwebassets\\ComingSoon\\images\\bg02.jpg"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\bg03.jpg",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\bg03.jpg",
       "PackagePath": "staticwebassets\\ComingSoon\\images\\bg03.jpg"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\icons\\favicon.ico",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\icons\\favicon.ico",
       "PackagePath": "staticwebassets\\ComingSoon\\images\\icons\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\icons\\logo.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\icons\\logo.png",
       "PackagePath": "staticwebassets\\ComingSoon\\images\\icons\\logo.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\icons\\video-16-9.jpg",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\images\\icons\\video-16-9.jpg",
       "PackagePath": "staticwebassets\\ComingSoon\\images\\icons\\video-16-9.jpg"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\js\\main.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\js\\main.js",
       "PackagePath": "staticwebassets\\ComingSoon\\js\\main.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\animate\\animate.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\animate\\animate.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\animate\\animate.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\bootstrap.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\popper.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\popper.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\js\\popper.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\popper.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\popper.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\js\\popper.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\tooltip.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\bootstrap\\js\\tooltip.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\bootstrap\\js\\tooltip.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\countdowntime.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\countdowntime.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\countdowntime\\countdowntime.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\moment-timezone-with-data.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\moment-timezone-with-data.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\countdowntime\\moment-timezone-with-data.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\moment-timezone.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\moment-timezone.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\countdowntime\\moment-timezone.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\moment.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\countdowntime\\moment.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\countdowntime\\moment.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\jquery\\jquery-3.2.1.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\jquery\\jquery-3.2.1.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\jquery\\jquery-3.2.1.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\select2\\select2.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\select2\\select2.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.min.css",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\select2\\select2.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\select2\\select2.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\select2\\select2.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\tilt\\tilt.jquery.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\ComingSoon\\vendor\\tilt\\tilt.jquery.min.js",
       "PackagePath": "staticwebassets\\ComingSoon\\vendor\\tilt\\tilt.jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\GeneralImgs\\AsesBG.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\GeneralImgs\\AsesBG.png",
       "PackagePath": "staticwebassets\\img\\GeneralImgs\\AsesBG.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\GeneralImgs\\asesLogoTransparan.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\GeneralImgs\\asesLogoTransparan.png",
       "PackagePath": "staticwebassets\\img\\GeneralImgs\\asesLogoTransparan.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\TestUser_459_19_21_1_6_3_2023.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\TestUser_459_19_21_1_6_3_2023.png",
       "PackagePath": "staticwebassets\\img\\TestUser_459_19_21_1_6_3_2023.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\noise-transparent.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\noise-transparent.png",
       "PackagePath": "staticwebassets\\img\\noise-transparent.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png",
       "PackagePath": "staticwebassets\\img\\postImages\\Personel 1_890_38_33_22_23_7_2023.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\denemekullanici_8_26_55_21_22_11_2020.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\denemekullanici_8_26_55_21_22_11_2020.png",
       "PackagePath": "staticwebassets\\img\\userImages\\denemekullanici_8_26_55_21_22_11_2020.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\photouser_46_42_55_21_22_11_2020.png",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\img\\userImages\\photouser_46_42_55_21_22_11_2020.png",
       "PackagePath": "staticwebassets\\img\\userImages\\photouser_46_42_55_21_22_11_2020.png"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\additional-methods.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\additional-methods.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\jquery-validation-sri.json",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\jquery-validation-sri.json",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\jquery-validation-sri.json"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\jquery.validate.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\jquery.validate.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ar.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ar.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ar.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ar.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ar.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ar.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_az.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_az.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_az.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_az.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_az.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_az.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bg.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bg.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_bg.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bg.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bg.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_bg.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bn_BD.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bn_BD.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_bn_BD.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bn_BD.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_bn_BD.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_bn_BD.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ca.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ca.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ca.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ca.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ca.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ca.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_cs.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_cs.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_cs.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_cs.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_cs.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_cs.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_da.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_da.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_da.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_da.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_da.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_da.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_de.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_de.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_de.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_de.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_de.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_de.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_el.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_el.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_el.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_el.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_el.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_el.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_es.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_es.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_AR.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_AR.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_es_AR.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_AR.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_AR.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_es_AR.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_PE.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_PE.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_es_PE.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_PE.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_es_PE.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_es_PE.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_et.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_et.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_et.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_et.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_et.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_et.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_eu.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_eu.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_eu.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_eu.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_eu.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_eu.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fa.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fa.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_fa.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fa.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fa.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_fa.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fi.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fi.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_fi.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fi.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fi.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_fi.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fr.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fr.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_fr.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fr.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_fr.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_fr.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ge.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ge.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ge.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ge.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ge.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ge.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_gl.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_gl.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_gl.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_gl.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_gl.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_gl.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_he.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_he.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_he.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_he.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_he.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_he.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hr.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hr.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_hr.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hr.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hr.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_hr.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hu.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hu.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_hu.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hu.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hu.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_hu.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hy_AM.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hy_AM.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_hy_AM.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hy_AM.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_hy_AM.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_hy_AM.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_id.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_id.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_id.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_id.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_id.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_id.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_is.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_is.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_is.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_is.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_is.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_is.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_it.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_it.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_it.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_it.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_it.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_it.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ja.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ja.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ja.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ja.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ja.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ja.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ka.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ka.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ka.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ka.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ka.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ka.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_kk.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_kk.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_kk.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_kk.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_kk.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_kk.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ko.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ko.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ko.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ko.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ko.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ko.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lt.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lt.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_lt.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lt.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lt.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_lt.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lv.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lv.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_lv.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lv.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_lv.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_lv.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_mk.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_mk.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_mk.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_mk.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_mk.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_mk.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_my.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_my.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_my.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_my.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_my.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_my.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_nl.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_nl.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_nl.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_nl.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_nl.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_nl.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_no.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_no.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_no.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_no.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_no.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_no.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pl.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pl.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_pl.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pl.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pl.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_pl.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_BR.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_BR.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_pt_BR.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_BR.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_BR.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_pt_BR.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_PT.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_PT.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_pt_PT.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_PT.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_pt_PT.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_pt_PT.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ro.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ro.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ro.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ro.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ro.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ro.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ru.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ru.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ru.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ru.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ru.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ru.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sd.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sd.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sd.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sd.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sd.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sd.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_si.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_si.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_si.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_si.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_si.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_si.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sk.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sk.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sk.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sk.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sk.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sk.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sl.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sl.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sl.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sl.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sl.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sl.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sr.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sr.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr_lat.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr_lat.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sr_lat.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr_lat.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sr_lat.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sr_lat.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sv.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sv.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sv.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sv.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_sv.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_sv.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_th.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_th.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_th.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_th.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_th.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_th.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tj.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tj.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_tj.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tj.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tj.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_tj.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tr.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tr.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_tr.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tr.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_tr.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_tr.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_uk.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_uk.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_uk.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_uk.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_uk.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_uk.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ur.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ur.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ur.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ur.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_ur.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_ur.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_vi.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_vi.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_vi.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_vi.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_vi.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_vi.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_zh.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_zh.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh_TW.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh_TW.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_zh_TW.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh_TW.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\messages_zh_TW.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\messages_zh_TW.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_de.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_de.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_de.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_de.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_de.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_de.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_es_CL.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_es_CL.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_es_CL.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_es_CL.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_es_CL.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_es_CL.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_fi.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_fi.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_fi.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_fi.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_fi.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_fi.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_it.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_it.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_it.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_it.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_it.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_it.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_nl.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_nl.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_nl.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_nl.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_nl.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_nl.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_pt.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_pt.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_pt.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_pt.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validate\\localization\\methods_pt.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validate\\localization\\methods_pt.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Mvc\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

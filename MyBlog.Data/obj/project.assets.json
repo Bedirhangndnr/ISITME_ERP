@@ -9293,7 +9293,7 @@
       "projectName": "MyBlog.Data",
       "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Data\\MyBlog.Data.csproj",
       "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Data\\obj\\",
+      "outputPath": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",

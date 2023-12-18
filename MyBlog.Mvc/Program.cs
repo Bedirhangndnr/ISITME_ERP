@@ -26,10 +26,16 @@ namespace ProgrammersBlog.Mvc
                 }).ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
+                }).ConfigureServices(services => 
+                {
+                    services.AddHostedService<TimedHostedService>();
                 });
-                //.ConfigureServices((hostContext, services) =>
-                //{
-                //    services.AddHostedService<BackGroundWorkerService>(); // Arka plan servisi ekleyin
-                //});
+        //.ConfigureServices((hostContext, services) =>
+        //{
+        //    services.AddHostedService<BackGroundWorkerService>(); // Arka plan servisi ekleyin
+        //});
     }
 }
+
+
+

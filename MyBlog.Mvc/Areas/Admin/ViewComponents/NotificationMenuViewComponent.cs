@@ -1,34 +1,36 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
-using MyBlog.Entities.Concrete;
-using MyBlog.Entities.Dtos.CustomerDtos;
-using MyBlog.Mvc.Areas.Admin.Models;
+using Microsoft.Extensions.Caching.Memory;
 using MyBlog.Mvc.Areas.Admin.Models.SingleModels;
 using MyBlog.Services.Abstract;
 
-namespace MyBlog.Mvc.Areas.Notification.ViewComponents
+public class NotificationMenuViewComponent : ViewComponent
 {
-    public class NotificationMenuViewComponent:ViewComponent
+    private readonly INotificationService _notificationService;
+    private readonly IMapper _mapper;
+    private readonly IMemoryCache _cache;
+
+    public NotificationMenuViewComponent(INotificationService notificationService, IMapper mapper, IMemoryCache cache)
     {
-        private readonly INotificationService _notificationService;
-        private readonly IMapper _mapper;
+        _notificationService = notificationService;
+        _mapper = mapper;
+        _cache = cache;
+    }
 
-
-        public NotificationMenuViewComponent(INotificationService notificationService, IMapper mapper)
-        {
-            _notificationService= notificationService;
-            _mapper = mapper;
-        }
-
-        public async Task<IViewComponentResult> InvokeAsync()
+    public async Task<IViewComponentResult> InvokeAsync()
+  {
+        var cacheKey = "notifications";
+        if (!_cache.TryGetValue(cacheKey, out NotificationViewModel notificationModel))
         {
             var notifications = await _notificationService.GetAllByNonDeletedAndActiveAsync();
-            return View(new NotificationViewModel
+            notificationModel = new NotificationViewModel
             {
-                notificationListWithRelatedTables=notifications.Data.NotificationListWithRelatedTables
-            }) ;
+                notificationListWithRelatedTables = notifications.Data.NotificationListWithRelatedTables
+            };
+            var cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromHours(3));
+            _cache.Set(cacheKey, notificationModel, cacheEntryOptions);
         }
+
+        return View(notificationModel);
     }
 }

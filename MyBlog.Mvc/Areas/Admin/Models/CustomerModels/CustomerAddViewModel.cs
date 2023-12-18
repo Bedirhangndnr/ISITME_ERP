@@ -45,8 +45,6 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string? Email { get; set; }
         [DisplayName("Address")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MinLength(10, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Address { get; set; }
         [DisplayName("Hasta tipi")]
@@ -77,5 +75,9 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         [DataType(DataType.Upload)]
         public IFormFile? PictureFile { get; set; }
         public string? Picture { get; set; }
+        [DisplayName("Doğum Günü")]
+
+        public DateTime? BirthDate { get; set; }
+
     }
 }

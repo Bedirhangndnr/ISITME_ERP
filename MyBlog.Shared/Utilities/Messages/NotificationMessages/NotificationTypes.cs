@@ -10,5 +10,10 @@ namespace MyBlog.Shared.Utilities.Messages.NotificationMessages
     {
         DatabaseTracking = 0,
         Reminder = 1,
+        BirthDayReminder = 2,
+        MonthlyProductCareReminder = 3,
+        ThreeMonthlyProductCareReminder = 4,
+        SixMonthlyProductCareReminder = 5,
+        YearlyProductCareReminder = 6,
     }
 }

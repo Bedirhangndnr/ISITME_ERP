@@ -23,12 +23,17 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
         public async Task<IList<Customer>> GetAllForRemaindAsync()
         {
             var today = DateTime.Today;
+            var endDate = today.AddDays(3); // Önümüzdeki 3 gün
+
             var query = _context.Set<Customer>()
                 .Where(x =>
-                    (x.BirthDate.HasValue && (x.BirthDate.Value.DayOfYear - today.DayOfYear < 3)) || // BirthDate null kontrolü eklendi
-                    (x.CreatedDate.AddDays(25) <= today && x.CreatedDate.AddDays(30) >= today) ||
-                    (x.CreatedDate.AddDays(360) <= today && x.CreatedDate.AddDays(365) > today) ||
-                    (x.CreatedDate.AddDays(175) <= today && x.CreatedDate.AddDays(180) > today)
+                    x.BirthDate.HasValue &&
+                    (
+                        (x.BirthDate.Value.Month > today.Month) ||
+                        (x.BirthDate.Value.Month == today.Month && x.BirthDate.Value.Day >= today.Day) &&
+                        (x.BirthDate.Value.Month < endDate.Month) ||
+                        (x.BirthDate.Value.Month == endDate.Month && x.BirthDate.Value.Day <= endDate.Day)
+                    )
                 )
                 .Select(x => new Customer
                 {
@@ -41,6 +46,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
 
             return await query.ToListAsync();
         }
+
         public async Task<IList<CustomerListWithRelatedTable>> GetAllWithRelatedTablesAsync(Expression<Func<Customer, bool>> predicate = null, params Expression<Func<Customer, object>>[] includeProperties)
         {
             IQueryable<Customer> query = _context.Set<Customer>();

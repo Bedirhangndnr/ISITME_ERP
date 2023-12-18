@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyBlog.Data.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos.AppointmentDtos;
 using MyBlog.Entities.Dtos.SaleDtos;
 using MyBlog.Shared.Data.Concrete.EntityFramework;
 using MyBlog.Shared.Entities.Abstract;
@@ -17,6 +18,28 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
     {
         public EfSaleRepository(DbContext dbContext) : base(dbContext)
         {
+        }
+        public async Task<IList<SaleListWithRelatedTables>> GetAllForProductCareAsync(Expression<Func<Sale, bool>> predicate = null, params Expression<Func<Sale, object>>[] includeProperties)
+        {
+            IQueryable<Sale> query = _context.Set<Sale>();
+            DateTime today = DateTime.Now;
+            var Appointments = query
+                .Include(x => x.Customer)
+                .Where(x =>
+                    (x.IsProduct  == 1)  ||
+                    (x.CreatedDate.AddDays(25) == today)  ||
+                    (x.CreatedDate.AddDays(360) == today) ||
+                    (x.CreatedDate.AddDays(175) == today) ||
+                    (x.CreatedDate.AddDays(85) == today)
+                )
+                .Select(x => new SaleListWithRelatedTables
+                {
+                    Id = x.Id,
+                    CustomerFirstName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    CreatedDate = x.CreatedDate
+                }).OrderBy(x => x.CreatedDate);
+
+            return await Appointments.ToListAsync();
         }
 
         public async Task<IList<SaleListWithRelatedTables>> GetAllWithNamesAsync(Expression<Func<Sale, bool>> predicate = null, params Expression<Func<Sale, object>>[] includeProperties)
@@ -35,8 +58,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 .Select(s => new SaleListWithRelatedTables
                 {
                     Id = s.Id,
-                    AmountOfSgk= s.AmountOfSgk,
-                    IsInvoiceDue= s.IsInvoiceDue,
+                    AmountOfSgk = s.AmountOfSgk,
+                    IsInvoiceDue = s.IsInvoiceDue,
                     CreatedDate = s.CreatedDate,
                     ModifiedDate = s.ModifiedDate,
                     Amount = s.Amount,

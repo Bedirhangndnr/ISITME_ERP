@@ -149,6 +149,20 @@ namespace MyBlog.Services.Concrete
             }, Messages.General.GiveMessage(notification.Title, "Bildirim", MessagesConstants.DeletedError));
         }
 
+        public async Task<IResult> HardDeleteByProductRemainderAsync()
+        {
+            var notification = await UnitOfWork.Notifications.GetAsync(
+                c => c.NotificationType== NotificationMessageService.GetType(NotificationTypes.MonthlyProductCareReminder) ||
+                c.NotificationType== NotificationMessageService.GetType(NotificationTypes.BirthDayReminder) && 
+                c.CreatedDate<DateTime.Today);
+            if (notification != null)
+            {
+                await UnitOfWork.Notifications.DeleteAsync(notification);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.General.GiveMessage(notification.Title, "Bildirim", MessagesConstants.HardDeletedSuccess));
+            }
+            return new Result(ResultStatus.Error, Messages.General.NotFound(isPlural: false, "Bildirim"));
+        }
         public async Task<IResult> HardDeleteAsync(int NotificationId)
         {
             var notification = await UnitOfWork.Notifications.GetAsync(c => c.Id == NotificationId);

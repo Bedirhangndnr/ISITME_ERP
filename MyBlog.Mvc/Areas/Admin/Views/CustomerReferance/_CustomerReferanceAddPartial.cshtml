@@ -19,15 +19,15 @@
                 <form asp-action="Add" id="form-customerReferance-add">
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none"></div>
-                   @* <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Ref. Unvan</span>
-                            </div><select id="employeesList" class="form-control" asp-for="CustomerReferanceTitleId" asp-items="@(new SelectList(Model.CustomerReferanceTitles,"Id","Title"))">
-                                <option></option>
-                            </select>
-                            <span asp-validation-for="CustomerReferanceTitleId" class="text-danger"></span>
-                        </div>
+                    @* <div class="form-group">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">Ref. Unvan</span>
+                    </div><select id="employeesList" class="form-control" asp-for="CustomerReferanceTitleId" asp-items="@(new SelectList(Model.CustomerReferanceTitles,"Id","Title"))">
+                    <option></option>
+                    </select>
+                    <span asp-validation-for="CustomerReferanceTitleId" class="text-danger"></span>
+                    </div>
                     </div>*@
                     <div class="form-group">
                         <div class="input-group">
@@ -62,9 +62,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Doğum Tarihi</span>
                             </div>
-                        <input type="date" id="datepicker" class="form-control"  asp-for="BirthDate" />
-                        <span asp-validation-for="BirthDate" class="text-danger"></span>
-                    </div>
+                            <input type="date" id="datepicker" class="form-control" asp-for="BirthDate" />
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">

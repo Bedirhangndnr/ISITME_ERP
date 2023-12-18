@@ -39,8 +39,6 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         [DisplayName("Address")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        [MinLength(10, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Address { get; set; }
         [DisplayName("Personel")]
@@ -75,5 +73,8 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [MaxLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         [MinLength(11, ErrorMessage = "{0} alanı {1} karakter olmalıdır.")]
         public string TC { get; set; }
+        [DisplayName("Doğum Günü")]
+
+        public DateTime? BirthDate { get; set; }
     }
 }

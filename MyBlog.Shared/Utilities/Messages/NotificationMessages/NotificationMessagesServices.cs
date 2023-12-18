@@ -54,6 +54,16 @@ public class NotificationMessageService
                 return "DatabaseTracking";
             case NotificationTypes.Reminder:
                 return "Reminder";
+            case NotificationTypes.BirthDayReminder:
+                return "BirthDayReminder";
+            case NotificationTypes.MonthlyProductCareReminder:
+                return "MonthlyProductCareReminder";
+            case NotificationTypes.ThreeMonthlyProductCareReminder:
+                return "ThreeMonthlyProductCareReminder";
+            case NotificationTypes.SixMonthlyProductCareReminder:
+                return "SixMonthlyProductCareReminder";
+            case NotificationTypes.YearlyProductCareReminder:
+                return "YearlyProductCareReminder";
             default:
                 return "";
         }

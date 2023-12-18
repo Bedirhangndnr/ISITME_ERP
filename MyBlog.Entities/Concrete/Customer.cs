@@ -27,7 +27,7 @@ namespace MyBlog.Entities.Concrete
         public string? Phone { get; set; }
         public string? Address { get; set; }
         public string TC { get; set; }
-        public string HospitalOfReport { get; set; }
+        public string? HospitalOfReport { get; set; }
         public DateTime? BirthDate { get; set; }
     }
 }

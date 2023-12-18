@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace MyBlog.Data.Abstract
 {
-    public interface ISaleRepository:IEntityRepository<Sale>
+    public interface ISaleRepository : IEntityRepository<Sale>
     {
+        public Task<IList<SaleListWithRelatedTables>> GetAllForProductCareAsync(Expression<Func<Sale, bool>> predicate = null, params Expression<Func<Sale, object>>[] includeProperties);
         public Task<IList<SaleListWithRelatedTables>> GetAllWithNamesAsync(Expression<Func<Sale, bool>> predicate = null, params Expression<Func<Sale, object>>[] includeProperties);
     }
 }
