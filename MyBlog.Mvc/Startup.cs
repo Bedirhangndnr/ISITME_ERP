@@ -63,7 +63,7 @@ namespace MyBlog.Mvc
             var Configuration = builder.Configuration;
 
      
-            services.LoadMyServices(connectionString: Configuration.GetConnectionString("FokusErpDB"));
+            services.LoadMyServices(connectionString: Configuration.GetConnectionString("AsesErpDB"));
         
 
 
