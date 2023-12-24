@@ -13,6 +13,7 @@ namespace MyBlog.Entities.Dtos.EmployeeDtos
         public int EmployeeTypeId { get; set; }
         public string EmployeeTypeTitle { get; set; }
         public string? About { get; set; }
+        public string? NameSurname { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string? Email { get; set; }

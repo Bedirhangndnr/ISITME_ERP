@@ -68,10 +68,13 @@ namespace MyBlog.Services.Concrete
             {
                 notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive);
             }
-            else if(customerId==0)
+            else if(notificaitonType == "DatabaseTracking")
             {
                 notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.NotificationType == notificaitonType);
-
+            }
+            else if(notificaitonType != "DatabaseTracking" && customerId == 0)
+            {
+                notificationListWithRelatedTable = await UnitOfWork.Notifications.GetAllWithNamesAsync(c => !c.IsDeleted && c.IsActive && c.NotificationType != "DatabaseTracking");
             }
             else
             {

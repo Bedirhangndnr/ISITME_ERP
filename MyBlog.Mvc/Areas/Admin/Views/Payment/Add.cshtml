@@ -62,7 +62,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Hasta</span>
-                            </div><select id="customeList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
+                            </div><select id="customeList" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","NameSurname"))">
                                 <option></option>
                             </select>
                             <span asp-validation-for="CustomerId" class="text-danger"></span>
@@ -72,7 +72,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Personel</span>
-                            </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                            </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","NameSurname"))">
                                 <option></option>
                             </select>
                             <span asp-validation-for="EmployeeId" class="text-danger"></span>

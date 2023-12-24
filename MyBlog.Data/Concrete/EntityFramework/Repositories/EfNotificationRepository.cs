@@ -38,7 +38,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     Description = s.Description != null ? s.Description : "Belirtilmemiş Ya Da Silinmiş.",
                     CreatedDate = s.CreatedDate,
                     Title = s.Title,
-                    IsRead= s.IsRead
+                    IsRead= s.IsRead,
+                    TargetDate = s.TargetDate
+
                 })
                 .OrderByDescending(c => c.CreatedDate)
                 .ToListAsync();

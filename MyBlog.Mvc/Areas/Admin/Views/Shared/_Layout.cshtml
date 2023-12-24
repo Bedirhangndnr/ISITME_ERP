@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MyBlog.Services.Utilities
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="utf-8" />
@@ -20,16 +21,19 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group row">
+        @*     <div class="input-group row">
                 <input class="form-control" type="text" placeholder="Arama..." aria-label="Search" aria-describedby="basic-addon2" />
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                 </div>
 
-            </div>
+            </div> *@
         </form>
         <!-- Navbar-->
         @*@await Component.InvokeAsync("RemainderMenu")*@
+        <a class="nav-link btn btn-sm rounded-0 btn-outline-secondary" asp-area="Admin" asp-controller="Appointment"
+           asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Randevu Oluştur</a>
+
         @await Component.InvokeAsync("NotificationMenu")
 
         @await Component.InvokeAsync("UserMenu")

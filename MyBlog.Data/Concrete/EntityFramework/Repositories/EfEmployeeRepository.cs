@@ -34,6 +34,7 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     Email = s.Email,
                     FirstName = s.FirstName,
                     LastName = s.LastName,
+                    NameSurname = s.FirstName + " " + s.LastName,
                     EmployeeTypeTitle = s.EmployeeType != null ? s.EmployeeType.Title : "Personel tipi bulunamadı, silinmiş olabilir.",
                     Phone = s.Phone,
                     TC = s.TC,

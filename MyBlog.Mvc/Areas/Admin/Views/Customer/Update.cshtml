@@ -131,7 +131,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Personel</span>
-                            </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                            </div><select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","NameSurname"))">
                                 <option></option>
                             </select>
                             <span asp-validation-for="EmployeeId" class="text-danger"></span>
@@ -141,7 +141,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Hasta Referansı</span>
-                            </div><select id="customersList" class="form-control" asp-for="CustomerReferanceId" asp-items="@(new SelectList(Model.CustomerReferances,"Id","FirstName"))">
+                            </div><select id="customersList" class="form-control" asp-for="CustomerReferanceId" asp-items="@(new SelectList(Model.CustomerReferances,"Id","NameSurname"))">
                                 <option></option>
                             </select>
                             <span asp-validation-for="CustomerReferanceId" class="text-danger"></span>

@@ -22,6 +22,13 @@ namespace MyBlog.Entities.Concrete
         public string? About { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string NameSurname
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string? Address { get; set; }

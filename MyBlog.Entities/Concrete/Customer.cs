@@ -29,5 +29,12 @@ namespace MyBlog.Entities.Concrete
         public string TC { get; set; }
         public string? HospitalOfReport { get; set; }
         public DateTime? BirthDate { get; set; }
+        public string? NameSurname
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }

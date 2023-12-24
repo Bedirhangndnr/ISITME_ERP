@@ -12,6 +12,13 @@ namespace MyBlog.Entities.Concrete
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone  { get; set; }
+        public string NameSurname
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
         public string? Description  { get; set; }
         public CustomerReferanceTitle? CustomerReferanceTitle { get; set; }
         public int? CustomerReferanceTitleId { get; set; }

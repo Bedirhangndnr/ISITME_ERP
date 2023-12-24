@@ -7,7 +7,7 @@
     <li class="nav-item dropdown">
         @{
             var countRemainders = Model.notificationListWithRelatedTables
-            .Where(n => n.NotificaitonType == "Reminder").Count();
+            .Where(n => n.NotificaitonType == "Reminder" || n.NotificaitonType == "BirthDayReminder").Count();
             var displayCountRemainders = countRemainders < 50 ? countRemainders.ToString() : "50+";
         }
         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
@@ -24,9 +24,11 @@
             </div>
             <div class="dropdown-list">
                 @foreach (var notification in Model.notificationListWithRelatedTables
-                .Where(n => n.NotificaitonType == "Reminder")
+                .Where(n => n.NotificaitonType == "Reminder" ||n.NotificaitonType == "BirthDayReminder")
                 .Take(5))
                 {
+                    DateTime date = notification.CreatedDate;
+
                     <a class="dropdown-item d-flex align-items-center" href="#">
                         <div class="mr-3">
                             <div class="icon-circle bg-primary">
@@ -34,7 +36,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="small text-gray-500">@notification.CreatedDate</div>
+                            <div class="small text-gray-500">@notification.TargetDate</div>
                             <span class="font-weight-bold">@notification.Title</span>
                             <p>@notification.Description</p>
                         </div>
@@ -42,7 +44,7 @@
                 }
             </div>
                 <a class="dropdown-item text-center small text-gray-500" asp-area="Admin" asp-controller="Notification" asp-action="Index"
-               asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables asp-route-tableType="Remainder">Tüm Hatırlatmaları Gör</a>
+               asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables asp-route-notificationType="Remainder">Tüm Hatırlatmaları Gör</a>
         </div>
     </li>
 

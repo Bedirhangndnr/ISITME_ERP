@@ -22,6 +22,8 @@ namespace MyBlog.Entities.Dtos.AppointmentDtos
         public string? AppointmentTypeTitle { get; set; }
         public int? AppointmentTypeId { get; set; }
         public bool IsMade { get; set; }
+        public string? nameSurname{ get; set; }
+
 
     }
 }

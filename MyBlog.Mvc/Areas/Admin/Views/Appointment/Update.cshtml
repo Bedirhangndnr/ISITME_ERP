@@ -51,7 +51,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="employeesList">Personel</label>
-                                <select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","FirstName"))">
+                                <select id="employeesList" class="form-control" asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"Id","NameSurname"))">
                                     <option></option>
                                 </select>
                                 <span asp-validation-for="EmployeeId" class="text-danger"></span>
@@ -61,7 +61,7 @@
 
                             <div class="form-group">
                                 <label for="customersList">Hastalar</label>
-                                <select id="customersList" class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(Model.Customers,"Id","FirstName"))">
+                                <select id="customersList" class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(Model.Customers,"Id","NameSurname"))">
                                     <option></option>
                                 </select>
                                 <span asp-validation-for="CustomerID" class="text-danger"></span>

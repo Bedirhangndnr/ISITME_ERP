@@ -27,6 +27,8 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(2, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
         public string? NewCustomerName { get; set; }
+        [DisplayName("Ad Soyad")]
+        public string? CustomerNameSurname { get; set; }
         [DisplayName("Tarih")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
@@ -34,7 +36,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [DisplayName("Hasta")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? CustomerID { get; set; }
-        public IList<Customer>? Customers { get; set; }
+        public IList<Customer>? Customers { get; set; } 
         [Display(Name = "Personellar")]
         public int? EmployeeId { get; set; }
         public IList<Employee>? Employees { get; set; }    
