@@ -1,4 +1,8 @@
-﻿using MyBlog.Entities.Dtos;
+﻿using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos.ProductDtos;
+using MyBlog.Shared.Utilities.Results.Abstract;
+using MyBlog.Shared.Utilities.Results;
+using MyBlog.Entities.Dtos;
 using MyBlog.Shared.Utilities.Results.Abstract;
 using MyBlog.Shared.Utilities.Results;
 using System;
@@ -17,8 +21,9 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<ProductDto>> GetAsync(int ProductId);
         Task<IDataResult<ProductUpdateDto>> GetProductUpdateDtoAsync(int ProductId);
         Task<IDataResult<ProductListDto>> GetAllAsync();
-        Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds=false, bool? IsUpdatePage=false, int Id=0);
-        Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAccessoryAsync(bool getSolds=false, bool? IsUpdatePage=false, int Id=0);
+        Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id = 0);
+        Task<IDataResult<ProductListDto>> GetAllProductsAsync();
+        Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAccessoryAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id = 0);
         Task<IDataResult<ProductListDto>> GetAllByDeletedAsync();
         Task<IDataResult<ProductListDto>> GetAllByNonDeletedAsync();
         Task<IResult> AddAsync(ProductAddDto ProductAddDto, string createdByName, int userId);

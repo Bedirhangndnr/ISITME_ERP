@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos.ProductDtos;
 using MyBlog.Shared.Entities.Abstract;
 using MyBlog.Shared.Entities.Concrete;
 
@@ -38,6 +39,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [DisplayName("Ürün")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public IList<Product> Products { get; set; }
+        public IList<ProductListWithRelatedTables> ProductListWithRelatedTables { get; set; }
         [DisplayName("Ürün")]
         public int ProductId { get; set; }
 
@@ -51,5 +53,10 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(3, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
         public string? Description { get; set; }
+    }
+    public class SaleAddRequest
+    {
+        public List<SaleAddViewModel> SaleAddViewModelList { get; set; }
+        public string TableType { get; set; }
     }
 }

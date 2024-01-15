@@ -41,11 +41,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Tarih</th>
-                        <th>Personel</th>
-                        <th>Hasta</th>
+                        <th>İlgilenen</th>
+                        <th>Hasta Adı Soyadı</th>
+                        <th>Ürün</th>
                         <th>Satış Tipi</th>
                         <th>Satış Durumu</th>
-                        <th>Ürün</th>
                         <th>Satış Tutarı</th>
                         @*<th>Açıklama</th>*@
                         <th>İşlem</th>
@@ -55,11 +55,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Tarih</th>
-                        <th>Personel</th>
-                        <th>Hasta</th>
+                            <th>İlgilenen</th>
+                            <th>Hasta Adı Soyadı</th>
+                            <th>Ürün</th>
                         <th>Satış Tipi</th>
                         <th>Satış Durumu</th>
-                        <th>Ürün</th>
                         <th>Satış Tutarı</th>
                         @*<th>Açıklama</th>*@
                         <th>İşlem</th>
@@ -74,9 +74,11 @@
 
                             <td>@sale.EmployeeFirstName </td>
                             <td>@sale.CustomerFirstName</td>
+                                <td>@sale.ProductName</td>
+
                             <td>@sale.SaleTypeName</td>
+
                             <td>@sale.SaleStatusName</td>
-                            <td>@sale.ProductName</td>
                             <td>@sale.Amount</td>
                             @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
                             <td>

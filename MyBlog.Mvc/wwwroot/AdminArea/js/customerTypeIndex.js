@@ -153,9 +153,8 @@
                         placeHolderDiv.find('.modal').modal('hide');
                         const customerType = CustomerTypeAddAjaxModel.CustomerTypeDto.CustomerType;
                         const newTableRow = dataTable.row.add([
-                            customerType.Id,
                             customerType.Title,
-                            customerType.Title,
+                            customerType.Note,
                             `
                                 <div class="form-group row justify-content-center">
                                 ${tableType === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerType.Id + '><span class="fas fa-edit"></span></button>' : ''}
@@ -225,9 +224,8 @@
                         const tableRow = $(`[name="${id}"]`);
                         placeHolderDiv.find('.modal').modal('hide');
                         dataTable.row(tableRow).data([
-                            customerType.Id,
                             customerType.Title,
-                            customerType.Title,
+                            customerType.Note,
                             `
                             <div class="form-group row justify-content-center">
                                   ${document.getElementById("tableType").value === 'NonDeletedTables' ? '<button title="Güncelle" class="btn btn-primary btn-sm btn-update" data-id=' + customerType.Id + '><span class="fas fa-edit"></span></button>' : ''}

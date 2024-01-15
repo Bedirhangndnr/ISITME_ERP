@@ -12,7 +12,7 @@ using MyBlog.Shared.Entities.Concrete;
 
 namespace MyBlog.Mvc.Areas.Admin.Models
 {
-    public class ProductAddViewModel:DtoGetBase
+    public class ProductAddViewModel : DtoGetBase
     {
         [DisplayName("Fiyat | TL")]
         [Range(0, int.MaxValue, ErrorMessage = "{0} 0'dan küçük olamaz")]
@@ -37,6 +37,7 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [MaxLength(35, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         [MinLength(2, ErrorMessage = "{0} {1} Karakterden Küçük Olmamalıdır")]
         public string SerialNumber { get; set; }
+        public string? SubTitleAndSerial { get; set; }
         [DisplayName("Alt Model")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public int? SubModelId { get; set; }

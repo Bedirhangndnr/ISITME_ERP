@@ -11,12 +11,12 @@
 <meta http-equiv="Expires" content="0" />
 @await Component.InvokeAsync("BreadCrumbs", new BreadCrumbsViewModel
 {
-        Depth = 2,
-        Controller = "ProductAccessory",
-        ControllerTr = "Ürünler",
-        Action = "Yok",
-        ActionTR = "Yok",
-        TableType = ViewBag.TableType
+    Depth = 2,
+    Controller = "ProductAccessory",
+    ControllerTr = "Ürünler",
+    Action = "Yok",
+    ActionTR = "Yok",
+    TableType = ViewBag.TableType
 })
 @if (Model.ResultStatus == ResultStatus.Success)
 {
@@ -34,68 +34,69 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="productsTable" width="100%" cellspacing="0">
                     <thead>
-                    <tr>
-                            <th>Seri No</th>
+                        <tr>
                             <th>Marka</th>
                             <th>Model</th>
                             <th>Segment</th>
+                            <th>Seri No</th>
                             <th>Not</th>
                             <th>İşlem</th>
-                    </tr>
+                        </tr>
                     </thead>
                     <tfoot>
-                    <tr>
+                        <tr>
                             <th>Seri No</th>
                             <th>Marka</th>
                             <th>Model</th>
                             <th>Segment</th>
                             <th>Not</th>
                             <th>İşlem</th>
-                    </tr>
+                        </tr>
                     </tfoot>
                     <tbody>
-                    @foreach (var product in Model.ProductListWithRelatedTables)
-                    {
+                        @foreach (var product in Model.ProductListWithRelatedTables)
+                        {
                             <tr name="@product.Id">
-                                <td>@product.SerialNumber</td>
+
                                 <td>@product.BrandTitle </td>
                                 <td>@product.ModelTitle</td>
                                 <td>@product.SubModelTitle</td>
+                                <td>@product.SerialNumber</td>
                                 <td>@product.Note</td>
-                               @*  <td>
-                                    <span id="priceSpan">
-                                        @{
-                                            if (product.Price != 0)
-                                            {
-                                                @product.Price
-                                                ;
-                                            }
-                                            else
-                                            {
-                                                <span style="color: red;">Fiyat Girilmemiş</span>
-                                            }
-                                        }
-                                    </span>
-                                </td> *@
+                                @*  <td>
+                        <span id="priceSpan">
+                        @{
+                        if (product.Price != 0)
+                        {
+                        @product.Price
+                        ;
+                        }
+                        else
+                        {
+                        <span style="color: red;">Fiyat Girilmemiş</span>
+                        }
+                        }
+                        </span>
+                        </td> *@
                                 <td>
                                     @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                                        {
-                                        Id=product.Id,
-                                        InMainPage=0,
-                                        TableType=ViewBag.tableType,
-                                        Action="Update",
-                                        Controller="Product"
-                                        })
+                       {
+                           Id = product.Id,
+                           InMainPage = 0,
+                           TableType = ViewBag.tableType,
+                           Action = "Update",
+                           Controller = "Product"
+                       })
                                 </td>
                             </tr>
-                    }
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    
+
 }
 
 @if (Model.ResultStatus == ResultStatus.Error)
@@ -108,7 +109,7 @@
 <link href="~/AdminArea/css/dtPaginationCss.css" rel="stylesheet" />
 
 @section Scripts
-    {
+{
     <script src="~/AdminArea/js/productIndex.js" type="application/ecmascript"></script>
     <script>
         $(document).ready(function () {

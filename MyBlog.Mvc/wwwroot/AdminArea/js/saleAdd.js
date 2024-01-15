@@ -1,10 +1,146 @@
 ﻿$(document).ready(function () {
+    var urunler = [];
 
+    $(document).ready(function () {
+        var toplamTutar = 0;
+        $('#btnUrunEkle').prop('disabled', true);
+        $('#btnTumunuEkle').prop('disabled', true);
+        function checkUrunEkleButonu() {
+            var urunId = $('#productsList1').val();
+            var fiyat = $('#Amount').val();
+            var miktar = $('#Quantity').val();
+            var customerId = $('#customersList1').val();
+            var saleTypeId = $('#saleTypesList1').val();
+            var saleStatusId = $('#saleStatusesList1').val();
+            var employeeId = $('#EmployeeList1').val();
+            var description = $('#Description').val();
+
+            if (urunId && fiyat && customerId && saleTypeId && saleStatusId && employeeId) {
+                $('#btnUrunEkle').prop('disabled', false);
+            } else {
+                $('#btnUrunEkle').prop('disabled', true);
+            }
+        }
+        $('#productsList1, #Amount, #Quantity, #customersList1, #saleTypesList1, #saleStatusesList1, #EmployeeList1, #Description').change(checkUrunEkleButonu);
+        $('#btnUrunEkle').click(function () {
+            checkUrunEkleButonu();
+
+            var urunId = $('#productsList1').val(); // Ürün ID'si
+            var urunAdi = $('#productsList1 option:selected').text();
+            var fiyat = $('#Amount').val(); // Fiyat
+            var miktar = $('#Quantity').val(); // Miktar
+            var customerId = $('#customersList1').val(); // Müşteri ID'si
+            var saleTypeId = $('#saleTypesList1').val(); // Satış Tipi ID'si
+            var saleStatusId = $('#saleStatusesList1').val(); // Satış Durumu ID'si
+            var employeeId = $('#EmployeeList1').val(); // Personel ID'si
+            var description = $('#Description').val(); // Açıklama
+
+            var satis = {
+                ProductId: urunId,
+                ProductName: urunAdi,
+                Amount: fiyat,
+                Quantity: miktar, // Miktar
+                CustomerId: customerId, // Müşteri ID'si
+                SaleTypeId: saleTypeId, // Satış Tipi ID'si
+                SaleStatusId: saleStatusId, // Satış Durumu ID'si
+                EmployeeId: employeeId, // Personel ID'si
+                Description: description // Açıklama
+                // Diğer SaleAddViewModel alanları...
+            };
+            urunler.push(satis);
+            var isProduct = $('#productsList1 option:selected').data('IsProduct'); // Bu değer sunucudan gelmelidir
+            if (isProduct) {
+                $('#productsList1 option[value=' + urunId + ']').remove();
+            }
+            urunListesiniGuncelle();
+            checkUrunEkleButonu();
+
+        });
+
+        // Ürün listesini güncelleme fonksiyonu
+        function urunListesiniGuncelle() {
+            var listeHtml = '';
+            toplamTutar = 0;
+            urunler.forEach(function (urun, index) {
+                listeHtml += '<div class="urun-listesi-item">' +
+                    (index + 1) + '. ' + urun.ProductName + ' ürününe ait ' + urun.Amount + ' TL\'lik satış eklendi. ' +
+                    '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
+                    '</div>';
+                toplamTutar += parseFloat(urun.Amount);
+            });
+            $('#urunListesi').html(listeHtml);
+            $('#toplamTutar').text('Toplam Satış Tutarı: ' + toplamTutar + ' TL');
+            checkUrunEkleButonu();
+            checkTumunuEkleButonu();
+
+        }
+
+        // Ürün silme fonksiyonu
+        // Ürün silme fonksiyonu
+        window.urunSil = function (index) {
+            var silinenUrun = urunler[index];
+            urunler.splice(index, 1);
+            urunListesiniGuncelle();
+
+            // Silinen ürünü select listesine geri ekle
+            $('#productsList1').append(new Option(silinenUrun.ProductName, silinenUrun.ProductId));
+        };
+
+
+        // Tüm ürünleri ekleme fonksiyonu
+
+        $('#btnTumunuEkle').click(function () {
+            var data = {
+                SaleAddViewModelList: urunler,
+                TableType: 'NonDeletedTables',
+            };
+            $.ajax({
+                url: '/Admin/Sale/Add/', // Sunucu URL'sini doğru şekilde belirtin
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (response) {
+
+                      Swal.fire(
+                                        'Tamamen Silindi!',
+                                        `Silme İşlemi Başarılı`,
+                                        'success'
+                                    );
+                    window.location.href = "/Admin/Sale/Index?tableType=" + 'NonDeletedTables';
+                },
+                error: function (err) {
+                    Swal.fire({
+                        title: "Hata!",
+                        text: "Satış ekleme işlemi sırasında bir hata oluştu. Değerleri Kontrol edin.",
+                        icon: "error"
+                    });                }
+            });
+        });
+        var urunler = []; // Ürün listesini tutacak dizi
+
+        // "Tümünü Ekle" butonunu kontrol eden fonksiyon
+        function checkTumunuEkleButonu() {
+            if (urunler.length > 0) {
+                $('#btnTumunuEkle').prop('disabled', false);
+            } else {
+                $('#btnTumunuEkle').prop('disabled', true);
+            }
+        }
+
+        // Ürün listesini güncelleme fonksiyonu (örnek)
+       
+
+        // Ürün ekleme veya silme gibi işlemler sonrası bu fonksiyonu çağırın
+        urunListesiniGuncelle();
+
+        // Başlangıçta "Tümünü Ekle" butonunu kontrol et
+        checkTumunuEkleButonu();
+    });
 
     $(document).on('click',
         '.btn-delete',
         function (event) {
-            event.preventDefault();
+            event.preventDefault();cccccccccccc
             const id = $(this).attr('data-id');
             const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
@@ -30,13 +166,10 @@
                         url: '/Admin/Sale/Delete/',
                         success: function (data) {
                             const SaleResult = jQuery.parseJSON(data);
+
                             if (SaleResult.ResultStatus === 0) {
                                 if (tableType === 'DeletedTables') {
-                                    Swal.fire(
-                                        'Tamamen Silindi!',
-                                        `${SaleResult.Message}`,
-                                        'success'
-                                    );
+                                  
                                     window.location.href = "/Admin/Sale/Index?tableType=" + tableType;
                                 }
                                 else {

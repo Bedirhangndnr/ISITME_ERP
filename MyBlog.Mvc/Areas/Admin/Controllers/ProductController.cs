@@ -148,6 +148,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var subModelList = await _subModelService.GetAllByNonDeletedAndActiveAsync();
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
             var brandList = await _brandService.GetAllByNonDeletedAndActiveAsync();
+            productAddViewModel.Quantity = 1;
             ViewBag.tableType = tableType;
             ViewBag.isAdd = "True";
             var user = await UserManager.GetUserAsync(HttpContext.User);
@@ -169,11 +170,11 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 if (result.ResultStatus == ResultStatus.Success)
                 {
                     await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-   NotificationMessageTypes.Added,
-   TableNamesConstants.Sales,
-   LoggedInUser.UserName),
-   NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
-   );
+                   NotificationMessageTypes.Added,
+                   TableNamesConstants.Sales,
+                   LoggedInUser.UserName),
+                   NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+                   );
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
                         Title = "Başarılı İşlem!"

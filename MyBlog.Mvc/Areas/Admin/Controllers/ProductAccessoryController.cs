@@ -17,6 +17,7 @@ using MyBlog.Services.Utilities;
 using MyBlog.Shared.Utilities.Messages.NotificationMessages;
 using MyBlog.Mvc.Consts;
 using MyBlog.Mvc.Areas.Admin.Models.UserModels;
+using MyBlog.Shared.Utilities.Results.Concrete;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
@@ -164,10 +165,6 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                        LoggedInUser.UserName),
                        NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
                        );
-                    _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
-                    {
-                        Title = "Başarılı İşlem!"
-                    });
 
                     return RedirectToAction("Index", "ProductAccessory", new { tableType = tableType });
                 }
@@ -176,25 +173,41 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     ModelState.AddModelError("", result.Message);
                 }
             }
-
+            _toastNotification.AddErrorToastMessage("Başarısız!", new ToastrOptions
+            {
+                Title = "Başarısız İşlem!"
+            });
+            ViewBag.tableType = tableType;
             var productSubGroupList = await _productSubGroupService.GetAllByNonDeletedAndActiveAsync();
             var modelList = await _modelService.GetAllByNonDeletedAndActiveAsync();
+            var brandList = await _brandService.GetAllByNonDeletedAndActiveAccessoryAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAccessoryAsync();
 
-            productAddViewModel.Models = modelList.Data.Models;
-            var user = await UserManager.GetUserAsync(HttpContext.User);
-            var roles = await UserManager.GetRolesAsync(user);
-
-            if (user != null && roles != null)
+            if (productSubGroupList.ResultStatus == ResultStatus.Success &&
+                modelList.ResultStatus == ResultStatus.Success &&
+                brandList.ResultStatus == ResultStatus.Success &&
+                productList.ResultStatus == ResultStatus.Success)
             {
-                productAddViewModel.UserWithRolesModel = new UserWithRolesViewModel
-                {
-                    User = user,
-                    Roles = roles
-                };
+                var user = await UserManager.GetUserAsync(HttpContext.User);
+                var roles = await UserManager.GetRolesAsync(user);
 
-                return View(productAddViewModel);
+                if (user != null && roles != null)
+                {
+                    var viewModel = new ProductAddViewModel
+                    {
+                        Models = modelList.Data.Models,
+                        Brands = brandList.Data.Brands,
+                        UserWithRolesModel = new UserWithRolesViewModel
+                        {
+                            User = user,
+                            Roles = roles
+                        }
+                    };
+
+                    return View(viewModel);
+                }
             }
+
             return NotFound();
 
         }

@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿w$(document).ready(function () {
 
 
     $('#text-editor').trumbowyg({
@@ -212,7 +212,7 @@
         var selectedType = $("#appointmentTypeList").find(":selected").text();
         var customerReferanceList = $("#customerReferancesList");
 
-        if (selectedType === "Yönlendirme" || selectedType === "Tavsiye") {
+        if (selectedType === "Yönlendirme" || selectedType === "YÖNLENDİRME" || selectedType === "Tavsiye") {
             customerReferanceList.parent().show();
         } else {
             customerReferanceList.parent().hide();

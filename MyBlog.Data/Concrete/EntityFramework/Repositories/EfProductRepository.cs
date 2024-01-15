@@ -44,8 +44,13 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     Note = s.Note,
                     Price = s.Price,
                     ProductName = s.ProductName,
-                    BrandTitle=s.Model.Brand.Title,
-                }).ToListAsync();
+                    BrandTitle = s.Model.Brand.Title,
+                    IsProduct = s.IsProduct,
+                    SubTitleAndSerial = s.IsProduct == false
+            ? s.Model.Title ?? string.Empty  // Sadece SubModelTitle
+            : (s.SubModel.Title ?? string.Empty) + " | " + (s.SerialNumber ?? string.Empty),  // SubModelTitle ve SerialNumber
+
+                }).OrderBy(s => s.BrandTitle).ToListAsync();
 
 
             return Products;

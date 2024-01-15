@@ -19,11 +19,12 @@ using MyBlog.Shared.Utilities.Results.Concrete;
 using MyBlog.Mvc.Consts;
 using MyBlog.Entities.Dtos.ProductDtos;
 using MyBlog.Shared.Utilities.Results;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 
 namespace MyBlog.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+
 
     public class SaleController : BaseController
     {
@@ -61,7 +62,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
 
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleRead}")]
         [HttpGet]
-        public async Task<IActionResult> Index(string tableType, int customerId=0, string customerName="")
+        public async Task<IActionResult> Index(string tableType, int customerId = 0, string customerName = "")
         {
             ViewBag.tableType = tableType;
             var user = await UserManager.GetUserAsync(HttpContext.User);
@@ -71,14 +72,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             bool isSuperAdmin = User.IsInRole(AuthorizeDefinitionConstants.SuperAdmin);
             if (tableType == TableReturnTypesConstants.NonDeletedTables)
             {
-                IDataResult< SaleListDto > result;
-                if (customerId==0)
+                IDataResult<SaleListDto> result;
+                if (customerId == 0)
                 {
                     result = await _saleService.GetAllByNonDeletedAndActiveAsync(isSuperAdmin);
                 }
                 else
                 {
-                    ViewBag.customerName = customerName + " Hastasına Ait"; 
+                    ViewBag.customerName = customerName + " Hastasına Ait";
                     result = await _saleService.GetAllByNonDeletedAndActiveByCustomerIdAsync(isSuperAdmin, customerId);
                 }
 
@@ -184,7 +185,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
-            var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
+            var productList = await _productService.GetAllProductsAsync();
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
             if ((saleTypeList.ResultStatus == ResultStatus.Success &&
                  saleStatusList.ResultStatus == ResultStatus.Success &&
@@ -197,6 +198,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                     Customers = customerList.Data.Customers,
                     Employees = employeeList.Data.Employees,
                     Products = productList.Data.Products,
+                    ProductListWithRelatedTables = productList.Data.ProductListWithRelatedTables,
                     SaleStatuses = saleStatusList.Data.SaleStatuses,
                     SaleTypes = saleTypeList.Data.SaleTypes
                 });
@@ -205,142 +207,211 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             {
                 _toastNotification.AddErrorToastMessage(employeeList.Message, new ToastrOptions
                 {
-                    Title = "İşlem Başarısız." 
+                    Title = "İşlem Başarısız."
                 });
             }
             return NotFound();
         }
 
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleCreate}")]
+        //[HttpPost]
+        //public async Task<IActionResult> Add(SaleAddViewModel saleAddViewModel, string tableType)
+        //{
+        //    ModelState.Remove("tableType");
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        var saleAddDto = Mapper.Map<SaleAddDto>(saleAddViewModel);
+        //        IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(saleAddDto.ProductId);
+        //        productUpdateDto.Data.IsSold = true;
+        //        var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
+        //        var result = await _saleService.AddAsync(saleAddDto, LoggedInUser.UserName, LoggedInUser.Id);
+        //        if (result.ResultStatus == ResultStatus.Success && productUpdateResult.ResultStatus == ResultStatus.Success)
+        //        {
+        //            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+        //                NotificationMessageTypes.Added,
+        //                TableNamesConstants.Sales,
+        //                LoggedInUser.UserName),
+        //                NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
+        //                );
+        //            _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+        //            {
+        //                Title = "Başarılı İşlem!"
+        //            });
+        //            return RedirectToAction("Index", "Sale", new { tableType = tableType });
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("", result.Message);
+        //        }
+        //    }
+
+        //    var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
+        //    var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
+        //    var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
+        //    var productList = await _productService.GetAllByNonDeletedAndActiveAsync(true);
+        //    var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
+        //    saleAddViewModel.Customers = customerList.Data.Customers;
+        //    saleAddViewModel.Employees = employeeList.Data.Employees;
+        //    saleAddViewModel.Products = productList.Data.Products;
+        //    saleAddViewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
+        //    saleAddViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
+        //    return View(saleAddViewModel);
+        //}
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleCreate}")]
         [HttpPost]
-        public async Task<IActionResult> Add(SaleAddViewModel saleAddViewModel, string tableType)
+        public async Task<IActionResult> Add([FromBody] SaleAddRequest request)
         {
-            ModelState.Remove("tableType");
-            if (ModelState.IsValid)
+            SaleAddViewModel saleAddViewModel = new SaleAddViewModel();
+            if (request.SaleAddViewModelList != null || request.SaleAddViewModelList.Count > 0)
             {
-
-                var saleAddDto = Mapper.Map<SaleAddDto>(saleAddViewModel);
-                IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(saleAddDto.ProductId);
-                productUpdateDto.Data.IsSold = true;
-                var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
-                var result = await _saleService.AddAsync(saleAddDto, LoggedInUser.UserName, LoggedInUser.Id);
-                if (result.ResultStatus == ResultStatus.Success && productUpdateResult.ResultStatus == ResultStatus.Success)
+                foreach (var saleAddViewModel_ in request.SaleAddViewModelList)
                 {
-                    await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-                        NotificationMessageTypes.Added,
-                        TableNamesConstants.Sales,
-                        LoggedInUser.UserName),
-                        NotificationMessageService.GetTitle(NotificationMessageTypes.Added), userId: LoggedInUser.Id
-                        );
-                    _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                    var saleAddDto = Mapper.Map<SaleAddDto>(saleAddViewModel_);
+                    IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(saleAddDto.ProductId);
+                    if (productUpdateDto.Data.IsProduct==true)
                     {
-                        Title = "Başarılı İşlem!"
-                    });
-                    return RedirectToAction("Index", "Sale", new { tableType = tableType });
+                        productUpdateDto.Data.IsSold= true;
+                    }
+                    productUpdateDto.Data.Quantity--;
+                    var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
+                    var result = await _saleService.AddAsync(saleAddDto, LoggedInUser.UserName, LoggedInUser.Id);
+
+                    if (!(result.ResultStatus == ResultStatus.Success && productUpdateResult.ResultStatus == ResultStatus.Success))
+                    {
+                        // Eğer bir işlemde hata oluşursa, hata mesajını ekle ve döngüden çık
+                        ModelState.AddModelError("", result.Message);
+                        break;
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", result.Message);
-                }
+                return Json(new { Success = true, Message = "Satış başarıyla eklendi." });
+
+                //_toastNotification.AddSuccessToastMessage("Tüm satışlar başarıyla eklendi.", new ToastrOptions { Title = "Başarılı İşlem!" });
+                //return RedirectToAction("Index", "Sale", new { tableType = request.TableType });
+
+            }
+            else
+            {
+                return BadRequest("Ürün silme işlemi başarısız oldu: ");
+
+
             }
 
+
+            // Eğer model geçersizse veya hata oluştuysa, formu tekrar yükle
+            // İlgili listeleri tekrar yükle
+
+
+            // İşlemler başarılıysa, başarı mesajı göster ve yönlendir
+
+
+            // Model geçersizse, formu ve listeleri tekrar yükle
+
+        }
+
+        private async Task LoadListsForViewModel(List<SaleAddViewModel> saleAddViewModelList)
+        {
+            // Bu metot, ViewModel için gerekli listeleri yükler
             var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
             var productList = await _productService.GetAllByNonDeletedAndActiveAsync(true);
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
-            saleAddViewModel.Customers = customerList.Data.Customers;
-            saleAddViewModel.Employees = employeeList.Data.Employees;
-            saleAddViewModel.Products = productList.Data.Products;
-            saleAddViewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
-            saleAddViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
-            return View(saleAddViewModel);
-        }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
-        [HttpGet]
-        public async Task<IActionResult> Update(int Id, string tableType)
-        {
-            ViewBag.tableType = tableType;
-            var saleList = await _saleService.GetSaleUpdateDtoAsync(Id);
-            var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
-            var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
-            var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
-            var sale = await _saleService.GetAsync(Id);
-            var productList = await _productService.GetAllByNonDeletedAndActiveAsync(IsUpdatePage:true, Id:sale.Data.Sale.ProductId);
-            var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
 
-            var saleTypeResult = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
-            if ((saleTypeList.ResultStatus == ResultStatus.Success &&
-               saleStatusList.ResultStatus == ResultStatus.Success &&
-               saleList.ResultStatus == ResultStatus.Success &&
-               customerList.ResultStatus == ResultStatus.Success &&
-               productList.ResultStatus == ResultStatus.Success &&
-               employeeList.ResultStatus == ResultStatus.Success))
+            foreach (var viewModel in saleAddViewModelList)
             {
-                var SaleUpdateViewModel = Mapper.Map<SaleUpdateViewModel>(saleList.Data);
-                SaleUpdateViewModel.OldProductId=SaleUpdateViewModel.ProductId;
-                SaleUpdateViewModel.Customers = customerList.Data.Customers;
-                SaleUpdateViewModel.Employees = employeeList.Data.Employees;
-                SaleUpdateViewModel.Products = productList.Data.Products;
-                SaleUpdateViewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
-                SaleUpdateViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
-                return View(SaleUpdateViewModel);
-            }
-            else
-            {
-                return NotFound();
+                viewModel.Customers = customerList.Data.Customers;
+                viewModel.Employees = employeeList.Data.Employees;
+                viewModel.Products = productList.Data.Products;
+                viewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
+                viewModel.SaleTypes = saleTypeList.Data.SaleTypes;
             }
         }
-        [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
-        [HttpPost]
-        public async Task<IActionResult> Update(SaleUpdateViewModel SaleUpdateViewModel, string tableType)
-        {
-            ModelState.Remove("tableType");
-            if (ModelState.IsValid)
-            {
-                var saleUpdateDto = Mapper.Map<SaleUpdateDto>(SaleUpdateViewModel);
-                if (SaleUpdateViewModel.OldProductId!=SaleUpdateViewModel.ProductId)
-                {
-                    IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(SaleUpdateViewModel.OldProductId);
-                    oldProductUpdateDto.Data.IsSold = false;
-                    var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        //[HttpGet]
+        //public async Task<IActionResult> Update(int Id, string tableType)
+        //{
+        //    ViewBag.tableType = tableType;
+        //    var saleList = await _saleService.GetSaleUpdateDtoAsync(Id);
+        //    var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
+        //    var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
+        //    var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
+        //    var sale = await _saleService.GetAsync(Id);
+        //    var productList = await _productService.GetAllByNonDeletedAndActiveAsync(IsUpdatePage:true, Id:sale.Data.Sale.ProductId);
+        //    var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
 
-                    IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(SaleUpdateViewModel.ProductId);
-                    productUpdateDto.Data.IsSold = true;
-                    var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
-                }
+        //    var saleTypeResult = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
+        //    if ((saleTypeList.ResultStatus == ResultStatus.Success &&
+        //       saleStatusList.ResultStatus == ResultStatus.Success &&
+        //       saleList.ResultStatus == ResultStatus.Success &&
+        //       customerList.ResultStatus == ResultStatus.Success &&
+        //       productList.ResultStatus == ResultStatus.Success &&
+        //       employeeList.ResultStatus == ResultStatus.Success))
+        //    {
+        //        var SaleUpdateViewModel = Mapper.Map<SaleUpdateViewModel>(saleList.Data);
+        //        SaleUpdateViewModel.OldProductId=SaleUpdateViewModel.ProductId;
+        //        SaleUpdateViewModel.Customers = customerList.Data.Customers;
+        //        SaleUpdateViewModel.Employees = employeeList.Data.Employees;
+        //        SaleUpdateViewModel.Products = productList.Data.Products;
+        //        SaleUpdateViewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
+        //        SaleUpdateViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
+        //        return View(SaleUpdateViewModel);
+        //    }
+        //    else
+        //    {
+        //        return NotFound();
+        //    }
+        //}
+        //[Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
+        //[HttpPost]
+        //public async Task<IActionResult> Update(SaleUpdateViewModel SaleUpdateViewModel, string tableType)
+        //{
+        //    ModelState.Remove("tableType");
+        //    if (ModelState.IsValid)
+        //    {
+        //        var saleUpdateDto = Mapper.Map<SaleUpdateDto>(SaleUpdateViewModel);
+        //        if (SaleUpdateViewModel.OldProductId!=SaleUpdateViewModel.ProductId)
+        //        {
+        //            IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(SaleUpdateViewModel.OldProductId);
+        //            oldProductUpdateDto.Data.IsSold = false;
+        //            var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
 
-                var result = await _saleService.UpdateAsync(saleUpdateDto, LoggedInUser.UserName);
-                if (result.ResultStatus == ResultStatus.Success)
-                {
-                    _toastNotification.AddSuccessToastMessage(saleUpdateDto.Message, new ToastrOptions
-                    {
-                        Title = "Güncelleme Başarılı!"
-                    });
-                    return RedirectToAction("Index", "Sale", new { tableType = tableType });
-                }
-                else
-                {
-                    _toastNotification.AddErrorToastMessage(saleUpdateDto.Message, new ToastrOptions
-                    {
-                        Title = "Başarısız İşlem!"
-                    });
-                    ModelState.AddModelError("", result.Message);
-                }
-            }
-            var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
-            var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
-            var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
-            var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
-            var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
-            SaleUpdateViewModel.Customers = customerList.Data.Customers;
-            SaleUpdateViewModel.Employees = employeeList.Data.Employees;
-            SaleUpdateViewModel.Products = productList.Data.Products;
-            SaleUpdateViewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
-            SaleUpdateViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
-            return View(SaleUpdateViewModel);
+        //            IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(SaleUpdateViewModel.ProductId);
+        //            productUpdateDto.Data.IsSold = true;
+        //            var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
+        //        }
 
-        }
+        //        var result = await _saleService.UpdateAsync(saleUpdateDto, LoggedInUser.UserName);
+        //        if (result.ResultStatus == ResultStatus.Success)
+        //        {
+        //            _toastNotification.AddSuccessToastMessage(saleUpdateDto.Message, new ToastrOptions
+        //            {
+        //                Title = "Güncelleme Başarılı!"
+        //            });
+        //            return RedirectToAction("Index", "Sale", new { tableType = tableType });
+        //        }
+        //        else
+        //        {
+        //            _toastNotification.AddErrorToastMessage(saleUpdateDto.Message, new ToastrOptions
+        //            {
+        //                Title = "Başarısız İşlem!"
+        //            });
+        //            ModelState.AddModelError("", result.Message);
+        //        }
+        //    }
+        //    var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
+        //    var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
+        //    var productList = await _productService.GetAllByNonDeletedAndActiveAsync();
+        //    var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
+        //    var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
+        //    SaleUpdateViewModel.Customers = customerList.Data.Customers;
+        //    SaleUpdateViewModel.Employees = employeeList.Data.Employees;
+        //    SaleUpdateViewModel.Products = productList.Data.Products;
+        //    SaleUpdateViewModel.SaleStatuses = saleStatusList.Data.SaleStatuses;
+        //    SaleUpdateViewModel.SaleTypes = saleTypeList.Data.SaleTypes;
+        //    return View(SaleUpdateViewModel);
+
+        //}
         [Authorize(Roles = $"{AuthorizeDefinitionConstants.SuperAdmin}, {AuthorizeDefinitionConstants.DefaultUser}, {AuthorizeDefinitionConstants.SaleUpdate}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteFromUpdatePage(int saleId, string tableType)
@@ -397,18 +468,18 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<JsonResult> Delete(int saleId, string tableType)
         {
-                var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
-                var saleResult = JsonSerializer.Serialize(result.Data);
-                IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(result.Data.Sale.ProductId);
-                oldProductUpdateDto.Data.IsSold = false;
-                var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
-                await _notificationService.AddAsync(NotificationMessageService.GetMessage(
-                   NotificationMessageTypes.Deleted,
-                   TableNamesConstants.Sales,
-                   LoggedInUser.UserName),
-                   NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
-                   );
-                return Json(saleResult);
+            var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
+            var saleResult = JsonSerializer.Serialize(result.Data);
+            IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(result.Data.Sale.ProductId);
+            oldProductUpdateDto.Data.IsSold = false;
+            var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
+            await _notificationService.AddAsync(NotificationMessageService.GetMessage(
+               NotificationMessageTypes.Deleted,
+               TableNamesConstants.Sales,
+               LoggedInUser.UserName),
+               NotificationMessageService.GetTitle(NotificationMessageTypes.Deleted), userId: LoggedInUser.Id
+               );
+            return Json(saleResult);
         }
         private async Task UpdateProductIsSold(int productId, bool isSold)
         {
@@ -424,7 +495,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             }
 
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(int saleId)
         {
@@ -444,7 +515,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateIsSold(int saleId, bool isSold)
         {
-            var sale= await _saleService.GetSaleUpdateDtoAsync(saleId);
+            var sale = await _saleService.GetSaleUpdateDtoAsync(saleId);
             var productId = sale.Data.ProductId;
             try
             {

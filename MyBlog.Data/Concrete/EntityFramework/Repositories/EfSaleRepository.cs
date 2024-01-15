@@ -64,15 +64,17 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     ModifiedDate = s.ModifiedDate,
                     Amount = s.Amount,
                     CustomerId = s.Customer.Id,
-                    CustomerFirstName = s.Customer.FirstName,
-                    EmployeeId = s.Employee.Id,
-                    EmployeeFirstName = s.Employee.FirstName,
+                    CustomerFirstName = s.Customer.FirstName + " " + s.Customer.LastName,
+                    EmployeeId = s.Employee.Id ,
+                    EmployeeFirstName = s.Employee.FirstName + " " + s.Employee.LastName,
                     SaleTypeId = s.SaleType.Id,
                     SaleTypeName = s.SaleType.Title,
                     SaleStatusId = s.SaleStatus.Id,
                     SaleStatusName = s.SaleStatus.Title,
                     ProductId = s.Product.Id,
-                    ProductName = s.Product.ProductName
+                    ProductName = s.Product.IsProduct == false
+            ? s.Product.Model.Title ?? string.Empty  // Sadece SubModelTitle
+            : (s.Product.SubModel.Title ?? string.Empty) + " | " + (s.Product.SerialNumber ?? string.Empty),  // SubModelTitle ve SerialNumber
                 }).ToListAsync();
 
             return sales;

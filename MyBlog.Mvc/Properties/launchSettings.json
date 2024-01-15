@@ -1,22 +1,8 @@
 {
-  "ConnectionStrings": {
-    "AsesErpDB": "Server=tcp:isitmesqlserver.database.windows.net,1433;Initial Catalog=AsesErpDB;Persist Security Info=False;User ID=IsitmeErpDB;Password=isitmedbX_I;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-    //"AsesErpDB": "Server=NAHRIDEB\\NAHRIDEB; Database=TestErpDB; Integrated Security=True;TrustServerCertificate=True;"
-  },
-  "DetailedErrors": true,
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
   "profiles": {
     "MyBlog.Mvc": {
       "commandName": "Project",
       "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7011;https://aseserp.azurewebsites.net ",
       "nativeDebugging": true,
@@ -31,6 +17,16 @@
       "nativeDebugging": true,
       "sqlDebugging": true
     }
+  },
+  "DetailedErrors": true,
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    ////"FokusErpDB": "Server=NAHRIDEB\\NAHRIDEB; Database=TestErpDB; Integrated Security=True;TrustServerCertificate=True;"
   },
   "iisSettings": {
     "windowsAuthentication": false,
