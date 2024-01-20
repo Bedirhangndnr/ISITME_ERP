@@ -31,8 +31,9 @@
         </form>
         <!-- Navbar-->
         @*@await Component.InvokeAsync("RemainderMenu")*@
-        <a class="nav-link btn btn-sm rounded-0 btn-outline-secondary" asp-area="Admin" asp-controller="Appointment"
-           asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Randevu Oluştur</a>
+        <a class="nav-link btn btn-sm rounded-0 btn-outline-secondary" asp-area="Admin" asp-controller="Appointment" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Randevu Oluştur</a>
+        <a class="nav-link btn btn-sm rounded-0 btn-outline-secondary" asp-area="Admin" asp-controller="Sale" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Satış ekle</a>
+        <a class="nav-link btn btn-sm rounded-0 btn-outline-secondary" asp-area="Admin" asp-controller="Customer" asp-action="Add" asp-route-tableType=@TableReturnTypesConstants.NonDeletedTables>Hasta Ekle</a>
 
         @await Component.InvokeAsync("NotificationMenu")
 

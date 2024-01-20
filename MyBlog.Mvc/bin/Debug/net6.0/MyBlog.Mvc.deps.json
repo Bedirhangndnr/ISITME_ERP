@@ -3399,6 +3399,7 @@
       "MyBlog.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.14",
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "6.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.14",
           "MyBlog.Entities": "1.0.0",
@@ -3413,6 +3414,7 @@
       },
       "MyBlog.Entities/1.0.0": {
         "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.Extensions.Identity.Stores": "6.0.14",
           "MyBlog.Shared": "1.0.0"
         },
@@ -3427,6 +3429,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.Data.SqlClient": "5.1.1",
           "MyBlog.Data": "1.0.0",
           "MyBlog.Entities": "1.0.0",
           "MyBlog.Shared": "1.0.0"
@@ -3442,6 +3445,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "6.0.14"
         },
         "runtime": {

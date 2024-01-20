@@ -11,7 +11,7 @@
         "projectName": "MyBlog.Shared",
         "projectPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\MyBlog.Shared.csproj",
         "packagesPath": "C:\\Users\\bedir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bedir\\Source\\Repos\\ISITME_ERP\\MyBlog.Shared\\obj\\",
+        "outputPath": "C:\\Users\\bedir\\source\\repos\\ISITME_ERP\\MyBlog.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bedir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,6 +47,10 @@
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[2.2.5, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

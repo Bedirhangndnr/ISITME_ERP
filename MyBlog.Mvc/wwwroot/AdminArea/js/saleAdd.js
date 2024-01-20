@@ -1,13 +1,21 @@
 ﻿$(document).ready(function () {
     var urunler = [];
-
     $(document).ready(function () {
-        var toplamTutar = 0;
+        $('#productsList1').select2();
+        $('#customersList1').select2();
+        $('#saleTypesList1').select2();
+        $('#EmployeeList1').select2();
+        $('#saleStatusesList1').select2();
+    });
+    $(document).ready(function () {
+        var toplamTutar = 0; 
+        var toplamSGKTutari = 0;
         $('#btnUrunEkle').prop('disabled', true);
         $('#btnTumunuEkle').prop('disabled', true);
         function checkUrunEkleButonu() {
             var urunId = $('#productsList1').val();
             var fiyat = $('#Amount').val();
+            var sgk = $('#Amount').val();
             var miktar = $('#Quantity').val();
             var customerId = $('#customersList1').val();
             var saleTypeId = $('#saleTypesList1').val();
@@ -34,8 +42,10 @@
             var saleStatusId = $('#saleStatusesList1').val(); // Satış Durumu ID'si
             var employeeId = $('#EmployeeList1').val(); // Personel ID'si
             var description = $('#Description').val(); // Açıklama
+            var sgk = $('#amountOfSgk').val(); // Açıklama
 
             var satis = {
+                AmountOfSgk: sgk,
                 ProductId: urunId,
                 ProductName: urunAdi,
                 Amount: fiyat,
@@ -48,7 +58,7 @@
                 // Diğer SaleAddViewModel alanları...
             };
             urunler.push(satis);
-            var isProduct = $('#productsList1 option:selected').data('IsProduct'); // Bu değer sunucudan gelmelidir
+            var isProduct = $('#productsList1 option:selected').data('isproduct'); // Bu değer sunucudan gelmelidir
             if (isProduct) {
                 $('#productsList1 option[value=' + urunId + ']').remove();
             }
@@ -62,11 +72,16 @@
             var listeHtml = '';
             toplamTutar = 0;
             urunler.forEach(function (urun, index) {
+                toplamTutar += parseFloat(urun.Amount);
+                var sgkTutari = $('#amountOfSgk').val();
+                if (sgkTutari) {
+                    toplamTutar += parseFloat(sgkTutari);
+                }
                 listeHtml += '<div class="urun-listesi-item">' +
-                    (index + 1) + '. ' + urun.ProductName + ' ürününe ait ' + urun.Amount + ' TL\'lik satış eklendi. ' +
+                    (index + 1) + '. ' + urun.ProductName + ' ürününe ait ' + toplamTutar + ' TL\'lik satış eklendi. ' +
                     '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
                     '</div>';
-                toplamTutar += parseFloat(urun.Amount);
+                
             });
             $('#urunListesi').html(listeHtml);
             $('#toplamTutar').text('Toplam Satış Tutarı: ' + toplamTutar + ' TL');

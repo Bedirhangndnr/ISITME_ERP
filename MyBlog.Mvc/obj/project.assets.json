@@ -4806,6 +4806,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.14",
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "6.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.14",
           "MyBlog.Entities": "1.0.0",
@@ -4822,6 +4823,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.Extensions.Identity.Stores": "6.0.14",
           "MyBlog.Shared": "1.0.0"
         },
@@ -4838,6 +4840,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.Data.SqlClient": "5.1.1",
           "MyBlog.Data": "1.0.0",
           "MyBlog.Entities": "1.0.0",
           "MyBlog.Shared": "1.0.0"
@@ -4855,6 +4858,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "6.0.14"
         },
         "compile": {
@@ -12649,5 +12653,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Data.SqlClient' 5.1.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "Microsoft.Data.SqlClient",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
