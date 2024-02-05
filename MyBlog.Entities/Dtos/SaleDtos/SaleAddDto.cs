@@ -13,12 +13,16 @@ namespace MyBlog.Entities.Dtos.SaleDtos
     public class SaleAddDto : DtoGetBase
     {
         [DisplayName("SGK Tutarı ")]
-        public int? AmountOfSgk { get; set; }
+        public decimal? AmountOfSgk { get; set; }
+        public string? SgkTypeTitle { get; set; }
+        [DisplayName("Teslim Tarihi")]
+        public DateTime? DeliveryDate { get; set; }
+        [DisplayName("Kapora")]
+        public int? SgkId { get; set; }
+
+        public decimal? DownPayment { get; set; }
         public bool IsInvoiceDue { get; set; } = false;
-        [DisplayName("Satış Tutarı ")]
-        [Required(ErrorMessage = "{0} Boş Geçilemez...")]
-        [MaxLength(150, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
-        public int Amount { get; set; }
+        public decimal Amount { get; set; }
         [DisplayName("Hasta")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public Customer Customer { get; set; }
@@ -32,7 +36,6 @@ namespace MyBlog.Entities.Dtos.SaleDtos
         public SaleStatus SaleStatus { get; set; }
         public int SaleStatusId { get; set; }
         [DisplayName("Ürün")]
-        [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public Product Product { get; set; }
         public int ProductId { get; set; }
         [DisplayName("Personel")]
@@ -41,8 +44,10 @@ namespace MyBlog.Entities.Dtos.SaleDtos
         public int EmployeeId { get; set; }
         [DisplayName("Not")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
-        [MinLength(3, ErrorMessage = "{0} {1} Karakterden Az Olmamalıdır")]
         public string? Not { get; set; }
+        [DisplayName("Açıklama")]
+        [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
+        public string? Description { get; set; }
     }
 
 }

@@ -11,13 +11,18 @@ namespace MyBlog.Entities.Dtos.SaleDtos
 {
     public class SaleListWithRelatedTables: DtoGetBase
     {
-        public int? AmountOfSgk { get; set; }
+        public decimal? AmountOfSgk { get; set; }
+        public string? SgkTypeTitle { get; set; }
+
         public bool IsInvoiceDue { get; set; } = false;
         public int Id { get; set; }
-        public DateTime SaleDate { get; set; }
+        public DateTime? SaleDate { get; set; }
+        public DateTime? DeliveryDate { get; set; }
         public decimal Amount { get; set; }
+        public decimal? DownPayment { get; set; }
         public int CustomerId { get; set; }
         public string CustomerFirstName { get; set; }
+
         public int EmployeeId { get; set; }
         public string EmployeeFirstName { get; set; }
         public int SaleTypeId { get; set; }

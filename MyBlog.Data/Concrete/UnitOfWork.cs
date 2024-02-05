@@ -19,6 +19,7 @@ namespace MyBlog.Data.Concrete
         private EfAppointmentRepository _appointmentRepository;
         private EfCustomerReferanceRepository _customerReferanceRepository;
         private EfCustomerReferanceTitleRepository _customerReferanceUnvanRepository;
+        private EfParameterRepository _parameterRepository;
         private EfCustomerRepository _customerRepository;
         private EfProductCategoryRepository _productCategoryRepository;
         private EfProductRepository _productRepository;
@@ -57,6 +58,7 @@ namespace MyBlog.Data.Concrete
         public ICustomerReferanceRepository CustomerReferances => _customerReferanceRepository ?? new EfCustomerReferanceRepository(_context);
         public ICustomerReferanceTitleRepository CustomerReferanceTitles => _customerReferanceUnvanRepository ?? new EfCustomerReferanceTitleRepository(_context);
         public ICustomerRepository Customers => _customerRepository ?? new EfCustomerRepository(_context);
+        public IParameterRepository Parameters => _parameterRepository ?? new EfParameterRepository(_context);
         public ICustomerTypeRepository CustomerTypes => _customerTypeRepository ?? new EfCustomerTypeRepository(_context);
         public IProductCategoryRepository ProductCategorys => _productCategoryRepository ?? new EfProductCategoryRepository(_context);
         public IProductRepository Products => _productRepository ?? new EfProductRepository(_context);
@@ -84,6 +86,7 @@ namespace MyBlog.Data.Concrete
         public IModuleRepository Modules => _moduleRepository ?? new EfModuleRepository(_context);
         public IAssociatedInstitutionRepository AssociatedInstitutions => _associatedInstitutionRepository ?? new EfAssociatedInstitutionRepositoryRepository (_context);
         public IMessageToDeveloperRepository MessageToDevelopers => _messageToDeveloperRepository ?? new EfMessageToDeveloperRepository(_context);
+
 
         public async ValueTask DisposeAsync()
         {

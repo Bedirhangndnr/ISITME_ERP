@@ -26,7 +26,7 @@
     }
   },
   "ConnectionStrings": {
-    ////"FokusErpDB": "Server=NAHRIDEB\\NAHRIDEB; Database=TestErpDB; Integrated Security=True;TrustServerCertificate=True;"
+    //"FokusErpDB": "Server=NAHRIDEB\\NAHRIDEB; Database=TestErpDB; Integrated Security=True;TrustServerCertificate=True;"
   },
   "iisSettings": {
     "windowsAuthentication": false,

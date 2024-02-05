@@ -43,10 +43,10 @@ namespace MyBlog.Mvc.Areas.Admin.Models.CustomerModels
         public string TC { get; set; }
         [DisplayName("E-Posta")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        public string? Email { get; set; }
+        public string? Email { get; set; } = "Mail Bilgisi Girilmedi.";
         [DisplayName("Address")]
-        [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
-        public string Address { get; set; }
+        //[MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
+        public string Address { get; set; } = " ";
         [DisplayName("Hasta tipi")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CustomerTypeId { get; set; }

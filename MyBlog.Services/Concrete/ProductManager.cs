@@ -170,6 +170,10 @@ namespace MyBlog.Services.Concrete
         {
             var oldProduct = await UnitOfWork.Products.GetAsync(c => c.Id == ProductUpdateDto.Id);
             var product = Mapper.Map<ProductUpdateDto, Product>(ProductUpdateDto, oldProduct);
+            if (true)
+            {
+
+            }
             product.ModifiedByName = modifiedByName;
             product.ProductName = "";
             var updatedProduct = await UnitOfWork.Products.UpdateAsync(product);

@@ -11,8 +11,13 @@ namespace MyBlog.Entities.Concrete
     {
         public Product Product { get; set; }
         public int ProductId { get; set; }
-        public int Amount { get; set; }
-        public int AmountOfSgk { get; set; }
+        public DateTime? DeliveryDate { get; set; }
+        public decimal? DownPayment { get; set; }
+        public decimal Amount { get; set; }
+        public decimal? AmountOfSgk { get; set; }
+        public string? SgkTypeTitle { get; set; }
+        public int? SgkId { get; set; }
+
         public bool IsInvoiceDue { get; set; }
         public int IsProduct { get; set; }
         public Customer? Customer { get; set; }

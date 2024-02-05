@@ -6,15 +6,34 @@
         $('#saleTypesList1').select2();
         $('#EmployeeList1').select2();
         $('#saleStatusesList1').select2();
+        $('#Amount').change(function () {
+            // Amount alanının değerini al
+            var amountValue = parseFloat($(this).val()) || 0;
+
+            // Eğer Amount değeri 0 veya boş ise
+            if (amountValue <= 0) {
+                // satildiMi checkbox'ını devre dışı bırak ve işaretini kaldır
+                $('#checkBox').prop('disabled', true).prop('checked', false);
+            } else {
+                // Aksi halde, satildiMi checkbox'ını etkinleştir
+                $('#checkBox').prop('disabled', false);
+            }
+        });
+
+        // Sayfa yüklendiğinde ilk kontrolü yapmak için
+        $('#Amount').trigger('change');
     });
     $(document).ready(function () {
-        var toplamTutar = 0; 
+        var toplamTutar = 0;
         var toplamSGKTutari = 0;
+        var kaporaTutari = 0;
         $('#btnUrunEkle').prop('disabled', true);
-        $('#btnTumunuEkle').prop('disabled', true);
+        //$('#btnTumunuEkle').prop('disabled', true);
         function checkUrunEkleButonu() {
             var urunId = $('#productsList1').val();
-            var fiyat = $('#Amount').val();
+            var urunAdi = $('#productsList1 option:selected').text();
+ var fiyat = $('#Amount').val();
+            var sgkAmount = $('#sgkListList1').val();
             var sgk = $('#Amount').val();
             var miktar = $('#Quantity').val();
             var customerId = $('#customersList1').val();
@@ -22,40 +41,52 @@
             var saleStatusId = $('#saleStatusesList1').val();
             var employeeId = $('#EmployeeList1').val();
             var description = $('#Description').val();
+            var downPayment = $('#DownPayment').val(); // Açıklama
 
-            if (urunId && fiyat && customerId && saleTypeId && saleStatusId && employeeId) {
+
+            if ((customerId && saleStatusId && employeeId) && (sgkAmount>0 || fiyat>0 || downPayment>0)) {
                 $('#btnUrunEkle').prop('disabled', false);
             } else {
                 $('#btnUrunEkle').prop('disabled', true);
             }
         }
-        $('#productsList1, #Amount, #Quantity, #customersList1, #saleTypesList1, #saleStatusesList1, #EmployeeList1, #Description').change(checkUrunEkleButonu);
+        $('#productsList1, #Amount, #Quantity, #customersList1, #saleTypesList1, #saleStatusesList1, #EmployeeList1, #Description, #DownPayment').change(checkUrunEkleButonu);
         $('#btnUrunEkle').click(function () {
+            var girilenKapora = parseFloat($('#DownPayment').val());
+
+          
             checkUrunEkleButonu();
 
             var urunId = $('#productsList1').val(); // Ürün ID'si
             var urunAdi = $('#productsList1 option:selected').text();
-            var fiyat = $('#Amount').val(); // Fiyat
             var miktar = $('#Quantity').val(); // Miktar
-            var customerId = $('#customersList1').val(); // Müşteri ID'si
-            var saleTypeId = $('#saleTypesList1').val(); // Satış Tipi ID'si
-            var saleStatusId = $('#saleStatusesList1').val(); // Satış Durumu ID'si
-            var employeeId = $('#EmployeeList1').val(); // Personel ID'si
             var description = $('#Description').val(); // Açıklama
-            var sgk = $('#amountOfSgk').val(); // Açıklama
+            var downPayment = parseFloat($('#DownPayment').val()) || 0; // Açıklama
+            var isDelivered = $('#checkBox').is(':checked'); // Boolean değer olduğu için dönüşüm gerekmez
+            var sgkAmount = parseInt($('#sgkListList1').val()) || 0; // SGK miktarını integer'a çevir, değer yoksa 0 ata
+            var sgkId = $('#sgkListList1').val(); // SGK miktarını integer'a çevir, değer yoksa 0 ata
+            var fiyat = parseFloat($('#Amount').val()) || 0; // Fiyatı integer'a çevir, değer yoksa 0 ata
+            var customerId = parseInt($('#customersList1').val()); // Müşteri ID'sini integer'a çevir
+            var saleTypeId = parseInt($('#saleTypesList1').val()); // Satış Tipi ID'sini integer'a çevir
+            var saleStatusId = parseInt($('#saleStatusesList1').val()); // Satış Durumu ID'sini integer'a çevir
+            var employeeId = parseInt($('#EmployeeList1').val()); // Personel ID'sini integer'a çevir
+
 
             var satis = {
-                AmountOfSgk: sgk,
-                ProductId: urunId,
+                IsDelivered: isDelivered,
+                SgkAmount: sgkAmount, 
+                DownPayment: downPayment,
+                SgkId: sgkId,
+                AmountOfSgk: sgkAmount,
+                SgkId: sgkAmount,
                 ProductName: urunAdi,
+                ProductId: urunId, // Ürün ID'si zaten uygun formatta alınmış olmalı, gerekirse parseInt(urunId) kullanın
                 Amount: fiyat,
-                Quantity: miktar, // Miktar
-                CustomerId: customerId, // Müşteri ID'si
-                SaleTypeId: saleTypeId, // Satış Tipi ID'si
-                SaleStatusId: saleStatusId, // Satış Durumu ID'si
-                EmployeeId: employeeId, // Personel ID'si
-                Description: description // Açıklama
-                // Diğer SaleAddViewModel alanları...
+                CustomerId: customerId,
+                SaleTypeId: saleTypeId,
+                SaleStatusId: saleStatusId,
+                EmployeeId: employeeId,
+                Note: description
             };
             urunler.push(satis);
             var isProduct = $('#productsList1 option:selected').data('isproduct'); // Bu değer sunucudan gelmelidir
@@ -72,23 +103,42 @@
             var listeHtml = '';
             toplamTutar = 0;
             urunler.forEach(function (urun, index) {
-                toplamTutar += parseFloat(urun.Amount);
-                var sgkTutari = $('#amountOfSgk').val();
-                if (sgkTutari) {
-                    toplamTutar += parseFloat(sgkTutari);
+                // Eğer urun.Amount null ise 0 olarak kabul et, değilse parseFloat ile dönüştür
+                var amount = urun.Amount == "" ? 0 : parseFloat(urun.Amount);
+                toplamTutar += amount;
+                if (amount > 0) {
+                    listeHtml += '<div class="urun-listesi-item">' +
+                        (index + 1) + '. ' + urun.ProductName + ' ürününe ait ' + toplamTutar + ' TL\'lik satış eklendi. ' +
+                        '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
+                        '</div>';
                 }
-                listeHtml += '<div class="urun-listesi-item">' +
-                    (index + 1) + '. ' + urun.ProductName + ' ürününe ait ' + toplamTutar + ' TL\'lik satış eklendi. ' +
-                    '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
-                    '</div>';
-                
+                else if (kaporaTutari >=0) {
+                    listeHtml += '<div class="urun-listesi-item">' +
+                        (index + 1) + '. ' + kaporaTutari + ' TL\ kaporanın alındığı ön satış eklendi. ' +
+                        '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
+                        '</div>';
+                }
+
+              
             });
+            if (urunler.length !== 0) {
+                var girilenKapora = parseFloat($('#DownPayment').val()) || 0;
+                if (girilenKapora > 0 && kaporaTutari === 0) {
+                    kaporaTutari = girilenKapora; // Kapora tutarını sakla
+                    $('#DownPayment').prop('disabled', true); // Kapora alanını devre dışı bırak
+                    $('#DownPayment').val(""); // Kapora alanını sıfırla
+                }
+            }
+            if (urunler.length === 0) {
+                    $('#DownPayment').prop('disabled', false); 
+                    $('#DownPayment').val(""); 
+            }
             $('#urunListesi').html(listeHtml);
             $('#toplamTutar').text('Toplam Satış Tutarı: ' + toplamTutar + ' TL');
             checkUrunEkleButonu();
             checkTumunuEkleButonu();
-
         }
+
 
         // Ürün silme fonksiyonu
         // Ürün silme fonksiyonu
@@ -101,7 +151,9 @@
             $('#productsList1').append(new Option(silinenUrun.ProductName, silinenUrun.ProductId));
         };
 
-
+        if (kaporaTutari > 0) {
+            $('#DownPayment').val(kaporaTutari).prop('disabled', true); // Kapora tutarını göster ve devre dışı bırak
+        }
         // Tüm ürünleri ekleme fonksiyonu
 
         $('#btnTumunuEkle').click(function () {
@@ -116,11 +168,11 @@
                 data: JSON.stringify(data),
                 success: function (response) {
 
-                      Swal.fire(
-                                        'Tamamen Silindi!',
-                                        `Silme İşlemi Başarılı`,
-                                        'success'
-                                    );
+                    Swal.fire(
+                        'Başarılı!',
+                        `Satış Ekleme İşlemi Başarılı`,
+                        'success'
+                    );
                     window.location.href = "/Admin/Sale/Index?tableType=" + 'NonDeletedTables';
                 },
                 error: function (err) {
@@ -128,7 +180,8 @@
                         title: "Hata!",
                         text: "Satış ekleme işlemi sırasında bir hata oluştu. Değerleri Kontrol edin.",
                         icon: "error"
-                    });                }
+                    });
+                }
             });
         });
         var urunler = []; // Ürün listesini tutacak dizi
@@ -143,7 +196,7 @@
         }
 
         // Ürün listesini güncelleme fonksiyonu (örnek)
-       
+
 
         // Ürün ekleme veya silme gibi işlemler sonrası bu fonksiyonu çağırın
         urunListesiniGuncelle();
@@ -155,7 +208,7 @@
     $(document).on('click',
         '.btn-delete',
         function (event) {
-            event.preventDefault();cccccccccccc
+            event.preventDefault(); cccccccccccc
             const id = $(this).attr('data-id');
             const tableType = $(this).attr('data-tableType');
             const tableRow = $(`[name="${id}"]`);
@@ -184,7 +237,7 @@
 
                             if (SaleResult.ResultStatus === 0) {
                                 if (tableType === 'DeletedTables') {
-                                  
+
                                     window.location.href = "/Admin/Sale/Index?tableType=" + tableType;
                                 }
                                 else {

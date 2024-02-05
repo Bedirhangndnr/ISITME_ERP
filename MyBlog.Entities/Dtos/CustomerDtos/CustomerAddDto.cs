@@ -39,7 +39,6 @@ namespace MyBlog.Entities.Dtos.CustomerDtos
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         [DisplayName("Address")]
-        [MaxLength(300, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         public string Address { get; set; }
         [DisplayName("Personel")]
         public int EmployeeId { get; set; }

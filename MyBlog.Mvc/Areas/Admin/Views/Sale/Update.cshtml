@@ -25,32 +25,53 @@
                     <input type="hidden" asp-for="Customers" value="@Model.Customers" />
                     <input type="hidden" asp-for="Employees" value="@Model.Employees" />
                     <input type="hidden" asp-for="Products" value="@Model.Products" />
-                    <input type="hidden" asp-for="OldProductId" value="@Model.ProductId" />
                     <input type="hidden" asp-for="SaleTypes" value="@Model.SaleTypes" />
                     <input type="hidden" asp-for="SaleStatuses" value="@Model.SaleStatuses" />
+                    <input type="hidden" asp-for="SgkList" value="@Model.SgkList" />
                     <input type="hidden" asp-for="IsActive" value=true/>
+                    <input type="hidden" asp-for="OldProductId" value=@Model.OldProductId/>
                     <input type="hidden" asp-for="CreatedByName" value="@Model.CreatedByName" />
+
                     <input type="hidden" asp-for="Id" />
+                    <div class="form-group col-md-12">
+                        <label asp-for="DownPayment"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                            <input id="DownPayment" class="form-control" asp-for="DownPayment" value=@Model.DownPayment />
+                            <span asp-validation-for="DownPayment" class="text-danger"></span>
+                        </div>
+                    </div>
                     <div class="form-group col-md-12">
                         <label asp-for="Amount"></label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">TL</span>
                             </div>
-                            <input type="number" id="Amount" class="form-control" asp-for="Amount"/>
-                            <span asp-validation-for="Amount" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label asp-for="AmountOfSgk"></label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">TL</span>
-                            </div><input type="number" id="amountOfSgk" class="form-control" asp-for="AmountOfSgk" />
-                            <span asp-validation-for="AmountOfSgk" class="text-danger"></span>
+                            <input id="Amount" class="form-control" asp-for="Amount" value=@Model.Amount />
                         </div>
                     </div>
 
+                    @*   <div class="form-group col-md-12">
+                    <label asp-for="AmountOfSgk"></label>
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">TL</span>
+                    </div><input type="number" id="amountOfSgk" class="form-control" asp-for="AmountOfSgk" value="" />
+                    <span asp-validation-for="AmountOfSgk" class="text-danger"></span>
+                    </div>
+                    </div> *@
+                    <div class="form-group col-md-12">
+                        <label asp-for="Description"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Açıklama</span>
+
+                            </div><input type="text-area" id="description" class="form-control" asp-for="Note" value="" />
+                            <span asp-validation-for="Note" class="text-danger"></span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -91,14 +112,18 @@
                     <div class="form-group">
 
                         <div class="input-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Ürünler</span>
-                                </div><select id="EmployeeList1" class="form-control" asp-for="ProductId" asp-items="@(new SelectList(Model.Products,"Id","ProductName"))">
-                                    <option></option>
-                                </select>
-                                <span asp-validation-for="ProductId" class="text-danger"></span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ürün</span>
                             </div>
+                            <select id="productsList1" class="form-control" asp-for="ProductId">
+                                @foreach (var product in Model.ProductListWithRelatedTables)
+                                {
+                                    <option value="@product.Id" data-isproduct="@product.IsProduct">@product.SubTitleAndSerial</option>
+                                }
+                            </select>
+
+
+                            <span asp-validation-for="ProductId" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -121,6 +146,40 @@
                             </select>
                             <span asp-validation-for="SaleStatusId" class="text-danger"></span>
                         </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">SGK Türü</span>
+                            </div><select id="sgkListList1" class="form-control" asp-for="SgkId"  asp-items="@(new SelectList(Model.SgkList,"Id","ParamValue"))">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="SgkId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Teslim Edildi Mi</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="checkBox" class="form-check-input" asp-for="IsDelivered" />
+                                <label for="checkBox" class="slider round"></label>
+                            </label>
+                        </div>
+                       @*  @if (Model.DeliveryDate != null || )
+                        {
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="datepicker" asp-for="DeliveryDate"></label>
+                                    <input type="text" id="datetimepicker" class="form-control" value="@Model.DeliveryDate" asp-for="DeliveryDate" />
+                                    <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        } *@
+                       
                     </div>
 
                     <div class="form-group">
@@ -157,7 +216,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
     <script src="~/AdminArea/js/toolsScripts/select2.js" type="application/ecmascript"></script>
-    <script src="~/AdminArea/js/saleAdd.js" type="application/ecmascript"></script>
+    <script src="~/AdminArea/js/saleUpdate.js" type="application/ecmascript"></script>
 
 }
 @section Styles
@@ -171,3 +230,132 @@
     <link href="~/AdminArea/css/select2-bootstrap4.min.css" rel="stylesheet" />
 
 }
+<style>
+    /* Select2 kutusunu özelleştir */
+    .select2-container--default .select2-selection--single {
+        border: 1px solid #ced4da; /* kenarlık rengini ayarla */
+        border-radius: 0.25rem; /* kenarlık yuvarlaklığını ayarla */
+        height: calc(1.5em + 0.75rem + 2px); /* yüksekliği ayarla */
+        padding: 0.375rem 0.75rem; /* iç boşluğu ayarla */
+    }
+
+        /* Select2 ok işaretini özelleştir */
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: calc(1.5em + 0.75rem); /* ok işaretinin yüksekliğini ayarla */
+            position: absolute;
+            top: 50%;
+            right: 0.75rem;
+            transform: translateY(-50%);
+        }
+
+        /* Select2 seçim metnini özelleştir */
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #495057; /* metin rengini ayarla */
+            line-height: 1.5; /* satır yüksekliğini ayarla */
+        }
+
+    /* Select2 açılır menü kenarlığını ve gölgesini özelleştir */
+    .select2-dropdown {
+        border: 1px solid #ced4da; /* kenarlık rengini ayarla */
+        border-radius: 0.25rem; /* kenarlık yuvarlaklığını ayarla */
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); /* kutu gölgesini ayarla */
+    }
+
+    .toplam-tutar {
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .urun-listesi-item {
+        margin-bottom: 10px;
+        background-color: #f7f7f7;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .urun-cikar-buton {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        .urun-cikar-buton:hover {
+            background-color: #ff3333;
+        }
+
+    .checkbox-cell {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+    }
+
+    .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px; /* Yuvarlak kısımın yüksekliğini ayarlayın */
+            width: 22px; /* Yuvarlak kısımın genişliğini ayarlayın */
+            left: 4px; /* Sol konumlandırma */
+            bottom: 4px; /* Alt konumlandırma */
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Estetik amaçlı ekstra stiller */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+</style>

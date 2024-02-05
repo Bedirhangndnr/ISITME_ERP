@@ -19,7 +19,12 @@ namespace MyBlog.Services.Extensions
                                                     // sağlama kısıtı getirir. -> Class.Write("something"); gibi
     {
         public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection, string connectionString) {
-            serviceCollection.AddDbContext<MyBlogContext>(options=>options.UseSqlServer(connectionString, b => b.EnableRetryOnFailure()));
+            serviceCollection.AddDbContext<MyBlogContext>(options=>options.UseSqlServer(connectionString, 
+                sqlServerOptions =>
+            {
+                sqlServerOptions.CommandTimeout(600); // Komut zaman aşımını 1 saat olarak ayarlayın
+                sqlServerOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(15), null); // Bağlantı hatası durumunda yeniden deneme ayarlarını yapılandırın
+            }));
             serviceCollection.AddIdentity<User, Role>(options =>
             {
                 // email adresi kullanılırak 2. bir kayıt oluşturulabilir mi* şifrede rakam bulunmalı mı gibi kurallar/ ayarlar buradan kontrol edilir 
@@ -50,6 +55,7 @@ namespace MyBlog.Services.Extensions
             serviceCollection.AddScoped<ICustomerReferanceService, CustomerReferanceManager>();
             serviceCollection.AddScoped<ICustomerReferanceTitleService, CustomerReferanceTitleManager>();
             serviceCollection.AddScoped<ICustomerService, CustomerManager>();
+            serviceCollection.AddScoped<IParameterService, ParameterManager>();
             serviceCollection.AddScoped<ICustomerTypeService, CustomerTypeManager>();
             serviceCollection.AddScoped<INotificationService, NotificationManager>();
             serviceCollection.AddScoped<IBrandService, BrandManager>();

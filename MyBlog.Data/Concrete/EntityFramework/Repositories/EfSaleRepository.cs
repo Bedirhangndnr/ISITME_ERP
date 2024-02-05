@@ -58,11 +58,14 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                 .Select(s => new SaleListWithRelatedTables
                 {
                     Id = s.Id,
-                    AmountOfSgk = s.AmountOfSgk,
+                    DownPayment = s.DownPayment.Value,
                     IsInvoiceDue = s.IsInvoiceDue,
+                    DeliveryDate = s.DeliveryDate.Value,
                     CreatedDate = s.CreatedDate,
                     ModifiedDate = s.ModifiedDate,
                     Amount = s.Amount,
+                    AmountOfSgk = s.AmountOfSgk,
+                    SgkTypeTitle = s.SgkTypeTitle,
                     CustomerId = s.Customer.Id,
                     CustomerFirstName = s.Customer.FirstName + " " + s.Customer.LastName,
                     EmployeeId = s.Employee.Id ,

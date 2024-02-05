@@ -14,6 +14,7 @@ namespace MyBlog.Data.Abstract
         IAppointmentRepository Appointments { get; }
         ICustomerReferanceRepository CustomerReferances { get; }
         ICustomerReferanceTitleRepository CustomerReferanceTitles { get; }
+        IParameterRepository Parameters { get; }
         ICustomerRepository Customers { get; }
         ICustomerTypeRepository CustomerTypes { get; }
         IStockRepository Stocks { get; }

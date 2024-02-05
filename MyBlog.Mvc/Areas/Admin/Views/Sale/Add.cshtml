@@ -28,7 +28,18 @@
                 <input type="hidden" asp-for="Products" value="@Model.Products" />
                 <input type="hidden" asp-for="SaleTypes" value="@Model.SaleTypes" />
                 <input type="hidden" asp-for="SaleStatuses" value="@Model.SaleStatuses" />
+                <input type="hidden" asp-for="SgkList" value="@Model.SgkList" />
 
+                <div class="form-group col-md-12">
+                    <label asp-for="DownPayment"></label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">TL</span>
+                        </div>
+                        <input type="number" id="DownPayment" class="form-control" asp-for="DownPayment" value="" />
+                        <span asp-validation-for="DownPayment" class="text-danger"></span>
+                    </div>
+                </div>
                 <div class="form-group col-md-12">
                     <label asp-for="Amount"></label>
                     <div class="input-group">
@@ -39,7 +50,8 @@
                         <span asp-validation-for="Amount" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="form-group col-md-12">
+
+              @*   <div class="form-group col-md-12">
                     <label asp-for="AmountOfSgk"></label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -47,15 +59,24 @@
                         </div><input type="number" id="amountOfSgk" class="form-control" asp-for="AmountOfSgk" value="" />
                         <span asp-validation-for="AmountOfSgk" class="text-danger"></span>
                     </div>
-                </div>
+                </div> *@
+                <div class="form-group col-md-12">
+                    <label asp-for="Description"></label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Açıklama</span>
 
+                        </div><input type="text-area" id="description" class="form-control" asp-for="Note" value="" />
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                </div>
                 <ul id="urunListesi">
                     <!-- Ürünler burada listelenecek -->
                 </ul>
                 <div id="toplamTutar" class="toplam-tutar">
                     Toplam Satış Tutarı: <span id="tutarDegeri">0</span> TL
                 </div>
-
+                
 
             </div>
         </div>
@@ -82,7 +103,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Hasta</span>
                         </div><select id="customersList1" class="form-control" asp-for="CustomerId" asp-items="@(new SelectList(Model.Customers,"Id","NameSurname"))">
-                            <option></option> 
+                            <option></option>
                         </select>
                         <span asp-validation-for="CustomerId" class="text-danger"></span>
                     </div>
@@ -94,6 +115,7 @@
                             <span class="input-group-text">Ürün</span>
                         </div>
                         <select id="productsList1" class="form-control" asp-for="ProductId">
+                            <option></option>
                             @foreach (var product in Model.ProductListWithRelatedTables)
                             {
                                 <option value="@product.Id" data-isproduct="@product.IsProduct">@product.SubTitleAndSerial</option>
@@ -125,6 +147,38 @@
                         <span asp-validation-for="SaleStatusId" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">SGK Türü</span>
+                        </div><select id="sgkListList1" class="form-control" asp-for="SgkId" asp-items="@(new SelectList(Model.SgkList,"Id","ParamValue"))">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="SgkId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Teslim Edildi Mi</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input id="checkBox" type="checkbox" class="saleDeliveryDate-checkbox">
+                            <label for="checkBox" class="slider round"></label>
+                        </label>
+                    </div>
+                </div>
+
+               @*  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="datepicker" asp-for="DeliveryDate"></label>
+                        <input type="text" id="DeliveryDate" class="form-control" asp-for="DeliveryDate" />
+                        <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+                    </div>
+                </div> *@
+                
 
                 <div class="form-group">
                     <button id="btnUrunEkle" class="btn btn-success btn-block mt-3">Ürün Ekle</button>
@@ -219,6 +273,73 @@
             .urun-cikar-buton:hover {
                 background-color: #ff3333;
             }
+
+        .checkbox-cell {
+            text-align: center;
+            vertical-align: middle;
+            padding: 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .toggle-switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 22px; /* Yuvarlak kısımın yüksekliğini ayarlayın */
+                width: 22px; /* Yuvarlak kısımın genişliğini ayarlayın */
+                left: 4px; /* Sol konumlandırma */
+                bottom: 4px; /* Alt konumlandırma */
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Estetik amaçlı ekstra stiller */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
     </style>
 
 }
+

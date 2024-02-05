@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos.CustomerDtos;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Services.Abstract
 {

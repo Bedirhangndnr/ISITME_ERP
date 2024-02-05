@@ -201,6 +201,9 @@ namespace MyBlog.Services.Concrete
             if (sale != null)
             {
                 sale.IsDeleted = true;
+                sale.IsActive = false;
+                sale.Note = sale.ProductId.ToString();
+                sale.ProductId = -1;
                 //sale.IsActive = false;
                 sale.ModifiedByName = modifiedByName;
                 sale.ModifiedDate = DateTime.Now;

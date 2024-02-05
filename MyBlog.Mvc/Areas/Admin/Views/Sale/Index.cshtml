@@ -40,28 +40,28 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Tarih</th>
+                            <th>Tarih</th>
+                            <th>Satış Tarihi</th>
                         <th>İlgilenen</th>
                         <th>Hasta Adı Soyadı</th>
                         <th>Ürün</th>
-                        <th>Satış Tipi</th>
                         <th>Satış Durumu</th>
-                        <th>Satış Tutarı</th>
-                        @*<th>Açıklama</th>*@
+                        <th>Satış/Kapora Tutarı</th>
+                        <th>Sgk Türü</th>
                         <th>İşlem</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Tarih</th>
+                            <th>Tarih</th>
+                            <th>Satış Tarihi</th>
                             <th>İlgilenen</th>
-                            <th>Hasta Adı Soyadı</th>
-                            <th>Ürün</th>
-                        <th>Satış Tipi</th>
+                        <th>Hasta Adı Soyadı</th>
+                        <th>Ürün</th>
                         <th>Satış Durumu</th>
-                        <th>Satış Tutarı</th>
-                        @*<th>Açıklama</th>*@
+                        <th>Satış/Kapora Tutarı</th>
+                        <th>Sgk Türü</th>
                         <th>İşlem</th>
                     </tr>
                     </tfoot>
@@ -69,29 +69,29 @@
                     @foreach (var sale in Model.SaleListWithRelatedTables)
                     {
                         <tr name="@sale.Id">
-                            <td>@sale.Id</td>
-                            <td>@sale.CreatedDate.ToShortDateString()</td>
-
-                            <td>@sale.EmployeeFirstName </td>
-                            <td>@sale.CustomerFirstName</td>
+                                <td>@sale.Id</td>
+                                <td>@sale.CreatedDate.ToShortDateString()</td>
+                                <td>
+                                    @(sale.DeliveryDate.HasValue ? sale.DeliveryDate.Value.ToShortDateString() : "Belirlenmemiş")
+                                </td>
+                                <td>@sale.EmployeeFirstName</td>
+                                <td>@sale.CustomerFirstName</td>
                                 <td>@sale.ProductName</td>
-
-                            <td>@sale.SaleTypeName</td>
-
-                            <td>@sale.SaleStatusName</td>
-                            <td>@sale.Amount</td>
-                            @*<td>@(sale.Note == null ? "Not Eklenmemiş" : (sale.Note.Length > 75 ? sale.Note.Substring(0, 75) : sale.Note))</td>*@
-                            <td>
-                                @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
-                                       {
-
-                                           Id=sale.Id,
-                                           InMainPage=0,
-                                           TableType=ViewBag.tableType,
-                                           Action="Update",
-                                           Controller="Sale"
-                                       })
-                            </td>
+                                <td>@sale.SaleStatusName</td>
+                                <td>
+                                    @(sale.DownPayment.HasValue ? $"{sale.Amount} / {sale.DownPayment.Value}" : $"{sale.Amount} / Kapora Alınmamış")
+                                </td>
+                                <td>@sale.SgkTypeTitle</td>
+                                <td>
+                                    @await Component.InvokeAsync("UpdatePageButtons", new UpdatePageButtonsModel
+                       {
+                           Id = sale.Id,
+                           InMainPage = 0,
+                           TableType = ViewBag.tableType,
+                           Action = "Update",
+                           Controller = "Sale"
+                       })
+                                </td>
                         </tr>
                         totalSaleCount++;
                         totalSaleAmount += sale.Amount;
@@ -107,7 +107,7 @@
                     </div>
                     <div class="total-box red" style="display: inline-block;">
                         <div class="total-label">Toplam Satış Sayısı</div>
-                        <div class="total-amount" id="totalsale">@totalSaleCount TL</div>
+                        <div class="total-amount" id="totalsale">@totalSaleCount</div>
                     </div>
                 </div>
             }
