@@ -37,6 +37,7 @@
                             <th>Hasta Tipi</th>
                             <th>Referans</th>
                             <th>Not</th>
+                            <th>İlgilenen Kişi</th>
                             <th>Satışlar</th>
                             <th>İşlem</th>
                         </tr>
@@ -48,6 +49,7 @@
                             <th>Hasta Tipi</th>
                             <th>Referans</th>
                             <th>Not</th>
+                            <th>İlgilenen Kişi</th>
                             <th>Satışlar</th>
                             <th>İşlem</th>
                         </tr>
@@ -60,6 +62,7 @@
                                 <td>@customer.Phone</td>
                                 <td>@customer.CustomerTypeTitle</td>
                                 <td>@(customer.CustomerReferanceTitle == null ? "Referans Eklenmemiştir" : (customer.CustomerReferanceTitle.Length > 75 ? customer.CustomerReferanceTitle.Substring(0, 75) : customer.CustomerReferanceTitle)) </td>
+                                <td>@(customer.EmployeeNameSurname == null ? "İlgilenen Kişi" : (customer.EmployeeNameSurname.Length > 75 ? customer.EmployeeNameSurname.Substring(0, 75) : customer.EmployeeNameSurname)) </td>
                                 <td>@(customer.Note == null ? "Not Eklenmemiş" : (customer.Note.Length > 75 ? customer.Note.Substring(0, 75) : customer.Note))</td>
                                 @*                  <td>
                                     @foreach (var sale in customer.Sales)

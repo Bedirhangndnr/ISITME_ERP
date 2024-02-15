@@ -12,6 +12,10 @@ namespace MyBlog.Entities.Dtos.SaleDtos
 {
     public class SaleAddDto : DtoGetBase
     {
+        [DisplayName("Satış Tarihi")]
+        public DateTime? SaleDate { get; set; }
+        public DateTime? UpdatedSaleDate { get; set; }
+        public bool? IsDelivered { get; set; }
         [DisplayName("SGK Tutarı ")]
         public decimal? AmountOfSgk { get; set; }
         public string? SgkTypeTitle { get; set; }
@@ -30,14 +34,14 @@ namespace MyBlog.Entities.Dtos.SaleDtos
         [DisplayName("Satış Tipi")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public SaleType SaleType { get; set; }
-        public int SaleTypeId { get; set; }
+        public int? SaleTypeId { get; set; }
         [DisplayName("Satış Durumu")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public SaleStatus SaleStatus { get; set; }
         public int SaleStatusId { get; set; }
         [DisplayName("Ürün")]
         public Product Product { get; set; }
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         [DisplayName("Personel")]
         [Required(ErrorMessage = "{0} Boş Geçilemez...")]
         public Employee Employee { get; set; }

@@ -23,6 +23,7 @@ namespace MyBlog.Services.Abstract
         Task<IDataResult<ProductListDto>> GetAllAsync();
         Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id = 0);
         Task<IDataResult<ProductListDto>> GetAllProductsAsync();
+        Task<IDataResult<ProductListDto>> GetAllProductsForUpdateAsync(int productId=-1);
         Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAccessoryAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id = 0);
         Task<IDataResult<ProductListDto>> GetAllByDeletedAsync();
         Task<IDataResult<ProductListDto>> GetAllByNonDeletedAsync();

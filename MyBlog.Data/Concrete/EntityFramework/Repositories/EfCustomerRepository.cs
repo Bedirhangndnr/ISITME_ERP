@@ -66,7 +66,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     FirstName = s.FirstName,
                     LastName = s.LastName,
                     NameSurname = s.FirstName + " " + s.LastName,
-
+                    EmployeeNameSurname = s.Employee.NameSurname,
+                    EmployeeId =s.EmployeeId.Value,
                     CustomerTypeTitle = s.CustomerType != null ? s.CustomerType.Title : "Hasta tipi bulunamadı, silinmiş olabilir.",
                     Phone = s.Phone,
                     TC = s.TC,

@@ -12,6 +12,7 @@ namespace MyBlog.Entities.Concrete
     {
         public string ProductName { get; set; }
         public int Price{ get; set; }
+        public int Status{ get; set; }
         public int? Quantity{ get; set; }
         public string SerialNumber { get; set; }
         public bool IsSold { get; set; } = false;

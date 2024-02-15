@@ -36,5 +36,12 @@ namespace MyBlog.Entities.Concrete
                 return $"{FirstName} {LastName}";
             }
         }
+        public string? EmployeeNameSurname
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }

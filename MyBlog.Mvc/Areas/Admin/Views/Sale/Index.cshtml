@@ -78,8 +78,15 @@
                                 <td>@sale.CustomerFirstName</td>
                                 <td>@sale.ProductName</td>
                                 <td>@sale.SaleStatusName</td>
-                                <td>
+  @*                               <td>
                                     @(sale.DownPayment.HasValue ? $"{sale.Amount} / {sale.DownPayment.Value}" : $"{sale.Amount} / Kapora Alınmamış")
+                                </td>
+ *@
+                                <td>
+                                    @if (sale.DownPayment.HasValue)
+                                    {<span style="color: green;">@sale.Amount/</span> <span style="color: blue;">@sale.DownPayment.Value</span>}
+                                    else
+                                    {<span style="color: green;">@sale.Amount/</span> <span @* style = "color: blue;" *@ > Kapora Alınmamış </span>}
                                 </td>
                                 <td>@sale.SgkTypeTitle</td>
                                 <td>

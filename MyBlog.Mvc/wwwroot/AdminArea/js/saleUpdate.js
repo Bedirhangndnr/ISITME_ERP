@@ -375,3 +375,73 @@
         });
     // jQuery UI - DatePicker
 });
+
+
+
+$(document).ready(function () {
+    flatpickr("#datetimepicker", {
+        locale: "tr",
+        enableTime: true,
+        dateFormat: "d.m.Y H:i",
+        time_24hr: true,
+        noCalendar: false,
+        firstDayOfWeek: 1,
+        weekNumbers: true,
+        onReady: function (selectedDates, dateStr, instance) {
+            const todayButton = document.createElement("button");
+            todayButton.type = "button";
+            todayButton.innerHTML = "Bugün";
+            todayButton.className = "flatpickr-today-button";
+            todayButton.addEventListener("click", function () {
+                instance.setDate(new Date().setHours(12, 0, 0, 0), true);
+            });
+
+            instance.calendarContainer.appendChild(todayButton);
+        },
+        locale: {
+            weekdays: {
+                shorthand: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
+                longhand: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
+            },
+            months: {
+                shorthand: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"],
+                longhand: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+            },
+            rangeSeparator: " - "
+        }
+        // diğer seçenekleri buraya ekleyin
+    });
+
+    $('#text-editor').trumbowyg({
+        lang: 'tr',
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['insertImage'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen'],
+            ['foreColor', 'backColor'],
+            ['emoji'],
+            ['fontfamily'],
+            ['fontsize']
+        ],
+        plugins: {
+            colors: {
+                foreColorList: [
+                    'ff0000', '00ff00', '0000ff', '54e346'
+                ],
+                backColorList: [
+                    '000', '333', '555'
+                ],
+                displayAsList: false
+            }
+        }
+    });
+});

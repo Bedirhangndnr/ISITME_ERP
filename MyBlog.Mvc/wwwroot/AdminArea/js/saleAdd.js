@@ -32,7 +32,7 @@
         function checkUrunEkleButonu() {
             var urunId = $('#productsList1').val();
             var urunAdi = $('#productsList1 option:selected').text();
- var fiyat = $('#Amount').val();
+            var fiyat = $('#Amount').val();
             var sgkAmount = $('#sgkListList1').val();
             var sgk = $('#Amount').val();
             var miktar = $('#Quantity').val();
@@ -44,7 +44,7 @@
             var downPayment = $('#DownPayment').val(); // Açıklama
 
 
-            if ((customerId && saleStatusId && employeeId) && (sgkAmount>0 || fiyat>0 || downPayment>0)) {
+            if ((customerId && saleStatusId && employeeId) && (sgkAmount > 0 || fiyat > 0 || downPayment > 0)) {
                 $('#btnUrunEkle').prop('disabled', false);
             } else {
                 $('#btnUrunEkle').prop('disabled', true);
@@ -54,7 +54,7 @@
         $('#btnUrunEkle').click(function () {
             var girilenKapora = parseFloat($('#DownPayment').val());
 
-          
+
             checkUrunEkleButonu();
 
             var urunId = $('#productsList1').val(); // Ürün ID'si
@@ -70,11 +70,28 @@
             var saleTypeId = parseInt($('#saleTypesList1').val()); // Satış Tipi ID'sini integer'a çevir
             var saleStatusId = parseInt($('#saleStatusesList1').val()); // Satış Durumu ID'sini integer'a çevir
             var employeeId = parseInt($('#EmployeeList1').val()); // Personel ID'sini integer'a çevir
+            var deliveryDateString = $('#datetimepicker').val();
+            let deliveryDate = null; // JavaScript'te değişken tanımlama
 
+            if (deliveryDateString) { // deliveryDateString doluysa
+                let parts = deliveryDateString.split(' ');
+                let dateParts = parts[0].split('.');
+                let timeParts = parts[1].split(':');
+                // JavaScript Date objesi, ayı 0'dan başlayarak saydığı için dateParts[1] - 1 yapılır
+                deliveryDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0], timeParts[1]);
+            }
+
+
+            // Yeni bir Date nesnesi oluşturuyoruz.
+            // JavaScript'in Date constructor'ı ayı "0" ile başlayarak alır, bu yüzden ay değerinden 1 çıkarıyoruz.
+         
+            if (!(urunId > 0)) {
+                urunId = -1;
+            }
 
             var satis = {
                 IsDelivered: isDelivered,
-                SgkAmount: sgkAmount, 
+                SgkAmount: sgkAmount,
                 DownPayment: downPayment,
                 SgkId: sgkId,
                 AmountOfSgk: sgkAmount,
@@ -86,7 +103,8 @@
                 SaleTypeId: saleTypeId,
                 SaleStatusId: saleStatusId,
                 EmployeeId: employeeId,
-                Note: description
+                Note: description,
+                DeliveryDate: deliveryDate
             };
             urunler.push(satis);
             var isProduct = $('#productsList1 option:selected').data('isproduct'); // Bu değer sunucudan gelmelidir
@@ -112,14 +130,14 @@
                         '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
                         '</div>';
                 }
-                else if (kaporaTutari >=0) {
+                else if (kaporaTutari >= 0) {
                     listeHtml += '<div class="urun-listesi-item">' +
                         (index + 1) + '. ' + kaporaTutari + ' TL\ kaporanın alındığı ön satış eklendi. ' +
                         '<button class="urun-cikar-buton" onclick="urunSil(' + index + ')">Çıkar</button>' +
                         '</div>';
                 }
 
-              
+
             });
             if (urunler.length !== 0) {
                 var girilenKapora = parseFloat($('#DownPayment').val()) || 0;
@@ -130,8 +148,8 @@
                 }
             }
             if (urunler.length === 0) {
-                    $('#DownPayment').prop('disabled', false); 
-                    $('#DownPayment').val(""); 
+                $('#DownPayment').prop('disabled', false);
+                $('#DownPayment').val("");
             }
             $('#urunListesi').html(listeHtml);
             $('#toplamTutar').text('Toplam Satış Tutarı: ' + toplamTutar + ' TL');
@@ -204,6 +222,8 @@
         // Başlangıçta "Tümünü Ekle" butonunu kontrol et
         checkTumunuEkleButonu();
     });
+    var saleStatusId = parseInt($('#saleStatusesList1').val()); // Satış Durumu ID'sini integer'a çevir
+
 
     $(document).on('click',
         '.btn-delete',
@@ -373,5 +393,82 @@
                 }
             });
         });
+
     // jQuery UI - DatePicker
+});
+
+$(document).ready(function () {
+    flatpickr("#datetimepicker", {
+        locale: "tr",
+        enableTime: true,
+        dateFormat: "d.m.Y H:i",
+        time_24hr: true,
+        noCalendar: false,
+        firstDayOfWeek: 1,
+        weekNumbers: true,
+        onReady: function (selectedDates, dateStr, instance) {
+            const todayButton = document.createElement("button");
+            todayButton.type = "button";
+            todayButton.innerHTML = "Bugün";
+            todayButton.className = "flatpickr-today-button";
+            todayButton.addEventListener("click", function () {
+                instance.setDate(new Date().setHours(12, 0, 0, 0), true);
+            });
+
+            const clearButton = document.createElement("button");
+            clearButton.type = "button";
+            clearButton.innerHTML = "Temizle";
+            clearButton.className = "flatpickr-clear-button";
+            clearButton.addEventListener("click", function () {
+                instance.clear();
+            });
+
+            instance.calendarContainer.appendChild(todayButton);
+            instance.calendarContainer.appendChild(clearButton);
+        },
+        locale: {
+            weekdays: {
+                shorthand: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
+                longhand: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
+            },
+            months: {
+                shorthand: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"],
+                longhand: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+            },
+            rangeSeparator: " - "
+        }
+        // diğer seçenekleri buraya ekleyin
+    });
+    $('#text-editor').trumbowyg({
+        lang: 'tr',
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['insertImage'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen'],
+            ['foreColor', 'backColor'],
+            ['emoji'],
+            ['fontfamily'],
+            ['fontsize']
+        ],
+        plugins: {
+            colors: {
+                foreColorList: [
+                    'ff0000', '00ff00', '0000ff', '54e346'
+                ],
+                backColorList: [
+                    '000', '333', '555'
+                ],
+                displayAsList: false
+            }
+        }
+    });
 });

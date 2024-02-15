@@ -72,6 +72,25 @@ namespace MyBlog.Services.Concrete
             return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
 
         }
+        public async Task<IDataResult<ProductListDto>> GetAllProductsForUpdateAsync(int productId=-1)
+        {
+            IList<ProductListWithRelatedTables> productsWithRelated;
+            IList<Product> products;
+
+            productsWithRelated = await UnitOfWork.Products.GetAllWithNamesAsync(c => (!c.IsDeleted && c.IsActive && c.Quantity > 0) || c.Id== productId );
+            products = await UnitOfWork.Products.GetAllAsync(c => !c.IsDeleted && c.IsActive);
+            if (products.Count > -1)
+            {
+                return new DataResult<ProductListDto>(ResultStatus.Success, new ProductListDto
+                {
+                    Products = products,
+                    ProductListWithRelatedTables = productsWithRelated,
+                    ResultStatus = ResultStatus.Success
+                });
+            }
+            return new DataResult<ProductListDto>(ResultStatus.Error, null, Messages.General.NotFound(false, "Ürün"));
+
+        }
         public async Task<IDataResult<ProductListDto>> GetAllByNonDeletedAndActiveAccessoryAsync(bool getSolds = false, bool? IsUpdatePage = false, int Id = 0)
         {
             IList<ProductListWithRelatedTables> productsWithRelated;

@@ -30,7 +30,9 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
             builder.HasOne(s => s.SaleType)
                    .WithMany(st => st.Sales)
                    .HasForeignKey(s => s.SaleTypeId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                   .OnDelete(DeleteBehavior.SetNull)
+                   .IsRequired(false); // Bu satırı ekleyin
+            ;
 
             // SaleStatus ile ilişki
             builder.HasOne(s => s.SaleStatus)
@@ -45,8 +47,10 @@ namespace MyBlog.Data.Concrete.EntityFramework.Mappings
 
             // Product ile ilişki
             builder.HasOne(s => s.Product)
-               .WithOne(p => p.Sale)
-               .HasForeignKey<Sale>(s => s.ProductId);
+                   .WithOne(p => p.Sale)
+                   .HasForeignKey<Sale>(s => s.ProductId)
+                   .OnDelete(DeleteBehavior.SetNull)
+                   .IsRequired(false); // Bu satırı ekleyin
 
             // Employee ile ilişki
             builder.HasOne(s => s.Employee)

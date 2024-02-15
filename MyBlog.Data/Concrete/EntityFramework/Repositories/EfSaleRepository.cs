@@ -26,8 +26,8 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
             var Appointments = query
                 .Include(x => x.Customer)
                 .Where(x =>
-                    (x.IsProduct  == 1)  ||
-                    (x.CreatedDate.AddDays(25) == today)  ||
+                    (x.IsProduct == 1) ||
+                    (x.CreatedDate.AddDays(25) == today) ||
                     (x.CreatedDate.AddDays(360) == today) ||
                     (x.CreatedDate.AddDays(175) == today) ||
                     (x.CreatedDate.AddDays(85) == today)
@@ -68,16 +68,22 @@ namespace MyBlog.Data.Concrete.EntityFramework.Repositories
                     SgkTypeTitle = s.SgkTypeTitle,
                     CustomerId = s.Customer.Id,
                     CustomerFirstName = s.Customer.FirstName + " " + s.Customer.LastName,
-                    EmployeeId = s.Employee.Id ,
+                    EmployeeId = s.Employee.Id,
                     EmployeeFirstName = s.Employee.FirstName + " " + s.Employee.LastName,
-                    SaleTypeId = s.SaleType.Id,
-                    SaleTypeName = s.SaleType.Title,
+
+                    SaleTypeId = s.SaleTypeId != null ? s.SaleTypeId.Value : -1,
+                    SaleTypeName = s.SaleType.Title != null ? s.SaleType.Title : "Satış tipi bulunamadı, silinmiş olabilir.",
+
                     SaleStatusId = s.SaleStatus.Id,
+
                     SaleStatusName = s.SaleStatus.Title,
-                    ProductId = s.Product.Id,
-                    ProductName = s.Product.IsProduct == false
-            ? s.Product.Model.Title ?? string.Empty  // Sadece SubModelTitle
-            : (s.Product.SubModel.Title ?? string.Empty) + " | " + (s.Product.SerialNumber ?? string.Empty),  // SubModelTitle ve SerialNumber
+                    ProductId = s.ProductId != null ? s.ProductId.Value : -1,
+                    ProductName = s.Product == null ? "Seçili Ürün bulunmuyor" :
+    s.Product.IsProduct == false ?
+        s.Product.Model.Title ?? string.Empty  // Sadece SubModelTitle
+        : (s.Product.SubModel.Title ?? string.Empty) + " | " + (s.Product.SerialNumber ?? string.Empty) +
+             (s.Product.Quantity.Value < 3 ? " | " + s.Product.Quantity.Value.ToString() : ""),  // SubModelTitle, SerialNumber ve gerekirse Quantity,  // SubModelTitle ve SerialNumber
+
                 }).ToListAsync();
 
             return sales;

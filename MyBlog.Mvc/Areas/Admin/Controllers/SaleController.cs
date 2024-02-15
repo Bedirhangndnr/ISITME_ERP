@@ -227,27 +227,48 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 {
 
                     // Product Id Kontrolü eklenecek. satışlar içinde zate navrsa bu product id satışı olamaması gerekir. 
-                    if (saleAddViewModel_.SgkId != null)
+                    if (saleAddViewModel_.SgkId != null && saleAddViewModel_.SgkId != 0)
                     {
                         var parameter = _parameterService.GetAsync(saleAddViewModel_.SgkId.Value);
                         saleAddViewModel_.SgkTypeTitle = parameter.Result.Data.Parameter.ParamType;
                         saleAddViewModel_.AmountOfSgk = Convert.ToDecimal(parameter.Result.Data.Parameter.ParamValue);
                     }
                     var saleAddDto = Mapper.Map<SaleAddDto>(saleAddViewModel_);
-                    if (saleAddViewModel_.IsDelivered)
+                    //if (saleAddViewModel_.IsDelivered)
+                    //{
+                    //    saleAddDto.DeliveryDate = DateTime.Now;
+                    //}
+                    if (saleAddViewModel_.ProductId != -1)
                     {
-                        saleAddDto.DeliveryDate = DateTime.Now;
+                        IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(saleAddDto.ProductId.Value);
+                        if (productUpdateDto.Data.IsProduct == true)
+                        {
+                            productUpdateDto.Data.IsSold = true;
+                        }
+                        productUpdateDto.Data.Quantity--;
+                        var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
+                        if (!(productUpdateResult.ResultStatus == ResultStatus.Success))
+                        {
+                            // Eğer bir işlemde hata oluşursa, hata mesajını ekle ve döngüden çık
+                            ModelState.AddModelError("", productUpdateResult.Message);
+                            break;
+                        }
                     }
-                    IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(saleAddDto.ProductId);
-                    if (productUpdateDto.Data.IsProduct == true)
+                    else
                     {
-                        productUpdateDto.Data.IsSold = true;
+                        saleAddViewModel_.ProductId = null;
+                        saleAddDto.ProductId = null;
                     }
-                    productUpdateDto.Data.Quantity--;
-                    var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
+                    if (saleAddViewModel_.SaleTypeId == -1)
+                    {
+                        saleAddViewModel_.SaleTypeId = null;
+                        saleAddDto.SaleTypeId = null;
+                    }
+
+
                     var result = await _saleService.AddAsync(saleAddDto, LoggedInUser.UserName, LoggedInUser.Id);
 
-                    if (!(result.ResultStatus == ResultStatus.Success && productUpdateResult.ResultStatus == ResultStatus.Success))
+                    if (!(result.ResultStatus == ResultStatus.Success))
                     {
                         // Eğer bir işlemde hata oluşursa, hata mesajını ekle ve döngüden çık
                         ModelState.AddModelError("", result.Message);
@@ -289,13 +310,19 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int Id, string tableType)
         {
             ViewBag.tableType = tableType;
-            
-           
+
+
             var saleList = await _saleService.GetSaleUpdateDtoAsync(Id);
             var saleTypeList = await _saleTypeService.GetAllByNonDeletedAndActiveAsync();
             var saleStatusList = await _saleStatusService.GetAllByNonDeletedAndActiveAsync();
             var customerList = await _customerService.GetAllByNonDeletedAndActiveAsync();
-            var productList = await _productService.GetAllProductsAsync();
+            int prodId = -1;
+            if (saleList.Data.ProductId != null)
+            {
+                prodId = saleList.Data.ProductId.Value;
+            }
+            var productList = await _productService.GetAllProductsForUpdateAsync(prodId);
+
             var employeeList = await _employeeService.GetAllByNonDeletedAndActiveAsync();
             var sgkList = await _parameterService.GetForSGK();
             if ((saleTypeList.ResultStatus == ResultStatus.Success &&
@@ -306,6 +333,8 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                  employeeList.ResultStatus == ResultStatus.Success))
             {
                 var SaleUpdateViewModel = Mapper.Map<SaleUpdateViewModel>(saleList.Data);
+                SaleUpdateViewModel.Amount=Convert.ToInt32(SaleUpdateViewModel.Amount.Value);
+                SaleUpdateViewModel.DownPayment=Convert.ToInt32(SaleUpdateViewModel.DownPayment.Value);
                 SaleUpdateViewModel.OldProductId = SaleUpdateViewModel.ProductId;
                 SaleUpdateViewModel.Customers = customerList.Data.Customers;
                 SaleUpdateViewModel.SgkList = sgkList.Data.Parameters;
@@ -333,10 +362,12 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
                 {
                     IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(SaleUpdateViewModel.OldProductId.Value);
                     oldProductUpdateDto.Data.IsSold = false;
+                    oldProductUpdateDto.Data.Quantity = oldProductUpdateDto.Data.Quantity + 1;
                     var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
 
                     IDataResult<ProductUpdateDto> productUpdateDto = await _productService.GetProductUpdateDtoAsync(SaleUpdateViewModel.ProductId.Value);
                     productUpdateDto.Data.IsSold = true;
+                    productUpdateDto.Data.Quantity = productUpdateDto.Data.Quantity - 1 ;
                     var productUpdateResult = await _productService.UpdateAsync(productUpdateDto.Data, LoggedInUser.UserName);
                 }
 
@@ -429,10 +460,14 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
         {
             var result = await _saleService.DeleteAsync(saleId, LoggedInUser.UserName);
             var saleResult = JsonSerializer.Serialize(result.Data);
-            IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(result.Data.Sale.ProductId);
-            oldProductUpdateDto.Data.IsSold = false;
-            oldProductUpdateDto.Data.Quantity = oldProductUpdateDto.Data.Quantity + 1 ; 
-            var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
+            if (result.Data.Sale.ProductId.Value != null)
+            {
+                IDataResult<ProductUpdateDto> oldProductUpdateDto = await _productService.GetProductUpdateDtoAsync(result.Data.Sale.ProductId.Value);
+                oldProductUpdateDto.Data.IsSold = false;
+                oldProductUpdateDto.Data.Quantity = oldProductUpdateDto.Data.Quantity + 1;
+                var oldProductUpdateResult = await _productService.UpdateAsync(oldProductUpdateDto.Data, LoggedInUser.UserName);
+            }
+
             await _notificationService.AddAsync(NotificationMessageService.GetMessage(
                NotificationMessageTypes.Deleted,
                TableNamesConstants.Sales,
@@ -464,7 +499,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             try
             {
                 await _saleService.HardDeleteAsync(saleId);
-                var result = await _productService.HardDeleteAsync(productId);
+                var result = await _productService.HardDeleteAsync(productId.Value);
                 return Ok("Ürün silindi.");
             }
             catch (Exception ex)
@@ -480,7 +515,7 @@ namespace MyBlog.Mvc.Areas.Admin.Controllers
             try
             {
                 await _saleService.HardDeleteAsync(saleId);
-                await UpdateProductIsSold(productId, isSold);
+                await UpdateProductIsSold(productId.Value, isSold);
                 return Ok("IsSold değeri güncellendi.");
             }
             catch (Exception ex)

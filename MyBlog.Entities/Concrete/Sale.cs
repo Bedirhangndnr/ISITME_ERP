@@ -9,9 +9,14 @@ namespace MyBlog.Entities.Concrete
 {
     public class Sale : EntityBase, IEntity
     {
-        public Product Product { get; set; }
-        public int ProductId { get; set; }
+        public Product? Product { get; set; }
+        public int? ProductId { get; set; }
+        public DateTime? SaleDate { get; set; }
+        public DateTime? UpdatedSaleDate{ get; set; }
+        public bool? IsDelivered { get; set; }
+
         public DateTime? DeliveryDate { get; set; }
+
         public decimal? DownPayment { get; set; }
         public decimal Amount { get; set; }
         public decimal? AmountOfSgk { get; set; }

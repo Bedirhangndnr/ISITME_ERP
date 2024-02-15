@@ -15,6 +15,9 @@ namespace MyBlog.Mvc.Areas.Admin.Models
     public class SaleAddViewModel : DtoGetBase
     {
 
+        [DisplayName("Satış Tarihi")]
+        public DateTime? SaleDate { get; set; }
+        public DateTime? UpdatedSaleDate { get; set; }
         [DisplayName("Satış Tutarı")]
         public decimal? Amount { get; set; }
         public decimal? AmountOfSgk { get; set; }
@@ -66,6 +69,8 @@ namespace MyBlog.Mvc.Areas.Admin.Models
         [DisplayName("Açıklama")]
         [MaxLength(500, ErrorMessage = "{0} {1} Karakterden Büyük Olmamalıdır")]
         public string? Note { get; set; }
+
+        public int ProductNameAndQuantity { get; set; }
     }
     public class SaleAddRequest
     {
